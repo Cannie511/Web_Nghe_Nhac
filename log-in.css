@@ -1,0 +1,15 @@
+*{
+    padding: 0;
+}
+body{
+    background-image: linear-gradient(to left, rgb(70, 69, 69), black);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+#all_log_in{
+    width: 50vw;
+    height: 50vh;
+    background-color: black;
+    border-radius: 20px;
+}
