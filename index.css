@@ -211,7 +211,7 @@ i#logo_N{
     margin-top: 20px;
 }
 #music_list>table#list_mp3{
-    min-width: 72vw;
+    min-width: 90%;
     height: 10vh;
     color: white;
     margin-left: 5vw;
@@ -225,9 +225,6 @@ tr{
 }
 tr,td{
     border: 1px solid white;
-}
-#music_list>table#list_mp3.full_pg{
-    transform: translateX(10vh);
 }
 /* PHẦN NÚT BẤM */
 #play{

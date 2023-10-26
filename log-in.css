@@ -2,14 +2,14 @@
     padding: 0;
 }
 body{
-    background-image: linear-gradient(to left, rgb(70, 69, 69), black);
+    background-image:url("./IMAGE/bgImage_login.jpg");
     display: flex;
     justify-content: center;
     align-items: center;
 }
 #all_log_in{
-    width: 50vw;
-    height: 50vh;
+    width: 40%;
+    height: 45vw;
     background-color: black;
     border-radius: 20px;
 }

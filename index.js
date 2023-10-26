@@ -49,6 +49,9 @@ mode.onclick = function nightMode(){
     btn_play_light.classList.toggle('light_btn')
     time_play.classList.toggle('light_time_play');
 }
+function log_in(){
+    window.location = "log-in.html";
+}
 
 
 
