@@ -60,12 +60,12 @@ a:hover{
 #menu>ul>li>a{
     position: absolute;
     left: 10vh;
-    font-size: 2vh;
+    font-size: 1vw;
     color: gray;
     transition: all 0.3s ease-in-out;
 }
 #menu>ul>li>ion-icon{
-    margin: 0 1vh;
+    margin: 0 1vb;
     font-size: 2vw; 
     transition: all 0.1s ease-in-out;
 }
@@ -309,6 +309,7 @@ input[type="range"]{
     transition: 0.3s all ease-in-out;
     display: flex;
     justify-content: center;
+    align-items: center;
 }
 #navbar:hover{
     background-color: rgb(165, 70, 165);
@@ -318,10 +319,11 @@ input[type="range"]{
     width: 1.5vw;
     height: 0.5vh;
     background-color: white;
-    position: absolute;
+    position: relative;
     border-radius: 5px;
     transition: 0.3s all ease-in-out;
-    top: 2vh;
+    top: -0.7vh;
+    left: 0.7vw;
     transform:rotate(150deg);
 }
 #navbar::after{
@@ -329,10 +331,11 @@ input[type="range"]{
     width: 1.5vw;
     height: 0.5vh;
     background-color: white;
-    position: absolute;
+    position: relative;
     border-radius: 5px;
     transition: 0.3s all ease-in-out;
-    top: 3.5vh;
+    top: 0.8vh;
+    left: -0.8vw;
     transform:rotate(-150deg);
 }
 #navbar.open:hover{
