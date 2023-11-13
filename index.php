@@ -8,29 +8,26 @@
     <link rel="stylesheet" href="index.css">
 
 </head>
-
+<?php include "MusicProcess.php" ?>
 <body>
 
     <div id="menu">
         <div id="navbar"></div>
-        <h1><b id="logo_C">C</b><span>&</span><i id="logo_N">N</i> <span>Music</span></h1>
-        <!-- <div id="option"></div>
-                <div id="option"><ion-icon name="home-outline"></ion-icon><b>TRANG CHỦ</b></div>
-                <div id="option"><ion-icon name="search-outline"></ion-icon><b>TÌM KIẾM</b></div>
-                <div id="option"><ion-icon name="list-outline"></ion-icon><b>DANH SÁCH PHÁT</b></div>
-                <div id="option"><ion-icon name="reorder-four-outline"></ion-icon><b>BẢNG XẾP HẠNG</b></div>
-                <div id="option"><ion-icon name="heart-outline"></ion-icon><b>YÊU THÍCH</b></div>
-                <div id="option"><ion-icon name="settings-outline"></ion-icon><b>CÀI ĐẶT</b></div>
-                <div id="option"><ion-icon name="diamond-outline"></ion-icon><b>PREMIUM</b></div>
-            </div> -->
+        <div id = "logo">
+            <h1>
+                <strong id = "logo_T">T</strong>
+                <h1 id = "logo_ri">ri</h1>&nbsp<strong id = "logo_V">V</strong>
+                <h1 id = "logo_ie">ie</h1>
+            </h1>
+        </div>
         <ul>
-            <li><ion-icon name="home-outline"></ion-icon><a href="">TRANG CHỦ</a></li>
-            <li><ion-icon name="search-outline"></ion-icon><a href="">TÌM KIẾM</a></li>
-            <li><ion-icon name="list-outline"></ion-icon><a href="">DANH SÁCH PHÁT</a></li>
-            <li><ion-icon name="reorder-four-outline"></ion-icon><a href="">BẢNG XẾP HẠNG</a></li>
-            <li><ion-icon name="heart-outline"></ion-icon><a href="">YÊU THÍCH</a></li>
-            <li><ion-icon name="settings-outline"></ion-icon><a href="">CÀI ĐẶT</a></li>
-            <li><ion-icon name="diamond-outline"></ion-icon><a href="">PREMIUM</a></li>
+            <li><ion-icon name="home-outline"></ion-icon><a href="" id = "title_menu">TRANG CHỦ</a></li>
+            <li><ion-icon name="search-outline"></ion-icon><a href="" id = "title_menu">TÌM KIẾM</a></li>
+            <li><ion-icon name="list-outline"></ion-icon><a href="" id = "title_menu">DANH SÁCH PHÁT</a></li>
+            <li><ion-icon name="reorder-four-outline"></ion-icon><a href="" id = "title_menu">BẢNG XẾP HẠNG</a></li>
+            <li><ion-icon name="heart-outline"></ion-icon><a href="" id = "title_menu">YÊU THÍCH</a></li>
+            <li><ion-icon name="settings-outline"></ion-icon><a href="" id = "title_menu">CÀI ĐẶT</a></li>
+            <li><ion-icon name="diamond-outline"></ion-icon><a href="" id = "title_menu">PREMIUM</a></li>
         </ul>
     </div>
     <div id="main_play">
@@ -47,48 +44,20 @@
             </div>
         </div>
         <div id="search">
+            
             <ion-icon name="chevron-back-circle" style="margin-left: 10px;"></ion-icon>
+            <form action="" method="get">
             <span>
                 <ion-icon name="search-outline"></ion-icon>
                 <input type="text" placeholder="Bạn muốn nghe gì ?">
             </span>
+            </form>
         </div>
+        
         <div id="music_list">
-            <table id="list_mp3">
-                <?php
-                echo "<tr>";
-                $stt = 1;
-                for ($i = $stt; $i <= 20; $i++) {
-                    $stt = $i;
-                    $data = array(
-                        array("stt" => $stt, "img" => "hình", "name" => "tên bài hát", "singer" => "Ca sĩ", "date" => "Ngày đăng", "time" => "thời lượng")
-                    );
-
-                    foreach ($data as $key => $music) {
-                        echo "<td>";
-                        print_r($data[$key]['stt']);
-                        echo "</td>";
-                        echo "<td>";
-                        print_r($data[$key]['img']);
-                        echo "</td>";
-                        echo "<td>";
-                        print_r($data[$key]['name']);
-                        echo "</td>";
-                        echo "<td>";
-                        print_r($data[$key]['singer']);
-                        echo "</td>";
-                        echo "<td>";
-                        print_r($data[$key]['date']);
-                        echo "</td>";
-                        echo "<td>";
-                        print_r($data[$key]['time']);
-                        echo "</td>";
-                    }
-                    echo "</tr>";
-                }
-
-                ?>
-            </table>
+            <div id = "title_music"><h1>Danh sách phát</h1></div>
+                <?php loadMusic()?>
+            
         </div>
     </div>
     <div id="play">
