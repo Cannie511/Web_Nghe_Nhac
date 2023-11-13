@@ -13,3 +13,7 @@ body{
     background-color: black;
     border-radius: 20px;
 }
+input{
+    width: 70%;
+    height: 5vh;
+}
