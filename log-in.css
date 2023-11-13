@@ -13,12 +13,10 @@ body{
     background-color: black;
     border-radius: 20px;
 }
-<<<<<<< HEAD
 input{
     width: 70%;
     height: 5vh;
-=======
+}
 :root{
     --bg-img: url("./IMAGE/bgImage_login.jpg");
->>>>>>> ca4147979a6d9ac40c10589eeb27e4d67c908e30
 }

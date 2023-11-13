@@ -349,13 +349,19 @@ input[type="range"]{
     border-radius: 10px;
     position: absolute;
     top: 79vh;
-    
+    font-size: 5vh;
     cursor: pointer;
     z-index: 10;
     transition: 0.3s all ease-in-out;
     display: flex;
     justify-content: center;
     align-items: center;
+}
+#navbar>ion-icon{
+    transition: all 0.3s ease-in-out;
+}
+#navbar.open>ion-icon{
+    transform: rotate(3.1rad);
 }
 #navbar:hover{
     background-color: var(--hover-custom-page);;
@@ -373,22 +379,20 @@ input[type="range"]{
 #switch{
     margin-left: 1vh;
     width: 2vw;
-    height: 1vw;
+    height: 0.7vw;
     border: 1px solid black;
     background-color: black;
     font-size: 1vw;
-    display: flex;
-    align-items: center;
-    justify-content: center;
+    
     border-radius: 50px;
 }
 #scroll{
-    width: 0.8vw;
-    height: 0.8vw;
+    width: 1vw;
+    height: 1vw;
     background-color: rgb(240, 130, 207);
     border-radius: 50%;
     margin-left: 1vw;
-    margin-top: -1px;
+    top: -0.4vh;
     transition: all 0.3s ease-in-out;
     border: 1px solid black;
     cursor: pointer;
@@ -396,7 +400,7 @@ input[type="range"]{
     position: relative;
 }
 .night{
-    transform: translateX(-0.9vw);
+    transform: translateX(-1vw);
 }
 .night_body{
     background-color: white;
