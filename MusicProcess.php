@@ -1,15 +1,13 @@
 <?php
 function loadMusic(){
     $stt = 1;
-                for ($i = $stt; $i <= 10; $i++) {
+                for ($i = $stt; $i <= 20; $i++) {
                     $stt = $i;
                     $data = array(
-                        array("stt" => $stt, "img" => "hình", "name" => "tên bài hát", "singer" => "Ca sĩ", "date" => "Ngày đăng", "time" => "thời lượng")
+                        array("stt" => $stt, "img" => "hình", "name" => "tên bài hát", "singer" => "Ca sĩ", "date" => "1 tháng 1, 2023", "time" => "00:00")
                     );
 
                     foreach ($data as $key => $music) {
-                        echo "<div id = 'music_panel'>";
-                        echo "<table id='list_mp3'>";
                         echo "<tr>";
                         echo "<td>";
                         print_r($data[$key]['stt']);
@@ -29,9 +27,10 @@ function loadMusic(){
                         echo "<td>";
                         print_r($data[$key]['time']);
                         echo "</td>";
+                        echo "<td>";
+                        echo "<ion-icon name='trash'></ion-icon>";
+                        echo "</td>";
                         echo "</tr>";
-                        echo "</table>";
-                        echo "</div>";
                     } 
                 }
 }

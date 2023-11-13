@@ -2,7 +2,7 @@
     padding: 0;
 }
 body{
-    background-image:url("./IMAGE/bgImage_login.jpg");
+    background-image:var(--bg-img);
     display: flex;
     justify-content: center;
     align-items: center;
@@ -12,4 +12,7 @@ body{
     height: 45vw;
     background-color: black;
     border-radius: 20px;
+}
+:root{
+    --bg-img: url("./IMAGE/bgImage_login.jpg");
 }

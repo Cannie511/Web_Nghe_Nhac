@@ -56,7 +56,19 @@
         
         <div id="music_list">
             <div id = "title_music"><h1>Danh sách phát</h1></div>
-                <?php loadMusic()?>
+            <div id = 'music_panel'>
+                <table  id='list_mp3'>
+                    <tr>
+                        <th>STT</th>
+                        <th>hình</th>
+                        <th>Tiêu đề</th>
+                        <th>Tác giả, Ca sĩ</th>
+                        <th>Ngày phát hành</th>
+                        <th>Thời lượng</th>
+                    </tr>
+                    <?php loadMusic()?>
+                </table>   
+            </div>
             
         </div>
     </div>
