@@ -5,6 +5,7 @@
 }
 body{
     background-color: black;
+    font-family: Arial, Helvetica, sans-serif;
     transition: all 0.3s ease-in-out;
 }
 ul li{
@@ -19,15 +20,7 @@ a:hover{
     color: white;
     font-weight: bolder;
 }
-:-ms-input-placeholder { 
-    color: gray;     /* Internet Explorer 10-11 */
-}	  
-::-ms-input-placeholder { 
-    color: gray;    /* Microsoft Edge */
-}
-::placeholder { 
-    color: gray;     /* Firefox, Chrome, Opera */
-}
+
 
 /* THẺ MENU */
 #menu{
@@ -250,6 +243,25 @@ a:hover{
     height: 5vh;
     transition: all 0.3s ease-in-out;
 }
+#crop_img{
+    width: 50px;
+    height: 50px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+    border-radius: 5px;
+}
+#crop_img>img{
+    width: 100px;
+    height: 60px;
+    
+}
+td:nth-child(2){
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
 td:first-child{
     border-radius:10px 0 0 10px;
 }
@@ -453,13 +465,22 @@ input[type="range"]{
 #search>ion-icon:hover{
     color: var(--hover-custom-page);
 }
-/* THẺ WEBKIT */
+/* THẺ DEFAULT */
 ::-webkit-scrollbar{
     width: 5px;
 }
 ::-webkit-scrollbar-thumb{
     background-color: gray;
     border-radius: 5px;
+}
+:-ms-input-placeholder { 
+    color: gray;     /* Internet Explorer 10-11 */
+}	  
+::-ms-input-placeholder { 
+    color: gray;    /* Microsoft Edge */
+}
+::placeholder { 
+    color: gray;     /* Firefox, Chrome, Opera */
 }
 :root{
     --hover-custom-page: rgb(246, 148, 246);
