@@ -3,11 +3,20 @@ body {
   background-size: cover;
   background-position: 0-80px;
 }
+<<<<<<< HEAD
 #wrapper {
   min-height: 100vh;
   display: flex;
   justify-content: center;
   align-items: center;
+=======
+body{
+    background-image:var(--bg-img);
+    
+    display: flex;
+    justify-content: center;
+    align-items: center;
+>>>>>>> 97f1eec0ebd65552c7d8b6e95dcc4ba0ea8e42b3
 }
 #form-login {
   max-width: 400px;
@@ -16,3 +25,13 @@ body {
   padding: 30px 30px 40px;
   box-shadow: rgba(255, 255, 255, 0.8);
 }
+<<<<<<< HEAD
+=======
+input{
+    width: 70%;
+    height: 3vh;
+}
+:root{
+    --bg-img: url("./IMAGE/bgImage_login.jpg");
+}
+>>>>>>> 97f1eec0ebd65552c7d8b6e95dcc4ba0ea8e42b3

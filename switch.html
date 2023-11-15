@@ -21,6 +21,7 @@
             align-items: center;
             justify-content: start;
             border-radius: 50px;
+            
         }
         #scroll{
             width: 1vw;
@@ -42,10 +43,27 @@
         #switch.night_on{
             background-color: gray;
         }
+        #crop{
+            width: 50px;
+            height: 50px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            overflow: hidden;
+        }
+        img{
+            width: 100px;
+            height: 60px;
+            
+        }
     </style>
 </head>
 <body>
     <div id="switch"><div id="scroll"></div></div>
+    <div id="crop">
+        <img src="IMAGE/apple-music-note.jpg" alt="">
+    </div>
+    
 </body>
 <script>
     var mode = document.getElementById('scroll');

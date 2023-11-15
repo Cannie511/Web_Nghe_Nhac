@@ -5,6 +5,7 @@
 }
 body{
     background-color: black;
+    font-family: Arial, Helvetica, sans-serif;
     transition: all 0.3s ease-in-out;
 }
 ul li{
@@ -19,15 +20,7 @@ a:hover{
     color: white;
     font-weight: bolder;
 }
-:-ms-input-placeholder { 
-    color: gray;     /* Internet Explorer 10-11 */
-}	  
-::-ms-input-placeholder { 
-    color: gray;    /* Microsoft Edge */
-}
-::placeholder { 
-    color: gray;     /* Firefox, Chrome, Opera */
-}
+
 
 /* THẺ MENU */
 #menu{
@@ -89,6 +82,7 @@ a:hover{
     align-items: center;
     box-shadow: 0 0 5px 5px;
     transition: all 0.3s ease-in-out;
+    cursor: pointer;
 }
 
 #logo_T{
@@ -112,6 +106,7 @@ a:hover{
     font-size: 6.5vh;
     font-family: Arial, Helvetica, sans-serif;
     transition: all 0.3s ease-in-out;
+    cursor: pointer;
 }
 #title_music{
     padding: 20px;
@@ -238,7 +233,7 @@ a:hover{
 #music_list>div>table#list_mp3{
     width: 95%;
     height:5vh;
-    color: black;
+    color: white;
     margin-left: 2vw;
     border-radius: 10px;
     border-collapse: collapse;
@@ -250,13 +245,36 @@ a:hover{
     height: 5vh;
     transition: all 0.3s ease-in-out;
 }
+#crop_img{
+    width: 50px;
+    height: 50px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+    border-radius: 5px;
+    margin-bottom: 6px;
+}
+#crop_img>img{
+    width: 100px;
+    height: 60px;
+}
+td:nth-child(2){
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
 td:first-child{
+    
     border-radius:10px 0 0 10px;
 }
  td:last-child{
     border-radius:0 10px 10px 0;
  }
-tr:hover:not(:first-child){
+tr:first-child{
+    font-size: 20px;
+}
+tr:hover:not(:first-child, :nth-child(2)){
     background-color: gray;
     cursor: pointer;
     
@@ -267,9 +285,9 @@ tr:hover:not(:first-child){
     margin-left: 15px;
     margin-top: 10px;
     margin-right: 15px;
-    background-color: white;
+    
     border-radius: 5px;
-    box-shadow: 0px 5px 5px 0px;
+    
 }
 
 /* PHẦN NÚT BẤM */
@@ -349,13 +367,19 @@ input[type="range"]{
     border-radius: 10px;
     position: absolute;
     top: 79vh;
-    
+    font-size: 5vh;
     cursor: pointer;
     z-index: 10;
     transition: 0.3s all ease-in-out;
     display: flex;
     justify-content: center;
     align-items: center;
+}
+#navbar>ion-icon{
+    transition: all 0.3s ease-in-out;
+}
+#navbar.open>ion-icon{
+    transform: rotate(3.1rad);
 }
 #navbar:hover{
     background-color: var(--hover-custom-page);;
@@ -373,22 +397,20 @@ input[type="range"]{
 #switch{
     margin-left: 1vh;
     width: 2vw;
-    height: 1vw;
+    height: 0.7vw;
     border: 1px solid black;
     background-color: black;
     font-size: 1vw;
-    display: flex;
-    align-items: center;
-    justify-content: center;
+    
     border-radius: 50px;
 }
 #scroll{
-    width: 0.8vw;
-    height: 0.8vw;
+    width: 1vw;
+    height: 1vw;
     background-color: rgb(240, 130, 207);
     border-radius: 50%;
     margin-left: 1vw;
-    margin-top: -1px;
+    top: -0.4vh;
     transition: all 0.3s ease-in-out;
     border: 1px solid black;
     cursor: pointer;
@@ -396,7 +418,7 @@ input[type="range"]{
     position: relative;
 }
 .night{
-    transform: translateX(-0.9vw);
+    transform: translateX(-1vw);
 }
 .night_body{
     background-color: white;
@@ -449,7 +471,7 @@ input[type="range"]{
 #search>ion-icon:hover{
     color: var(--hover-custom-page);
 }
-/* THẺ WEBKIT */
+/* THẺ DEFAULT */
 ::-webkit-scrollbar{
     width: 5px;
 }
@@ -457,9 +479,19 @@ input[type="range"]{
     background-color: gray;
     border-radius: 5px;
 }
+:-ms-input-placeholder { 
+    color: gray;     /* Internet Explorer 10-11 */
+}	  
+::-ms-input-placeholder { 
+    color: gray;    /* Microsoft Edge */
+}
+::placeholder { 
+    color: gray;     /* Firefox, Chrome, Opera */
+}
 :root{
     --hover-custom-page: rgb(246, 148, 246);
     --logo-Tri-custom: #3376BC;
     --logo-Vie-customL: #FAC140;
     --logo-Bg-custom: #FEF9EF;
+    
 }

@@ -12,7 +12,7 @@
 <body>
 
     <div id="menu">
-        <div id="navbar"></div>
+        
         <div id = "logo">
             <h1>
                 <strong id = "logo_T">T</strong>
@@ -29,10 +29,11 @@
             <li><ion-icon name="settings-outline"></ion-icon><a href="" id = "title_menu">CÀI ĐẶT</a></li>
             <li><ion-icon name="diamond-outline"></ion-icon><a href="" id = "title_menu">PREMIUM</a></li>
         </ul>
+        <div id="navbar"><ion-icon name="chevron-back-outline"></ion-icon></div>
     </div>
     <div id="main_play">
         <div id="personal" onmouseup='showMore()' onmouseleave="setTimeout('hideMore(),1500')">
-            <ion-icon id="ic_per" name="person-circle-outline"></ion-icon>
+            <ion-icon id="ic_per" name="person-circle-outline" id = "nav_rotate"></ion-icon>
             <div id="more">
                 <div onclick="log_in()"><ion-icon name="person"></ion-icon><span>Đăng nhập</span></div>
                 <div><ion-icon name="settings-sharp"></ion-icon><span>Cài đặt</span></div>
@@ -66,6 +67,10 @@
                         <th>Ngày phát hành</th>
                         <th>Thời lượng</th>
                     </tr>
+                    <tr>
+                    <td colspan = "7"><hr></td>
+                    </tr>
+                    
                     <?php loadMusic()?>
                 </table>   
             </div>
