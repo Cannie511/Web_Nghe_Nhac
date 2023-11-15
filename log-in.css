@@ -1,32 +1,20 @@
 body {
-  background: url("/IMAGE/hinhnenlogin.jpg");
+  background-image: var(--bg-img);
   background-size: cover;
-  background-position: 0-80px;
-}
-<<<<<<< HEAD
-#wrapper {
-  min-height: 100vh;
   display: flex;
   justify-content: center;
   align-items: center;
-=======
-body{
-    background-image:var(--bg-img);
-    
-    display: flex;
-    justify-content: center;
-    align-items: center;
->>>>>>> 97f1eec0ebd65552c7d8b6e95dcc4ba0ea8e42b3
 }
 #form-login {
-  max-width: 400px;
+  width: 40vw;
+  height: 45vw;
   background: rgba(0, 0, 0, 0.8);
-  flex-grow: 1;
+  color: white;
   padding: 30px 30px 40px;
   box-shadow: rgba(255, 255, 255, 0.8);
+  border-radius: 10px;
+  box-shadow:  0 5px 5px 0 black;
 }
-<<<<<<< HEAD
-=======
 input{
     width: 70%;
     height: 3vh;
@@ -34,4 +22,4 @@ input{
 :root{
     --bg-img: url("./IMAGE/bgImage_login.jpg");
 }
->>>>>>> 97f1eec0ebd65552c7d8b6e95dcc4ba0ea8e42b3
+
