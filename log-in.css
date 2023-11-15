@@ -1,18 +1,18 @@
-*{
-    padding: 0;
+body {
+  background: url("/IMAGE/hinhnenlogin.jpg");
+  background-size: cover;
+  background-position: 0-80px;
 }
-body{
-    background-image:var(--bg-img);
-    display: flex;
-    justify-content: center;
-    align-items: center;
+#wrapper {
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
-#all_log_in{
-    width: 40%;
-    height: 45vw;
-    background-color: black;
-    border-radius: 20px;
-}
-:root{
-    --bg-img: url("./IMAGE/bgImage_login.jpg");
+#form-login {
+  max-width: 400px;
+  background: rgba(0, 0, 0, 0.8);
+  flex-grow: 1;
+  padding: 30px 30px 40px;
+  box-shadow: rgba(255, 255, 255, 0.8);
 }
