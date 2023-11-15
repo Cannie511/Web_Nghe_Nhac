@@ -67,6 +67,10 @@
                         <th>Ngày phát hành</th>
                         <th>Thời lượng</th>
                     </tr>
+                    <tr>
+                    <td colspan = "7"><hr></td>
+                    </tr>
+                    
                     <?php loadMusic()?>
                 </table>   
             </div>

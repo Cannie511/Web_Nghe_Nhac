@@ -3,6 +3,7 @@
 }
 body{
     background-image:var(--bg-img);
+    
     display: flex;
     justify-content: center;
     align-items: center;
@@ -15,7 +16,7 @@ body{
 }
 input{
     width: 70%;
-    height: 5vh;
+    height: 3vh;
 }
 :root{
     --bg-img: url("./IMAGE/bgImage_login.jpg");
