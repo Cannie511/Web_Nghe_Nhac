@@ -60,9 +60,10 @@ mode.onclick = function nightMode() {
 function log_in() {
   window.location = "log-in.html";
 }
-if(main_play.scrollTop>=200){
-
-    topMenu.style.backgroundColor = "darkgreen";
-  
+function Edit(){
+  window.location = "EditProfile.html";
+}
+function Home(){
+  window.history.back();
 }
 

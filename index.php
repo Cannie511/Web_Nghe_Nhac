@@ -27,6 +27,11 @@
             <li><ion-icon name="heart-outline"></ion-icon><a href="" id = "title_menu">YÊU THÍCH</a></li>
             <li><ion-icon name="settings-outline"></ion-icon><a href="" id = "title_menu">CÀI ĐẶT</a></li>
             <li><ion-icon name="diamond-outline"></ion-icon><a href="" id = "title_menu">PREMIUM</a></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
         </ul>
         <div id="navbar"><ion-icon name="chevron-back-outline"></ion-icon></div>
     </div>
@@ -35,6 +40,7 @@
             <div id="personal" onmouseup='showMore()' onmouseleave="setTimeout('hideMore(),1500')">
                 <ion-icon id="ic_per" name="person-circle-sharp" ></ion-icon>
                 <div id="more">
+                    <div onclick="Edit()"><ion-icon name="key-outline"></ion-icon><span>Tài khoản</span></div>
                     <div onclick="log_in()"><ion-icon name="person"></ion-icon><span>Đăng nhập</span></div>
                     <div><ion-icon name="settings-sharp"></ion-icon><span>Cài đặt</span></div>
                     <div>
@@ -57,8 +63,18 @@
         <div id="music_list">
             <div id = "banner_play_list">
                 <img src="IMAGE/Hay-Trao-Cho-Anh-3.jpg" alt="">
+                <div id="play_list_info">
+                    <strong style="font-size: 20px;">playlist</strong><br>
+                    <strong style="font-size: 70px;">SƠN TÙNG M-TP Radio</strong>
+                    <br><br>
+                    <strong>20 Bài hát <ion-icon name="musical-notes-outline"></ion-icon>: Có chắc yêu là đây, There's no one at all, Em của ngày hôm qua,...</strong>
+                </div>
             </div>
-            <div id = "title_music"><h1>Danh sách phát</h1></div>
+            <div id = "title_music">
+                <ion-icon name="play-circle-sharp"></ion-icon>
+                <ion-icon name="heart-outline"></ion-icon>
+                <strong style="margin-left: 20px; font-family: Georgia, 'Times New Roman', Times, serif;">...</strong>
+            </div>
             <div id = 'music_panel'>
                 <table  id='list_mp3'>
                     <tr>

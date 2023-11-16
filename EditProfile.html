@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Chỉnh sửa profile - TriVie</title>
+    <link rel="stylesheet" href="EditProfile.css" />
+  </head>
+  <body>
+      <form action="" method="post" id="form-login">
+        <h1 id="title"><ion-icon name="chevron-back-circle" id = "backBtn"></ion-icon>&nbsp;&nbsp;&nbsp;<strong>Chỉnh sửa hồ sơ</strong></h1>
+        <br><br>
+        <strong>Tên người dùng:</strong><br>
+        Administrator_gkjsugstwh17k2hd72j81m
+        <br><br>
+        Email: <br>
+        <input type="text" placeholder="Abcde@gmail.com" value="Administrator@trivieco.com"/>
+        </div>
+        <br><br>
+        Họ Tên: <br>
+          <input type="text" placeholder="Họ tên" value="Administrator_gkjsugstwh17k2hd72j81m"/>
+        <br><br>
+        Giới tính: <br>
+        <select name="gender" id="">
+            <option value="0">- không chọn - </option>
+            <option value="0">Nam</option>
+            <option value="0">Nữ</option>
+            <option value="0">Khác</option>
+        </select>
+        <br><br><br>
+        Ngày sinh:
+        <input type="date" name="birth" id="birth">
+        <br><br>
+        <strong id="cancel">Hủy</strong>
+        <input type="submit" value="Lưu hồ sơ" class="input-submit" />
+        
+      </form>
+      <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
+      <script>
+        var backBtn = document.getElementById('backBtn');
+        backBtn.onclick = function(){
+            window.history.back();
+        }
+      </script>
+  </body>
+</html>

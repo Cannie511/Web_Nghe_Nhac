@@ -5,7 +5,7 @@ function loadMusic()
     for ($i = $stt; $i <= 20; $i++) {
         $stt = $i;
         $data = array(
-            array("stt" => $stt, "img" => "", "name" => "tên bài hát", "singer" => "Nguyễn Văn A", "date" => "1 tháng 1, 2023", "time" => "00:00")
+            array("stt" => $stt, "img" => "", "name" => "tên bài hát", "singer" => "Sơn Tùng M-TP, J97", "date" => "1 tháng 1, 2023", "time" => "00:00")
         );
 
         foreach ($data as $key => $music) {
@@ -36,7 +36,4 @@ function loadMusic()
     }
 }
 
-function showBtn(){
-  
-}
 ?>
