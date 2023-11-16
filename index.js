@@ -17,6 +17,7 @@ var logori = document.getElementById("logo_ri");
 var logoie = document.getElementById("logo_ie");
 var logo = document.getElementById("logo");
 var nav_rotate = document.getElementById("nav_rotate");
+var topMenu = document.getElementById("topMenu");
 navbar_toggle.onclick = function () {
   navbar_toggle.classList.toggle("open");
   menu.classList.toggle("hide");
@@ -28,6 +29,7 @@ navbar_toggle.onclick = function () {
   logo.classList.toggle("hide");
   search.classList.toggle("full_scr");
   list_music.classList.toggle("full_pg");
+  topMenu.classList.toggle("hide");
 };
 function play() {
   var play = document.getElementById("play_btn");
@@ -58,3 +60,9 @@ mode.onclick = function nightMode() {
 function log_in() {
   window.location = "log-in.html";
 }
+if(main_play.scrollTop>=200){
+
+    topMenu.style.backgroundColor = "darkgreen";
+  
+}
+

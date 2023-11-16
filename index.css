@@ -8,6 +8,12 @@ body{
     font-family: Arial, Helvetica, sans-serif;
     transition: all 0.3s ease-in-out;
 }
+header{
+    width: 100%;
+    height: 300px;
+    background-color: #3376BC;
+    position: fixed;
+}
 ul li{
     list-style: none;
 }
@@ -60,7 +66,7 @@ a:hover{
 #menu>ul>li>ion-icon{
     margin: 0;
     font-size: 2vw; 
-    transition: all 0.1s ease-in-out;
+    transition: all 0.3s ease-in-out;
 }
 #menu>ul>li:hover{
     color: white;
@@ -105,7 +111,7 @@ a:hover{
 #logo_ri, #logo_ie{
     font-size: 6.5vh;
     font-family: Arial, Helvetica, sans-serif;
-    transition: all 0.3s ease-in-out;
+    transition: all 0.4s ease-in-out;
     cursor: pointer;
 }
 #title_music{
@@ -179,7 +185,7 @@ a:hover{
     display: flex;
     justify-content: center;
     align-items: center;
-    color: gray;
+    color: white;
     font-size: 3vw;
     float: right;
     position: relative;
@@ -272,7 +278,8 @@ td:first-child{
     border-radius:0 10px 10px 0;
  }
 tr:first-child{
-    font-size: 20px;
+    font-size: 1.5vw;
+    
 }
 tr:hover:not(:first-child, :nth-child(2)){
     background-color: gray;
@@ -285,11 +292,38 @@ tr:hover:not(:first-child, :nth-child(2)){
     margin-left: 15px;
     margin-top: 10px;
     margin-right: 15px;
-    
     border-radius: 5px;
-    
 }
-
+#topMenu{
+    width: 80vw;
+    position: fixed;
+    z-index: 2000;
+    border-radius: 10px 10px 0 0;
+    
+    background-color: transparent;
+    transition: all 0.4s ease-in-out;
+}
+.sticky{
+    background-color: darkgreen;
+}
+#topMenu.hide{
+    width: 93vw;
+}
+#banner_play_list{
+    width: 100%;
+    height: 400px;
+    top: -20px;
+    position: relative;
+    border-radius: 10px;
+    z-index: 1;
+    overflow: hidden;
+}
+#banner_play_list>img{
+    image-rendering: optimizeQuality;
+    
+    width: 100%;
+    height: 100%;
+}
 /* PHẦN NÚT BẤM */
 #play{
     min-width: 100vw;
@@ -358,6 +392,7 @@ tr:hover:not(:first-child, :nth-child(2)){
 input[type="range"]{
     accent-color: rgb(199, 115, 140);
     margin-left: 10px;
+    height: 5px;
 }
 /* PHẦN NÚT ẨN HIỆN CỦA MENU */
 #navbar{

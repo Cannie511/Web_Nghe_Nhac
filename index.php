@@ -3,14 +3,13 @@
 
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Web Nghe Nhạc</title>
+    <meta name="viewport" content="width=device-width, initial-scale=0.0">
+    <title>TriVie Music</title>
     <link rel="stylesheet" href="index.css">
 
 </head>
 <?php include "MusicProcess.php" ?>
 <body>
-
     <div id="menu">
         
         <div id = "logo">
@@ -32,30 +31,33 @@
         <div id="navbar"><ion-icon name="chevron-back-outline"></ion-icon></div>
     </div>
     <div id="main_play">
-        <div id="personal" onmouseup='showMore()' onmouseleave="setTimeout('hideMore(),1500')">
-            <ion-icon id="ic_per" name="person-circle-outline" id = "nav_rotate"></ion-icon>
-            <div id="more">
-                <div onclick="log_in()"><ion-icon name="person"></ion-icon><span>Đăng nhập</span></div>
-                <div><ion-icon name="settings-sharp"></ion-icon><span>Cài đặt</span></div>
-                <div>
-                    <div id="switch">
-                        <div id="scroll"></div>
-                    </div><span>Nền tối</span>
+        <div id = "topMenu">
+            <div id="personal" onmouseup='showMore()' onmouseleave="setTimeout('hideMore(),1500')">
+                <ion-icon id="ic_per" name="person-circle-sharp" ></ion-icon>
+                <div id="more">
+                    <div onclick="log_in()"><ion-icon name="person"></ion-icon><span>Đăng nhập</span></div>
+                    <div><ion-icon name="settings-sharp"></ion-icon><span>Cài đặt</span></div>
+                    <div>
+                        <div id="switch">
+                            <div id="scroll"></div>
+                        </div><span>Nền tối</span>
+                    </div>
                 </div>
             </div>
+            <div id="search">
+                <ion-icon name="chevron-back-circle" style="margin-left: 10px;"></ion-icon>
+                <form action="" method="get">
+                <span>
+                    <ion-icon name="search-outline"></ion-icon>
+                    <input type="text" placeholder="Bạn muốn nghe gì ?">
+                </span>
+                </form>
+            </div>
         </div>
-        <div id="search">
-            
-            <ion-icon name="chevron-back-circle" style="margin-left: 10px;"></ion-icon>
-            <form action="" method="get">
-            <span>
-                <ion-icon name="search-outline"></ion-icon>
-                <input type="text" placeholder="Bạn muốn nghe gì ?">
-            </span>
-            </form>
-        </div>
-        
         <div id="music_list">
+            <div id = "banner_play_list">
+                <img src="IMAGE/Hay-Trao-Cho-Anh-3.jpg" alt="">
+            </div>
             <div id = "title_music"><h1>Danh sách phát</h1></div>
             <div id = 'music_panel'>
                 <table  id='list_mp3'>
@@ -70,7 +72,6 @@
                     <tr>
                     <td colspan = "7"><hr></td>
                     </tr>
-                    
                     <?php loadMusic()?>
                 </table>   
             </div>
@@ -93,6 +94,27 @@
     </div>
 </body>
 <script src="index.js"></script>
+<script src="https://unpkg.com/ionicons@4.5.10-0/dist/ionicons.js"></script>
 <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
-
+<script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+<script>
+    $(document).ready(function(){
+        $('#main_play').scroll(function(){
+            if($(this).scrollTop()){
+                $('#topMenu').css('background-color', 'white');
+                $('#topMenu').css('box-shadow', '1px 2px 5px black');
+                $('#topMenu').innerHTML = "DANH SÁCH PHÁT";
+                $('#personal').css('color', 'black');
+                $('#search>ion-icon').css('color', 'black');
+                
+            }
+            else{
+                $('#topMenu').css('background-color', 'transparent');
+                $('#personal').css('color', 'white');
+                $('#search>ion-icon').css('color', 'white');
+                $('#topMenu').css('box-shadow', '0 0 0 white');
+            }
+        })
+    })
+</script>
 </html>

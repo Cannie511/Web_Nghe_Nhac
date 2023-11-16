@@ -20,6 +20,6 @@ input{
     height: 3vh;
 }
 :root{
-    --bg-img: url("./IMAGE/bgImage_login.jpg");
+    --bg-img: url("IMAGE/bgImage_login.jpg");
 }
 

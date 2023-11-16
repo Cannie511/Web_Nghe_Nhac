@@ -35,4 +35,8 @@ function loadMusic()
         }
     }
 }
+
+function showBtn(){
+  
+}
 ?>
