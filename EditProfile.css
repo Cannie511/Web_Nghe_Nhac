@@ -10,7 +10,6 @@ body {
   }
   #title{
     font-size: 50px;
-    
   }
   #title>strong{
     font-size: 55px;
@@ -38,10 +37,11 @@ body {
   }
   #cancel{
     position: absolute;
-    left: 53vw;
-    top: 763px;
     font-size: 20px;
+    margin-left: 33vw;
+    padding-top: 5px;
     color: gray;
+    float: right;
     cursor: pointer;
   }
   #cancel:hover{
@@ -55,7 +55,7 @@ body {
     border:  0;
     background-color: white;
     color: #000;
-    margin-left: 30vw;
+    float: right;
     cursor: pointer;
     transition: all 0.2s ease-in-out;
   }

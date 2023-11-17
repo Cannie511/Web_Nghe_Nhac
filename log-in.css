@@ -5,6 +5,7 @@ body {
   justify-content: center;
   align-items: center;
 }
+
 #form-login {
   width: 40vw;
   height: 45vw;
@@ -13,13 +14,14 @@ body {
   padding: 30px 30px 40px;
   box-shadow: rgba(255, 255, 255, 0.8);
   border-radius: 10px;
-  box-shadow:  0 5px 5px 0 black;
-}
-input{
-    width: 70%;
-    height: 3vh;
-}
-:root{
-    --bg-img: url("IMAGE/bgImage_login.jpg");
+  box-shadow: 0 5px 5px 0 black;
 }
 
+input {
+  width: 70%;
+  height: 3vh;
+}
+
+:root {
+  --bg-img: url("IMAGE/bgImage_login.jpg");
+}

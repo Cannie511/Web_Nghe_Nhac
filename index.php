@@ -66,7 +66,7 @@
                 <div id="play_list_info">
                     <strong style="font-size: 20px;">playlist</strong><br>
                     <strong style="font-size: 70px;">SƠN TÙNG M-TP Radio</strong>
-                    <br><br>
+                    <br>
                     <strong>20 Bài hát <ion-icon name="musical-notes-outline"></ion-icon>: Có chắc yêu là đây, There's no one at all, Em của ngày hôm qua,...</strong>
                 </div>
             </div>
@@ -121,13 +121,10 @@
                 $('#topMenu').css('box-shadow', '1px 2px 5px black');
                 $('#topMenu').innerHTML = "DANH SÁCH PHÁT";
                 $('#personal').css('color', 'black');
-                $('#search>ion-icon').css('color', 'black');
-                
             }
             else{
                 $('#topMenu').css('background-color', 'transparent');
                 $('#personal').css('color', 'white');
-                $('#search>ion-icon').css('color', 'white');
                 $('#topMenu').css('box-shadow', '0 0 0 white');
             }
         })
