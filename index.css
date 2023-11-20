@@ -319,7 +319,6 @@ tr:hover:not(:first-child, :nth-child(2)){
     position: fixed;
     z-index: 2000;
     border-radius: 10px 10px 0 0;
-    
     background-color: transparent;
     transition: all 0.4s ease-in-out;
 }
@@ -499,11 +498,11 @@ input[type="range"]{
     height: 5vw;
     display: flex;
     align-items: center;
-    
     position: relative;
+    color: gray;
     transition: all 0.4s ease-in-out;
 }
-#search>span>{
+#search>span{
     position: relative;
 }
 #search>form>span>input{
@@ -530,13 +529,13 @@ input[type="range"]{
     left: 2.5vw;
 }
 #search>ion-icon{
-    color: lightgray;
+    
     font-size: 5vh;
     cursor: pointer;
     transition: all 0.2s ease-in-out;
 }
 #search>ion-icon:hover{
-    color: var(--hover-custom-page);
+    color: lightgray;
 }
 /* THẺ DEFAULT */
 ::-webkit-scrollbar{

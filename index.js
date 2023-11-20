@@ -60,10 +60,10 @@ mode.onclick = function nightMode() {
 function log_in() {
   window.location = "log-in.html";
 }
-function Edit(){
+function Edit() {
   window.location = "EditProfile.html";
 }
-function Home(){
+function Home() {
   window.history.back();
 }
 

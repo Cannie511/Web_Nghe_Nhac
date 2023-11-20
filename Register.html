@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Chỉnh sửa profile - TriVie</title>
+  <link rel="stylesheet" href="Register.css" />
+</head>
+
+<body>
+  <form action="" method="post" id="form-login">
+    <h1 id="title"><ion-icon name="chevron-back-circle" id="backBtn"></ion-icon>&nbsp;&nbsp;&nbsp;<strong>Bắt đầu nghe
+        nhạc với TriVie</strong></h1>
+    <br>
+    Địa chỉ email: <br>
+    <input type="text" name="re-email" placeholder="Administrator@trivieco.com">
+    <a href="">Đăng ký bằng số điện thoại</a><br><br>
+    <input type="submit" value="Tiếp theo"><br><br>
+    <div class="or">
+      <hr><span>hoặc</span>
+      <hr><br><br>
+    </div>
+    <input type="submit" value="Đăng ký bằng Google"><a href="https://www.flaticon.com/free-icons/google"
+      title="google icons"></a><br>
+    <input type="submit" value="Đăng ký bằng Facebook">
+  </form>
+  <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
+  <script>
+    var backBtn = document.getElementById('backBtn');
+    backBtn.onclick = function () {
+      window.history.back();
+    }
+  </script>
+</body>
+
+</html>
