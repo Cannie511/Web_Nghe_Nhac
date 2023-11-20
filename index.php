@@ -86,7 +86,9 @@
                         <th>Thời lượng</th>
                     </tr>
                     <tr>
-                    <td colspan = "7"><hr></td>
+                        
+                        <td colspan = "6"><hr></td>
+                        
                     </tr>
                     <?php loadMusic()?>
                 </table>   
@@ -119,7 +121,6 @@
             if($(this).scrollTop()){
                 $('#topMenu').css('background-color', 'white');
                 $('#topMenu').css('box-shadow', '1px 2px 5px black');
-                $('#topMenu').innerHTML = "DANH SÁCH PHÁT";
                 $('#personal').css('color', 'black');
                 $('#search>ion-icon').css('color', 'black');
                 
