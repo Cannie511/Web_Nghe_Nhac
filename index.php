@@ -3,6 +3,7 @@
 
 <head>
     <meta charset="UTF-8">
+    <link rel="icon" href="%PUBLIC_URL%/favicon.ico" />
     <meta name="viewport" content="width=device-width, initial-scale=0.0">
     <title>TriVie Music</title>
     <link rel="stylesheet" href="index.css">
@@ -115,6 +116,8 @@
 <script src="https://unpkg.com/ionicons@4.5.10-0/dist/ionicons.js"></script>
 <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
 <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+
+
 <script>
     $(document).ready(function(){
         $('#main_play').scroll(function(){
@@ -130,5 +133,8 @@
             }
         })
     })
+</script>
+<script>
+    
 </script>
 </html>
