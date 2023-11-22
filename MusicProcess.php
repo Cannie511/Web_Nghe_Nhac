@@ -5,7 +5,7 @@ function loadMusic()
     for ($i = $stt; $i <= 20; $i++) {
         $stt = $i;
         $data = array(
-            array("stt" => $stt, "img" => "", "name" => "tên bài hát", "singer" => "Sơn Tùng M-TP, J97", "date" => "1 tháng 1, 2023", "time" => "00:00")
+            array("stt" => $stt, "img" => "", "name" => "tên bài hát", "singer" => "Sơn Tùng M-TP, Mono", "date" => "1 tháng 1, 2023", "time" => "00:00")
         );
 
         foreach ($data as $key => $music) {
@@ -35,5 +35,20 @@ function loadMusic()
         }
     }
 }
-
+function loadPlaylist($n){
+    $playlist = array(
+        array("thumb"=> "","title"=> "Playlist song","artist"=> "Lyly, Sơn Tùng, Mono")
+    );
+    for ($i = 0; $i <= $n; $i++) {
+        foreach ($playlist as $key => $music) {
+            echo "<div class='col view_item'>
+            <div class='img_item'><img src='IMAGE\album_demo.png' alt=''></div>
+            <div class='info_item row'>
+                <strong>".$playlist[$key]['title']."</strong>
+                <h6>".$playlist[$key]['artist']."</h6>
+            </div>
+        </div>";
+        }
+    }
+}
 ?>

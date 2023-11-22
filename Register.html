@@ -10,7 +10,7 @@
 
 <body>
   <form action="" method="post" id="form-login">
-    <h1 id="title"><ion-icon name="chevron-back-circle" id="backBtn"></ion-icon>&nbsp;&nbsp;&nbsp;<strong>Bắt đầu nghe
+    <h1 id="title"><ion-icon name="chevron-back-circle" id="backBtn" onclick="back()"></ion-icon>&nbsp;&nbsp;&nbsp;<strong>Bắt đầu nghe
         nhạc với TriVie</strong></h1>
     <br>
     Địa chỉ email: <br>
@@ -26,6 +26,7 @@
     <input type="submit" value="Đăng ký bằng Facebook">
   </form>
   <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
+  <script src="index.js"></script>
   <script>
     var backBtn = document.getElementById('backBtn');
     backBtn.onclick = function () {

@@ -18,6 +18,7 @@ var logoie = document.getElementById("logo_ie");
 var logo = document.getElementById("logo");
 var nav_rotate = document.getElementById("nav_rotate");
 var topMenu = document.getElementById("topMenu");
+var menu_cover = document.getElementById("menu_cover");
 navbar_toggle.onclick = function () {
   navbar_toggle.classList.toggle("open");
   menu.classList.toggle("hide");
@@ -30,6 +31,7 @@ navbar_toggle.onclick = function () {
   search.classList.toggle("full_scr");
   list_music.classList.toggle("full_pg");
   topMenu.classList.toggle("hide");
+  menu_cover.classList.toggle('hide');
 };
 function play() {
   var play = document.getElementById("play_btn");
@@ -63,7 +65,13 @@ function log_in() {
 function Edit() {
   window.location = "EditProfile.html";
 }
-function Home() {
+function back() {
   window.history.back();
+}
+function Home(){
+  window.location = "index.php";
+}
+function playList(){
+  window.location = "playlist.html";
 }
 
