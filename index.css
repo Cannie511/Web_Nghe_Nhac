@@ -124,6 +124,7 @@ a:hover{
 #logo_ri, #logo_ie{
     font-size: 6.5vh;
     transition: all 0.5s ease-in-out;
+    font-weight: bold;
     cursor: pointer;
 }
 #title_music{
@@ -173,7 +174,7 @@ a:hover{
 }
 #logo_V.hide{
     position: relative;
-    transform: translateX(-2.35vw);
+    transform: translateX(-107%);
     
 }
 #logo_ri.hide, #logo_ie.hide{
@@ -349,7 +350,7 @@ tr:hover:not(:first-child, :nth-child(2)){
 #play_list_info{
     position: relative;
     top: -20vh;
-    left: 25vw;
+    left: 30%;
     color: white;
 }
 
@@ -530,11 +531,11 @@ input[type="range"]{
 }
 #search>form>span>input:focus{
     border: 1px solid white;
-    width: 500px;
+    width: 360px;
 }
 #search>form>span>input:hover{
     border: 1px solid white;
-    width: 500px;
+    width: 360px;
 }
 #search>form>span>ion-icon{
     position: relative;

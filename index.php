@@ -14,12 +14,12 @@
 <body>
     <div class="container-fluid">
 
-        <div class="col">
+        <div class="col-sm-4">
             <div id="menu">
 
-                <div id="logo">
+                <div id="logo" class="col-xl-12">
                     <h1>
-                        <strong id="logo_T">T</strong>
+                        <strong id="logo_T" class="col">T</strong>
                         <h1 id="logo_ri">ri</h1>&nbsp<strong id="logo_V">V</strong>
                         <h1 id="logo_ie">ie</h1>
                     </h1>
@@ -39,24 +39,10 @@
                     <div class="menu_item" id="caidat"><ion-icon name="settings-outline"></ion-icon><span>CÀI
                             ĐẶT</span></div>
                 </div>
-                <!-- <ul>
-            <li><ion-icon name="home-outline"></ion-icon><a href="" id = "title_menu">TRANG CHỦ</a></li>
-            <li><ion-icon name="search-outline"></ion-icon><a href="" id = "title_menu">TÌM KIẾM</a></li>
-            <li><ion-icon name="list-outline"></ion-icon><a href="" id = "title_menu">DANH SÁCH PHÁT</a></li>
-            <li><ion-icon name="reorder-four-outline"></ion-icon><a href="" id = "title_menu">BẢNG XẾP HẠNG</a></li>
-            <li><ion-icon name="heart-outline"></ion-icon><a href="" id = "title_menu">YÊU THÍCH</a></li>
-            <li><ion-icon name="settings-outline"></ion-icon><a href="" id = "title_menu">CÀI ĐẶT</a></li>
-            <li><ion-icon name="diamond-outline"></ion-icon><a href="" id = "title_menu">PREMIUM</a></li>
-            <li></li>
-            <li></li>
-            <li></li>
-            <li></li>
-            <li></li>
-        </ul> -->
                 <div id="navbar"><ion-icon name="chevron-back-outline"></ion-icon></div>
             </div>
         </div>
-        <div class="col">
+        <div class="col-sm-7">
             <div id="main_play">
                 <!-- ----------------------------------MENU FIXED------------------------------------------ -->
                 <div id="topMenu">
@@ -73,12 +59,12 @@
                             </div>
                         </div>
                     </div>
-                    <div id="search">
+                    <div id="search" class="col-sm-4">
                         <ion-icon name="chevron-back-circle" style="margin-left: 10px;" onclick="back()"></ion-icon>
                         <form action="" method="get">
                             <span>
-                                <ion-icon name="search-outline"></ion-icon>
-                                <input type="text" placeholder="Bạn muốn nghe gì ?" id="search_input">
+                                <ion-icon name="search-outline" ></ion-icon>
+                                <input type="text" placeholder="Bạn muốn nghe gì ?" id="search_input" class="col-sm-4">
                             </span>
                         </form>
                     </div>
@@ -183,10 +169,11 @@
                     <div id="banner_play_list">
                         <img src="IMAGE/bannerBXH.png" alt="">
                         <div id="play_list_info">
-                            <strong style="font-size: 20px;">Bảng Xếp Hạng</strong><br>
-                            <strong style="font-size: 70px;">V-POP INDE Việt</strong>
+                            <strong style="font-size: 110%;">Bảng Xếp Hạng</strong><br>
+                            <strong style="font-size: 500%;">V-POP INDIE Việt</strong>
                             <br>
-                            <strong>50 Bài hát <ion-icon name="musical-notes-outline"></ion-icon>: Không thể say, Nấu ăn cho em, That's way, GODs,...</strong>
+                            <strong style="font-size: 120%;">50 Bài hát <ion-icon name="musical-notes-outline"></ion-icon>: Không thể say, Nấu ăn
+                                cho em, That's way, GODs,...</strong>
                         </div>
                     </div>
                     <div id="title_music">
@@ -247,7 +234,6 @@
                 $('#topMenu').css('background-color', 'var(--primary-color-custom)');
                 $('#topMenu').css('box-shadow', '1px 2px 5px black');
                 $('#personal').css('color', 'gray');
-
             }
             else {
                 $('#topMenu').css('background-color', 'transparent');
@@ -255,6 +241,12 @@
                 $('#topMenu').css('box-shadow', '0 0 0 white');
             }
         });
+        $('.menu_item').click(function () {
+            $('#main_play').animate({
+                scrollTop: 0
+            }, 400);
+            return false;
+        })
         $('.menu_item').click(function (event) {
             index = $(this).index();
             $('.menu_item').removeClass('init');
@@ -275,17 +267,16 @@
                 case 3:
                     $('.layout.show').removeClass('show');
                     $('#Ranked').addClass('show');
+                case 4:
+                    break;
+                case 5:
+                    break;
                     break;
                 default:
                     break;
             }
         });
-        $('.menu_item').click(function () {
-            $('#main_play').animate({
-                scrollTop: 0
-            }, 400);
-            return false;
-        })
+       
     })
 </script>
 <script>
