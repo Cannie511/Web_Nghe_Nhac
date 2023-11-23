@@ -25,15 +25,19 @@
                     </h1>
                 </div>
                 <div id="menu_cover">
-                    <div class="menu_item init" id= "home"><ion-icon name="home-outline"></ion-icon><a href="">TRANG CHỦ</a></div>
-                    <div class="menu_item" id= "timkiem"><ion-icon name="search-outline"></ion-icon><a href="">TÌM KIẾM</a></div>
-                    <div class="menu_item" id= "dsphat"><ion-icon name="list-outline" href="#playlist"></ion-icon><a
-                            href="#playlist">DANH SÁCH PHÁT</a></span></div></a>
-                    <div class="menu_item" id= "bxh"><ion-icon name="reorder-four-outline"></ion-icon><a href="">BẢNG XẾP
-                            HẠNG</a></span>
+                    <div class="menu_item init" id="home"><ion-icon name="home-outline"></ion-icon><span>TRANG
+                            CHỦ</span></div>
+                    <div class="menu_item" id="timkiem"><ion-icon name="search-outline"></ion-icon><span>TÌM
+                            KIẾM</span></div>
+                    <div class="menu_item" id="dsphat"><ion-icon name="list-outline"
+                            href="#playlist"></ion-icon><span>DANH SÁCH PHÁT</a></span></div></a>
+                    <div class="menu_item" id="bxh"><ion-icon name="bar-chart-outline"></ion-icon><span>BẢNG XẾP
+                            HẠNG</span>
                     </div>
-                    <div class="menu_item" id= "yeu thich"><ion-icon name="heart-outline"></ion-icon><a href="">YÊU THÍCH</a></div>
-                    <div class="menu_item" id= "caidat"><ion-icon name="settings-outline"></ion-icon><a href="">CÀI ĐẶT</a></div>
+                    <div class="menu_item" id="yeu thich"><ion-icon name="heart-outline"></ion-icon><span>YÊU
+                            THÍCH</span></div>
+                    <div class="menu_item" id="caidat"><ion-icon name="settings-outline"></ion-icon><span>CÀI
+                            ĐẶT</span></div>
                 </div>
                 <!-- <ul>
             <li><ion-icon name="home-outline"></ion-icon><a href="" id = "title_menu">TRANG CHỦ</a></li>
@@ -74,13 +78,14 @@
                         <form action="" method="get">
                             <span>
                                 <ion-icon name="search-outline"></ion-icon>
-                                <input type="text" placeholder="Bạn muốn nghe gì ?">
+                                <input type="text" placeholder="Bạn muốn nghe gì ?" id="search_input">
                             </span>
                         </form>
                     </div>
                 </div>
                 <!-- -----------------------------------CAN CHANGED------------------------------------------ -->
-                <div id="music_list">
+
+                <div id="music_list" class="layout">
                     <div id="banner_play_list">
                         <img src="IMAGE/Hay-Trao-Cho-Anh-3.jpg" alt="">
                         <div id="play_list_info">
@@ -118,40 +123,95 @@
                 </div>
 
                 <!-- -------------------------------------THẺ PLAYLISTS------------------------------------------------- -->
-                <div id="playlist">
+                <?php $path = './IMAGE/album_demo.png' ?>
+                <div id="playlist" class="layout show">
                     <div class="title_pl">
                         <h1>THỊNH HÀNH</h1>
                     </div>
                     <div id="popular" class="list_item">
-                        <!-- <div class="col view_item">
-                            <div class="img_item"><img src="IMAGE\album_demo.png" alt=""></div>
-                            <div class="info_item row">
-                                <strong>Title playlist</strong>
-                                <h6>Lyly, Sơn Tùng, Mono</h6>
-                            </div>
-                        </div> -->
-                        <?php loadPlaylist(3) ?>
+                        <?php loadPlaylist($path, 3) ?>
                     </div>
                     <br>
                     <div class="title_pl">
                         <h1>CHỦ ĐỀ MỚI</h1>
                     </div>
                     <div id="theme" class="list_item">
-                        <?php loadPlaylist(6) ?>
+                        <?php loadPlaylist($path, 6) ?>
                     </div>
                     <br>
                     <div class="title_pl">
                         <h1>NỔI BẬT</h1>
                     </div>
                     <div id="hot_album" class="list_item">
-                        <?php loadPlaylist(2) ?>
+                        <?php loadPlaylist($path, 2) ?>
                     </div>
                     <br>
                     <div class="title_pl">
                         <h1>NGHỆ SĨ</h1>
                     </div>
                     <div id="artis" class="list_item">
-                        <?php loadPlaylist(10) ?>
+                        <?php loadPlaylist($path, 10) ?>
+                    </div>
+                </div>
+                <!-- ---------------------------------------DANH SÁCH PHÁT CỦA TÔI---------------------------------------------------- -->
+                <?php $pathPL = './IMAGE/pathPL.png' ?>
+                <div id="myPL" class="layout">
+                    <div class="title_pl">
+                        <h1>DANH SÁCH CỦA TÔI</h1>
+                    </div>
+                    <div id="popular" class="list_item">
+                        <?php loadPlaylist($pathPL, 10) ?>
+                    </div>
+                    <br>
+                    <div class="title_pl">
+                        <h1>GẦN ĐÂY</h1>
+                    </div>
+                    <div id="theme" class="list_item">
+                        <?php loadPlaylist($pathPL, 3) ?>
+                    </div>
+                    <br>
+                    <div class="title_pl">
+                        <h1>GỢI Ý</h1>
+                    </div>
+                    <div id="hot_album" class="list_item">
+                        <?php loadPlaylist($pathPL, 5) ?>
+                    </div>
+                    <br>
+                </div>
+                <!-- -----------------------------------------BẢNG XẾP HẠNG----------------------------------------- -->
+                <div id="Ranked" class="layout">
+                    <div id="banner_play_list">
+                        <img src="IMAGE/bannerBXH.png" alt="">
+                        <div id="play_list_info">
+                            <strong style="font-size: 20px;">Bảng Xếp Hạng</strong><br>
+                            <strong style="font-size: 70px;">V-POP INDE Việt</strong>
+                            <br>
+                            <strong>50 Bài hát <ion-icon name="musical-notes-outline"></ion-icon>: Không thể say, Nấu ăn cho em, That's way, GODs,...</strong>
+                        </div>
+                    </div>
+                    <div id="title_music">
+                        <ion-icon name="play-circle-sharp"></ion-icon>
+                        <ion-icon name="heart-outline"></ion-icon>
+                        <strong
+                            style="margin-left: 20px; font-family: Georgia, 'Times New Roman', Times, serif;">...</strong>
+                    </div>
+                    <div id='music_panel'>
+                        <table id='list_mp3'>
+                            <tr>
+                                <th>STT</th>
+                                <th>hình</th>
+                                <th>Tiêu đề</th>
+                                <th>Tác giả, Ca sĩ</th>
+                                <th>Ngày phát hành</th>
+                                <th>Thời lượng</th>
+                            </tr>
+                            <tr>
+                                <td colspan="6">
+                                    <hr>
+                                </td>
+                            </tr>
+                            <?php loadMusic() ?>
+                        </table>
                     </div>
                 </div>
             </div>
@@ -181,21 +241,13 @@
 
 
 <script>
-    // document.getElementById('menu_item').addEventListener('click', function (event) {
-    //     var target =event.target;
-    //     if(target.tagName === 'A'){
-    //         return;
-    //     }
-    //     var anchor = document.get
-    // });
     $(document).ready(function () {
-        $('#playlist').hide();
-        $('#music_list').fadeIn();
         $('#main_play').scroll(function () {
-            if ($(this).scrollTop() >= 350) {
-                $('#topMenu').css('background-color', 'black');
+            if ($(this).scrollTop() >= 200) {
+                $('#topMenu').css('background-color', 'var(--primary-color-custom)');
                 $('#topMenu').css('box-shadow', '1px 2px 5px black');
                 $('#personal').css('color', 'gray');
+
             }
             else {
                 $('#topMenu').css('background-color', 'transparent');
@@ -203,15 +255,37 @@
                 $('#topMenu').css('box-shadow', '0 0 0 white');
             }
         });
-        $('.menu_item').click(function () {
-           
+        $('.menu_item').click(function (event) {
+            index = $(this).index();
             $('.menu_item').removeClass('init');
             $(this).addClass('init');
-            let id_tab_content = $(this).children('a').attr('href');
-            $('#music_list').hide();
-            $(id_tab_content).fadeIn();
-            return false;
+            switch (index) {
+                case 0:
+                    $('.layout.show').removeClass('show');
+                    $('#playlist').addClass('show');
+                    break;
+                case 1:
+                    var searchinput = document.getElementById('search_input');
+                    searchinput.focus();
+                    break;
+                case 2:
+                    $('.layout.show').removeClass('show');
+                    $('#myPL').addClass('show');
+                    break;
+                case 3:
+                    $('.layout.show').removeClass('show');
+                    $('#Ranked').addClass('show');
+                    break;
+                default:
+                    break;
+            }
         });
+        $('.menu_item').click(function () {
+            $('#main_play').animate({
+                scrollTop: 0
+            }, 400);
+            return false;
+        })
     })
 </script>
 <script>

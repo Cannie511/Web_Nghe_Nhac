@@ -43,15 +43,19 @@ input {
 }
 hr {
   position: relative;
-  width: 150px;
+  margin-left: 20px;
+  top: -10px;
+  width: 90%;
   float: left;
 }
-
 a {
   color: #fff;
   font-size: 15px;
 }
-
+span{
+  position: relative;
+  left: -278px;
+}
 .or {
   width: 100%;
   display: flex;

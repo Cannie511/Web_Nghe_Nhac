@@ -35,14 +35,14 @@ function loadMusic()
         }
     }
 }
-function loadPlaylist($n){
+function loadPlaylist($imgPath, $n){
     $playlist = array(
         array("thumb"=> "","title"=> "Playlist song","artist"=> "Lyly, Sơn Tùng, Mono")
     );
     for ($i = 0; $i <= $n; $i++) {
         foreach ($playlist as $key => $music) {
             echo "<div class='col view_item'>
-            <div class='img_item'><img src='IMAGE\album_demo.png' alt=''></div>
+            <div class='img_item'><img src='$imgPath'></div>
             <div class='info_item row'>
                 <strong>".$playlist[$key]['title']."</strong>
                 <h6>".$playlist[$key]['artist']."</h6>
