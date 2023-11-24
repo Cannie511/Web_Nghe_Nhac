@@ -1,36 +1,44 @@
 /* THẺ MẶC ĐỊNH CỦA HTML */
-*{
+* {
     padding: 0;
     margin: 0;
 }
-body{
-    background-color: black;
+
+body {
+    background: var(--body-bg-custom);
+    background-attachment: fixed ;
     overflow-x: hidden;
     overflow-y: hidden;
     transition: all 0.3s ease-in-out;
 }
-header{
+
+header {
     width: 100%;
     height: 300px;
     background-color: #3376BC;
     position: fixed;
 }
-ul li{
+
+ul li {
     list-style: none;
 }
-a{
+
+a {
     text-decoration: none;
     color: gray;
     transition: all 0.2s ease-in-out;
 }
-a:hover{
+
+a:hover {
     color: white;
     font-weight: bolder;
 }
-
+th{
+    font-size: 20px;
+}
 
 /* THẺ MENU */
-#menu{
+#menu {
     width: 16vw;
     height: 88vh;
     background-color: rgb(37, 37, 37);
@@ -46,22 +54,26 @@ a:hover{
     border-bottom: 1px solid gray;
     float: left;
 }
-#menu_cover{
+
+#menu_cover {
     margin-top: 70px;
     transition: all 0.3s ease-in-out;
 }
+
 .menu_item.init {
     background-color: var(--primary-color-custom);
     color: #fff;
 }
-.layout{
+
+.layout {
     display: none;
 }
-.layout.show{
+
+.layout.show {
     display: block;
 }
 
-.menu_item{
+.menu_item {
     width: 100%;
     height: 60px;
     font-weight: bolder;
@@ -71,24 +83,29 @@ a:hover{
     padding-left: 15px;
     transition: all 0.2s ease-in-out;
 }
-.menu_item>span{
+
+.menu_item>span {
     margin-left: 10px;
     font-size: 20px;
     transition: all 0.1s ease-in-out;
 }
-.menu_item>ion-icon{
+
+.menu_item>ion-icon {
     font-size: 30px;
     transition: all 0.2s ease-in-out;
 }
-.menu_item:hover{
+
+.menu_item:hover {
     color: white;
     background-color: var(--primary-color-custom);
 }
-.menu_item:hover a{
+
+.menu_item:hover a {
     color: white;
     background-color: gray;
 }
-#logo{
+
+#logo {
     width: 80%;
     height: 7vh;
     margin-left: 3vh;
@@ -104,30 +121,36 @@ a:hover{
     cursor: pointer;
 }
 
-#logo_T{
+#logo_T {
     color: var(--logo-Tri-custom);
     font-size: 6.5vh;
     left: 1px;
 }
-#logo_V{
+
+#logo_V {
     position: relative;
     color: var(--logo-Vie-customL);
     top: -4px;
     font-size: 6.5vh;
 }
-#logo_ri{
+
+#logo_ri {
     color: var(--logo-Tri-custom);
 }
-#logo_ie{
+
+#logo_ie {
     color: var(--logo-Vie-customL);
 }
-#logo_ri, #logo_ie{
+
+#logo_ri,
+#logo_ie {
     font-size: 6.5vh;
     transition: all 0.5s ease-in-out;
     font-weight: bold;
     cursor: pointer;
 }
-#title_music{
+
+#title_music {
     padding: 20px;
     color: white;
     z-index: 100;
@@ -136,51 +159,64 @@ a:hover{
     display: flex;
     align-items: center;
 }
-#title_music>ion-icon{
+
+#title_music>ion-icon {
     margin-left: 20px;
     cursor: pointer;
 }
-#title_music>strong{
+
+#title_music>strong {
     color: gray;
     cursor: pointer;
 }
-#title_music>strong:hover{
+
+#title_music>strong:hover {
     color: white;
 }
-#title_music>ion-icon:first-child{
+
+#title_music>ion-icon:first-child {
     color: green;
     font-size: 80px;
 }
-#menu.hide{
+
+#menu.hide {
     width: 4.5vw;
     z-index: 10;
-}   
-#menu.hide>h1>span{
+}
+
+#menu.hide>h1>span {
     font-size: 0px;
     transition: all 0.3s ease-in-out;
 }
-#menu_cover.hide>div>span{
+
+#menu_cover.hide>div>span {
     font-size: 0px;
 }
-#menu_cover.hide>div>ion-icon{
+
+#menu_cover.hide>div>ion-icon {
     font-size: 2vw;
- 
+
     transform: translateX(5px);
     cursor: pointer;
 }
-#logo_T.hide{
+
+#logo_T.hide {
     position: relative;
     padding-left: 2.5vw;
 }
-#logo_V.hide{
+
+#logo_V.hide {
     position: relative;
     transform: translateX(-107%);
-    
+
 }
-#logo_ri.hide, #logo_ie.hide{
+
+#logo_ri.hide,
+#logo_ie.hide {
     font-size: 0px;
 }
-#logo.hide{
+
+#logo.hide {
     width: 7vh;
     height: 7vh;
     margin-left: 1vh;
@@ -188,8 +224,9 @@ a:hover{
     background-color: var(--logo-Bg-custom);
     transition: all 0.3s ease-in-out;
 }
+
 /* THẺ ĐỂ XEM NHẠC */
-#main_play{
+#main_play {
     width: 80vw;
     height: 88vh;
     margin-left: 17vw;
@@ -202,11 +239,13 @@ a:hover{
     transition: all 0.4s ease-in-out;
     border-bottom: 1px solid gray;
 }
-#main_play.full{
+
+#main_play.full {
     width: 93vw;
     margin-left: 6vw;
 }
-#personal{
+
+#personal {
     width: 5vw;
     height: 5vw;
     display: flex;
@@ -217,14 +256,17 @@ a:hover{
     float: right;
     position: relative;
 }
-#personal>ion-icon{
+
+#personal>ion-icon {
     cursor: pointer;
     transition: all 0.2s ease-in-out;
 }
-#personal>ion-icon:hover{
+
+#personal>ion-icon:hover {
     color: white;
 }
-#more{
+
+#more {
     width: 10vw;
     height: fit-content;
     background-color: black;
@@ -236,7 +278,8 @@ a:hover{
     position: absolute;
     overflow: hidden;
 }
-#more>div{
+
+#more>div {
     margin: 0;
     width: 100%;
     height: 2vw;
@@ -247,42 +290,54 @@ a:hover{
     font-size: 2.5vh;
     font-family: Arial, Helvetica, sans-serif
 }
-#more>div>span{
+
+#more>div>span {
     margin-left: 1vh;
     cursor: pointer;
 }
-#more>div>ion-icon{
+
+#more>div>ion-icon {
     margin-left: 1vh;
 }
-#more>div:hover{
+
+#more>div:hover {
     background-color: pink;
     color: black;
 }
-#music_list,#Ranked{
+
+#music_list,
+#Ranked, #LoveIt {
     position: relative;
     float: left;
     width: 100%;
     margin-top: 20px;
 }
-#music_list>div>table#list_mp3, #Ranked>div>table#list_mp3{
+
+#music_list>div>table#list_mp3,
+#Ranked>div>table#list_mp3,
+#LoveIt>div>table#list_mp3  {
     width: 95%;
-    height:5vh;
+    height: 5vh;
     color: white;
     font-weight: bold;
     margin-left: 2vw;
     border-radius: 10px;
     border-collapse: collapse;
     text-align: center;
-    
+
 }
-#list_mp3>tr,td,th{
+
+#list_mp3>tr,
+td,
+th {
     padding-top: 5px;
-    height: 5vh;
+    height: 7vh;
     transition: all 0.3s ease-in-out;
 }
-#crop_img{
-    width: 50px;
-    height: 50px;
+
+#crop_img {
+    width: 23%;
+    height: 90%;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -290,32 +345,39 @@ a:hover{
     border-radius: 5px;
     margin-bottom: 6px;
 }
-#crop_img>img{
+
+#crop_img>img {
     width: 100px;
     height: 60px;
 }
-td:nth-child(2){
+
+td:nth-child(2) {
     display: flex;
     align-items: center;
     justify-content: center;
 }
-td:first-child{
-    
-    border-radius:10px 0 0 10px;
+
+td:first-child {
+
+    border-radius: 10px 0 0 10px;
 }
- td:last-child{
-    border-radius:0 10px 10px 0;
- }
-tr:first-child{
+
+td:last-child {
+    border-radius: 0 10px 10px 0;
+}
+
+tr:first-child {
     font-size: 1vw;
-    
+
 }
-tr:hover:not(:first-child, :nth-child(2)){
+
+tr:hover:not(:first-child, :nth-child(2)) {
     background-color: gray;
     cursor: pointer;
-    
+
 }
-#music_panel{
+
+#music_panel {
     width: 98%;
     height: fit-content;
     margin-left: 15px;
@@ -323,7 +385,8 @@ tr:hover:not(:first-child, :nth-child(2)){
     margin-right: 15px;
     border-radius: 5px;
 }
-#topMenu{
+
+#topMenu {
     width: 80vw;
     position: fixed;
     z-index: 2000;
@@ -331,30 +394,53 @@ tr:hover:not(:first-child, :nth-child(2)){
     background-color: transparent;
     transition: all 0.4s ease-in-out;
 }
-.sticky{
+
+.sticky {
     background-color: darkgreen;
 }
-#topMenu.hide{
+
+#topMenu.hide {
     width: 93vw;
+}
+#banner_play_list_LoveIt{
+    width: 100%;
+    height: 400px;
+    top: -20px;
+    position: relative;
+    background: var(--bg-love-custom);
+    border-radius: 5px 5px 0 0;
+    z-index: 1;
+    overflow: hidden;
+}
+#banner_play_list_BXH  {
+    width: 100%;
+    height: 400px;
+    top: -20px;
+    position: relative;
+    background: var(--bg-BXH-custom);
+    border-radius: 5px 5px 0 0;
+    z-index: 1;
+    overflow: hidden;
 }
 #banner_play_list{
     width: 100%;
     height: 400px;
     top: -20px;
     position: relative;
-    background: var(--bg-banner-custom) ;
-    border-radius: 10px 10px 0 0;
+    background: var(--bg-banner-custom);
+    border-radius: 5px 5px 0 0;
     z-index: 1;
     overflow: hidden;
 }
-#play_list_info{
+
+#play_list_info {
     position: relative;
-    top: -20vh;
-    left: 30%;
+    top: -45%;
+    left: 32%;
     color: white;
 }
 
-#banner_play_list>img{
+#banner_play_list>img,#banner_play_list_BXH>img, #banner_play_list_LoveIt>img {
     image-rendering: optimizeQuality;
     width: 300px;
     height: 300px;
@@ -363,8 +449,9 @@ tr:hover:not(:first-child, :nth-child(2)){
     border-radius: 10px;
     box-shadow: 0 3px 10px black;
 }
+
 /* PHẦN NÚT BẤM */
-#play{
+#play {
     width: 100vw;
     height: 12vh;
     background-color: transparent;
@@ -375,39 +462,49 @@ tr:hover:not(:first-child, :nth-child(2)){
     justify-content: center;
     margin-top: 10px;
 }
-#btn{
+
+#btn {
     display: flex;
     justify-content: center;
     align-items: center;
     position: relative;
     top: -20px;
 }
-#btn>ion-icon{
+
+#btn>ion-icon {
     cursor: pointer;
-    margin: 0 1vh;  
+    margin: 0 1vh;
 }
-#btn.light_btn{
+
+#btn.light_btn {
     color: black;
 }
-#btn.light_btn{
+
+#btn.light_btn {
     color: black;
 }
-#btn.light_btn>ion-icon:hover{
+
+#btn.light_btn>ion-icon:hover {
     color: gray;
 }
-#btn>ion-icon:hover{
-    color: white;  
+
+#btn>ion-icon:hover {
+    color: white;
     transition: all 0.3s ease-in-out;
 }
-#play_btn{
+
+#play_btn {
     font-size: 5vh;
 }
-#pause_btn{
+
+#pause_btn {
     font-size: 5vh;
     position: absolute;
     display: none;
 }
-#time_play{
+
+
+#time_play {
     width: 35vw;
     height: 1vh;
     position: absolute;
@@ -419,28 +516,33 @@ tr:hover:not(:first-child, :nth-child(2)){
     font-weight: bolder;
     color: white;
 }
-#time_play.light_time_play{
+
+#time_play.light_time_play {
     color: black;
 }
-#time_play>input{
+
+#time_play>input {
     width: 100vw;
 }
-#time_play>span{
+
+#time_play>span {
     margin-left: 10px;
 }
-input[type="range"]{
+
+input[type="range"] {
     accent-color: green;
     margin-left: 10px;
     height: 5px;
 }
+
 /* PHẦN NÚT ẨN HIỆN CỦA MENU */
-#navbar{
+#navbar {
     width: 100%;
     height: 6vh;
     background-color: rgb(92, 91, 91);
     border-radius: 5px 5px 0 0;
     position: absolute;
-    top: 82vh;  
+    top: 82vh;
     font-size: 5vh;
     cursor: pointer;
     z-index: 10;
@@ -449,37 +551,42 @@ input[type="range"]{
     justify-content: center;
     align-items: center;
 }
-#navbar>ion-icon{
+
+#navbar>ion-icon {
     transition: all 0.2s ease-in-out;
 }
-#navbar.open>ion-icon{
+
+#navbar.open>ion-icon {
     transform: rotate(3.1rad);
 }
-#navbar:hover{
+
+#navbar:hover {
     background-color: var(--primary-color-custom);
     color: var(--logo-Bg-custom);
 }
 
-#navbar.open:hover{
+#navbar.open:hover {
     background-color: green;
 }
-#navbar.open{
+
+#navbar.open {
     background-color: rgb(92, 91, 91);
-    
+
 }
 
 /* NÚT DARKMODE */
-#switch{
+#switch {
     margin-left: 1vh;
     width: 2vw;
     height: 0.7vw;
     border: 1px solid black;
     background-color: gray;
     font-size: 1vw;
-    
+
     border-radius: 50px;
 }
-#scroll{
+
+#scroll {
     width: 1vw;
     height: 1vw;
     background-color: rgb(240, 130, 207);
@@ -492,17 +599,21 @@ input[type="range"]{
     z-index: 1000;
     position: relative;
 }
-.night{
+
+.night {
     transform: translateX(-1vw);
 }
-.night_body{
+
+.night_body {
     background-color: white;
 }
-#switch.night_on{
+
+#switch.night_on {
     background-color: white;
 }
+
 /* THANH TÌM KIẾM */
-#search{
+#search {
     float: left;
     width: 35vw;
     height: 5vw;
@@ -512,66 +623,85 @@ input[type="range"]{
     color: gray;
     transition: all 0.4s ease-in-out;
 }
-#search>span{
+#search>form{
+    width: 100%;
+    height: 100%;
+}
+#search>form>div {
+    width: 100%;
+    height: 100%;
+    z-index: 1000;
     position: relative;
+    display: flex;
+    align-items: center;
+   
 }
 
-#search>form>span>input{
-    width: 15vw;
+#search>form>div>input {
+    width: 40%;
     height: 2.5vw;
     border-radius: 30px;
     font-size: 2vh;
     padding-left: 2.5vw;
-    background-color:#363636;
+    background-color: #363636;
     border: 1px solid white;
-    color:whitesmoke ;
+    color: whitesmoke;
     position: relative;
     z-index: 1;
     transition: all 0.3s ease-in-out;
 }
-#search>form>span>input:focus{
+
+#search>form>div>input:focus {
     border: 1px solid white;
     width: 360px;
 }
-#search>form>span>input:hover{
+
+#search>form>div>input:hover {
     border: 1px solid white;
-    width: 360px;
+    width: 80%;
 }
-#search>form>span>ion-icon{
+
+#search>form>div>ion-icon {
     position: relative;
     color: lightgray;
+    left: 30px;
     font-size: 3vh;
     z-index: 10;
-    top: 8px;
-    left: 2.5vw;
-}
-#search>ion-icon{
     
+}
+
+#search>ion-icon {
+
     font-size: 5vh;
     cursor: pointer;
     transition: all 0.2s ease-in-out;
 }
-#search>ion-icon:hover{
+
+#search>ion-icon:hover {
     color: lightgray;
 }
+
 /* ---------------------------------------------------Thẻ playlist---------------------------------------------- */
-#playlist, #myPL{
+#playlist,
+#myPL {
     width: 100%;
     margin-top: 100px;
     overflow: hidden;
 }
 
-.title_pl{
+.title_pl {
     color: white;
     margin-left: 20px;
 }
-.list_item{
+
+.list_item {
     width: 100%;
     height: 265px;
     overflow-x: scroll;
     margin-top: 20px;
 }
-.view_item{
+
+.view_item {
     width: 190px;
     height: 95%;
     margin-left: 30px;
@@ -583,10 +713,12 @@ input[type="range"]{
     cursor: pointer;
     transition: background 0.2s ease-in-out;
 }
-.view_item:hover{
+
+.view_item:hover {
     background-color: #4F4F4F;
 }
-.img_item{
+
+.img_item {
     display: flex;
     width: 100%;
     height: 70%;
@@ -594,12 +726,14 @@ input[type="range"]{
     align-items: center;
     position: relative;
 }
-.img_item img{
+
+.img_item img {
     width: 80%;
     height: 90%;
     border-radius: 5px;
 }
-.info_item{
+
+.info_item {
     width: 100%;
     height: fit-content;
     display: flex;
@@ -609,31 +743,45 @@ input[type="range"]{
     color: white;
     position: relative;
 }
-.info_item strong, .info_item span{
+
+.info_item strong,
+.info_item span {
     float: left;
     width: 100%;
 }
+
 /*------------------------------------------------------ THẺ DEFAULT ------------------------------------------------------------------*/
-::-webkit-scrollbar{
+::-webkit-scrollbar {
     width: 2px;
 }
-::-webkit-scrollbar-thumb{
+
+::-webkit-scrollbar-thumb {
     background-color: gray;
     border-radius: 5px;
 }
-:-ms-input-placeholder { 
-    color: gray;     /* Internet Explorer 10-11 */
-}	  
-::-ms-input-placeholder { 
-    color: gray;    /* Microsoft Edge */
+
+:-ms-input-placeholder {
+    color: gray;
+    /* Internet Explorer 10-11 */
 }
-::placeholder { 
-    color: gray;     /* Firefox, Chrome, Opera */
+
+::-ms-input-placeholder {
+    color: gray;
+    /* Microsoft Edge */
 }
-:root{
-    --logo-Tri-custom:#32CD32;
+
+::placeholder {
+    color: gray;
+    /* Firefox, Chrome, Opera */
+}
+
+:root {
+    --logo-Tri-custom: #32CD32;
     --logo-Vie-customL: #EE6363;
     --logo-Bg-custom: #FEF9EF;
     --bg-banner-custom: linear-gradient(to right, #33CCFF, #996633);
+    --bg-BXH-custom: linear-gradient(to right, #1E90FF,#B0E0E6,#6495ED);
+    --body-bg-custom: linear-gradient(to bottom,rgb(48,48,48, 0.9)5%, rgb(37, 36, 36) 30%, rgb(8,8,8,1) 100%);
+    --bg-love-custom:linear-gradient(to right, #800000,#A52A2A,#A0522D);;
     --primary-color-custom: #1ED760;
 }

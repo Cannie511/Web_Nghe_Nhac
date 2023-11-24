@@ -3,7 +3,7 @@
 
 <head>
     <meta charset="UTF-8">
-    <link rel="icon" href="%PUBLIC_URL%/favicon.ico" />
+    <link rel="icon" href="../IMAGE/logoWeb.png" />
     <meta name="viewport" content="width=device-width, initial-scale=0.0">
     <title>TriVie Music</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
@@ -25,18 +25,18 @@
                     </h1>
                 </div>
                 <div id="menu_cover">
-                    <div class="menu_item init" id="home"><ion-icon name="home-outline"></ion-icon><span>TRANG
+                    <div class="col-md-4 menu_item init" id="home"><ion-icon name="home-outline"></ion-icon><span>TRANG
                             CHỦ</span></div>
-                    <div class="menu_item" id="timkiem"><ion-icon name="search-outline"></ion-icon><span>TÌM
+                    <div class="col-md-4 menu_item" id="timkiem"><ion-icon name="search-outline"></ion-icon><span>TÌM
                             KIẾM</span></div>
-                    <div class="menu_item" id="dsphat"><ion-icon name="list-outline"
-                            href="#playlist"></ion-icon><span>DANH SÁCH PHÁT</a></span></div></a>
-                    <div class="menu_item" id="bxh"><ion-icon name="bar-chart-outline"></ion-icon><span>BẢNG XẾP
+                    <div class="col-md-4 menu_item" id="dsphat"><ion-icon name="list-outline">
+                            </ion-icon><span>DANH SÁCH PHÁT</span></div>
+                    <div class="col-md-4 menu_item" id="bxh"><ion-icon name="bar-chart-outline"></ion-icon><span>BẢNG XẾP
                             HẠNG</span>
                     </div>
-                    <div class="menu_item" id="yeu thich"><ion-icon name="heart-outline"></ion-icon><span>YÊU
+                    <div class="col-md-4 menu_item" id="yeu thich"><ion-icon name="heart-outline"></ion-icon><span>YÊU
                             THÍCH</span></div>
-                    <div class="menu_item" id="caidat"><ion-icon name="settings-outline"></ion-icon><span>CÀI
+                    <div class="col-md-4 menu_item" id="caidat"><ion-icon name="settings-outline"></ion-icon><span>CÀI
                             ĐẶT</span></div>
                 </div>
                 <div id="navbar"><ion-icon name="chevron-back-outline"></ion-icon></div>
@@ -60,12 +60,12 @@
                         </div>
                     </div>
                     <div id="search" class="col-sm-4">
-                        <ion-icon name="chevron-back-circle" style="margin-left: 10px;" onclick="back()"></ion-icon>
+                        <ion-icon name="chevron-back-circle" style="margin-left: 10px;" id = "backTab"></ion-icon>
                         <form action="" method="get">
-                            <span>
+                            <div>
                                 <ion-icon name="search-outline" ></ion-icon>
                                 <input type="text" placeholder="Bạn muốn nghe gì ?" id="search_input" class="col-sm-4">
-                            </span>
+                            </div>
                         </form>
                     </div>
                 </div>
@@ -75,10 +75,10 @@
                     <div id="banner_play_list">
                         <img src="IMAGE/Hay-Trao-Cho-Anh-3.jpg" alt="">
                         <div id="play_list_info">
-                            <strong style="font-size: 20px;">playlist</strong><br>
-                            <strong style="font-size: 70px;">SƠN TÙNG M-TP Radio</strong>
+                            <strong style="font-size: 110%;">playlist</strong><br>
+                            <strong style="font-size: 300%;">SƠN TÙNG M-TP Radio</strong>
                             <br>
-                            <strong>20 Bài hát <ion-icon name="musical-notes-outline"></ion-icon>: Có chắc yêu là đây,
+                            <strong style="font-size: 120%";>20 Bài hát <ion-icon name="musical-notes-outline"></ion-icon>: Có chắc yêu là đây,
                                 There's no one at all, Em của ngày hôm qua,...</strong>
                         </div>
                     </div>
@@ -110,7 +110,7 @@
 
                 <!-- -------------------------------------THẺ PLAYLISTS------------------------------------------------- -->
                 <?php $path = './IMAGE/album_demo.png' ?>
-                <div id="playlist" class="layout show">
+                <div id="playlist" class="col-md-5 layout show">
                     <div class="title_pl">
                         <h1>THỊNH HÀNH</h1>
                     </div>
@@ -166,14 +166,50 @@
                 </div>
                 <!-- -----------------------------------------BẢNG XẾP HẠNG----------------------------------------- -->
                 <div id="Ranked" class="layout">
-                    <div id="banner_play_list">
+                    <div id="banner_play_list_BXH">
                         <img src="IMAGE/bannerBXH.png" alt="">
                         <div id="play_list_info">
                             <strong style="font-size: 110%;">Bảng Xếp Hạng</strong><br>
-                            <strong style="font-size: 500%;">V-POP INDIE Việt</strong>
+                            <strong style="font-size: 300%;">V-POP INDIE Việt</strong>
                             <br>
                             <strong style="font-size: 120%;">50 Bài hát <ion-icon name="musical-notes-outline"></ion-icon>: Không thể say, Nấu ăn
                                 cho em, That's way, GODs,...</strong>
+                        </div>
+                    </div>
+                    <div id="title_music">
+                        <ion-icon name="play-circle-sharp"></ion-icon>
+                        <ion-icon name="heart-outline"></ion-icon>
+                        <strong
+                            style="margin-left: 20px; font-family: Georgia, 'Times New Roman', Times, serif;">...</strong>
+                    </div>
+                    <div id='music_panel'>
+                        <table id='list_mp3'>
+                            <tr>
+                                <th>STT</th>
+                                <th>hình</th>
+                                <th>Tiêu đề</th>
+                                <th>Tác giả, Ca sĩ</th>
+                                <th>Ngày phát hành</th>
+                                <th>Thời lượng</th>
+                            </tr>
+                            <tr>
+                                <td colspan="6">
+                                    <hr>
+                                </td>
+                            </tr>
+                            <?php loadMusic() ?>
+                        </table>
+                    </div>
+                </div>
+                <!-- -----------------------------------------------------YÊU THÍCH------------------------------------------ -->
+                <div id="LoveIt" class="layout">
+                    <div id="banner_play_list_LoveIt">
+                        <img src="IMAGE/LoveThumb.png" alt="">
+                        <div id="play_list_info">
+                            <strong style="font-size: 110%;">Playlist</strong><br>
+                            <strong style="font-size: 300%;"> PLAYLIST YÊU THÍCH CỦA TÔI</strong>
+                            <br>
+                            <strong style="font-size: 120%;">13 Bài hát <ion-icon name="musical-notes-outline"></ion-icon>:Cắt đôi nỗi sầu, Trời hôm nay nhiều mây cực,...</strong>
                         </div>
                     </div>
                     <div id="title_music">
@@ -229,11 +265,12 @@
 
 <script>
     $(document).ready(function () {
+        var backBtn = 0
         $('#main_play').scroll(function () {
             if ($(this).scrollTop() >= 200) {
                 $('#topMenu').css('background-color', 'var(--primary-color-custom)');
                 $('#topMenu').css('box-shadow', '1px 2px 5px black');
-                $('#personal').css('color', 'gray');
+                $('#personal').css('color', 'black');
             }
             else {
                 $('#topMenu').css('background-color', 'transparent');
@@ -249,6 +286,7 @@
         })
         $('.menu_item').click(function (event) {
             index = $(this).index();
+            backBtn = index;
             $('.menu_item').removeClass('init');
             $(this).addClass('init');
             switch (index) {
@@ -267,7 +305,10 @@
                 case 3:
                     $('.layout.show').removeClass('show');
                     $('#Ranked').addClass('show');
+                    break;
                 case 4:
+                    $('.layout.show').removeClass('show');
+                    $('#LoveIt').addClass('show');
                     break;
                 case 5:
                     break;
@@ -275,8 +316,42 @@
                 default:
                     break;
             }
+            
         });
+       $('.view_item').click(function(){
+            $('.layout.show').removeClass('show');
+            $('#music_list').addClass('show');
+       });
+       $('#backTab').click(function(){
+                switch (backBtn) {
+                        case 0:
+                            $('.layout.show').removeClass('show');
+                            $('#playlist').addClass('show');
+                            break;
+                        case 1:
+                            var searchinput = document.getElementById('search_input');
+                            searchinput.focus();
+                            break;
+                        case 2:
+                            $('.layout.show').removeClass('show');
+                            $('#myPL').addClass('show');
+                            break;
+                        case 3:
+                            $('.layout.show').removeClass('show');
+                            $('#Ranked').addClass('show');
+                            break;
+                        case 4:
+                            $('.layout.show').removeClass('show');
+                            $('#LoveIt').addClass('show');
+                            break;
+                        case 5:
+                            break;
+                        default:
+                            break;
+                }
+             })
        
+
     })
 </script>
 <script>

@@ -99,5 +99,5 @@ input[type="submit"]:hover {
 }
 
 :root {
-  --bg-img: linear-gradient(to bottom, #333, #000);
+  --bg-img: linear-gradient(to bottom, #333, 10%, #000) ;
 }
