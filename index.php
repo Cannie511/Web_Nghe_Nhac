@@ -50,6 +50,7 @@
                         <ion-icon id="ic_per" name="person-circle-sharp"></ion-icon>
                         <div id="more">
                             <div onclick="Edit()"><ion-icon name="key-outline"></ion-icon><span>Tài khoản</span></div>
+                            <div onclick="Register()"><ion-icon name="log-in-outline"></ion-icon><span>Đăng ký</span></div>
                             <div onclick="log_in()"><ion-icon name="person"></ion-icon><span>Đăng nhập</span></div>
                             <div><ion-icon name="settings-sharp"></ion-icon><span>Cài đặt</span></div>
                             <div>
@@ -267,7 +268,7 @@
     $(document).ready(function () {
         var backBtn = 0
         $('#main_play').scroll(function () {
-            if ($(this).scrollTop() >= 200) {
+            if ($(this).scrollTop()) {
                 $('#topMenu').css('background-color', 'var(--primary-color-custom)');
                 $('#topMenu').css('box-shadow', '1px 2px 5px black');
                 $('#personal').css('color', 'black');

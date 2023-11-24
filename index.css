@@ -658,7 +658,6 @@ input[type="range"] {
 
 #search>form>div>input:hover {
     border: 1px solid white;
-    width: 80%;
 }
 
 #search>form>div>ion-icon {
