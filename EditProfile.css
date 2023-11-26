@@ -84,6 +84,9 @@ body {
     box-shadow:  0 5px 5px 0 black;
     padding-left: 40px;
   }
+  #render{
+    width: 100%;
+  }
   :root{
       --bg-img: linear-gradient(to bottom, #333, #000);
   }

@@ -3,11 +3,14 @@
 
 <head>
     <meta charset="UTF-8">
-    <link rel="icon" href="../IMAGE/logoWeb.png" />
+    <link rel="icon" href="IMAGE/T.png" />
     <meta name="viewport" content="width=device-width, initial-scale=0.0">
     <title>TriVie Music</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="index.css">
+    <script crossorigin src="https://unpkg.com/react@17/umd/react.development.js"></script>
+    <script crossorigin src="https://unpkg.com/react-dom@17/umd/react-dom.development.js"></script>
+    <script crossorigin src="https://unpkg.com/babel-standalone@6/babel.min.js"></script>
 </head>
 <?php include "MusicProcess.php" ?>
 
@@ -141,7 +144,7 @@
                     </div>
                 </div>
                 <!-- ---------------------------------------DANH SÁCH PHÁT CỦA TÔI---------------------------------------------------- -->
-                <?php $pathPL = './IMAGE/pathPL.png' ?>
+                 <?php $pathPL = './IMAGE/pathPL.png' ?>
                 <div id="myPL" class="layout">
                     <div class="title_pl">
                         <h1>DANH SÁCH CỦA TÔI</h1>
@@ -164,7 +167,7 @@
                         <?php loadPlaylist($pathPL, 5) ?>
                     </div>
                     <br>
-                </div>
+                </div> 
                 <!-- -----------------------------------------BẢNG XẾP HẠNG----------------------------------------- -->
                 <div id="Ranked" class="layout">
                     <div id="banner_play_list_BXH">
@@ -311,13 +314,9 @@
                     $('.layout.show').removeClass('show');
                     $('#LoveIt').addClass('show');
                     break;
-                case 5:
-                    break;
-                    break;
                 default:
                     break;
-            }
-            
+                }
         });
        $('.view_item').click(function(){
             $('.layout.show').removeClass('show');
@@ -355,8 +354,11 @@
 
     })
 </script>
-<script>
-
-</script>
-
+<!-- <script type="text/babel" src="Playlists.js"></script>
+<script type="text/babel">
+    function handleCLick(){
+        ReactDOM.render(<Playlists />, document.getElementById('myPL'))
+    }
+    document.getElementById('dsphat').addEventListener('click', handleCLick)
+</script> -->
 </html>
