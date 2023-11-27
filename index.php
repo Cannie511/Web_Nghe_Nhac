@@ -28,7 +28,7 @@
                     </h1>
                 </div>
                 <div id="menu_cover">
-                    <div class="col-md-4 menu_item init" id="home"><ion-icon name="home-outline"></ion-icon><span>TRANG
+                    <div class=" menu_item init" data-bs-toggle="tooltip" data-bs-placement="top" title="Trang chủ" id="home"><ion-icon name="home-outline"></ion-icon><span>TRANG
                             CHỦ</span></div>
                     <div class="col-md-4 menu_item" id="timkiem"><ion-icon name="search-outline"></ion-icon><span>TÌM
                             KIẾM</span></div>
@@ -223,7 +223,23 @@
                             style="margin-left: 20px; font-family: Georgia, 'Times New Roman', Times, serif;">...</strong>
                     </div>
                     <div id='music_panel'>
-                        <table id='list_mp3'>
+                    <table class="table table-dark table-hover list">
+                        <thead>
+                        <tr>
+                            <th scope="col">STT</th>
+                            <th scope="col">Hình</th>
+                            <th scope="col">Tiêu đề</th>
+                            <th scope="col">Tác giả, ca sĩ</th>
+                            <th scope="col">Ngày phát hành</th>
+                            <th scope="col">Thời lượng</th>
+                            <th scope="col"></th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        <?php loadMusic() ?>
+                        </tbody>
+                    </table>
+                        <!-- <table id='list_mp3'>
                             <tr>
                                 <th>STT</th>
                                 <th>hình</th>
@@ -238,7 +254,7 @@
                                 </td>
                             </tr>
                             <?php loadMusic() ?>
-                        </table>
+                        </table> -->
                     </div>
                 </div>
             </div>

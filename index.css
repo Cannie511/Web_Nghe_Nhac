@@ -326,15 +326,6 @@ th{
     text-align: center;
 
 }
-
-#list_mp3>tr,
-td,
-th {
-    padding-top: 5px;
-    height: 7vh;
-    transition: all 0.3s ease-in-out;
-}
-
 #crop_img {
     width: 23%;
     height: 90%;
@@ -348,42 +339,22 @@ th {
 
 #crop_img>img {
     width: 100px;
-    height: 60px;
+    height: 40px;
 }
 
-td:nth-child(2) {
-    display: flex;
-    align-items: center;
-    justify-content: center;
+.list{
+    cursor: pointer;    
 }
-
-td:first-child {
-
-    border-radius: 10px 0 0 10px;
-}
-
-td:last-child {
-    border-radius: 0 10px 10px 0;
-}
-
-tr:first-child {
-    font-size: 1vw;
-
-}
-
-tr:hover:not(:first-child, :nth-child(2)) {
-    background-color: gray;
-    cursor: pointer;
-
-}
-
-#music_panel {
-    width: 98%;
+.list tr{
     height: fit-content;
-    margin-left: 15px;
-    margin-top: 10px;
-    margin-right: 15px;
-    border-radius: 5px;
+    font-size: 18px;
+}
+.list td:first-child{
+    text-align: center;
+}
+#music_panel {
+    width: 100%;
+    height: fit-content;
 }
 
 #topMenu {
