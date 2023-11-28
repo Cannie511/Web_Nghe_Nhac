@@ -28,13 +28,47 @@
                     </h1>
                 </div>
                 <div id="menu_cover">
-                    <div class=" menu_item init" data-bs-toggle="tooltip" data-bs-placement="top" title="Trang chủ" id="home"><ion-icon name="home-outline"></ion-icon><span>TRANG
+                    <div class=" menu_item init" data-bs-toggle="tooltip" data-bs-placement="top" title="Trang chủ"
+                        id="home"><ion-icon name="home-outline"></ion-icon><span>TRANG
                             CHỦ</span></div>
-                    <div class="col-md-4 menu_item" id="timkiem"><ion-icon name="search-outline"></ion-icon><span>TÌM
+                    <div class="menu_item" id="timkiem"><ion-icon name="search-outline"></ion-icon><span>TÌM
                             KIẾM</span></div>
-                    <div class="col-md-4 menu_item" id="dsphat"><ion-icon name="list-outline">
+                    <div class="accordion" id="accordionExample">
+                        <div class="menu_item" id="dsphat" data-bs-toggle="collapse" data-bs-target="#collapseOne"
+                            aria-expanded="true" aria-controls="collapseOne"><ion-icon name="list-outline">
                             </ion-icon><span>DANH SÁCH PHÁT</span></div>
-                    <div class="col-md-4 menu_item" id="bxh"><ion-icon name="bar-chart-outline"></ion-icon><span>BẢNG XẾP
+                        <div id="collapseOne" class="accordion-collapse collapse " id="dropdownMenuOffset"
+                            data-bs-toggle="dropdown" aria-expanded="false" data-bs-offset="10,20">
+                            <div class="accordion-body">
+                                    <div class="col-md-4 menu_item" id=""><ion-icon
+                                            name="musical-notes"></ion-icon><span>DANH SÁCH 1</span></div>
+                            </div>
+                        </div>
+                        <div id="collapseOne" class="accordion-collapse collapse" aria-labelledby="headingOne"
+                            data-bs-parent="#accordionExample">
+                            <div class="accordion-body">
+                                <div class="col-md-4 menu_item" id=""><ion-icon
+                                        name="musical-notes"></ion-icon><span>DANH SÁCH 2</span></div>
+                            </div>
+                        </div>
+                        <div id="collapseOne" class="accordion-collapse collapse" aria-labelledby="headingOne"
+                            data-bs-parent="#accordionExample">
+                            <div class="accordion-body">
+                                <div class="col-md-4 menu_item" id=""><ion-icon
+                                        name="musical-notes"></ion-icon><span>DANH SÁCH 3</span></div>
+                            </div>
+                        </div>
+                        <div id="collapseOne" class="accordion-collapse collapse" aria-labelledby="headingOne"
+                            data-bs-parent="#accordionExample">
+                            <div class="accordion-body">
+                                <div class="col-md-4 menu_item" id="" data-bs-toggle="modal"
+                                    data-bs-target="#exampleModal" data-bs-whatever="@mdo"><ion-icon
+                                        name="add"></ion-icon><span>Tạo mới</span></div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-4 menu_item" id="bxh"><ion-icon name="bar-chart-outline"></ion-icon><span>BẢNG
+                            XẾP
                             HẠNG</span>
                     </div>
                     <div class="col-md-4 menu_item" id="yeu thich"><ion-icon name="heart-outline"></ion-icon><span>YÊU
@@ -45,6 +79,36 @@
                 <div id="navbar"><ion-icon name="chevron-back-outline"></ion-icon></div>
             </div>
         </div>
+        <!-- --------------------------------------------------GIAO DIỆN TẠO MỚI-------------------------------------------------- -->
+        <div class="modal fade " id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h1 class="modal-title fs-5" id="exampleModalLabel">Danh Sách Mới</h1>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body">
+                        <form>
+                            <div class="mb-3">
+                                <label for="recipient-name" class="col-form-label">Tên Danh Sách:</label>
+                                <input type="text" class="form-control" id="recipient-name">
+                            </div>
+                            <div class="mb-3">
+                                <label for="message-text" class="col-form-label">Mô tả:</label>
+                                <textarea class="form-control" id="message-text"></textarea>
+                            </div>
+                        </form>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Hủy</button>
+                        <button type="button" class="btnAll primary">Tạo mới</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- --------------------------------------------ADVANCED LIST---------------------------------------------- -->
+
+        <!-- --------------------------------------------ADVANCED LIST---------------------------------------------- -->
         <div class="col-sm-7">
             <div id="main_play">
                 <!-- ----------------------------------MENU FIXED------------------------------------------ -->
@@ -52,8 +116,10 @@
                     <div id="personal" onmouseup='showMore()' onmouseleave="setTimeout('hideMore(),1500')">
                         <ion-icon id="ic_per" name="person-circle-sharp"></ion-icon>
                         <div id="more">
-                            <div onclick="Edit()"><ion-icon name="key-outline"></ion-icon><span>Tài khoản</span></div>
-                            <div onclick="Register()"><ion-icon name="log-in-outline"></ion-icon><span>Đăng ký</span></div>
+                            <div onclick="Edit()"><ion-icon name="key-outline"></ion-icon><span>Tài khoản</span>
+                            </div>
+                            <div onclick="Register()"><ion-icon name="log-in-outline"></ion-icon><span>Đăng
+                                    ký</span></div>
                             <div onclick="log_in()"><ion-icon name="person"></ion-icon><span>Đăng nhập</span></div>
                             <div><ion-icon name="settings-sharp"></ion-icon><span>Cài đặt</span></div>
                             <div>
@@ -64,10 +130,10 @@
                         </div>
                     </div>
                     <div id="search" class="col-sm-4">
-                        <ion-icon name="chevron-back-circle" style="margin-left: 10px;" id = "backTab"></ion-icon>
+                        <ion-icon name="chevron-back-circle" style="margin-left: 10px;" id="backTab"></ion-icon>
                         <form action="" method="get">
                             <div>
-                                <ion-icon name="search-outline" ></ion-icon>
+                                <ion-icon name="search-outline"></ion-icon>
                                 <input type="text" placeholder="Bạn muốn nghe gì ?" id="search_input" class="col-sm-4">
                             </div>
                         </form>
@@ -82,7 +148,8 @@
                             <strong style="font-size: 110%;">playlist</strong><br>
                             <strong style="font-size: 300%;">SƠN TÙNG M-TP Radio</strong>
                             <br>
-                            <strong style="font-size: 120%";>20 Bài hát <ion-icon name="musical-notes-outline"></ion-icon>: Có chắc yêu là đây,
+                            <strong style="font-size: 120%" ;>20 Bài hát <ion-icon
+                                    name="musical-notes-outline"></ion-icon>: Có chắc yêu là đây,
                                 There's no one at all, Em của ngày hôm qua,...</strong>
                         </div>
                     </div>
@@ -144,7 +211,7 @@
                     </div>
                 </div>
                 <!-- ---------------------------------------DANH SÁCH PHÁT CỦA TÔI---------------------------------------------------- -->
-                 <?php $pathPL = './IMAGE/pathPL.png' ?>
+                <?php $pathPL = './IMAGE/pathPL.png' ?>
                 <div id="myPL" class="layout">
                     <div class="title_pl">
                         <h1>DANH SÁCH CỦA TÔI</h1>
@@ -167,7 +234,7 @@
                         <?php loadPlaylist($pathPL, 5) ?>
                     </div>
                     <br>
-                </div> 
+                </div>
                 <!-- -----------------------------------------BẢNG XẾP HẠNG----------------------------------------- -->
                 <div id="Ranked" class="layout">
                     <div id="banner_play_list_BXH">
@@ -176,7 +243,8 @@
                             <strong style="font-size: 110%;">Bảng Xếp Hạng</strong><br>
                             <strong style="font-size: 300%;">V-POP INDIE Việt</strong>
                             <br>
-                            <strong style="font-size: 120%;">50 Bài hát <ion-icon name="musical-notes-outline"></ion-icon>: Không thể say, Nấu ăn
+                            <strong style="font-size: 120%;">50 Bài hát <ion-icon
+                                    name="musical-notes-outline"></ion-icon>: Không thể say, Nấu ăn
                                 cho em, That's way, GODs,...</strong>
                         </div>
                     </div>
@@ -213,7 +281,9 @@
                             <strong style="font-size: 110%;">Playlist</strong><br>
                             <strong style="font-size: 300%;"> PLAYLIST YÊU THÍCH CỦA TÔI</strong>
                             <br>
-                            <strong style="font-size: 120%;">13 Bài hát <ion-icon name="musical-notes-outline"></ion-icon>:Cắt đôi nỗi sầu, Trời hôm nay nhiều mây cực,...</strong>
+                            <strong style="font-size: 120%;">13 Bài hát <ion-icon
+                                    name="musical-notes-outline"></ion-icon>:Cắt đôi nỗi sầu, Trời hôm nay nhiều mây
+                                cực,...</strong>
                         </div>
                     </div>
                     <div id="title_music">
@@ -223,22 +293,22 @@
                             style="margin-left: 20px; font-family: Georgia, 'Times New Roman', Times, serif;">...</strong>
                     </div>
                     <div id='music_panel'>
-                    <table class="table table-dark table-hover list">
-                        <thead>
-                        <tr>
-                            <th scope="col">STT</th>
-                            <th scope="col">Hình</th>
-                            <th scope="col">Tiêu đề</th>
-                            <th scope="col">Tác giả, ca sĩ</th>
-                            <th scope="col">Ngày phát hành</th>
-                            <th scope="col">Thời lượng</th>
-                            <th scope="col"></th>
-                        </tr>
-                        </thead>
-                        <tbody>
-                        <?php loadMusic() ?>
-                        </tbody>
-                    </table>
+                        <table class="table table-dark table-hover list">
+                            <thead>
+                                <tr>
+                                    <th scope="col">STT</th>
+                                    <th scope="col">Hình</th>
+                                    <th scope="col">Tiêu đề</th>
+                                    <th scope="col">Tác giả, ca sĩ</th>
+                                    <th scope="col">Ngày phát hành</th>
+                                    <th scope="col">Thời lượng</th>
+                                    <th scope="col"></th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <?php loadMusic() ?>
+                            </tbody>
+                        </table>
                         <!-- <table id='list_mp3'>
                             <tr>
                                 <th>STT</th>
@@ -332,49 +402,50 @@
                     break;
                 default:
                     break;
-                }
+            }
         });
-       $('.view_item').click(function(){
+        $('.view_item').click(function () {
             $('.layout.show').removeClass('show');
             $('#music_list').addClass('show');
-       });
-       $('#backTab').click(function(){
-                switch (backBtn) {
-                        case 0:
-                            $('.layout.show').removeClass('show');
-                            $('#playlist').addClass('show');
-                            break;
-                        case 1:
-                            var searchinput = document.getElementById('search_input');
-                            searchinput.focus();
-                            break;
-                        case 2:
-                            $('.layout.show').removeClass('show');
-                            $('#myPL').addClass('show');
-                            break;
-                        case 3:
-                            $('.layout.show').removeClass('show');
-                            $('#Ranked').addClass('show');
-                            break;
-                        case 4:
-                            $('.layout.show').removeClass('show');
-                            $('#LoveIt').addClass('show');
-                            break;
-                        case 5:
-                            break;
-                        default:
-                            break;
-                }
-             })
-       
+        });
+        $('#backTab').click(function () {
+            switch (backBtn) {
+                case 0:
+                    $('.layout.show').removeClass('show');
+                    $('#playlist').addClass('show');
+                    break;
+                case 1:
+                    var searchinput = document.getElementById('search_input');
+                    searchinput.focus();
+                    break;
+                case 2:
+                    $('.layout.show').removeClass('show');
+                    $('#myPL').addClass('show');
+                    break;
+                case 3:
+                    $('.layout.show').removeClass('show');
+                    $('#Ranked').addClass('show');
+                    break;
+                case 4:
+                    $('.layout.show').removeClass('show');
+                    $('#LoveIt').addClass('show');
+                    break;
+                case 5:
+                    break;
+                default:
+                    break;
+            }
+        })
+
 
     })
 </script>
-<!-- <script type="text/babel" src="Playlists.js"></script>
+<script type="text/babel" src="Playlists.js"></script>
 <script type="text/babel">
     function handleCLick(){
         ReactDOM.render(<Playlists />, document.getElementById('myPL'))
     }
     document.getElementById('dsphat').addEventListener('click', handleCLick)
-</script> -->
+</script>
+
 </html>
