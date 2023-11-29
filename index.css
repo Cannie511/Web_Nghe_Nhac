@@ -36,6 +36,20 @@ a:hover {
 th{
     font-size: 20px;
 }
+/* -------------------------------------------------NOTIFICATION----------------------------------------------- */
+.noti{
+    margin-left: 43%;
+    margin-top: 20px;
+    width: 400px;
+    height: 30px;
+    position: absolute;
+}
+#alert{
+    position: absolute;
+    opacity: 0;
+    z-index: 2000;
+    transition: all 0.5s ease-in-out;
+}
 
 /* THẺ MENU */
 #menu {

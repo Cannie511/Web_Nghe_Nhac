@@ -135,7 +135,7 @@ h1, .h1 {
 }
 
 .dashboard-nav {
-    min-width: 238px;
+    min-width: 230px;
     position: fixed;
     left: 0;
     top: 0;
@@ -150,7 +150,8 @@ h1, .h1 {
 
 .dashboard-nav header {
     min-height: 84px;
-    padding: 8px 27px;
+    width: 100%;
+    padding: 8px 24px;
     display: -webkit-box;
     display: -webkit-flex;
     display: -ms-flexbox;
@@ -180,6 +181,7 @@ h1, .h1 {
 
 .dashboard-nav {
     background-color: #443ea2;
+    transition: all 0.3s ease-in-out;
 }
 
 .dashboard-nav a {
@@ -189,7 +191,7 @@ h1, .h1 {
 .brand-logo {
     font-family: "Nunito", sans-serif;
     font-weight: bold;
-    font-size: 20px;
+    font-size: 25px;
     display: -webkit-box;
     display: -webkit-flex;
     display: -ms-flexbox;
@@ -226,7 +228,7 @@ h1, .h1 {
 
 .dashboard-nav-item {
     min-height: 56px;
-    padding: 8px 20px 8px 70px;
+    padding: 8px 20px 8px 60px;
     display: -webkit-box;
     display: -webkit-flex;
     display: -ms-flexbox;
@@ -236,11 +238,11 @@ h1, .h1 {
     -ms-flex-align: center;
     align-items: center;
     letter-spacing: 0.02em;
-    transition: ease-out 0.5s;
+    transition: all 0.5s ease-in-out;
 }
 
-.dashboard-nav-item i {
-    width: 36px;
+.dashboard-nav-item ion-icon {
+    width: 40px;
     font-size: 19px;
     margin-left: -40px;
 }
@@ -267,10 +269,6 @@ h1, .h1 {
 
 .dashboard-nav-dropdown.show {
     background: rgba(255, 255, 255, 0.04);
-}
-
-.dashboard-nav-dropdown.show > .dashboard-nav-dropdown-toggle {
-    font-weight: bold;
 }
 
 .dashboard-nav-dropdown.show > .dashboard-nav-dropdown-toggle:after {
@@ -315,7 +313,7 @@ h1, .h1 {
 
 .dashboard-nav-dropdown-item {
     min-height: 40px;
-    padding: 8px 20px 8px 70px;
+    padding: 8px 20px 8px 50px;
     display: -webkit-box;
     display: -webkit-flex;
     display: -ms-flexbox;

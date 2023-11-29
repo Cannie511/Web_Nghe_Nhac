@@ -51,4 +51,24 @@ function loadPlaylist($imgPath, $n){
         }
     }
 }
+function loadUserAccount($n){
+    $no = 1;
+    $userAccount = array(
+        array("Id" => "admin@trivieco.com", "pass"=>"Abc123@", "birth"=>"05/11/2002"),
+        array("Id" => "Demo1@trivieco.com", "pass"=>"Abc123@", "birth"=>"25/08/2002"),
+        array("Id" => "Demo2@trivieco.com", "pass"=>"Abc123@", "birth"=>"31/10/2002"),
+        array("Id" => "Demo3@trivieco.com", "pass"=>"Abc123@", "birth"=>"15/11/2002"),
+    );
+    for ($i = 0; $i < $n; $i++) {
+        foreach ($userAccount as $k => $v) {
+            echo "<tr>
+            <th scope='row'>#".$no."</th>
+            <td>".$userAccount[$k]['Id']."</td>
+            <td><span><input type='password' id='pass' readonly value='".$userAccount[$k]['pass']."'></span></td>
+            <td>".$userAccount[$k]['birth']."</td>
+          </tr>";
+          $no++;
+        }
+    }
+}
 ?>

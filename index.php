@@ -15,6 +15,11 @@
 <?php include "MusicProcess.php" ?>
 
 <body>
+    <div class="noti">
+            <div class="alert alert-success" id="alert" role="alert">
+                A simple success alert—check it out!
+            </div>
+    </div>
     <div class="container-fluid">
 
         <div class="col-sm-4">
@@ -61,9 +66,8 @@
                         <div id="collapseOne" class="accordion-collapse collapse" aria-labelledby="headingOne"
                             data-bs-parent="#accordionExample">
                             <div class="accordion-body">
-                                <div class="col-md-4 menu_item" id="" data-bs-toggle="modal"
-                                    data-bs-target="#exampleModal" data-bs-whatever="@mdo"><ion-icon
-                                        name="add"></ion-icon><span>Tạo mới</span></div>
+                                <div class="col-md-4 menu_item" id="" data-bs-toggle="modal" data-bs-target="#exampleModal" data-bs-whatever="@mdo">
+                                    <ion-icon name="add"></ion-icon><span>Tạo mới</span></div>
                             </div>
                         </div>
                     </div>
@@ -101,7 +105,7 @@
                     </div>
                     <div class="modal-footer">
                         <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Hủy</button>
-                        <button type="button" class="btnAll primary">Tạo mới</button>
+                        <button id="btnConfirm" type="button" class="btnAll primary" >Tạo mới</button>
                     </div>
                 </div>
             </div>
@@ -435,8 +439,14 @@
                 default:
                     break;
             }
-        })
-
+        });
+        $('#btnConfirm').click(function(){
+            $('#alert').css("opacity", "1");
+            setTimeout( function(){
+                $('#alert').css("opacity", "0");;
+            }, 2500);
+            $('#exampleModal').modal('hide');
+        });
 
     })
 </script>

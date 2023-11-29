@@ -1,5 +1,4 @@
 body {
-  background: var(--bg-img);
   background-size: cover;
   display: flex;
   justify-content: center;
@@ -9,94 +8,54 @@ body {
   font-size: 20px;
   padding-left: 30px;
 }
-#title {
-  font-size: 50px;
+.main{
+  width: 50%;
+  height: 75vh;
+  margin-top: 70px ;
+  overflow: hidden;
+  box-shadow: 5px 5px 10px 0px gray;
+  border-radius: 15px;
 }
-
-#title>strong {
-  font-size: 60px;
-  line-height: 1.2;
-  display: inline-block;
-  width: 500px;
+.info{
+  height: 100vh;
 }
-
-#title>ion-icon {
-  cursor: pointer;
-  transition: all 0.2s ease-in-out;
-}
-
-#title>ion-icon:hover {
-  color: gray;
-}
-
-input {
-  border-radius: 5px;
-  width: 27vw;
-  height: 5vh;
-  background-color: #000;
-  border: 2px solid gray;
-  color: #fff;
-  padding-left: 20px;
-  font-size: 20px;
-
-}
-hr {
-  position: relative;
-  margin-left: 20px;
-  top: -10px;
-  width: 90%;
-  float: left;
-}
-a {
-  color: #fff;
-  font-size: 15px;
-}
-span{
-  position: relative;
-  left: -278px;
-}
-.or {
-  width: 100%;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-
-input[type="submit"] {
-  width: 29vw;
-  height: 50px;
-  text-align: center;
-  padding: 0;
-  border-radius: 40px;
-  border: 0;
-  font-weight: bolder;
-  background-color: white;
-  color: #000;
-  cursor: pointer;
-  transition: all 0.2s ease-in-out;
-}
-
-input[type="submit"]:last-child {
+.input{
   margin-top: 10px;
 }
-
-input[type="submit"]:hover {
+.icon-btn{
+  width: 100%;
+  display: flex;
+  margin-top: 20px;
+  justify-content: center;
+}
+.confirm{
   background-color: green;
   color: white;
+  height: 50px;
 }
-
-#form-login {
-  width: 30vw;
-  height: 45vw;
-  background: rgba(0, 0, 0, 0.8);
-  color: white;
-  padding: 30px 30px 40px;
-  box-shadow: rgba(255, 255, 255, 0.8);
-  border-radius: 10px;
-  box-shadow: 0 5px 5px 0 black;
-  padding-left: 40px;
+.banner>img{
+  position: relative;
+  margin: 0;
+  padding: 0;
+  top: -20px;
 }
-
+form{
+  margin-top: 20px;
+}
+input{
+  margin-top: 10px;
+}
+.icon{
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  border: 1px solid black;
+  display: flex;
+  margin-left: 10px;
+  justify-content: center;
+  align-items: center;
+  float: left;
+}
 :root {
   --bg-img: linear-gradient(to bottom, #333, 10%, #000) ;
 }
