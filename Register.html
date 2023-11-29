@@ -13,19 +13,18 @@
 </head>
 
 <body>
-  <div class="container text-center main">
+  <div class="container-fluid text-center main">
     
     <form action="" method="post">
 
     <div class="row row-cols-2 ">
 
       <div class="col info">
-        <h2><strong>Đăng Ký với TriVie</strong></h2>
+        <h2><strong>Đăng Ký với <span style="color: var(--logo-Tri-custom);">Tri</span><span style="color: var(--logo-Vie-custom);">Vie</span></strong></h2>
         <div class="icon-btn">
           <div class="icon"><i class="fab fa-google"></i></div>
           <div class="icon"><i class="fab fa-facebook"></i></div>
         </div>
-        <br><br>
         Điền thông tin
         
         <div class="input"></div>
@@ -33,18 +32,21 @@
             <input type="email" class="form-control" id="floatingInput" name="id_user" placeholder="name@example.com">
             <label for="floatingInput">Tên đăng nhập</label>
           </div>
-          <div class="form-floating mb-3">
             <input type="Date" class="form-control" id="floatingInput" name="birth_user" placeholder="name@example.com">
-          </div>
-          <div class="form-floating">
+            <select name="gender_user" id="" class="form-control">
+              <option value="-1">Giới tính</option>
+              <option value="0">Nữ</option>
+              <option value="1">Nam</option>
+              <option value="2">Không rõ</option>
+            </select>
+            <div class="form-floating mb-3">
             <input type="password" class="form-control" id="floatingPassword" name="pass_user" placeholder="Password">
             <label for="floatingPassword">Mật khẩu</label>
           </div>
-          <div class="form-floating">
+          <div class="form-floating mb-3">
             <input type="password" class="form-control" id="floatingPassword" name="retype_pass_user" placeholder="Password">
             <label for="floatingPassword">Nhập Lại Mật khẩu</label>
           </div>
-          <br>
           <input type="checkbox" style="width: 16px; height: 16px;">&nbsp;&nbsp;  Tôi đồng ý với <a href="">Điều khoản</a> của ứng dụng.
           <input type="submit" class="form-control confirm" value="Đăng ký">
       </div>
@@ -60,7 +62,6 @@
 <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/js/bootstrap.bundle.min.js"></script>
-  <script src="index.js"></script>
   <script>
     var backBtn = document.getElementById('backBtn');
     backBtn.onclick = function () {

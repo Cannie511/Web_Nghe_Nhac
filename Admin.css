@@ -2,6 +2,8 @@
     --font-family-sans-serif: "Open Sans", -apple-system, BlinkMacSystemFont,
     "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif, "Apple Color Emoji",
     "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+    --logo-Tri-custom: #32CD32;
+    --logo-Vie-custom: #EE6363;
 }
 
 *, *::before, *::after {
@@ -252,7 +254,7 @@ h1, .h1 {
 }
 
 .active {
-    background: rgba(0, 0, 0, 0.1);
+    background: rgba(106, 81, 232, 0.596);
 }
 
 .dashboard-nav-dropdown {
@@ -448,7 +450,37 @@ td>ion-icon{
     padding: auto;
     color: white;
 }
+td>i{
+    cursor: pointer;
+    transition: all 0.2s ease-in-out;
+}
+td>i:hover{
+    color: gray;
+}
 form{
     margin-top: 20px;
     margin: 0 auto;
+}
+select{
+    width: 200px;
+    background-color: var(--bs-table-bg);
+    color: #fff;
+    border: 0;
+    border-radius: 5px;
+}
+input[type="checkbox"]:checked{
+    background-color: green;
+}
+.fade{
+    display: none;
+}
+.show{
+    display: block;
+}
+.search_input{
+    margin-left: 50px;
+    width: 90%;
+}
+.right{
+    transform: translateX(55vw);
 }

@@ -17,7 +17,8 @@ body {
   border-radius: 15px;
 }
 .info{
-  height: 100vh;
+  height: 100%h;
+
 }
 .input{
   margin-top: 10px;
@@ -32,6 +33,10 @@ body {
   background-color: green;
   color: white;
   height: 50px;
+  transition: all 0.3s ease-in-out;
+}
+.confirm:hover{
+  background-color: var(--logo-Tri-custom);
 }
 .banner>img{
   position: relative;
@@ -42,9 +47,10 @@ body {
 form{
   margin-top: 20px;
 }
-input{
+input, select{
   margin-top: 10px;
 }
+
 .icon{
   width: 30px;
   height: 30px;
@@ -56,6 +62,21 @@ input{
   align-items: center;
   float: left;
 }
+@media (max-width: 932px) {
+  .banner{
+    display: none;
+  }
+  .info{
+    width: 100%;
+  }
+  .main{
+    width: 90%;
+    margin-left: auto;
+    margin-right: auto;
+  }
+}
 :root {
   --bg-img: linear-gradient(to bottom, #333, 10%, #000) ;
+  --logo-Tri-custom: #32CD32;
+  --logo-Vie-custom: #EE6363;
 }

@@ -313,22 +313,6 @@
                                 <?php loadMusic() ?>
                             </tbody>
                         </table>
-                        <!-- <table id='list_mp3'>
-                            <tr>
-                                <th>STT</th>
-                                <th>hình</th>
-                                <th>Tiêu đề</th>
-                                <th>Tác giả, Ca sĩ</th>
-                                <th>Ngày phát hành</th>
-                                <th>Thời lượng</th>
-                            </tr>
-                            <tr>
-                                <td colspan="6">
-                                    <hr>
-                                </td>
-                            </tr>
-                            <?php loadMusic() ?>
-                        </table> -->
                     </div>
                 </div>
             </div>

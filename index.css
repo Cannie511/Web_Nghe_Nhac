@@ -65,7 +65,6 @@ th{
     z-index: 10;
     overflow: hidden;
     transition: all 0.4s ease-in-out;
-    border-bottom: 1px solid gray;
     float: left;
 }
 
@@ -290,7 +289,6 @@ th{
     position: fixed;
     border-radius: 5px 5px 0 0;
     transition: all 0.4s ease-in-out;
-    border-bottom: 1px solid gray;
 }
 
 #main_play.full {
@@ -775,7 +773,7 @@ input[type="range"] {
 
 /*------------------------------------------------------ THẺ DEFAULT ------------------------------------------------------------------*/
 ::-webkit-scrollbar {
-    width: 2px;
+    width: 0px;
 }
 
 ::-webkit-scrollbar-thumb {
