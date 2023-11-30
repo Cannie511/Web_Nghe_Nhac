@@ -16,7 +16,7 @@
 <body>
   <div class="container-fluid text-center main">
 
-    <form action="" id="register" method="post">
+    <form action="xuly.php" id="0" method="post">
 
       <div class="row row-cols-2 ">
 
@@ -51,9 +51,9 @@
               placeholder="Password">
             <label for="floatingPassword">Nhập Lại Mật khẩu</label>
           </div>
-          <span><input type="checkbox" id="policy" name="policy_user" style="width: 16px; height: 16px;">&nbsp;&nbsp;
+          <span><input type="checkbox" id="policy" name="policy_user" style="width: 16px; height: 16px;" >&nbsp;&nbsp;
             Tôi đồng ý với <a href="">Điều khoản</a> của ứng dụng.</span>
-          <input type="submit" class="form-control confirm" value="Đăng ký">
+          <input type="submit" class="form-control confirm" value="Đăng ký" name="dangKy">
         </div>
         <div class="col banner">
           <img src="IMAGE/banner-log-vertical.jpg" alt="">
@@ -68,9 +68,9 @@
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/js/bootstrap.bundle.min.js"></script>
 <script>
-  document.getElementById('register').addEventListener('submit', function (event) {
+  document.getElementById('1').addEventListener('submit', function (event) {
     event.preventDefault();
-    var checkInputs = document.getElementById('register').querySelectorAll('input');
+    var checkInputs = document.getElementById('1').querySelectorAll('input');
     checkInputs.forEach(function (input) {
       if (input.value.trim() == "") {
         input.classList.add('is-invalid');
