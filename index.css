@@ -63,13 +63,16 @@ th{
     opacity: 0.8;
     position: fixed;
     z-index: 10;
-    overflow: hidden;
-    transition: all 0.4s ease-in-out;
+    overflow-y: scroll;
+    overflow-x: hidden;
+    transition: all 0.3s ease-in-out;
     float: left;
 }
 
 #menu_cover {
     margin-top: 70px;
+    margin-bottom: 30px;
+    overflow: scroll;
     transition: all 0.3s ease-in-out;
 }
 
@@ -205,23 +208,18 @@ th{
 #menu_cover.hide>div>span {
     font-size: 0px;
 }
-#menu_cover.hide>div#accordionExample>div#dsphat>span{
+#menu_cover.hide>div#accordionExample>div.menu_item>span{
     font-size: 0px;
 }
-#menu_cover.hide>div#accordionExample>div#dsphat>ion-icon{
+#menu_cover.hide>div#accordionExample>div.menu_item>ion-icon{
     font-size: 2vw;
-    transform: translateX(5px);
     cursor: pointer;
 }
-#menu_cover.hide>div#accordionExample>div.collapse>div.accordion-body>div.menu_item>span{
+#menu_cover.hide>div.accordion>div.collapse>div.menu_item>span{
     font-size: 0px;
 }
-#menu_cover.hide>div#accordionExample>div.collapset>div.accordion-body>div.menu_item>ion-icon{
-    font-size: 2vw;
-    transform: translateX(5px);
-    cursor: pointer;
-}
-#menu_cover.hide>div>ion-icon {
+
+#menu_cover.hide>div.accordion>div.collapse>div.menu_item>ion-icon{
     font-size: 2vw;
     transform: translateX(5px);
     cursor: pointer;
@@ -559,12 +557,12 @@ input[type="range"] {
 
 /* PHẦN NÚT ẨN HIỆN CỦA MENU */
 #navbar {
-    width: 100%;
+    width: 16vw;;
     height: 6vh;
     background-color: rgb(92, 91, 91);
     border-radius: 5px 5px 0 0;
-    position: absolute;
-    top: 82vh;
+    position: fixed;
+    top: 83.2vh;
     font-size: 5vh;
     cursor: pointer;
     z-index: 10;
@@ -592,8 +590,7 @@ input[type="range"] {
 }
 
 #navbar.open {
-    background-color: rgb(92, 91, 91);
-
+    width: 4.5vw;
 }
 
 /* NÚT DARKMODE */

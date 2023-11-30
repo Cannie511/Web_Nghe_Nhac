@@ -20,9 +20,7 @@ body {
   height: 100%h;
 
 }
-.input{
-  margin-top: 10px;
-}
+
 .icon-btn{
   width: 100%;
   display: flex;
@@ -30,13 +28,13 @@ body {
   justify-content: center;
 }
 .confirm{
-  background-color: green;
+  background-color: var(--logo-Vie-custom);
   color: white;
   height: 50px;
   transition: all 0.3s ease-in-out;
 }
 .confirm:hover{
-  background-color: var(--logo-Tri-custom);
+  background-color: #ec4949;
 }
 .banner>img{
   position: relative;
@@ -61,8 +59,14 @@ input, select{
   justify-content: center;
   align-items: center;
   float: left;
+  cursor: pointer;
+  transition: all 0.2s ease-in-out;
 }
-@media (max-width: 932px) {
+.icon:hover{
+  background-color: #000;
+  color: #fff;
+}
+@media (max-width: 968px) {
   .banner{
     display: none;
   }
@@ -71,8 +75,75 @@ input, select{
   }
   .main{
     width: 90%;
-    margin-left: auto;
-    margin-right: auto;
+    height: fit-content;
+    margin-left: 0 auto;
+    margin-right: 0 auto;
+    margin-top: 0 auto;
+    margin-bottom: 0 auto;
+    padding-bottom: 10px;
+  }
+}
+@media (min-width: 968px){
+  .main{
+    height: 80vh;
+    margin-top: 30px;
+    margin-bottom: 30px;
+    padding-bottom: -110px;
+  }
+}
+@media (min-height: 1200px){
+  .main{
+    height: 60vh;
+    margin-top: 30px;
+    margin-bottom: 30px;
+    padding-bottom: -110px;
+  }
+}
+@media (max-height: 630px){
+  input{
+    font-size: 15px;
+    height: 25px;
+  }
+  h2{
+    font-size: 20px;
+  }
+  select{
+    font-size: 20px;
+  }
+  .form-floating>.form-control, .form-floating>.form-control-plaintext, .form-floating>.form-select {
+    height: 25px;
+    min-height: 20px;
+    line-height: 0.75;
+  }
+  .form-floating>label {
+    position: absolute;
+    top: -10px;
+    font-size: 10px;
+    left: 0;
+    z-index: 2;
+    height: 100%;
+    padding: 12px;
+    overflow: hidden;
+    text-align: start;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    pointer-events: none;
+    border: var(--bs-border-width) solid transparent;
+    transform-origin: 0 0;
+    transition: opacity .1s ease-in-out,transform .1s ease-in-out;
+}
+  span{
+    font-size: 15px;
+  }
+  span>a{
+    font-size: 15px;
+  }
+  .form-control{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 10px;
+    height: 25px;
   }
 }
 :root {
