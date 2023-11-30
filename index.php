@@ -17,9 +17,13 @@
 
 <body>
     <div class="noti">
-            <div class="alert alert-success" id="alert" role="alert">
-            <i class="fa-solid fa-triangle-exclamation"></i>
-                A simple success alert—check it out!
+            <div class="alert alert-success" id="alert-success" role="alert">
+            <ion-icon name="checkmark"></ion-icon>&nbsp;&nbsp;
+                Tạo mới thành công!
+            </div>
+            <div class="alert alert-danger" id="alert-warning" role="alert">
+            <ion-icon name="warning"></ion-icon>&nbsp;&nbsp;
+                 A simple danger alert—check it out!
             </div>
     </div>
     <div class="container-fluid">
@@ -464,7 +468,7 @@
         $('#btnConfirm').click(function(){
             $('#alert').css("opacity", "1");
             setTimeout( function(){
-                $('#alert').css("opacity", "0");;
+                $('#alert-success').css("opacity", "0");;
             }, 2500);
             $('#exampleModal').modal('hide');
         });
