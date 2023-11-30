@@ -44,7 +44,7 @@ th{
     height: 30px;
     position: absolute;
 }
-#alert{
+.allAlert{
     position: absolute;
     opacity: 0;
     z-index: 2000;
@@ -207,24 +207,37 @@ th{
 
 #menu_cover.hide>div>span {
     font-size: 0px;
+    
 }
-#menu_cover.hide>div#accordionExample>div.menu_item>span{
-    font-size: 0px;
+#menu_cover>div.accordion>div.accordion-collapse>div.menu_item>span{
+    font-size: 1vw;
 }
-#menu_cover.hide>div#accordionExample>div.menu_item>ion-icon{
-    font-size: 2vw;
+#menu_cover>div.accordion>div.accordion-collapse>div.menu_item>ion-icon{
+    margin-left: 30px;
+    font-size: 1vw;
     cursor: pointer;
 }
-#menu_cover.hide>div.accordion>div.collapse>div.menu_item>span{
+#menu_cover.hide>div.accordion>div.accordion-collapse>div.menu_item>span{
     font-size: 0px;
 }
 
-#menu_cover.hide>div.accordion>div.collapse>div.menu_item>ion-icon{
+#menu_cover.hide>div.accordion>div.accordion-collapse>div.menu_item>ion-icon{
     font-size: 2vw;
     transform: translateX(5px);
     cursor: pointer;
 }
+#menu_cover.hide>div.accordion>div.menu_item>span{
+    font-size: 0px;
+}
 
+#menu_cover.hide>div.accordion>div.menu_item>ion-icon{
+    font-size: 2vw;
+    transform: translateX(5px);
+    cursor: pointer;
+}
+#menu_cover.hide>div.menu_item>ion-icon{
+    transform: translateX(5px);
+}
 #logo_T.hide {
     position: relative;
     padding-left: 2.5vw;

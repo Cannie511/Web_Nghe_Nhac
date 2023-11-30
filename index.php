@@ -17,14 +17,14 @@
 
 <body>
     <div class="noti">
-            <div class="alert alert-success" id="alert-success" role="alert">
+        <div class="alert alert-success allAlert" id="alert-success" role="alert">
             <ion-icon name="checkmark"></ion-icon>&nbsp;&nbsp;
-                Tạo mới thành công!
-            </div>
-            <div class="alert alert-danger" id="alert-warning" role="alert">
+            Tạo mới thành công!
+        </div>
+        <div class="alert alert-danger allAlert" id="alert-warning" role="alert">
             <ion-icon name="warning"></ion-icon>&nbsp;&nbsp;
-                 A simple danger alert—check it out!
-            </div>
+            Tạo thất bại - vui lòng thử lại
+        </div>
     </div>
     <div class="container-fluid">
         <div class="col-sm-4">
@@ -38,34 +38,42 @@
                 </div>
                 <div id="menu_cover">
                     <div class=" menu_item init" data-bs-toggle="tooltip" data-bs-placement="top" title="Trang chủ"
-                        id="home"><ion-icon name="home-outline"></ion-icon><span>TRANG
-                            CHỦ</span></div>
-                    <div class="menu_item" id="timkiem"><ion-icon name="search-outline"></ion-icon><span>TÌM
-                            KIẾM</span></div>
+                        id="home">
+                        <ion-icon name="home-outline"></ion-icon><span>TRANG CHỦ</span>
+                    </div>
+                    <div class="menu_item" id="timkiem">
+                        <ion-icon name="search-outline"></ion-icon>
+                        <span>TÌM KIẾM</span>
+                    </div>
                     <div class="accordion" id="accordionExample">
-                        <div class="menu_item" id="dsphat" data-bs-toggle="collapse" data-bs-target="#collapseOne"
-                            aria-expanded="true" aria-controls="collapseOne"><ion-icon name="list-outline">
-                            </ion-icon><span>DANH SÁCH PHÁT</span></div>
-                            <div id="collapseOne" class="accordion-collapse collapse" aria-labelledby="headingOne" data-bs-parent="#accordionExample">
-                                <div class="col-md-4 menu_item" id="">
-                                    <ion-icon name="musical-notes"></ion-icon><span>DANH SÁCH 1</span>
-                                </div>
+                        <div class="menu_item" id="dsphat" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+                            <ion-icon name="list-outline">
+                            </ion-icon><span>DANH SÁCH PHÁT</span>
                         </div>
                         <div id="collapseOne" class="accordion-collapse collapse" aria-labelledby="headingOne" data-bs-parent="#accordionExample">
-                                <div class="col-md-4 menu_item" id="">
-                                    <ion-icon name="musical-notes"></ion-icon><span>DANH SÁCH 2</span>
-                                </div>
-                        </div>
-                        <div id="collapseOne" class="accordion-collapse collapse" aria-labelledby="headingOne" data-bs-parent="#accordionExample">
-                                <div class="col-md-4 menu_item" id="">
-                                    <ion-icon name="musical-notes"></ion-icon><span>DANH SÁCH 3</span>
-                                </div>
+                            <div class="col-md-4 menu_item" id="">
+                                <ion-icon name="musical-notes"></ion-icon>
+                                <span>DANH SÁCH 1</span>
+                            </div>
                         </div>
                         <div id="collapseOne" class="accordion-collapse collapse" aria-labelledby="headingOne"
                             data-bs-parent="#accordionExample">
-                                <div class="col-md-4 menu_item" id="" data-bs-toggle="modal" data-bs-target="#exampleModal" data-bs-whatever="@mdo">
-                                    <ion-icon name="add"></ion-icon><span>Tạo mới</span>
-                                </div>
+                            <div class="col-md-4 menu_item" id="">
+                                <ion-icon name="musical-notes"></ion-icon><span>DANH SÁCH 2</span>
+                            </div>
+                        </div>
+                        <div id="collapseOne" class="accordion-collapse collapse" aria-labelledby="headingOne"
+                            data-bs-parent="#accordionExample">
+                            <div class="col-md-4 menu_item" id="">
+                                <ion-icon name="musical-notes"></ion-icon><span>DANH SÁCH 3</span>
+                            </div>
+                        </div>
+                        <div id="collapseOne" class="accordion-collapse collapse" aria-labelledby="headingOne"
+                            data-bs-parent="#accordionExample">
+                            <div class="col-md-4 menu_item" id="" data-bs-toggle="modal" data-bs-target="#exampleModal"
+                                data-bs-whatever="@mdo">
+                                <ion-icon name="add"></ion-icon><span>Tạo mới</span>
+                            </div>
                         </div>
                     </div>
                     <div class="col-md-4 menu_item" id="bxh"><ion-icon name="bar-chart-outline"></ion-icon><span>BẢNG
@@ -74,19 +82,23 @@
                     </div>
                     <div class="col-md-4 menu_item" id="yeu thich"><ion-icon name="heart-outline"></ion-icon><span>YÊU
                             THÍCH</span></div>
-                            <div class="accordion" id="accordionExample">
+                    <div class="accordion" id="accordionExample">
                         <div class="menu_item" data-bs-toggle="collapse" data-bs-target="#collapseOne1"
-                            aria-expanded="true" aria-controls="collapseOne"><ion-icon name="settings"></ion-icon><span>CÀI ĐẶT</span></div>
-                            <div id="collapseOne1" class="accordion-collapse collapse" aria-labelledby="headingOne" data-bs-parent="#accordionExample">
-                                <div class="col-md-4 menu_item" id="">
+                            aria-expanded="true" aria-controls="collapseOne"><ion-icon
+                                name="settings"></ion-icon><span>CÀI ĐẶT</span></div>
+                        <div id="collapseOne1" class="accordion-collapse collapse" aria-labelledby="headingOne"
+                            data-bs-parent="#accordionExample">
+                            <div class="col-md-4 menu_item" id="" data-bs-toggle="modal"
+                                data-bs-target="#ModalChangePass">
                                 <ion-icon name="lock-closed"></ion-icon><span>Đổi mật khẩu</span>
-                                </div>
                             </div>
-                            <div id="collapseOne1" class="accordion-collapse collapse" aria-labelledby="headingOne" data-bs-parent="#accordionExample">
-                                <div class="col-md-4 menu_item" id="" data-bs-toggle="modal" data-bs-target="#ModalChangePass" >
-                                    <ion-icon name="pencil"></ion-icon><span>Chỉnh sửa tài khoản</span>
-                                </div>
+                        </div>
+                        <div id="collapseOne1" class="accordion-collapse collapse" aria-labelledby="headingOne"
+                            data-bs-parent="#accordionExample">
+                            <div class="col-md-4 menu_item" id="">
+                                <ion-icon name="pencil"></ion-icon><span>Chỉnh sửa tài khoản</span>
                             </div>
+                        </div>
                     </div>
                 </div>
                 <div id="navbar"><ion-icon name="chevron-back-outline"></ion-icon></div>
@@ -113,14 +125,15 @@
                         </form>
                     </div>
                     <div class="modal-footer">
-                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Hủy</button>
-                        <button id="btnConfirm" type="button" class="btnAll primary" >Tạo mới</button>
+                        <button type="button" class="btn btn-secondary btnCancel" data-bs-dismiss="modal">Hủy</button>
+                        <button id="btnConfirm" type="button" class="btnAll primary">Tạo mới</button>
                     </div>
                 </div>
             </div>
         </div>
-         <!-- --------------------------------------------------GIAO DIỆN ĐỔI MK-------------------------------------------------- -->
-         <div class="modal fade " id="ModalChangePass" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <!-- --------------------------------------------------GIAO DIỆN ĐỔI MK-------------------------------------------------- -->
+        <div class="modal fade " id="ModalChangePass" tabindex="-1" aria-labelledby="exampleModalLabel"
+            aria-hidden="true">
             <div class="modal-dialog">
                 <div class="modal-content">
                     <div class="modal-header">
@@ -129,25 +142,29 @@
                     </div>
                     <div class="modal-body">
                         <form method="post">
-                        <div class="form-floating mb-3">
-                            <input type="password" class="form-control" id="floatingPassword" name="pass_user" placeholder="Mật khẩu cũ">
-                            <label for="floatingPassword">Mật khẩu cũ</label>
-                        </div>
-                        <div class="form-floating mb-3">
-                            <input type="password" class="form-control" id="floatingPassword" name="pass_user" placeholder="Mật khẩu mới">
-                            <label for="floatingPassword">Mật khẩu mới</label>
-                        </div>
-                        <div class="form-floating mb-3">
-                            <input type="password" class="form-control" id="floatingPassword" name="retype_pass_user" placeholder="Nhập lại mật khẩu mới">
-                            <label for="floatingPassword">Nhập lại mật khẩu mới</label>
-                        </div>
-                        <div class="modal-footer">
-                            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Hủy</button>
-                            <input type="submit" class="btnAll primary" id = 'btnConfirm' value="Đổi mật khẩu">
-                        </div>
+                            <div class="form-floating mb-3">
+                                <input type="password" class="form-control" id="old-pass" name="pass_user"
+                                    placeholder="Mật khẩu cũ">
+                                <label for="floatingPassword">Mật khẩu cũ</label>
+                            </div>
+                            <div class="form-floating mb-3">
+                                <input type="password" class="form-control" id="new-pass" name="pass_user"
+                                    placeholder="Mật khẩu mới">
+                                <label for="floatingPassword">Mật khẩu mới</label>
+                            </div>
+                            <div class="form-floating mb-3">
+                                <input type="password" class="form-control" id="retype-new-pass" name="retype_pass_user"
+                                    placeholder="Nhập lại mật khẩu mới">
+                                <label for="floatingPassword">Nhập lại mật khẩu mới</label>
+                            </div>
+                            <div class="modal-footer">
+                                <button type="button" class="btn btn-secondary btnCancel"
+                                    data-bs-dismiss="modal">Hủy</button>
+                                <input type="submit" class="btnAll primary" id='btnPassConfirm' value="Đổi mật khẩu">
+                            </div>
                         </form>
                     </div>
-                    
+
                 </div>
             </div>
         </div>
@@ -465,22 +482,35 @@
                     break;
             }
         });
-        $('#btnConfirm').click(function(){
-            $('#alert').css("opacity", "1");
-            setTimeout( function(){
-                $('#alert-success').css("opacity", "0");;
+        $('#btnConfirm').click(function () {
+            $('#alert-warning').css("opacity", "1");
+            setTimeout(function () {
+                $('#alert-warning').css("opacity", "0");;
             }, 2500);
             $('#exampleModal').modal('hide');
         });
-
+        $('#btnPassConfirm').click(function () {
+            $('#alert-success').css("opacity", "1");
+            setTimeout(function () {
+                $('#alert-success').css("opacity", "0");;
+            }, 2500);
+            $('#ModalChangePass').modal('hide');
+            return false;
+        });
+        $('.btnCancel').click(function () {
+            $('#alert-warning').css("opacity", "1");
+            setTimeout(function () {
+                $('#alert-warning').css("opacity", "0");;
+            }, 2500);
+        });
     })
 </script>
-<script type="text/babel" src="Playlists.js"></script>
+<!-- <script type="text/babel" src="Playlists.js"></script>
 <script type="text/babel">
     function handleCLick(){
         ReactDOM.render(<Playlists />, document.getElementById('myPL'))
     }
     document.getElementById('dsphat').addEventListener('click', handleCLick)
-</script>
+</script> -->
 
 </html>
