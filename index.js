@@ -19,20 +19,23 @@ var logo = document.getElementById("logo");
 var nav_rotate = document.getElementById("nav_rotate");
 var topMenu = document.getElementById("topMenu");
 var menu_cover = document.getElementById("menu_cover");
-navbar_toggle.onclick = function () {
-  navbar_toggle.classList.toggle("open");
-  menu.classList.toggle("hide");
-  main_play.classList.toggle("full");
-  logoT.classList.toggle("hide");
-  logoV.classList.toggle("hide");
-  logori.classList.toggle("hide");
-  logoie.classList.toggle("hide");
-  logo.classList.toggle("hide");
-  search.classList.toggle("full_scr");
-  list_music.classList.toggle("full_pg");
-  topMenu.classList.toggle("hide");
-  menu_cover.classList.toggle('hide');
+if(navbar_toggle!=null){
+  navbar_toggle.onclick = function () {
+    navbar_toggle.classList.toggle("open");
+    menu.classList.toggle("hide");
+    main_play.classList.toggle("full");
+    logoT.classList.toggle("hide");
+    logoV.classList.toggle("hide");
+    logori.classList.toggle("hide");
+    logoie.classList.toggle("hide");
+    logo.classList.toggle("hide");
+    search.classList.toggle("full_scr");
+    list_music.classList.toggle("full_pg");
+    topMenu.classList.toggle("hide");
+    menu_cover.classList.toggle('hide');
+  };
 };
+
 function play() {
   var play = document.getElementById("play_btn");
   var pause = document.getElementById("pause_btn");
@@ -52,13 +55,16 @@ function showMore() {
 function hideMore() {
   more.style.display = "none";
 }
-mode.onclick = function nightMode() {
-  mode.classList.toggle("night");
-  night.classList.toggle("night_body");
-  turn.classList.toggle("night_on");
-  btn_play_light.classList.toggle("light_btn");
-  time_play.classList.toggle("light_time_play");
+if(mode!=null){
+  mode.onclick = function() {
+    mode.classList.toggle("night");
+    night.classList.toggle("night_body");
+    turn.classList.toggle("night_on");
+    btn_play_light.classList.toggle("light_btn");
+    time_play.classList.toggle("light_time_play");
+  };
 };
+
 function log_in() {
   window.location = "log-in.html";
 }

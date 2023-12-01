@@ -1,57 +1,24 @@
-<!DOCTYPE html>
-<html lang="en">
+<?php
+// Kiểm tra xem biểu mẫu đã được gửi đi hay chưa
+if ($_SERVER["REQUEST_METHOD"] == "POST") {
+    // Thực hiện xử lý đăng ký tại đây
 
+    // Sau khi xử lý thành công, chuyển hướng tới trang thành công
+    header("Location: regis.php");
+    exit(); // Đảm bảo không có mã HTML hoặc dòng mã nào thêm vào sau lệnh header
+}
+?>
+
+<!-- Biểu mẫu HTML -->
+<html>
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Document</title>
-  <link rel="stylesheet" href="render.css">
-  <!-- <script crossorigin src="https://unpkg.com/react@17/umd/react.development.js"></script>
-  <script crossorigin src="https://unpkg.com/react-dom@17/umd/react-dom.development.js"></script>
-  <script crossorigin src="https://unpkg.com/babel-standalone@6/babel.min.js"></script> -->
+    <title>Đăng ký</title>
 </head>
-
 <body>
-
-<div id = 'btn'>Render</div>
-  <div class="container">
-  
-  <div id="hold">
-
-</div>
-  </div>
- 
- 
-
-
+    <form method="post" action="reactjs.php">
+      đây là trang form
+        <!-- Các trường nhập liệu và các phần tử khác trong form -->
+        <input type="submit" value="Đăng ký">
+    </form>
 </body>
-<!-- <script type="text/babel" src="Delete.js"></script>
-<script type="text/babel" src="CreateNew.js"></script>
-<script type="text/babel">
-  function handleClick() {
-    ReactDOM.render(<CreateNew />, document.getElementById('hold'));
-    // ReactDOM.render(<Delete/>, document.getElementById('hold'));
-  }
-  function del(){
-    ReactDOM.render(<Delete />, document.getElementById('hold'));
-  }
-  document.getElementById('btn').addEventListener('click', handleClick);
-</script> -->
-<script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
-<script>
-</script>
-<!-- <script type="text/babel">  
-    class MyComponent extends React.Component {
-      render() {
-        return <div class="render">
-           <h1>fix xong react rồi nè</h1>
-        </div>;
-      }
-    }
-    function handleClick(){
-        ReactDOM.render(<MyComponent />, document.getElementById('hold'));
-    }
-    document.getElementById('btn').addEventListener('click', handleClick);
-  </script> -->
-
 </html>

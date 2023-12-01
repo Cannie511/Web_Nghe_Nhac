@@ -82,6 +82,7 @@
                     <th scope="col">Mật khẩu</th>
                     <th scope="col">Chức vụ</th>
                     <th scope="col">Ngày sinh</th>
+                    <th scope="col">Trạng thái</th>
                     <th scope="col"></th>
                   </tr>
                 </thead>
