@@ -19,7 +19,7 @@
     <div class="row row-cols-2 ">
 
       <div class="col info">
-        <form action="" id="register" method="post">
+        <form action="xuly.php" id="register" method="post">
           <h2><strong>Đăng Ký với <span style="color: var(--logo-Tri-custom);">Tri</span><span
                 style="color: var(--logo-Vie-custom);">Vie</span></strong></h2>
           <div class="icon-btn">
@@ -56,7 +56,7 @@
           <div class="emptynoti"></div>
           <span><input type="checkbox" id="policy" name="policy_user" style="width: 16px; height: 16px;">&nbsp;&nbsp;
             Tôi đồng ý với <a href="">Điều khoản</a> của ứng dụng.</span>
-          <input type="submit" class="form-control confirm" id="btnDK" onclick="submitForm()" value="Đăng ký" name="dangKy">
+          <input type="submit" class="form-control confirm" id="btnDK"  value="Đăng ký" name="dangKy">
         </form>
         <div id="result"></div>
       </div>
@@ -76,42 +76,48 @@
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/js/bootstrap.bundle.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
 <script>
-  function submitForm() {
-        var formData = new FormData(document.getElementById('register'));
+  // function submitForm() {
+  //       var formData = new FormData(document.getElementById('register'));
 
-        var xhr = new XMLHttpRequest();
+  //       var xhr = new XMLHttpRequest();
 
-        xhr.addEventListener('load', function () {
-            document.getElementById('result').innerHTML = xhr.responseText;
-        });
+  //       xhr.addEventListener('load', function () {
+  //           document.getElementById('result').innerHTML = xhr.responseText;
+  //       });
 
-        xhr.addEventListener('error', function () {
-            alert('Oops! Something went wrong.');
-        });
+  //       xhr.addEventListener('error', function () {
+  //           alert('Oops! Something went wrong.');
+  //       });
 
-        xhr.open('POST', 'xuly.php', true);
+  //       xhr.open('POST', 'xuly.php', true);
 
-        // Set the following line if you want to send data as JSON
-        // xhr.setRequestHeader('Content-Type', 'application/json;charset=UTF-8');
+  //       // Set the following line if you want to send data as JSON
+  //       // xhr.setRequestHeader('Content-Type', 'application/json;charset=UTF-8');
 
-        xhr.send(formData);
-    }
-  // $(document).ready(function () {
-  //   var form = document.getElementById('register');
-  //   form.addEventListener('submit', function (event) {
-  //     var checkInputs = document.getElementById('register').querySelectorAll('input');
-  //     var empty = document.getElementsByClassName('emptynoti');
-  //     checkInputs.forEach(function (input) {
-  //       if (input.value.trim() === "") {
-  //         event.preventDefault();
-  //         input.classList.add('is-invalid');
-  //       }
-  //       else {
-  //         input.classList.remove('is-invalid');
-  //       }
-  //     });
-  //   });
-  // });
+  //       xhr.send(formData);
+  //   }
+  $(document).ready(function () {
+    var form = document.getElementById('register');
+    form.addEventListener('submit', function (event) {
+      var checkInputs = document.getElementById('register').querySelectorAll('input');
+      var empty = document.getElementsByClassName('emptynoti');
+      checkInputs.forEach(function (input) {
+        if (input.value.trim() === "") {
+          event.preventDefault();
+          input.classList.add('is-invalid');
+          // if($('#floatingPassword').value.trim()!== $('#floatingRetypePassword').value){
+          //   $('#floatingPassword').classList.add('is-invalid');
+          //   $('#floatingRetypePassword').classList.add('is-invalid');
+          // }
+          
+          // return false;
+        }
+        else {
+          input.classList.remove('is-invalid');
+        }
+      });
+    });
+  });
 </script>
 
 </html>
