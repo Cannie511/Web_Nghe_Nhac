@@ -75,5 +75,5 @@ function playList(){
   window.location = "playlist.html";
 }
 function Register(){
-  window.location = "Register.html";
+  window.location = "Register.php";
 }
