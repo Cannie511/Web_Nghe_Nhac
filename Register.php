@@ -54,7 +54,6 @@
             <label for="floatingPassword">Nhập Lại Mật khẩu</label>
           </div>
           <div id="retype"></div>
-          <br>
           <span><input type="checkbox" id="policy" name="policy_user" style="width: 16px; height: 16px;">&nbsp;&nbsp;
             Tôi đồng ý với <a href="">Điều khoản</a> của ứng dụng.</span>
           <input type="submit" class="form-control confirm" id="btnDK"  value="Đăng ký" name="dangKy">
@@ -89,15 +88,15 @@
           event.preventDefault();
           input.classList.add('is-invalid');
         }
-        if(pass !== repass){
-          event.preventDefault();
-          $('#floatingRetypePassword').addClass('is-invalid');
-          $('#retype').text('Mật khẩu không trùng khớp').css({'color':'red', 'font-size':'15px', 'float':'left'});
-        }
         else {
           input.classList.remove('is-invalid');
         }
       });
+      if(pass !== repass){
+          event.preventDefault();
+          $('#floatingRetypePassword').addClass('is-invalid');
+          $('#retype').text('Mật khẩu không trùng khớp').css({'color':'red', 'font-size':'15px', 'float':'left'});
+        }
     });
   });
 </script>
