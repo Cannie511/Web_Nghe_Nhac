@@ -1,8 +1,15 @@
-<?php
-$server_username = "root";
-$server_password = "";
-$server_host = "localhost";
-$database = 'webnghenhac';
 
-$conn = mysqli_connect($server_host,$server_username,$server_password,$database) ;
-mysqli_query($conn,"SET NAMES 'UTF8'");
+<?php
+$servername = "localhost";
+$username ="root";
+$password = "";
+
+try {
+  $conn = new PDO("mysql:host=$servername;dbname=webnghenhac", $username, $password);
+  
+  $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+ 
+} catch(PDOException $e) {
+    echo "co loi khi ket noi database";
+}
+?>

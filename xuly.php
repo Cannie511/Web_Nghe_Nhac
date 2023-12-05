@@ -139,7 +139,10 @@ if (isset($_POST["dangKy"])) {
   // } else {
     //truy vấn kiểm tra tồn tại
     $sql = "select Ten_Dang_Nhap  from nguoi_dung where Ten_Dang_Nhap='$username'";
-    if (mysqli_num_rows($conn->query($sql)) > 0) {
+    $stm = $conn->prepare($sql);
+    $stm->execute();
+    $data = $stm->fetchAll(PDO::FETCH_ASSOC);
+    if (count($data) > 0) {
       echo "<script>$('.allAlert').css('display','none')</script>";
       echo "<script>$('#alert-warning').css('display','block')</script>";
     } else {
