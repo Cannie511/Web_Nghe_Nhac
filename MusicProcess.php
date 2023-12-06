@@ -91,7 +91,6 @@ function loadUserAccount($n){
             echo "</td>
             <td>".$userAccount[$k]['Ngay_Sinh']."</td>
             <td>"; 
-            
             echo "</td>
             <td><i class='fas fa-pen'></i>&nbsp;&nbsp;&nbsp;&nbsp;<i class='fas fa-trash'></i></td>
           </tr>";

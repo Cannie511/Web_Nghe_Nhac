@@ -7,7 +7,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=0.0">
     <title>TriVie Music</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.4.2/css/fontawesome.min.css">
+    <link rel="stylesheet"
+        href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.4.2/css/fontawesome.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" />
     <link rel="stylesheet" href="index.css">
     <script crossorigin src="https://unpkg.com/react@17/umd/react.development.js"></script>
@@ -25,6 +26,10 @@
         <div class="alert alert-danger allAlert" id="alert-warning" role="alert">
             <ion-icon name="warning"></ion-icon>&nbsp;&nbsp;
             Tạo thất bại - vui lòng thử lại
+        </div>
+        <div class="alert alert-danger allAlert" id="alert-login" role="alert">
+            <ion-icon name="warning"></ion-icon>&nbsp;&nbsp;
+            Vui lòng <a href="log-in.html">Đăng nhập</a> để thực hiện chức năng
         </div>
     </div>
     <div class="container-fluid">
@@ -47,11 +52,13 @@
                         <span>TÌM KIẾM</span>
                     </div>
                     <div class="accordion" id="accordionExample">
-                        <div class="menu_item" id="dsphat" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+                        <div class="menu_item" id="dsphat" data-bs-toggle="collapse" data-bs-target="#collapseOne"
+                            aria-expanded="true" aria-controls="collapseOne">
                             <ion-icon name="list-outline">
                             </ion-icon><span>DANH SÁCH PHÁT</span>
                         </div>
-                        <div id="collapseOne" class="accordion-collapse collapse" aria-labelledby="headingOne" data-bs-parent="#accordionExample">
+                        <div id="collapseOne" class="accordion-collapse collapse" aria-labelledby="headingOne"
+                            data-bs-parent="#accordionExample">
                             <div class="col-md-4 menu_item" id="">
                                 <ion-icon name="musical-notes"></ion-icon>
                                 <span>DANH SÁCH 1</span>
@@ -378,6 +385,7 @@
         </div>
         <!-- -----------------------------------------------HIỆN NÚT BẤM NGHE--------------------------------------------- -->
         <div id="play">
+        <div id="info_music"></div>
             <div id="btn">
                 <ion-icon name="shuffle"></ion-icon>
                 <ion-icon name="play-skip-back-circle"></ion-icon>
@@ -388,9 +396,12 @@
             </div>
 
             <div id="time_play">
-                <span>-:-</span><input type="range"> <span>00:00</span>
+                <span>00:00</span><input type="range"> <span>00:00</span>
             </div>
         </div>
+        <audio controls style='opacity:0' id='music'>
+            <source src="https://vnso-pt-24-tf-a128-zmp3.zmdcdn.me/966012e4e868f2efc96237dedc1145af?authen=exp=1702026755~acl=/966012e4e868f2efc96237dedc1145af/*~hmac=082a75cb29b93bf5b0684f81ff20e085" />
+        </audio>
     </div>
 </body>
 <script src="index.js"></script>
@@ -484,9 +495,9 @@
             }
         });
         $('#btnConfirm').click(function () {
-            $('#alert-warning').css("opacity", "1");
+            $('#alert-login').css("opacity", "1");
             setTimeout(function () {
-                $('#alert-warning').css("opacity", "0");;
+                $('#alert-login').css("opacity", "0");;
             }, 2500);
             $('#exampleModal').modal('hide');
         });
@@ -504,6 +515,13 @@
                 $('#alert-warning').css("opacity", "0");;
             }, 2500);
         });
+        const music = document.getElementById('music');
+        $('#play_btn').click(function(){
+            music.play();
+        })
+        $('#pause_btn').click(function(){
+            music.pause();
+        })
     })
 </script>
 <!-- <script type="text/babel" src="Playlists.js"></script>
