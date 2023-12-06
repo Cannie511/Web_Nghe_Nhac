@@ -83,3 +83,30 @@ function playList(){
 function Register(){
   window.location = "Register.php";
 }
+document.addEventListener("DOMContentLoaded", function () {
+  var audio = document.getElementById("music");
+  var timeline = document.getElementById("timeline");
+  var startTime = document.getElementById("start-time");
+  var endTime = document.getElementById("end-time");
+
+  audio.addEventListener("timeupdate", function () {
+      var value = (audio.currentTime / audio.duration) * 100;
+      timeline.value = value;
+
+      // Format time as MM:SS
+      var formatTime = function (time) {
+          var minutes = Math.floor(time / 60);
+          var seconds = Math.floor(time % 60);
+          return (minutes < 10 ? '0' : '') + minutes + ':' + (seconds < 10 ? '0' : '') + seconds;
+      };
+
+      startTime.textContent = formatTime(audio.currentTime);
+      endTime.textContent = formatTime(audio.duration);
+  });
+
+  timeline.addEventListener("input", function () {
+      var value = timeline.value;
+      var currentTime = (value / 100) * audio.duration;
+      audio.currentTime = currentTime;
+  });
+});
