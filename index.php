@@ -43,7 +43,7 @@
                     </h1>
                 </div>
                 <div id="menu_cover">
-                    <div class=" menu_item init" data-bs-toggle="tooltip" data-bs-placement="top" title="Trang chủ"
+                    <div class="menu_item init" data-bs-toggle="tooltip" data-bs-placement="top" title="Trang chủ"
                         id="home">
                         <ion-icon name="home-outline"></ion-icon><span>TRANG CHỦ</span>
                     </div>
@@ -51,7 +51,7 @@
                         <ion-icon name="search-outline"></ion-icon>
                         <span>TÌM KIẾM</span>
                     </div>
-                    <div class="accordion" id="accordionExample">
+                    <div class="accordion " id="accordionExample">
                         <div class="menu_item" id="dsphat" data-bs-toggle="collapse" data-bs-target="#collapseOne"
                             aria-expanded="true" aria-controls="collapseOne">
                             <ion-icon name="list-outline">
@@ -59,7 +59,7 @@
                         </div>
                         <div id="collapseOne" class="accordion-collapse collapse" aria-labelledby="headingOne"
                             data-bs-parent="#accordionExample">
-                            <div class="col-md-4 menu_item" id="">
+                            <div class="menu_item col-md-4 " id="">
                                 <ion-icon name="musical-notes"></ion-icon>
                                 <span>DANH SÁCH 1</span>
                             </div>
@@ -72,13 +72,7 @@
                         </div>
                         <div id="collapseOne" class="accordion-collapse collapse" aria-labelledby="headingOne"
                             data-bs-parent="#accordionExample">
-                            <div class="col-md-4 menu_item" id="">
-                                <ion-icon name="musical-notes"></ion-icon><span>DANH SÁCH 3</span>
-                            </div>
-                        </div>
-                        <div id="collapseOne" class="accordion-collapse collapse" aria-labelledby="headingOne"
-                            data-bs-parent="#accordionExample">
-                            <div class="col-md-4 menu_item" id="" data-bs-toggle="modal" data-bs-target="#exampleModal"
+                            <div class="col-md-4 menu_item" id="newPlaylist" data-bs-toggle="modal" data-bs-target="#exampleModal"
                                 data-bs-whatever="@mdo">
                                 <ion-icon name="add"></ion-icon><span>Tạo mới</span>
                             </div>
@@ -218,7 +212,9 @@
                             <div>
                                 <ion-icon name="search-outline"></ion-icon>
                                 <input type="text" placeholder="Bạn muốn nghe gì ?" id="search_input" class="col-sm-4">
+                                <button type="submit" class="btn btn-secondary" style="border-radius: 50%; width: 45px; height: 45px; margin-left: 5px;" ><ion-icon name="search-outline"></ion-icon></button>
                             </div>
+                            
                         </form>
                     </div>
                 </div>
@@ -412,7 +408,7 @@
                 <span>00:00</span><input type="range"> <span>00:00</span>
             </div>
         </div>
-        <audio controls style='opacity:0' id='music'>
+        <audio controls loop style='opacity:0' id='music'>
             <source src="https://vnso-pt-24-tf-a128-zmp3.zmdcdn.me/966012e4e868f2efc96237dedc1145af?authen=exp=1702026755~acl=/966012e4e868f2efc96237dedc1145af/*~hmac=082a75cb29b93bf5b0684f81ff20e085" />
         </audio>
     </div>
@@ -494,6 +490,38 @@ $(document).ready(function() {
                 default:
                     break;
             }
+            console.log(index);
+        });
+        $('.menu_item').click(function (event) {
+            index = $(this).index();
+            backBtn = index;
+            $('.menu_item').removeClass('init');
+            $(this).addClass('init');
+            switch (index) {
+                case 0:
+                    $('.layout.show').removeClass('show');
+                    $('#playlist').addClass('show');
+                    break;
+                case 1:
+                    var searchinput = document.getElementById('search_input');
+                    searchinput.focus();
+                    break;
+                case 2:
+                    $('.layout.show').removeClass('show');
+                    $('#myPL').addClass('show');
+                    break;
+                case 3:
+                    $('.layout.show').removeClass('show');
+                    $('#Ranked').addClass('show');
+                    break;
+                case 4:
+                    $('.layout.show').removeClass('show');
+                    $('#LoveIt').addClass('show');
+                    break;
+                default:
+                    break;
+            }
+            console.log(index);
         });
         $('.view_item').click(function () {
             $('.layout.show').removeClass('show');
