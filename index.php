@@ -46,11 +46,13 @@
                         <span>TÌM KIẾM</span>
                     </div>
                     <div class="accordion" id="accordionExample">
-                        <div class="menu_item" id="dsphat" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+                        <div class="menu_item" id="dsphat" data-bs-toggle="collapse" data-bs-target="#collapseOne"
+                            aria-expanded="true" aria-controls="collapseOne">
                             <ion-icon name="list-outline">
                             </ion-icon><span>DANH SÁCH PHÁT</span>
                         </div>
-                        <div id="collapseOne" class="accordion-collapse collapse" aria-labelledby="headingOne" data-bs-parent="#accordionExample">
+                        <div id="collapseOne" class="accordion-collapse collapse" aria-labelledby="headingOne"
+                            data-bs-parent="#accordionExample">
                             <div class="col-md-4 menu_item" id="">
                                 <ion-icon name="musical-notes"></ion-icon>
                                 <span>DANH SÁCH 1</span>
@@ -76,16 +78,20 @@
                             </div>
                         </div>
                     </div>
-                    <div class="col-md-4 menu_item" id="bxh"><ion-icon name="bar-chart-outline"></ion-icon><span>BẢNG
+                    <div class="col-md-4 menu_item" id="bxh">
+                        <ion-icon name="bar-chart-outline"></ion-icon><span>BẢNG
                             XẾP
                             HẠNG</span>
                     </div>
-                    <div class="col-md-4 menu_item" id="yeu thich"><ion-icon name="heart-outline"></ion-icon><span>YÊU
-                            THÍCH</span></div>
+                    <div class="col-md-4 menu_item" id="yeu thich">
+                        <ion-icon name="heart-outline"></ion-icon><span>YÊU
+                            THÍCH</span>
+                    </div>
                     <div class="accordion" id="accordionExample">
                         <div class="menu_item" data-bs-toggle="collapse" data-bs-target="#collapseOne1"
-                            aria-expanded="true" aria-controls="collapseOne"><ion-icon
-                                name="settings"></ion-icon><span>CÀI ĐẶT</span></div>
+                            aria-expanded="true" aria-controls="collapseOne">
+                            <ion-icon name="settings"></ion-icon><span>CÀI ĐẶT</span>
+                        </div>
                         <div id="collapseOne1" class="accordion-collapse collapse" aria-labelledby="headingOne"
                             data-bs-parent="#accordionExample">
                             <div class="col-md-4 menu_item" id="" data-bs-toggle="modal"
@@ -101,7 +107,9 @@
                         </div>
                     </div>
                 </div>
-                <div id="navbar"><ion-icon name="chevron-back-outline"></ion-icon></div>
+                <div id="navbar">
+                    <ion-icon name="chevron-back-outline"></ion-icon>
+                </div>
             </div>
         </div>
         <!-- --------------------------------------------------GIAO DIỆN TẠO MỚI-------------------------------------------------- -->
@@ -178,12 +186,19 @@
                     <div id="personal" onmouseup='showMore()' onmouseleave="setTimeout('hideMore(),1500')">
                         <ion-icon id="ic_per" name="person-circle-sharp"></ion-icon>
                         <div id="more">
-                            <div onclick="Edit()"><ion-icon name="key-outline"></ion-icon><span>Tài khoản</span>
+                            <div onclick="Edit()">
+                                <ion-icon name="key-outline"></ion-icon><span>Tài khoản</span>
                             </div>
-                            <div onclick="Register()"><ion-icon name="log-in-outline"></ion-icon><span>Đăng
-                                    ký</span></div>
-                            <div onclick="log_in()"><ion-icon name="person"></ion-icon><span>Đăng nhập</span></div>
-                            <div><ion-icon name="settings-sharp"></ion-icon><span>Cài đặt</span></div>
+                            <div onclick="Register()">
+                                <ion-icon name="log-in-outline"></ion-icon><span>Đăng
+                                    ký</span>
+                            </div>
+                            <div onclick="log_in()">
+                                <ion-icon name="person"></ion-icon><span>Đăng nhập</span>
+                            </div>
+                            <div>
+                                <ion-icon name="settings-sharp"></ion-icon><span>Cài đặt</span>
+                            </div>
                             <!-- <div>
                                 <div id="switch">
                                     <div id="scroll"></div>
@@ -210,8 +225,8 @@
                             <strong style="font-size: 110%;">playlist</strong><br>
                             <strong style="font-size: 300%;">SƠN TÙNG M-TP Radio</strong>
                             <br>
-                            <strong style="font-size: 120%" ;>20 Bài hát <ion-icon
-                                    name="musical-notes-outline"></ion-icon>: Có chắc yêu là đây,
+                            <strong style="font-size: 120%" ;>20 Bài hát <ion-icon name="musical-notes-outline">
+                                </ion-icon>: Có chắc yêu là đây,
                                 There's no one at all, Em của ngày hôm qua,...</strong>
                         </div>
                     </div>
@@ -305,8 +320,8 @@
                             <strong style="font-size: 110%;">Bảng Xếp Hạng</strong><br>
                             <strong style="font-size: 300%;">V-POP INDIE Việt</strong>
                             <br>
-                            <strong style="font-size: 120%;">50 Bài hát <ion-icon
-                                    name="musical-notes-outline"></ion-icon>: Không thể say, Nấu ăn
+                            <strong style="font-size: 120%;">50 Bài hát <ion-icon name="musical-notes-outline">
+                                </ion-icon>: Không thể say, Nấu ăn
                                 cho em, That's way, GODs,...</strong>
                         </div>
                     </div>
@@ -343,8 +358,8 @@
                             <strong style="font-size: 110%;">Playlist</strong><br>
                             <strong style="font-size: 300%;"> PLAYLIST YÊU THÍCH CỦA TÔI</strong>
                             <br>
-                            <strong style="font-size: 120%;">13 Bài hát <ion-icon
-                                    name="musical-notes-outline"></ion-icon>:Cắt đôi nỗi sầu, Trời hôm nay nhiều mây
+                            <strong style="font-size: 120%;">13 Bài hát <ion-icon name="musical-notes-outline">
+                                </ion-icon>:Cắt đôi nỗi sầu, Trời hôm nay nhiều mây
                                 cực,...</strong>
                         </div>
                     </div>
@@ -400,110 +415,109 @@
 <script src="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.4.2/css/fontawesome.min.css"></script>
 
 <script>
-    $(document).ready(function () {
-        var backBtn = 0
-        $('#main_play').scroll(function () {
-            if ($(this).scrollTop()) {
-                $('#topMenu').css('background-color', 'var(--primary-color-custom)');
-                $('#topMenu').css('box-shadow', '1px 2px 5px black');
-                $('#personal').css('color', 'black');
-            }
-            else {
-                $('#topMenu').css('background-color', 'transparent');
-                $('#personal').css('color', 'white');
-                $('#topMenu').css('box-shadow', '0 0 0 white');
-            }
-        });
-        $('.menu_item').click(function () {
-            $('#main_play').animate({
-                scrollTop: 0
-            }, 400);
-            return false;
-        })
-        $('.menu_item').click(function (event) {
-            index = $(this).index();
-            backBtn = index;
-            $('.menu_item').removeClass('init');
-            $(this).addClass('init');
-            switch (index) {
-                case 0:
-                    $('.layout.show').removeClass('show');
-                    $('#playlist').addClass('show');
-                    break;
-                case 1:
-                    var searchinput = document.getElementById('search_input');
-                    searchinput.focus();
-                    break;
-                case 2:
-                    $('.layout.show').removeClass('show');
-                    $('#myPL').addClass('show');
-                    break;
-                case 3:
-                    $('.layout.show').removeClass('show');
-                    $('#Ranked').addClass('show');
-                    break;
-                case 4:
-                    $('.layout.show').removeClass('show');
-                    $('#LoveIt').addClass('show');
-                    break;
-                default:
-                    break;
-            }
-        });
-        $('.view_item').click(function () {
-            $('.layout.show').removeClass('show');
-            $('#music_list').addClass('show');
-        });
-        $('#backTab').click(function () {
-            switch (backBtn) {
-                case 0:
-                    $('.layout.show').removeClass('show');
-                    $('#playlist').addClass('show');
-                    break;
-                case 1:
-                    var searchinput = document.getElementById('search_input');
-                    searchinput.focus();
-                    break;
-                case 2:
-                    $('.layout.show').removeClass('show');
-                    $('#myPL').addClass('show');
-                    break;
-                case 3:
-                    $('.layout.show').removeClass('show');
-                    $('#Ranked').addClass('show');
-                    break;
-                case 4:
-                    $('.layout.show').removeClass('show');
-                    $('#LoveIt').addClass('show');
-                    break;
-                case 5:
-                    break;
-                default:
-                    break;
-            }
-        });
-        $('#btnConfirm').click(function () {
-            $('#alert-warning').css("opacity", "1");
-            setTimeout(function () {
-                $('#alert-warning').css("opacity", "0");;
-            }, 2500);
-            $('#exampleModal').modal('hide');
-        });
-        $('#btnPassConfirm').click(function () {
-            $('#alert-success').css("opacity", "1");
-            setTimeout(function () {
-                $('#alert-success').css("opacity", "0");;
-            }, 2500);
-            $('#ModalChangePass').modal('hide');
-            return false;
-        });
-        $('.btnCancel').click(function () {
-            $('#alert-warning').css("opacity", "1");
-            setTimeout(function () {
-                $('#alert-warning').css("opacity", "0");;
-            }, 2500);
-        });
+$(document).ready(function() {
+    var backBtn = 0
+    $('#main_play').scroll(function() {
+        if ($(this).scrollTop()) {
+            $('#topMenu').css('background-color', 'var(--primary-color-custom)');
+            $('#topMenu').css('box-shadow', '1px 2px 5px black');
+            $('#personal').css('color', 'black');
+        } else {
+            $('#topMenu').css('background-color', 'transparent');
+            $('#personal').css('color', 'white');
+            $('#topMenu').css('box-shadow', '0 0 0 white');
+        }
+    });
+    $('.menu_item').click(function() {
+        $('#main_play').animate({
+            scrollTop: 0
+        }, 400);
+        return false;
     })
+    $('.menu_item').click(function(event) {
+        index = $(this).index();
+        backBtn = index;
+        $('.menu_item').removeClass('init');
+        $(this).addClass('init');
+        switch (index) {
+            case 0:
+                $('.layout.show').removeClass('show');
+                $('#playlist').addClass('show');
+                break;
+            case 1:
+                var searchinput = document.getElementById('search_input');
+                searchinput.focus();
+                break;
+            case 2:
+                $('.layout.show').removeClass('show');
+                $('#myPL').addClass('show');
+                break;
+            case 3:
+                $('.layout.show').removeClass('show');
+                $('#Ranked').addClass('show');
+                break;
+            case 4:
+                $('.layout.show').removeClass('show');
+                $('#LoveIt').addClass('show');
+                break;
+            default:
+                break;
+        }
+    });
+    $('.view_item').click(function() {
+        $('.layout.show').removeClass('show');
+        $('#music_list').addClass('show');
+    });
+    $('#backTab').click(function() {
+        switch (backBtn) {
+            case 0:
+                $('.layout.show').removeClass('show');
+                $('#playlist').addClass('show');
+                break;
+            case 1:
+                var searchinput = document.getElementById('search_input');
+                searchinput.focus();
+                break;
+            case 2:
+                $('.layout.show').removeClass('show');
+                $('#myPL').addClass('show');
+                break;
+            case 3:
+                $('.layout.show').removeClass('show');
+                $('#Ranked').addClass('show');
+                break;
+            case 4:
+                $('.layout.show').removeClass('show');
+                $('#LoveIt').addClass('show');
+                break;
+            case 5:
+                break;
+            default:
+                break;
+        }
+    });
+    $('#btnConfirm').click(function() {
+        $('#alert-warning').css("opacity", "1");
+        setTimeout(function() {
+            $('#alert-warning').css("opacity", "0");;
+        }, 2500);
+        $('#exampleModal').modal('hide');
+    });
+    $('#btnPassConfirm').click(function() {
+        $('#alert-success').css("opacity", "1");
+        setTimeout(function() {
+            $('#alert-success').css("opacity", "0");;
+        }, 2500);
+        $('#ModalChangePass').modal('hide');
+        return false;
+    });
+    $('.btnCancel').click(function() {
+        $('#alert-warning').css("opacity", "1");
+        setTimeout(function() {
+            $('#alert-warning').css("opacity", "0");;
+        }, 2500);
+    });
+})
 </script>
 <!-- <script type="text/babel" src="Playlists.js"></script>
 <script type="text/babel">
