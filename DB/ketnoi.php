@@ -10,6 +10,6 @@ try {
   $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
  
 } catch(PDOException $e) {
-    echo "co loi khi ket noi database";
+    echo "ERROR! Connect problem!";
 }
 ?>
