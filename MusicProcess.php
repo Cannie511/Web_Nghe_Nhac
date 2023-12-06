@@ -54,10 +54,10 @@ function loadPlaylist($imgPath, $n){
 function loadUserAccount($n){
     $no = 1;
     $userAccount = array(
-        array("Id" => "admin@trivieco.com", "pass"=>"Abc123@", "rule"=>2,"birth"=>"05/11/2002"),
-        array("Id" => "Demo1@trivieco.com", "pass"=>"Abc123@", "rule"=>1, "birth"=>"25/08/2002"),
-        array("Id" => "Demo2@trivieco.com", "pass"=>"Abc123@", "rule"=>0, "birth"=>"31/10/2002"),
-        array("Id" => "Demo3@trivieco.com", "pass"=>"Abc123@", "rule"=>0, "birth"=>"15/11/2002"),
+        array("Id" => "admin@trivieco.com", "pass"=>"Abc123@", "rule"=>2,"birth"=>"05/11/2002", "state"=>1),
+        array("Id" => "Demo1@trivieco.com", "pass"=>"Abc123@", "rule"=>1, "birth"=>"25/08/2002", "state"=>0),
+        array("Id" => "Demo2@trivieco.com", "pass"=>"Abc123@", "rule"=>0, "birth"=>"31/10/2002","state"=>0),
+        array("Id" => "Demo3@trivieco.com", "pass"=>"Abc123@", "rule"=>0, "birth"=>"15/11/2002","state"=>1),
     );
     for ($i = 0; $i < $n; $i++) {
         foreach ($userAccount as $k => $v) {
@@ -77,6 +77,14 @@ function loadUserAccount($n){
             } 
             echo "</td>
             <td>".$userAccount[$k]['birth']."</td>
+            <td>"; 
+            if($userAccount[$k]['state'] == 1){
+                echo "<b style ='color:green;'>Active</b>";
+            }
+            else{
+                echo "<b style ='color:red;'>Disable</b>";
+            }
+            echo "</td>
             <td><i class='fas fa-pen'></i>&nbsp;&nbsp;&nbsp;&nbsp;<i class='fas fa-trash'></i></td>
           </tr>";
           $no++;
