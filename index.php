@@ -7,7 +7,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=0.0">
     <title>TriVie Music</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.4.2/css/fontawesome.min.css">
+    <link rel="stylesheet"
+        href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.4.2/css/fontawesome.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" />
     <link rel="stylesheet" href="index.css">
     <script crossorigin src="https://unpkg.com/react@17/umd/react.development.js"></script>
@@ -25,6 +26,10 @@
         <div class="alert alert-danger allAlert" id="alert-warning" role="alert">
             <ion-icon name="warning"></ion-icon>&nbsp;&nbsp;
             Tạo thất bại - vui lòng thử lại
+        </div>
+        <div class="alert alert-danger allAlert" id="alert-login" role="alert">
+            <ion-icon name="warning"></ion-icon>&nbsp;&nbsp;
+            Vui lòng <a href="log-in.html">Đăng nhập</a> để thực hiện chức năng
         </div>
     </div>
     <div class="container-fluid">
@@ -393,6 +398,7 @@
         </div>
         <!-- -----------------------------------------------HIỆN NÚT BẤM NGHE--------------------------------------------- -->
         <div id="play">
+        <div id="info_music"></div>
             <div id="btn">
                 <ion-icon name="shuffle"></ion-icon>
                 <ion-icon name="play-skip-back-circle"></ion-icon>
@@ -403,9 +409,12 @@
             </div>
 
             <div id="time_play">
-                <span>-:-</span><input type="range"> <span>00:00</span>
+                <span>00:00</span><input type="range"> <span>00:00</span>
             </div>
         </div>
+        <audio controls style='opacity:0' id='music'>
+            <source src="https://vnso-pt-24-tf-a128-zmp3.zmdcdn.me/966012e4e868f2efc96237dedc1145af?authen=exp=1702026755~acl=/966012e4e868f2efc96237dedc1145af/*~hmac=082a75cb29b93bf5b0684f81ff20e085" />
+        </audio>
     </div>
 </body>
 <script src="index.js"></script>
@@ -416,6 +425,7 @@
 
 
 <script>
+<<<<<<< HEAD
 $(document).ready(function() {
     var backBtn = 0
     $('#main_play').scroll(function() {
@@ -434,6 +444,118 @@ $(document).ready(function() {
             scrollTop: 0
         }, 400);
         return false;
+=======
+    $(document).ready(function () {
+        var backBtn = 0
+        $('#main_play').scroll(function () {
+            if ($(this).scrollTop()) {
+                $('#topMenu').css('background-color', 'var(--primary-color-custom)');
+                $('#topMenu').css('box-shadow', '1px 2px 5px black');
+                $('#personal').css('color', 'black');
+            }
+            else {
+                $('#topMenu').css('background-color', 'transparent');
+                $('#personal').css('color', 'white');
+                $('#topMenu').css('box-shadow', '0 0 0 white');
+            }
+        });
+        $('.menu_item').click(function () {
+            $('#main_play').animate({
+                scrollTop: 0
+            }, 400);
+            return false;
+        })
+        $('.menu_item').click(function (event) {
+            index = $(this).index();
+            backBtn = index;
+            $('.menu_item').removeClass('init');
+            $(this).addClass('init');
+            switch (index) {
+                case 0:
+                    $('.layout.show').removeClass('show');
+                    $('#playlist').addClass('show');
+                    break;
+                case 1:
+                    var searchinput = document.getElementById('search_input');
+                    searchinput.focus();
+                    break;
+                case 2:
+                    $('.layout.show').removeClass('show');
+                    $('#myPL').addClass('show');
+                    break;
+                case 3:
+                    $('.layout.show').removeClass('show');
+                    $('#Ranked').addClass('show');
+                    break;
+                case 4:
+                    $('.layout.show').removeClass('show');
+                    $('#LoveIt').addClass('show');
+                    break;
+                default:
+                    break;
+            }
+        });
+        $('.view_item').click(function () {
+            $('.layout.show').removeClass('show');
+            $('#music_list').addClass('show');
+        });
+        $('#backTab').click(function () {
+            switch (backBtn) {
+                case 0:
+                    $('.layout.show').removeClass('show');
+                    $('#playlist').addClass('show');
+                    break;
+                case 1:
+                    var searchinput = document.getElementById('search_input');
+                    searchinput.focus();
+                    break;
+                case 2:
+                    $('.layout.show').removeClass('show');
+                    $('#myPL').addClass('show');
+                    break;
+                case 3:
+                    $('.layout.show').removeClass('show');
+                    $('#Ranked').addClass('show');
+                    break;
+                case 4:
+                    $('.layout.show').removeClass('show');
+                    $('#LoveIt').addClass('show');
+                    break;
+                case 5:
+                    break;
+                default:
+                    break;
+            }
+        });
+        $('#btnConfirm').click(function () {
+            $('#alert-login').css("opacity", "1");
+            setTimeout(function () {
+                $('#alert-login').css("opacity", "0");;
+            }, 2500);
+            $('#exampleModal').modal('hide');
+        });
+        $('#btnPassConfirm').click(function () {
+            $('#alert-success').css("opacity", "1");
+            setTimeout(function () {
+                $('#alert-success').css("opacity", "0");;
+            }, 2500);
+            $('#ModalChangePass').modal('hide');
+            return false;
+        });
+        $('.btnCancel').click(function () {
+            $('#alert-warning').css("opacity", "1");
+            setTimeout(function () {
+                $('#alert-warning').css("opacity", "0");;
+            }, 2500);
+        });
+        const music = document.getElementById('music');
+        $('#play_btn').click(function(){
+            music.play();
+        })
+        $('#pause_btn').click(function(){
+            music.pause();
+        })
+>>>>>>> 5fd7e8b4d09f8ce503a895287397497a71d857aa
     })
     $('.menu_item').click(function(event) {
         index = $(this).index();

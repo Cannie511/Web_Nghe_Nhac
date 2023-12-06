@@ -1,14 +1,15 @@
 <!DOCTYPE html>
 <html lang="en">
-<?php include "G:\git_DoAn_WebNgheNhac\Web_Nghe_Nhac\MusicProcess.php" ?>
+<?php include "G:\git_DoAn_WebNgheNhac\Web_Nghe_Nhac-new\MusicProcess.php";?>
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="icon" href="IMAGE/user-cog-solid.svg" />
+  <!-- <link rel="icon" href="IMAGE/user-cog-solid.svg" /> -->
   <title>TriVie Administrator</title>
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" />
-  <script src="https://cdn.jsdelivr.net/npm/boxicons@latest/css/boxicons.min.css"></script>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/boxicons@latest/css/boxicons.min.css">
   <link rel="stylesheet" href="style/Admin.css">
 </head>
 <style>
@@ -73,20 +74,29 @@
               <div class='card-header'>
                 <h1><strong>Quản lý tài khoản</strong></h1>
               </div>
+              <nav class="navbar bg-light">
+                <div class="search_input md-8">
+                  <form class="d-flex" role="search" method="get" action="xuLyTimKiem.php" >
+                    <input class="form-control me-2" type="search" placeholder="ID người dùng" aria-label="Search" name="IDsearch">
+                    <button class="btn btn-outline-success" type="submit" name= "timKiem"><i class="fas fa-search"></i></button>
+                  </form>
+                </div>
+              </nav>
               <table class="table table-dark table-striped table-hover">
                 <thead>
+               
                   <tr>
                     <th scope="col">#</th>
                     <th scope="col">Tài khoản</th>
                     <th scope="col">Mật khẩu</th>
                     <th scope="col">Chức vụ</th>
                     <th scope="col">Ngày sinh</th>
-                    <th scope="col">Trạng thái</th>
+                    <th scope="col"></th>
                     <th scope="col"></th>
                   </tr>
                 </thead>
                 <tbody>
-                  <?php loadUserAccount(5) ?>
+                  <?php loadUserAccount(5); ?>
                 </tbody>
               </table>
             </div>

@@ -10,6 +10,7 @@
   
 //   $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
  
+
 // } catch(PDOException $e) {
 //     echo "co loi khi ket noi database";
 // }
@@ -28,5 +29,9 @@ $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
     echo "<script>
     console.log('DB CONNECTED FAILED. ');
     </script><br><br>";
+
+// } catch(PDOException $e) {
+//     echo "ERROR! Connect problem!";
+
 }
 ?>
