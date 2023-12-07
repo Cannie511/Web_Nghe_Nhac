@@ -2,7 +2,6 @@
 <html lang="en">
 
 <head>
-<<<<<<< HEAD
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
@@ -214,7 +213,7 @@
     </div>
   </div>
   </div>
->>>>>>> 43bd001d246e46ed6912aa5aa7f55916e16de593
+
 
 </body>
 <script src="index.js"></script>
