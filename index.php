@@ -52,7 +52,7 @@
                         <span>TÌM KIẾM</span>
                     </div>
                     <div class="accordion " id="accordionExample">
-                        <div class="menu_item" id="dsphat" data-bs-toggle="collapse" data-bs-target="#collapseOne"
+                        <div class="menu_item" id="dsphat" data-bs-toggle="collapse" data-bs-target=".collapse"
                             aria-expanded="true" aria-controls="collapseOne">
                             <ion-icon name="list-outline">
                             </ion-icon><span>DANH SÁCH PHÁT</span>
@@ -70,14 +70,16 @@
                                 <ion-icon name="musical-notes"></ion-icon><span>DANH SÁCH 2</span>
                             </div>
                         </div>
-                        <div id="collapseOne" class="accordion-collapse collapse" aria-labelledby="headingOne"
+                        <div id="" class="accordion-collapse collapse" aria-labelledby="headingOne"
                             data-bs-parent="#accordionExample">
-                            <div class="col-md-4 menu_item" id="newPlaylist" data-bs-toggle="modal" data-bs-target="#exampleModal"
+                            <!-- data-bs-target="#exampleModal" -->
+                            <div class="col-md-4 menu_item" id="newPlaylist" data-bs-toggle="modal" 
                                 data-bs-whatever="@mdo">
                                 <ion-icon name="add"></ion-icon><span>Tạo mới</span>
                             </div>
                         </div>
                     </div>
+<<<<<<< HEAD
                     <div class="col-md-4 menu_item" id="bxh">
                         <ion-icon name="bar-chart-outline"></ion-icon><span>BẢNG
                             XẾP
@@ -87,6 +89,11 @@
                         <ion-icon name="heart-outline"></ion-icon><span>YÊU
                             THÍCH</span>
                     </div>
+=======
+                    <div class="col-md-4 menu_item" id="bxh"><ion-icon name="bar-chart-outline"></ion-icon><span>BẢNG XẾP HẠNG</span>
+                    </div>
+                    <div class="col-md-4 menu_item" id="yeu thich"><ion-icon name="heart-outline"></ion-icon><span>YÊU THÍCH</span></div>
+>>>>>>> 6774de164ba9d67cb915c096409d35fc550f9a09
                     <div class="accordion" id="accordionExample">
                         <div class="menu_item" data-bs-toggle="collapse" data-bs-target="#collapseOne1"
                             aria-expanded="true" aria-controls="collapseOne">
@@ -397,20 +404,20 @@
         <div id="info_music"></div>
             <div id="btn">
                 <ion-icon name="shuffle"></ion-icon>
-                <ion-icon name="play-skip-back-circle"></ion-icon>
+                <ion-icon name="play-skip-back-circle"  onclick="playPrev()"></ion-icon>
                 <ion-icon id="play_btn" name="play-circle" onclick="play()"></ion-icon>
                 <ion-icon id="pause_btn" name="pause-circle" onclick="pause()"></ion-icon>
-                <ion-icon name="play-skip-forward-circle"></ion-icon>
-                <ion-icon name="refresh"></ion-icon>
+                <ion-icon name="play-skip-forward-circle" onclick="playNext()"></ion-icon>
+                <ion-icon name="refresh" id = "loopBtn" onclick="Loop()"></ion-icon>
             </div>
 
             <div id="time_play">
                 <span id="start-time">00:00</span>
-                <input type="range" id="timeline" min="0" value="0" step="1"> 
+                <input type="range" id="timeline" min="0" value="0" step="0.5"> 
                 <span id="end-time">00:00</span>
             </div>
         </div>
-        <audio controls loop style='opacity:0' id='music'>
+        <audio controls style='opacity:0' id='music'>
             <source src="https://vnso-pt-24-tf-a128-zmp3.zmdcdn.me/966012e4e868f2efc96237dedc1145af?authen=exp=1702026755~acl=/966012e4e868f2efc96237dedc1145af/*~hmac=082a75cb29b93bf5b0684f81ff20e085" />
         </audio>
     </div>
@@ -537,25 +544,26 @@
                     break;
             }
         });
-        $('#btnConfirm').click(function () {
-            $('#alert-login').css("opacity", "1");
-            setTimeout(function () {
-                $('#alert-login').css("opacity", "0");;
-            }, 2500);
-            $('#exampleModal').modal('hide');
-        });
+        // $('#btnConfirm').click(function () {
+        //     $('#alert-login').css("display", "block");
+        //     setTimeout(function () {
+        //         $('#alert-login').css("display", "none");
+        //     }, 2500);
+        //     $('#exampleModal').modal('hide');
+        // });
         $('#btnPassConfirm').click(function () {
-            $('#alert-success').css("opacity", "1");
+            $('#alert-success').css("display", "block");
+            
             setTimeout(function () {
-                $('#alert-success').css("opacity", "0");;
+                $('#alert-success').css("display", "none");;
             }, 2500);
             $('#ModalChangePass').modal('hide');
             return false;
         });
         $('.btnCancel').click(function () {
-            $('#alert-warning').css("opacity", "1");
+            $('#alert-warning').css("display", "bloack");
             setTimeout(function () {
-                $('#alert-warning').css("opacity", "0");;
+                $('#alert-warning').css("display", "none");;
             }, 2500);
         });
         const music = document.getElementById('music');
@@ -564,6 +572,12 @@
         })
         $('#pause_btn').click(function(){
             music.pause();
+        })
+        $('#newPlaylist').click(function(){
+            $('#alert-login').css("display", "block");
+            setTimeout(function () {
+                $('#alert-login').css("display", "none");
+            }, 2500);
         })
     })
     $('.menu_item').click(function(event) {

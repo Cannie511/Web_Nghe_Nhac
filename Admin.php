@@ -1,7 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
-<?php include "G:\git_DoAn_WebNgheNhac\Web_Nghe_Nhac-new\MusicProcess.php";?>
-
+<?php include 'MusicProcess.php';?>
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -10,7 +9,7 @@
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" />
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/boxicons@latest/css/boxicons.min.css">
-  <link rel="stylesheet" href="style/Admin.css">
+  <link rel="stylesheet" href="Admin.css">
 </head>
 <style>
 
@@ -53,6 +52,7 @@
           </div>
         </div>
         <a href="#" class="dashboard-nav-item"><ion-icon name="person-sharp"></ion-icon> Hồ sơ </a>
+        <a href="index.php" class="dashboard-nav-item"><ion-icon name="sync-outline"></ion-icon> Trang người dùng </a>
         <div class="nav-item-divider"></div>
         <a href="#" class="dashboard-nav-item"><ion-icon name="log-out"></ion-icon> Đăng xuất </a>
       </nav>
@@ -67,7 +67,7 @@
           <div class='card'>
 
             <div class='card-header '>
-              <h1>Welcome to <strong><span style="color: var(--logo-Tri-custom);">Tri</span><span
+              <h1>Chào mừng đến với <strong><span style="color: var(--logo-Tri-custom);">Tri</span><span
                     style="color: var(--logo-Vie-custom);">Vie</span></strong> Administrator</h1>
             </div>
             <div class='card-body fade' id="Account">

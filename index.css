@@ -36,9 +36,10 @@ th{
 }
 .allAlert{
     position: absolute;
-    opacity: 0;
+    opacity: 1;
     z-index: 2000;
-    transition: all 0.5s ease-in-out;
+    display: none;
+    transition: slide-down 0.5s ease-in-out;
 }
 
 /* THẺ MENU */
@@ -525,7 +526,10 @@ th{
     position: absolute;
     display: none;
 }
-
+#loopBtn.loop{
+    color: white;
+    font-weight: bold;
+}
 
 #time_play {
     width: 35vw;
@@ -795,7 +799,16 @@ input[type="range"] {
     color: gray;
     /* Firefox, Chrome, Opera */
 }
-
+@keyframes slide-down {
+    from {
+      opacity: 0;
+      transform: translateY(-50px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
 :root {
     --logo-Tri-custom: #32CD32;
     --logo-Vie-customL: #EE6363;
