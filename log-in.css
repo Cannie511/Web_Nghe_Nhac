@@ -13,11 +13,12 @@ body {
 #container {
   padding-left: 2rem;
   width: 350px;
-  height: 600px;
+  height: 800px;
+  background-color: #0e0e0e;
 }
 #form-login {
   width: 500px;
-  height: 820px;
+  height: 800px;
   background: black;
   color: rgb(255, 255, 255);
   padding: 30px 30px 40px;
@@ -89,10 +90,12 @@ input:checked + .slider:before {
 }
 #h {
   width: 100%;
-  height: 50px;
+  height: 90px;
+  margin-top: 30px;
 }
 h2 {
   font-size: 40px;
+  color: white;
 }
 
 #g1 {
@@ -206,25 +209,45 @@ h2 {
   margin-top: 2rem;
   font-size: 17px;
 }
-
-#email {
+.form-group {
+  margin-top: 1rem;
+  font-size: 17px;
   color: white;
-  background-color: rgb(25, 24, 24);
-  border: 1px solid #fff;
+}
+
+.form-control {
+  color: black;
+  background-color: white;
+  border: 1px solid;
   border-radius: 5px;
+}
+#mt1 {
+  color: white;
+}
+#mt2 {
+  color: red;
+}
+.mt-2 {
+  margin-left: 1rem;
+  color: #2196f3;
+}
+#sg {
+  color: #05df67;
+}
+.btn btn-primary {
 }
 #m1 {
   margin-top: 0.1rem;
   font-size: 17px;
 }
-#mk {
-  color: white;
-  background-color: rgb(25, 24, 24);
+#password {
+  color: black;
+  background-color: white;
   border: 1px solid #fff;
   border-radius: 5px;
 }
 
-#dn {
+.dn {
   margin-top: 1.5rem;
   color: black;
   background-color: rgb(5, 223, 103);
@@ -254,5 +277,10 @@ h2 {
   margin-left: 1rem;
 }
 :root {
-  --bg-img: linear-gradient(to bottom,rgb(48,48,48, 0.9)5%, rgb(37, 36, 36) 30%, rgb(8,8,8,1) 100%);
+  --bg-img: linear-gradient(
+    to bottom,
+    rgba(158, 149, 149, 0.9) 5%,
+    rgb(83, 79, 79) 30%,
+    rgb(115, 109, 109) 100%
+  );
 }

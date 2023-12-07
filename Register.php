@@ -61,7 +61,6 @@
         <div id="result"></div>
       </div>
 
-
       <div class="col banner">
         <img src="IMAGE/banner-log-vertical.jpg" alt="">
       </div>

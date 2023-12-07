@@ -66,7 +66,7 @@ if (mode != null) {
 };
 
 function log_in() {
-  window.location = "log-in.html";
+  window.location = "log-in.php";
 }
 function Edit() {
   window.location = "EditProfile.html";

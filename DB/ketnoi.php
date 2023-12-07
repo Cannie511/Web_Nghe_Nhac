@@ -1,15 +1,44 @@
 
-<?php
-$servername = "localhost";
-$username ="root";
-$password = "";
 
+<?php
+// $servername = "localhost";
+// $username ="root";
+// $password = "";
+
+<<<<<<< HEAD
 try {
   $conn = new PDO("mysql:host=$servername;dbname=webnghenhac", $username, $password);
   $conn->query("set names 'utf8' ");
   $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+=======
+// try {
+//   $conn = new PDO("mysql:host=$servername;dbname=webnghenhac", $username, $password);
+  
+//   $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+>>>>>>> a3950dc6362bb24730b93deb128a0e7780b6aedb
  
-} catch(PDOException $e) {
-    echo "ERROR! Connect problem!";
+
+// } catch(PDOException $e) {
+//     echo "co loi khi ket noi database";
+// }
+
+define("DB_HOST", "localhost");
+define("DB_DATABASE", "webnghenhac1");
+define("DB_USERNAME", "root");
+define("DB_PASSWORD", "");
+try {
+$conn = new PDO("mysql:host=" . constant("DB_HOST") . ";dbname=" . constant("DB_DATABASE").";charset=utf8", constant("DB_USERNAME"),
+constant("DB_PASSWORD"));
+$conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+
+
+} catch (PDOException $e) {
+    echo "<script>
+    console.log('DB CONNECTED FAILED. ');
+    </script><br><br>";
+
+// } catch(PDOException $e) {
+//     echo "ERROR! Connect problem!";
+
 }
 ?>
