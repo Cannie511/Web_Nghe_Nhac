@@ -89,6 +89,7 @@ var playlist = [
 var currentSongIndex = 0;
 var audioPlayer = document.getElementById("music");
 var loop = false;
+
 function playNext() {
   currentSongIndex++;
   if (currentSongIndex >= playlist.length) {
@@ -147,5 +148,4 @@ document.addEventListener("DOMContentLoaded", function () {
   });
   audio.addEventListener('ended', playNext);
 });
-
 

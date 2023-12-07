@@ -1,47 +1,48 @@
 <?php
  
  
-function ketNoi()
-{
-    
-   
-}
-    
+
 function loadMusic()
 {
-    $stt = 1;
-    for ($i = $stt; $i <= 20; $i++) {
-        $stt = $i;
-        $data = array(
-            array("stt" => $stt, "img" => "", "name" => "tên bài hát", "singer" => "Sơn Tùng M-TP, Mono", "date" => "1 tháng 1, 2023", "time" => "00:00")
-        );
+    include("DB/ketnoi.php");
+
+    $sql = "Select * from nghesi join trinhbay join bai_hat on nghesi.Ma_NS = trinhbay.Ma_NS AND bai_hat.Ma_Bai_Hat = trinhbay.Ma_Bai_Hat";
+    $stm = $conn->prepare($sql);
+    $stm->execute();
+    $data = $stm->fetchAll(PDO::FETCH_ASSOC);
+    // $stt = 1;
+    // for ($i = $stt; $i <= 20; $i++) {
+    //     $stt = $i;
+    //     $data = array(
+    //         array("stt" => $stt, "img" => "", "name" => "tên bài hát", "singer" => "Sơn Tùng M-TP, Mono", "date" => "1 tháng 1, 2023", "time" => "00:00")
+    //     );
 
         foreach ($data as $key => $music) {
             echo "<tr>";
             echo "<td>";
-            print_r($data[$key]['stt']);
+            print_r($data[$key]['Ma_Bai_Hat']);
             echo "<td>";
-            echo "<div id='crop_img'><img src = 'IMAGE/apple-music-note.jpg'></div>";
+            echo "<div id='crop_img'><img src = '".$data[$key]['Anh_Bia']."'></div>";
             echo "</td>";
             echo "</td>";
             echo "<td>";
-            print_r($data[$key]['name']);
+            print_r($data[$key]['Ten_Bai_Hat']);
             echo "</td>";
             echo "<td>";
-            print_r($data[$key]['singer']);
+            print_r($data[$key]['Ten_Ca_Si']);
             echo "</td>";
             echo "<td>";
-            print_r($data[$key]['date']);
+            print_r($data[$key]['Ngay_Phat_Hanh']);
             echo "</td>";
             echo "<td>";
-            print_r($data[$key]['time']);
+            print_r($data[$key]['Thoi_Luong']);
             echo "</td>";
             echo "<td>";
             echo "<ion-icon name='trash'></ion-icon>";
             echo "</td>";
             echo "</tr>";
         }
-    }
+    // }
 }
 function loadPlaylist($imgPath, $n){
     $playlist = array(
