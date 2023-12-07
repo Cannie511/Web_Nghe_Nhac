@@ -29,7 +29,7 @@
         </div>
         <div class="alert alert-danger allAlert" id="alert-login" role="alert">
             <ion-icon name="warning"></ion-icon>&nbsp;&nbsp;
-            Vui lòng <a href="log-in.html">Đăng nhập</a> để thực hiện chức năng
+            Vui lòng <a href="log-in.php">Đăng nhập</a> để thực hiện chức năng
         </div>
     </div>
     <div class="container-fluid">
@@ -52,7 +52,7 @@
                         <span>TÌM KIẾM</span>
                     </div>
                     <div class="accordion " id="accordionExample">
-                        <div class="menu_item" id="dsphat" data-bs-toggle="collapse" data-bs-target=".collapse"
+                        <div class="menu_item" id="dsphat" data-bs-toggle="collapse" data-bs-target="#collapseOne"
                             aria-expanded="true" aria-controls="collapseOne">
                             <ion-icon name="list-outline">
                             </ion-icon><span>DANH SÁCH PHÁT</span>
@@ -66,12 +66,6 @@
                         </div>
                         <div id="collapseOne" class="accordion-collapse collapse" aria-labelledby="headingOne"
                             data-bs-parent="#accordionExample">
-                            <div class="col-md-4 menu_item" id="">
-                                <ion-icon name="musical-notes"></ion-icon><span>DANH SÁCH 2</span>
-                            </div>
-                        </div>
-                        <div id="" class="accordion-collapse collapse" aria-labelledby="headingOne"
-                            data-bs-parent="#accordionExample">
                             <!-- data-bs-target="#exampleModal" -->
                             <div class="col-md-4 menu_item" id="newPlaylist" data-bs-toggle="modal" 
                                 data-bs-whatever="@mdo">
@@ -79,21 +73,12 @@
                             </div>
                         </div>
                     </div>
-<<<<<<< HEAD
                     <div class="col-md-4 menu_item" id="bxh">
-                        <ion-icon name="bar-chart-outline"></ion-icon><span>BẢNG
-                            XẾP
-                            HẠNG</span>
+                        <ion-icon name="bar-chart-outline"></ion-icon><span>BẢNG XẾP HẠNG</span>
                     </div>
                     <div class="col-md-4 menu_item" id="yeu thich">
-                        <ion-icon name="heart-outline"></ion-icon><span>YÊU
-                            THÍCH</span>
+                        <ion-icon name="heart-outline"></ion-icon><span>YÊU THÍCH</span>
                     </div>
-=======
-                    <div class="col-md-4 menu_item" id="bxh"><ion-icon name="bar-chart-outline"></ion-icon><span>BẢNG XẾP HẠNG</span>
-                    </div>
-                    <div class="col-md-4 menu_item" id="yeu thich"><ion-icon name="heart-outline"></ion-icon><span>YÊU THÍCH</span></div>
->>>>>>> 6774de164ba9d67cb915c096409d35fc550f9a09
                     <div class="accordion" id="accordionExample">
                         <div class="menu_item" data-bs-toggle="collapse" data-bs-target="#collapseOne1"
                             aria-expanded="true" aria-controls="collapseOne">
@@ -663,7 +648,7 @@
             $('#alert-warning').css("opacity", "0");;
         }, 2500);
     });
-})
+
 </script>
 <!-- <script type="text/babel" src="Playlists.js"></script>
 <script type="text/babel">
