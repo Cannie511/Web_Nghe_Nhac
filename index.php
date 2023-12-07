@@ -52,7 +52,7 @@
                         <span>TÌM KIẾM</span>
                     </div>
                     <div class="accordion " id="accordionExample">
-                        <div class="menu_item" id="dsphat" data-bs-toggle="collapse" data-bs-target="#collapseOne"
+                        <div class="menu_item" id="dsphat" data-bs-toggle="collapse" data-bs-target=".collapse"
                             aria-expanded="true" aria-controls="collapseOne">
                             <ion-icon name="list-outline">
                             </ion-icon><span>DANH SÁCH PHÁT</span>
@@ -70,20 +70,18 @@
                                 <ion-icon name="musical-notes"></ion-icon><span>DANH SÁCH 2</span>
                             </div>
                         </div>
-                        <div id="collapseOne" class="accordion-collapse collapse" aria-labelledby="headingOne"
+                        <div id="" class="accordion-collapse collapse" aria-labelledby="headingOne"
                             data-bs-parent="#accordionExample">
-                            <div class="col-md-4 menu_item" id="newPlaylist" data-bs-toggle="modal" data-bs-target="#exampleModal"
+                            <!-- data-bs-target="#exampleModal" -->
+                            <div class="col-md-4 menu_item" id="newPlaylist" data-bs-toggle="modal" 
                                 data-bs-whatever="@mdo">
                                 <ion-icon name="add"></ion-icon><span>Tạo mới</span>
                             </div>
                         </div>
                     </div>
-                    <div class="col-md-4 menu_item" id="bxh"><ion-icon name="bar-chart-outline"></ion-icon><span>BẢNG
-                            XẾP
-                            HẠNG</span>
+                    <div class="col-md-4 menu_item" id="bxh"><ion-icon name="bar-chart-outline"></ion-icon><span>BẢNG XẾP HẠNG</span>
                     </div>
-                    <div class="col-md-4 menu_item" id="yeu thich"><ion-icon name="heart-outline"></ion-icon><span>YÊU
-                            THÍCH</span></div>
+                    <div class="col-md-4 menu_item" id="yeu thich"><ion-icon name="heart-outline"></ion-icon><span>YÊU THÍCH</span></div>
                     <div class="accordion" id="accordionExample">
                         <div class="menu_item" data-bs-toggle="collapse" data-bs-target="#collapseOne1"
                             aria-expanded="true" aria-controls="collapseOne"><ion-icon
@@ -524,25 +522,26 @@
                     break;
             }
         });
-        $('#btnConfirm').click(function () {
-            $('#alert-login').css("opacity", "1");
-            setTimeout(function () {
-                $('#alert-login').css("opacity", "0");;
-            }, 2500);
-            $('#exampleModal').modal('hide');
-        });
+        // $('#btnConfirm').click(function () {
+        //     $('#alert-login').css("display", "block");
+        //     setTimeout(function () {
+        //         $('#alert-login').css("display", "none");
+        //     }, 2500);
+        //     $('#exampleModal').modal('hide');
+        // });
         $('#btnPassConfirm').click(function () {
-            $('#alert-success').css("opacity", "1");
+            $('#alert-success').css("display", "block");
+            
             setTimeout(function () {
-                $('#alert-success').css("opacity", "0");;
+                $('#alert-success').css("display", "none");;
             }, 2500);
             $('#ModalChangePass').modal('hide');
             return false;
         });
         $('.btnCancel').click(function () {
-            $('#alert-warning').css("opacity", "1");
+            $('#alert-warning').css("display", "bloack");
             setTimeout(function () {
-                $('#alert-warning').css("opacity", "0");;
+                $('#alert-warning').css("display", "none");;
             }, 2500);
         });
         const music = document.getElementById('music');
@@ -551,6 +550,12 @@
         })
         $('#pause_btn').click(function(){
             music.pause();
+        })
+        $('#newPlaylist').click(function(){
+            $('#alert-login').css("display", "block");
+            setTimeout(function () {
+                $('#alert-login').css("display", "none");
+            }, 2500);
         })
     })
 </script>
