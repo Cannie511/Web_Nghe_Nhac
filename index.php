@@ -405,7 +405,9 @@
             </div>
 
             <div id="time_play">
-                <span>00:00</span><input type="range"> <span>00:00</span>
+                <span id="start-time">00:00</span>
+                <input type="range" id="timeline" min="0" value="0" step="1"> 
+                <span id="end-time">00:00</span>
             </div>
         </div>
         <audio controls loop style='opacity:0' id='music'>
