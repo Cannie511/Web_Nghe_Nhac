@@ -208,10 +208,10 @@
                     </div>
                     <div id="search" class="col-sm-4">
                         <ion-icon name="chevron-back-circle" style="margin-left: 10px;" id="backTab"></ion-icon>
-                        <form action="" method="get">
+                        <form action="timkiem.php" method="get">
                             <div>
                                 <ion-icon name="search-outline"></ion-icon>
-                                <input type="text" placeholder="Bạn muốn nghe gì ?" id="search_input" class="col-sm-4">
+                                <input type="text" placeholder="Bạn muốn nghe gì ?" id="search_input" name="search" class="col-sm-4">
                                 <button type="submit" class="btn btn-secondary" style="border-radius: 50%; width: 45px; height: 45px; margin-left: 5px;" ><ion-icon name="search-outline"></ion-icon></button>
                             </div>
                             
@@ -423,26 +423,6 @@
 
 
 <script>
-<<<<<<< HEAD
-$(document).ready(function() {
-    var backBtn = 0
-    $('#main_play').scroll(function() {
-        if ($(this).scrollTop()) {
-            $('#topMenu').css('background-color', 'var(--primary-color-custom)');
-            $('#topMenu').css('box-shadow', '1px 2px 5px black');
-            $('#personal').css('color', 'black');
-        } else {
-            $('#topMenu').css('background-color', 'transparent');
-            $('#personal').css('color', 'white');
-            $('#topMenu').css('box-shadow', '0 0 0 white');
-        }
-    });
-    $('.menu_item').click(function() {
-        $('#main_play').animate({
-            scrollTop: 0
-        }, 400);
-        return false;
-=======
     $(document).ready(function () {
         var backBtn = 0
         $('#main_play').scroll(function () {
@@ -585,7 +565,6 @@ $(document).ready(function() {
         $('#pause_btn').click(function(){
             music.pause();
         })
->>>>>>> 5fd7e8b4d09f8ce503a895287397497a71d857aa
     })
     $('.menu_item').click(function(event) {
         index = $(this).index();

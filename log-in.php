@@ -93,7 +93,7 @@
                 return response.json();
             })
             .then(data => {
-                if (data.id && data.role) {
+                if (data.id ) {
                     sessionStorage.setItem("id", data.id);
                     sessionStorage.setItem("role", data.role);
                     window.location.href = "index.php";

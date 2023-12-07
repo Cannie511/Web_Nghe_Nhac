@@ -20,7 +20,7 @@ define("DB_DATABASE", "webnghenhac1");
 define("DB_USERNAME", "root");
 define("DB_PASSWORD", "");
 try {
-$conn = new PDO("mysql:host=" . constant("DB_HOST") . ";dbname=" . constant("DB_DATABASE"), constant("DB_USERNAME"),
+$conn = new PDO("mysql:host=" . constant("DB_HOST") . ";dbname=" . constant("DB_DATABASE").";charset=utf8", constant("DB_USERNAME"),
 constant("DB_PASSWORD"));
 $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 
