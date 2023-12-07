@@ -1,5 +1,5 @@
 <?php
-if (isset($_GET["search"])) {
+if (isset($_GET["search"]) && $_GET["search"] !== "" ) {
     require_once(__DIR__ . '/DB/ketnoi.php');
     try {
         $timKiem = '%' . trim(strtolower($_GET["search"])) . '%';

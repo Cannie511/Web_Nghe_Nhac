@@ -79,21 +79,9 @@
                             </div>
                         </div>
                     </div>
-<<<<<<< HEAD
-                    <div class="col-md-4 menu_item" id="bxh">
-                        <ion-icon name="bar-chart-outline"></ion-icon><span>BẢNG
-                            XẾP
-                            HẠNG</span>
-                    </div>
-                    <div class="col-md-4 menu_item" id="yeu thich">
-                        <ion-icon name="heart-outline"></ion-icon><span>YÊU
-                            THÍCH</span>
-                    </div>
-=======
                     <div class="col-md-4 menu_item" id="bxh"><ion-icon name="bar-chart-outline"></ion-icon><span>BẢNG XẾP HẠNG</span>
                     </div>
                     <div class="col-md-4 menu_item" id="yeu thich"><ion-icon name="heart-outline"></ion-icon><span>YÊU THÍCH</span></div>
->>>>>>> 6774de164ba9d67cb915c096409d35fc550f9a09
                     <div class="accordion" id="accordionExample">
                         <div class="menu_item" data-bs-toggle="collapse" data-bs-target="#collapseOne1"
                             aria-expanded="true" aria-controls="collapseOne">

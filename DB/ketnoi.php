@@ -1,19 +1,6 @@
 
 
 <?php
-// $servername = "localhost";
-// $username ="root";
-// $password = "";
-
-// try {
-//   $conn = new PDO("mysql:host=$servername;dbname=webnghenhac", $username, $password);
-  
-//   $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
- 
-
-// } catch(PDOException $e) {
-//     echo "co loi khi ket noi database";
-// }
 
 define("DB_HOST", "localhost");
 define("DB_DATABASE", "webnghenhac1");
@@ -30,8 +17,6 @@ $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
     console.log('DB CONNECTED FAILED. ');
     </script><br><br>";
 
-// } catch(PDOException $e) {
-//     echo "ERROR! Connect problem!";
 
 }
 ?>
