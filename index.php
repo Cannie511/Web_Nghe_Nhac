@@ -382,20 +382,20 @@
         <div id="info_music"></div>
             <div id="btn">
                 <ion-icon name="shuffle"></ion-icon>
-                <ion-icon name="play-skip-back-circle"></ion-icon>
+                <ion-icon name="play-skip-back-circle"  onclick="playPrev()"></ion-icon>
                 <ion-icon id="play_btn" name="play-circle" onclick="play()"></ion-icon>
                 <ion-icon id="pause_btn" name="pause-circle" onclick="pause()"></ion-icon>
-                <ion-icon name="play-skip-forward-circle"></ion-icon>
-                <ion-icon name="refresh"></ion-icon>
+                <ion-icon name="play-skip-forward-circle" onclick="playNext()"></ion-icon>
+                <ion-icon name="refresh" id = "loopBtn" onclick="Loop()"></ion-icon>
             </div>
 
             <div id="time_play">
                 <span id="start-time">00:00</span>
-                <input type="range" id="timeline" min="0" value="0" step="1"> 
+                <input type="range" id="timeline" min="0" value="0" step="0.5"> 
                 <span id="end-time">00:00</span>
             </div>
         </div>
-        <audio controls loop style='opacity:0' id='music'>
+        <audio controls style='opacity:0' id='music'>
             <source src="https://vnso-pt-24-tf-a128-zmp3.zmdcdn.me/966012e4e868f2efc96237dedc1145af?authen=exp=1702026755~acl=/966012e4e868f2efc96237dedc1145af/*~hmac=082a75cb29b93bf5b0684f81ff20e085" />
         </audio>
     </div>

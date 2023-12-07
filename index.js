@@ -19,7 +19,7 @@ var logo = document.getElementById("logo");
 var nav_rotate = document.getElementById("nav_rotate");
 var topMenu = document.getElementById("topMenu");
 var menu_cover = document.getElementById("menu_cover");
-if(navbar_toggle!=null){
+if (navbar_toggle != null) {
   navbar_toggle.onclick = function () {
     navbar_toggle.classList.toggle("open");
     menu.classList.toggle("hide");
@@ -55,8 +55,8 @@ function showMore() {
 function hideMore() {
   more.style.display = "none";
 }
-if(mode!=null){
-  mode.onclick = function() {
+if (mode != null) {
+  mode.onclick = function () {
     mode.classList.toggle("night");
     night.classList.toggle("night_body");
     turn.classList.toggle("night_on");
@@ -74,14 +74,50 @@ function Edit() {
 function back() {
   window.history.back();
 }
-function Home(){
+function Home() {
   window.location = "index.php";
 }
-function playList(){
+function playList() {
   window.location = "playlist.html";
 }
-function Register(){
+function Register() {
   window.location = "Register.php";
+}
+var playlist = [
+  "https://vnso-pt-24-tf-a128-zmp3.zmdcdn.me/966012e4e868f2efc96237dedc1145af?authen=exp=1702026755~acl=/966012e4e868f2efc96237dedc1145af/*~hmac=082a75cb29b93bf5b0684f81ff20e085",
+  "https://vnso-pt-14-tf-a128-zmp3.zmdcdn.me/667dfa7991c627e54f506d737e49390a?authen=exp=1702097802~acl=/667dfa7991c627e54f506d737e49390a/*~hmac=6ca85577f75d85335736eb8b27648a8e"];
+var currentSongIndex = 0;
+var audioPlayer = document.getElementById("music");
+var loop = false;
+function playNext() {
+  currentSongIndex++;
+  if (currentSongIndex >= playlist.length) {
+    currentSongIndex = 0;
+  }
+  audioPlayer.src = playlist[currentSongIndex];
+  audioPlayer.load(); 
+  audioPlayer.play(); 
+}
+function playPrev() {
+  currentSongIndex--;
+  if (currentSongIndex < 0)
+    currentSongIndex = 0;
+  if (currentSongIndex >= playlist.length) {
+    currentSongIndex = 0; 
+  }
+  audioPlayer.src = playlist[currentSongIndex];
+  audioPlayer.load();
+  audioPlayer.play(); 
+}
+function Loop(){
+  var loopBtn = document.getElementById('loopBtn');
+  if(loop == true){
+    loopBtn.classList.add('loop');
+  }
+  else loopBtn.classList.remove('loop');
+  loop = !loop;
+  audioPlayer.loop = loop;
+  console.log(loop);
 }
 document.addEventListener("DOMContentLoaded", function () {
   var audio = document.getElementById("music");
@@ -90,23 +126,26 @@ document.addEventListener("DOMContentLoaded", function () {
   var endTime = document.getElementById("end-time");
 
   audio.addEventListener("timeupdate", function () {
-      var value = (audio.currentTime / audio.duration) * 100;
-      timeline.value = value;
+    var value = (audio.currentTime / audio.duration) * 100;
+    timeline.value = value;
 
-      // Format time as MM:SS
-      var formatTime = function (time) {
-          var minutes = Math.floor(time / 60);
-          var seconds = Math.floor(time % 60);
-          return (minutes < 10 ? '0' : '') + minutes + ':' + (seconds < 10 ? '0' : '') + seconds;
-      };
+    // Format time as MM:SS
+    var formatTime = function (time) {
+      var minutes = Math.floor(time / 60);
+      var seconds = Math.floor(time % 60);
+      return (minutes < 10 ? '0' : '') + minutes + ':' + (seconds < 10 ? '0' : '') + seconds;
+    };
 
-      startTime.textContent = formatTime(audio.currentTime);
-      endTime.textContent = formatTime(audio.duration);
+    startTime.textContent = formatTime(audio.currentTime);
+    endTime.textContent = formatTime(audio.duration);
   });
 
   timeline.addEventListener("input", function () {
-      var value = timeline.value;
-      var currentTime = (value / 100) * audio.duration;
-      audio.currentTime = currentTime;
+    var value = timeline.value;
+    var currentTime = (value / 100) * audio.duration;
+    audio.currentTime = currentTime;
   });
+  audio.addEventListener('ended', playNext);
 });
+
+

@@ -526,7 +526,10 @@ th{
     position: absolute;
     display: none;
 }
-
+#loopBtn.loop{
+    color: white;
+    font-weight: bold;
+}
 
 #time_play {
     width: 35vw;
