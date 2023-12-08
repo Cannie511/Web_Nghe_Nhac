@@ -18,6 +18,8 @@ function loadMusic()
     //     );
 
         foreach ($data as $key => $music) {
+            echo "<tr class='music-row' data-music-link='".$data[$key]['path']."'>";
+            echo "<td>";
             echo "<tr>";
             echo "<td>";
             print_r($data[$key]['Ma_Bai_Hat']);
@@ -44,21 +46,30 @@ function loadMusic()
         }
     // }
 }
-function loadPlaylist($imgPath, $n){
-    $playlist = array(
-        array("thumb"=> "","title"=> "Playlist song","artist"=> "Lyly, Sơn Tùng, Mono")
-    );
-    for ($i = 0; $i < $n; $i++) {
+function loadPlaylist(){
+
+    include("DB/ketnoi.php");
+
+    $sql = "Select * from playlist join thuoc join bai_hat join trinhbay join nghesi on playlist.Ma_Playlist = thuoc.Ma_Playlist and bai_hat.Ma_Bai_Hat = thuoc.Ma_Bai_Hat 
+    and bai_hat.Ma_Bai_Hat = trinhbay.Ma_Bai_Hat and trinhbay.Ma_NS =nghesi.Ma_NS  ";
+    $stm = $conn->prepare($sql);
+    $stm->execute();
+    $playlist = $stm->fetchAll(PDO::FETCH_ASSOC);
+
+    // $playlist = array(
+    //     array("thumb"=> "","title"=> "Playlist song","artist"=> "Lyly, Sơn Tùng, Mono")
+    // );
+    
         foreach ($playlist as $key => $music) {
             echo "<div class='col view_item'>
-            <div class='img_item'><img src='$imgPath'></div>
+            <div class='img_item'><img src='".$playlist[$key]['bia']."'></div>
             <div class='info_item row'>
-                <strong>".$playlist[$key]['title']."</strong>
-                <h6>".$playlist[$key]['artist']."</h6>
+                <strong>".$playlist[$key]['Ten_playlist']."</strong>
+                <h6>".$playlist[$key]['Ten_Ca_Si']."</h6>
             </div>
         </div>";
         }
-    }
+    
 }
 function loadUserAccount($n){
     require_once("DB/ketnoi.php");

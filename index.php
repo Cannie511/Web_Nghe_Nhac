@@ -254,28 +254,28 @@
                         <h1>THỊNH HÀNH</h1>
                     </div>
                     <div id="popular" class="list_item">
-                        <?php loadPlaylist($path, 3) ?>
+                        <?php loadPlaylist() ?>
                     </div>
                     <br>
                     <div class="title_pl">
                         <h1>CHỦ ĐỀ MỚI</h1>
                     </div>
                     <div id="theme" class="list_item">
-                        <?php loadPlaylist($path, 6) ?>
+                        <?php loadPlaylist() ?>
                     </div>
                     <br>
                     <div class="title_pl">
                         <h1>NỔI BẬT</h1>
                     </div>
                     <div id="hot_album" class="list_item">
-                        <?php loadPlaylist($path, 2) ?>
+                        <?php loadPlaylist() ?>
                     </div>
                     <br>
                     <div class="title_pl">
                         <h1>NGHỆ SĨ</h1>
                     </div>
                     <div id="artis" class="list_item">
-                        <?php loadPlaylist($path, 10) ?>
+                        <?php loadPlaylist() ?>
                     </div>
                 </div>
                 <!-- ---------------------------------------DANH SÁCH PHÁT CỦA TÔI---------------------------------------------------- -->
@@ -285,21 +285,21 @@
                         <h1>DANH SÁCH CỦA TÔI</h1>
                     </div>
                     <div id="popular" class="list_item">
-                        <?php loadPlaylist($pathPL, 10) ?>
+                        <?php loadPlaylist() ?>
                     </div>
                     <br>
                     <div class="title_pl">
                         <h1>GẦN ĐÂY</h1>
                     </div>
                     <div id="theme" class="list_item">
-                        <?php loadPlaylist($pathPL, 3) ?>
+                        <?php loadPlaylist() ?>
                     </div>
                     <br>
                     <div class="title_pl">
                         <h1>GỢI Ý</h1>
                     </div>
                     <div id="hot_album" class="list_item">
-                        <?php loadPlaylist($pathPL, 5) ?>
+                        <?php loadPlaylist() ?>
                     </div>
                     <br>
                 </div>
