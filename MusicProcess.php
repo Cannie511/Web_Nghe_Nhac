@@ -48,7 +48,6 @@ function loadPlaylist($imgPath, $n){
     $playlist = array(
         array("thumb"=> "","title"=> "Playlist song","artist"=> "Lyly, Sơn Tùng, Mono")
     );
-    for ($i = 0; $i < $n; $i++) {
         foreach ($playlist as $key => $music) {
             echo "<div class='col view_item'>
             <div class='img_item'><img src='$imgPath'></div>
@@ -59,7 +58,7 @@ function loadPlaylist($imgPath, $n){
         </div>";
         }
     }
-}
+
 function loadUserAccount($n){
     require_once("DB/ketnoi.php");
     // $userAccount = array(

@@ -28,7 +28,7 @@ function login($username, $password)
                   return json_encode($response);
             } else {
                   $response = array("code" => "404", "message" => "Account's Credential not found ");
-                  return   json_encode($response);
+                  return json_encode($response);
             }
       } catch (PDOException $e) {
             $response = array("code" => "500", "message" => "Error:". $e->getMessage());

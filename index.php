@@ -7,13 +7,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=0.0">
     <title>TriVie Music</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
-    <link rel="stylesheet"
-        href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.4.2/css/fontawesome.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.4.2/css/fontawesome.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" />
     <link rel="stylesheet" href="index.css">
-    <script crossorigin src="https://unpkg.com/react@17/umd/react.development.js"></script>
-    <script crossorigin src="https://unpkg.com/react-dom@17/umd/react-dom.development.js"></script>
-    <script crossorigin src="https://unpkg.com/babel-standalone@6/babel.min.js"></script>
+    
 </head>
 <?php include "MusicProcess.php" ?>
 
@@ -31,6 +28,7 @@
             <ion-icon name="warning"></ion-icon>&nbsp;&nbsp;
             Vui lòng <a href="log-in.php">Đăng nhập</a> để thực hiện chức năng
         </div>
+        <?php require_once('timkiem.php');timNhac();?>
     </div>
     <div class="container-fluid">
         <div class="col-sm-4">
@@ -51,12 +49,12 @@
                         <ion-icon name="search-outline"></ion-icon>
                         <span>TÌM KIẾM</span>
                     </div>
-                    <div class="accordion " id="accordionExample">
-                        <div class="menu_item" id="dsphat" data-bs-toggle="collapse" data-bs-target="#collapseOne"
+                    <div class="menu_item" id="dsphat" data-bs-toggle="collapse" data-bs-target="#collapseOne"
                             aria-expanded="true" aria-controls="collapseOne">
                             <ion-icon name="list-outline">
                             </ion-icon><span>DANH SÁCH PHÁT</span>
-                        </div>
+                    </div>
+                    <div class="">
                         <div id="collapseOne" class="accordion-collapse collapse" aria-labelledby="headingOne"
                             data-bs-parent="#accordionExample">
                             <div class="menu_item col-md-4 " id="">
@@ -64,7 +62,8 @@
                                 <span>DANH SÁCH 1</span>
                             </div>
                         </div>
-                        <div id="collapseOne" class="accordion-collapse collapse" aria-labelledby="headingOne"
+                    </div>
+                        <div id="collapseOne" class="accordion-collapse collapse " aria-labelledby="headingOne"
                             data-bs-parent="#accordionExample">
                             <!-- data-bs-target="#exampleModal" -->
                             <div class="col-md-4 menu_item" id="newPlaylist" data-bs-toggle="modal" 
@@ -72,29 +71,29 @@
                                 <ion-icon name="add"></ion-icon><span>Tạo mới</span>
                             </div>
                         </div>
-                    </div>
+                    
                     <div class="col-md-4 menu_item" id="bxh"><ion-icon name="bar-chart-outline"></ion-icon><span>BẢNG XẾP HẠNG</span>
                     </div>
                     <div class="col-md-4 menu_item" id="yeu thich"><ion-icon name="heart-outline"></ion-icon><span>YÊU THÍCH</span></div>
-                    <div class="accordion" id="accordionExample">
+                    
                         <div class="menu_item" data-bs-toggle="collapse" data-bs-target="#collapseOne1"
                             aria-expanded="true" aria-controls="collapseOne">
                             <ion-icon name="settings"></ion-icon><span>CÀI ĐẶT</span>
                         </div>
-                        <div id="collapseOne1" class="accordion-collapse collapse" aria-labelledby="headingOne"
+                        <div id="collapseOne1" class="accordion-collapse collapse menu_item" aria-labelledby="headingOne"
                             data-bs-parent="#accordionExample">
-                            <div class="col-md-4 menu_item" id="" data-bs-toggle="modal"
-                                data-bs-target="#ModalChangePass">
+                            <!-- data-bs-target="#ModalChangePass" -->
+                            <div class="col-md-4 menu_item" id="btnChangePass" data-bs-toggle="modal">
                                 <ion-icon name="lock-closed"></ion-icon><span>Đổi mật khẩu</span>
                             </div>
                         </div>
-                        <div id="collapseOne1" class="accordion-collapse collapse" aria-labelledby="headingOne"
+                        <div id="collapseOne1" class="accordion-collapse collapse " aria-labelledby="headingOne"
                             data-bs-parent="#accordionExample">
                             <div class="col-md-4 menu_item" id="">
                                 <ion-icon name="pencil"></ion-icon><span>Chỉnh sửa tài khoản</span>
                             </div>
                         </div>
-                    </div>
+                    
                 </div>
                 <div id="navbar">
                     <ion-icon name="chevron-back-outline"></ion-icon>
@@ -197,7 +196,7 @@
                     </div>
                     <div id="search" class="col-sm-4">
                         <ion-icon name="chevron-back-circle" style="margin-left: 10px;" id="backTab"></ion-icon>
-                        <form action="timkiem.php" method="get">
+                        <form action="index.php" method="get">
                             <div>
                                 <ion-icon name="search-outline"></ion-icon>
                                 <input type="text" placeholder="Bạn muốn nghe gì ?" id="search_input" name="search" class="col-sm-4">
@@ -205,7 +204,9 @@
                             </div>
                             
                         </form>
+                        
                     </div>
+                    
                 </div>
                 <!-- -----------------------------------CAN CHANGED------------------------------------------ -->
 
@@ -228,21 +229,21 @@
                             style="margin-left: 20px; font-family: Georgia, 'Times New Roman', Times, serif;">...</strong>
                     </div>
                     <div id='music_panel'>
-                        <table id='list_mp3'>
-                            <tr>
-                                <th>STT</th>
-                                <th>hình</th>
-                                <th>Tiêu đề</th>
-                                <th>Tác giả, Ca sĩ</th>
-                                <th>Ngày phát hành</th>
-                                <th>Thời lượng</th>
-                            </tr>
-                            <tr>
-                                <td colspan="6">
-                                    <hr>
-                                </td>
-                            </tr>
-                            <?php loadMusic() ?>
+                    <table class="table table-dark table-hover list">
+                            <thead>
+                                <tr>
+                                    <th scope="col">STT</th>
+                                    <th scope="col">Hình</th>
+                                    <th scope="col">Tiêu đề</th>
+                                    <th scope="col">Tác giả, ca sĩ</th>
+                                    <th scope="col">Ngày phát hành</th>
+                                    <th scope="col">Thời lượng</th>
+                                    <th scope="col"></th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <?php loadMusic() ?>
+                            </tbody>
                         </table>
                     </div>
                 </div>
@@ -323,21 +324,21 @@
                             style="margin-left: 20px; font-family: Georgia, 'Times New Roman', Times, serif;">...</strong>
                     </div>
                     <div id='music_panel'>
-                        <table id='list_mp3'>
-                            <tr>
-                                <th>STT</th>
-                                <th>hình</th>
-                                <th>Tiêu đề</th>
-                                <th>Tác giả, Ca sĩ</th>
-                                <th>Ngày phát hành</th>
-                                <th>Thời lượng</th>
-                            </tr>
-                            <tr>
-                                <td colspan="6">
-                                    <hr>
-                                </td>
-                            </tr>
-                            <?php loadMusic() ?>
+                    <table class="table table-dark table-hover list">
+                            <thead>
+                                <tr>
+                                    <th scope="col">STT</th>
+                                    <th scope="col">Hình</th>
+                                    <th scope="col">Tiêu đề</th>
+                                    <th scope="col">Tác giả, ca sĩ</th>
+                                    <th scope="col">Ngày phát hành</th>
+                                    <th scope="col">Thời lượng</th>
+                                    <th scope="col"></th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <?php loadMusic() ?>
+                            </tbody>
                         </table>
                     </div>
                 </div>
@@ -404,249 +405,13 @@
         </audio>
     </div>
 </body>
-<script src="index.js"></script>
+<script crossorigin src="https://unpkg.com/react@17/umd/react.development.js"></script>
+<script crossorigin src="https://unpkg.com/react-dom@17/umd/react-dom.development.js"></script>
+<script crossorigin src="https://unpkg.com/babel-standalone@6/babel.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
-<script src="https://unpkg.com/ionicons@4.5.10-0/dist/ionicons.js"></script>
 <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
-<script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
-
-
-<script>
-    $(document).ready(function () {
-        var backBtn = 0
-        $('#main_play').scroll(function () {
-            if ($(this).scrollTop()) {
-                $('#topMenu').css('background-color', 'var(--primary-color-custom)');
-                $('#topMenu').css('box-shadow', '1px 2px 5px black');
-                $('#personal').css('color', 'black');
-            }
-            else {
-                $('#topMenu').css('background-color', 'transparent');
-                $('#personal').css('color', 'white');
-                $('#topMenu').css('box-shadow', '0 0 0 white');
-            }
-        });
-        $('.menu_item').click(function () {
-            $('#main_play').animate({
-                scrollTop: 0
-            }, 400);
-            return false;
-        })
-        $('.menu_item').click(function (event) {
-            index = $(this).index();
-            backBtn = index;
-            $('.menu_item').removeClass('init');
-            $(this).addClass('init');
-            switch (index) {
-                case 0:
-                    $('.layout.show').removeClass('show');
-                    $('#playlist').addClass('show');
-                    break;
-                case 1:
-                    var searchinput = document.getElementById('search_input');
-                    searchinput.focus();
-                    break;
-                case 2:
-                    $('.layout.show').removeClass('show');
-                    $('#myPL').addClass('show');
-                    break;
-                case 3:
-                    $('.layout.show').removeClass('show');
-                    $('#Ranked').addClass('show');
-                    break;
-                case 4:
-                    $('.layout.show').removeClass('show');
-                    $('#LoveIt').addClass('show');
-                    break;
-                default:
-                    break;
-            }
-            console.log(index);
-        });
-        $('.menu_item').click(function (event) {
-            index = $(this).index();
-            backBtn = index;
-            $('.menu_item').removeClass('init');
-            $(this).addClass('init');
-            switch (index) {
-                case 0:
-                    $('.layout.show').removeClass('show');
-                    $('#playlist').addClass('show');
-                    break;
-                case 1:
-                    var searchinput = document.getElementById('search_input');
-                    searchinput.focus();
-                    break;
-                case 2:
-                    $('.layout.show').removeClass('show');
-                    $('#myPL').addClass('show');
-                    break;
-                case 3:
-                    $('.layout.show').removeClass('show');
-                    $('#Ranked').addClass('show');
-                    break;
-                case 4:
-                    $('.layout.show').removeClass('show');
-                    $('#LoveIt').addClass('show');
-                    break;
-                default:
-                    break;
-            }
-            console.log(index);
-        });
-        $('.view_item').click(function () {
-            $('.layout.show').removeClass('show');
-            $('#music_list').addClass('show');
-        });
-        $('#backTab').click(function () {
-            switch (backBtn) {
-                case 0:
-                    $('.layout.show').removeClass('show');
-                    $('#playlist').addClass('show');
-                    break;
-                case 1:
-                    var searchinput = document.getElementById('search_input');
-                    searchinput.focus();
-                    break;
-                case 2:
-                    $('.layout.show').removeClass('show');
-                    $('#myPL').addClass('show');
-                    break;
-                case 3:
-                    $('.layout.show').removeClass('show');
-                    $('#Ranked').addClass('show');
-                    break;
-                case 4:
-                    $('.layout.show').removeClass('show');
-                    $('#LoveIt').addClass('show');
-                    break;
-                case 5:
-                    break;
-                default:
-                    break;
-            }
-        });
-        // $('#btnConfirm').click(function () {
-        //     $('#alert-login').css("display", "block");
-        //     setTimeout(function () {
-        //         $('#alert-login').css("display", "none");
-        //     }, 2500);
-        //     $('#exampleModal').modal('hide');
-        // });
-        $('#btnPassConfirm').click(function () {
-            $('#alert-success').css("display", "block");
-            
-            setTimeout(function () {
-                $('#alert-success').css("display", "none");;
-            }, 2500);
-            $('#ModalChangePass').modal('hide');
-            return false;
-        });
-        $('.btnCancel').click(function () {
-            $('#alert-warning').css("display", "bloack");
-            setTimeout(function () {
-                $('#alert-warning').css("display", "none");;
-            }, 2500);
-        });
-        const music = document.getElementById('music');
-        $('#play_btn').click(function(){
-            music.play();
-        })
-        $('#pause_btn').click(function(){
-            music.pause();
-        })
-        $('#newPlaylist').click(function(){
-            $('#alert-login').css("display", "block");
-            setTimeout(function () {
-                $('#alert-login').css("display", "none");
-            }, 2500);
-        })
-    })
-    $('.menu_item').click(function(event) {
-        index = $(this).index();
-        backBtn = index;
-        $('.menu_item').removeClass('init');
-        $(this).addClass('init');
-        switch (index) {
-            case 0:
-                $('.layout.show').removeClass('show');
-                $('#playlist').addClass('show');
-                break;
-            case 1:
-                var searchinput = document.getElementById('search_input');
-                searchinput.focus();
-                break;
-            case 2:
-                $('.layout.show').removeClass('show');
-                $('#myPL').addClass('show');
-                break;
-            case 3:
-                $('.layout.show').removeClass('show');
-                $('#Ranked').addClass('show');
-                break;
-            case 4:
-                $('.layout.show').removeClass('show');
-                $('#LoveIt').addClass('show');
-                break;
-            default:
-                break;
-        }
-    });
-    $('.view_item').click(function() {
-        $('.layout.show').removeClass('show');
-        $('#music_list').addClass('show');
-    });
-    $('#backTab').click(function() {
-        switch (backBtn) {
-            case 0:
-                $('.layout.show').removeClass('show');
-                $('#playlist').addClass('show');
-                break;
-            case 1:
-                var searchinput = document.getElementById('search_input');
-                searchinput.focus();
-                break;
-            case 2:
-                $('.layout.show').removeClass('show');
-                $('#myPL').addClass('show');
-                break;
-            case 3:
-                $('.layout.show').removeClass('show');
-                $('#Ranked').addClass('show');
-                break;
-            case 4:
-                $('.layout.show').removeClass('show');
-                $('#LoveIt').addClass('show');
-                break;
-            case 5:
-                break;
-            default:
-                break;
-        }
-    });
-    $('#btnConfirm').click(function() {
-        $('#alert-warning').css("opacity", "1");
-        setTimeout(function() {
-            $('#alert-warning').css("opacity", "0");;
-        }, 2500);
-        $('#exampleModal').modal('hide');
-    });
-    $('#btnPassConfirm').click(function() {
-        $('#alert-success').css("opacity", "1");
-        setTimeout(function() {
-            $('#alert-success').css("opacity", "0");;
-        }, 2500);
-        $('#ModalChangePass').modal('hide');
-        return false;
-    });
-    $('.btnCancel').click(function() {
-        $('#alert-warning').css("opacity", "1");
-        setTimeout(function() {
-            $('#alert-warning').css("opacity", "0");;
-        }, 2500);
-    });
-
-</script>
+<script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+<script src="index.js"></script>
 <!-- <script type="text/babel" src="Playlists.js"></script>
 <script type="text/babel">
     function handleCLick(){

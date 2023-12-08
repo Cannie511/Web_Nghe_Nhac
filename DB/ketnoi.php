@@ -3,7 +3,7 @@
 <?php
 
 define("DB_HOST", "localhost");
-define("DB_DATABASE", "webnghenhac1");
+define("DB_DATABASE", "webnghenhac");
 define("DB_USERNAME", "root");
 define("DB_PASSWORD", "");
 try {
