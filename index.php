@@ -254,7 +254,7 @@
                     <div class="title_pl">
                         <h1>THỊNH HÀNH</h1>
                     </div>
-                    <div id="popular" class="list_item">
+                    <div id="1" class="list_item">
                         <?php loadPlaylist() ?>
                     </div>
                     <br>
@@ -393,6 +393,14 @@
                 <ion-icon name="play-skip-forward-circle" onclick="playNext()"></ion-icon>
                 <ion-icon name="refresh" id = "loopBtn" onclick="Loop()"></ion-icon>
             </div>
+              
+
+
+
+
+
+
+
 
             <div id="time_play">
                 <span id="start-time">00:00</span>

@@ -5,7 +5,8 @@
 function loadMusic()
 {
     include("DB/ketnoi.php");
-
+    // $Maplaylist = ????
+    // "Select * from nghesi join trinhbay join bai_hat join playlist on nghesi.Ma_NS = trinhbay.Ma_NS AND bai_hat.Ma_Bai_Hat = trinhbay.Ma_Bai_Hat and playlist.Ma_Playlist = '$Maplaylist'"
     $sql = "Select * from nghesi join trinhbay join bai_hat on nghesi.Ma_NS = trinhbay.Ma_NS AND bai_hat.Ma_Bai_Hat = trinhbay.Ma_Bai_Hat";
     $stm = $conn->prepare($sql);
     $stm->execute();
@@ -60,7 +61,7 @@ function loadPlaylist(){
     //     array("thumb"=> "","title"=> "Playlist song","artist"=> "Lyly, Sơn Tùng, Mono")
     // );
         foreach ($playlist as $key => $music) {
-            echo "<div class='col view_item'>
+            echo "<div class='col view_item' id='".$playlist[$key]['Ma_Playlist']."'>
             <div class='img_item'><img src='".$playlist[$key]['bia']."'></div>
             <div class='info_item row'>
                 <strong>".$playlist[$key]['Ten_playlist']."</strong>
