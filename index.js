@@ -122,7 +122,6 @@ $(document).ready(function () {
   // });
   $('#btnPassConfirm').click(function () {
     $('#alert-success').css("display", "block");
-
     setTimeout(function () {
       $('#alert-success').css("display", "none");;
     }, 2500);
@@ -148,6 +147,7 @@ $(document).ready(function () {
       $('#alert-login').css("display", "none");
     }, 2500);
   })
+
 });
   var navbar_toggle = document.getElementById("navbar");
   var menu = document.getElementById("menu");

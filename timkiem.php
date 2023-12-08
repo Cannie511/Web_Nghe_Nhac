@@ -13,7 +13,8 @@ function timNhac(){
             if (count($result) > 0) {
                 // print_r($result);
                 foreach ($result as $row) {
-                    echo " <div style = 'color: white; position: absolute; z-index:2000;' > tìm thấy <strong>{$row['Ten_Bai_Hat']}</strong></div>";
+                    echo "<div class='alert alert-success' id='alert-success' style = 'display:block; position:absolute; z-index:2000' role='alert'>
+                    <ion-icon name='checkmark'></ion-icon>&nbsp;&nbsp;tìm thấy <strong>{$row['Ten_Bai_Hat']}</strong> </div>";
                 }
             } else {
                 echo "<div style = 'color: white; position: absolute; z-index:2000;' >Không tìm thấy</div>";
@@ -22,6 +23,17 @@ function timNhac(){
             echo $e->getMessage();
         }
     }
+    echo "<script> 
+    setTimeout(function () {
+        $('#alert-login').css('display', 'none');
+      }, 2500);
+      setTimeout(function () {
+        $('#alert-warning').css('display', 'none');
+      }, 2500);
+      setTimeout(function () {
+        $('#alert-success').css('display', 'none');
+      }, 2500);
+      </script>";
 }
 //  else {
 //     header("Location: /index.php");

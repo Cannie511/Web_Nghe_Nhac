@@ -14,7 +14,7 @@ function login($username, $password)
       //       return json_encode($response);
       // }
 
-      require_once(__DIR__ . '/DB/ketnoi.php');
+      require_once(__DIR__ . '/DB/loginDB.php');
       try {
 
             $query = 'SELECT Ma_ND as id,Phan_Quyen as role FROM nguoi_dung WHERE Ten_Dang_Nhap = :username and Mat_Khau = :password ';
@@ -31,19 +31,19 @@ function login($username, $password)
                   return json_encode($response);
             }
       } catch (PDOException $e) {
-            $response = array("code" => "500", "message" => "Error:". $e->getMessage());
+            $response = array("code" => "500", "message" => "Error:" . $e->getMessage());
             return json_encode($response);
       }
 
-// if ($_SERVER["REQUEST_METHOD"] == "POST") {
+      // if ($_SERVER["REQUEST_METHOD"] == "POST") {
 //     // Lấy dữ liệu từ form
 //     $username = $_POST["username"];
 //     $password = $_POST["password"];
 
-//     // Mã hóa mật khẩu bằng MD5
+      //     // Mã hóa mật khẩu bằng MD5
 //     $hashed_password = md5($password);
 
-//     // Kiểm tra thông tin đăng nhập (ví dụ: chỉ đơn giản in ra)
+      //     // Kiểm tra thông tin đăng nhập (ví dụ: chỉ đơn giản in ra)
 //     echo "Username: $username<br>";
 //     echo "Password: $hashed_password";
 // } else {

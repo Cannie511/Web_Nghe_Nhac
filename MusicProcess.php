@@ -46,12 +46,6 @@ function loadMusic()
         }
     // }
 }
-<<<<<<< HEAD
-function loadPlaylist($imgPath, $n){
-    $playlist = array(
-        array("thumb"=> "","title"=> "Playlist song","artist"=> "Lyly, Sơn Tùng, Mono")
-    );
-=======
 function loadPlaylist(){
 
     include("DB/ketnoi.php");
@@ -65,8 +59,6 @@ function loadPlaylist(){
     // $playlist = array(
     //     array("thumb"=> "","title"=> "Playlist song","artist"=> "Lyly, Sơn Tùng, Mono")
     // );
-    
->>>>>>> 6a49b5fbe8cc231de191e951c096e6d05e6b186e
         foreach ($playlist as $key => $music) {
             echo "<div class='col view_item'>
             <div class='img_item'><img src='".$playlist[$key]['bia']."'></div>
@@ -76,13 +68,7 @@ function loadPlaylist(){
             </div>
         </div>";
         }
-<<<<<<< HEAD
-    }
-
-=======
-    
 }
->>>>>>> 6a49b5fbe8cc231de191e951c096e6d05e6b186e
 function loadUserAccount($n){
     require_once("DB/ketnoi.php");
     // $userAccount = array(
