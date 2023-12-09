@@ -2,6 +2,7 @@ $(document).ready(function () {
   var backBtn = 0;
   $("#main_play").scroll(function () {
     if ($(this).scrollTop()) {
+<<<<<<< HEAD
       $("#topMenu").css("background-color", "var(--primary-color-custom)");
       $("#topMenu").css("box-shadow", "1px 2px 5px black");
       $("#topMenu").css("z-index", "3000");
@@ -10,6 +11,16 @@ $(document).ready(function () {
       $("#topMenu").css("background-color", "transparent");
       $("#personal").css("color", "white");
       $("#topMenu").css("box-shadow", "0 0 0 white");
+=======
+      $('#topMenu').css('background-color', 'var(--primary-color-custom)');
+      $('#topMenu').css('box-shadow', '1px 2px 5px black');
+      $('#personal').css('color', 'black');
+    }
+    else {
+      $('#topMenu').css('background-color', 'transparent');
+      $('#personal').css('color', 'white');
+      $('#topMenu').css('box-shadow', '0 0 0 white');
+>>>>>>> c7692c09617838f290b2e66e64c7597211ea9f32
     }
   });
   $(".menu_item").click(function () {
@@ -146,6 +157,7 @@ $(document).ready(function () {
   });
   $("#pause_btn").click(function () {
     music.pause();
+<<<<<<< HEAD
   });
   $("#newPlaylist").click(function () {
     $("#alert-login").css("display", "block");
@@ -186,12 +198,57 @@ if (navbar_toggle != null) {
     logoie.classList.toggle("hide");
     logo.classList.toggle("hide");
     search.classList.toggle("full_scr");
+=======
+  })
+  // $('#newPlaylist').click(function () {
+  //   $('#alert-login').css("display", "block");
+  //   setTimeout(function () {
+  //     $('#alert-login').css("display", "none");
+  //   }, 2500);
+  // })
+
+});
+  var navbar_toggle = document.getElementById("navbar");
+  var menu = document.getElementById("menu");
+  var all = document.querySelector("*");
+  var main_play = document.getElementById("main_play");
+  var logoT = document.getElementById("logo_T");
+  var logoV = document.getElementById("logo_V");
+  var per = document.getElementById("personal");
+  var more = document.getElementById("more");
+  var mode = document.getElementById("scroll");
+  var night = document.querySelector("body");
+  var turn = document.getElementById("switch");
+  var search = document.getElementById("search");
+  var btn_play_light = document.getElementById("btn");
+  var time_play = document.getElementById("time_play");
+  var list_music = document.getElementById("list_mp3");
+  var logori = document.getElementById("logo_ri");
+  var logoie = document.getElementById("logo_ie");
+  var logo = document.getElementById("logo");
+  var nav_rotate = document.getElementById("nav_rotate");
+  var topMenu = document.getElementById("topMenu");
+  var menu_cover = document.getElementById("menu_cover");
+
+  if (navbar_toggle != null) {
+    navbar_toggle.onclick = function () {
+      navbar_toggle.classList.toggle("open");
+      menu.classList.toggle("hide");
+      main_play.classList.toggle("full");
+      logoT.classList.toggle("hide");
+      logoV.classList.toggle("hide");
+      logori.classList.toggle("hide");
+      logoie.classList.toggle("hide");
+      logo.classList.toggle("hide");
+      search.classList.toggle("full_scr");
+>>>>>>> c7692c09617838f290b2e66e64c7597211ea9f32
 
     topMenu.classList.toggle("hide");
     menu_cover.classList.toggle("hide");
   };
 }
 
+<<<<<<< HEAD
 function play() {
   var play = document.getElementById("play_btn");
   var pause = document.getElementById("pause_btn");
@@ -218,9 +275,59 @@ if (mode != null) {
     turn.classList.toggle("night_on");
     btn_play_light.classList.toggle("light_btn");
     time_play.classList.toggle("light_time_play");
+=======
+  function play() {
+    var play = document.getElementById("play_btn");
+    var pause = document.getElementById("pause_btn");
+    play.style.display = "none";
+    pause.style.display = "block";
+    pause.style.position = "relative";
+
+  
+   
+    var listId = [];
+    var z = new XMLHttpRequest();
+    z.onreadystatechange = function() {
+        if (z.readyState == 4 && z.status == 200) {
+           
+            listId = JSON.parse(z.responseText);
+            if(listId.length > 0 ){
+
+              var mabaihat = listId[currentSongIndex];
+              var xhr = new XMLHttpRequest();
+              xhr.open("GET", "increase_listen_count.php?Ma_Bai_Hat=" + mabaihat, true);
+               xhr.send();
+            }
+        }
+    };
+    z.open("GET", "layMa.php", true);
+    z.send();
+  }
+  function pause() {
+    var play = document.getElementById("play_btn");
+    var pause = document.getElementById("pause_btn");
+    play.style.display = "block";
+    pause.style.display = "none";
+  }
+  function showMore() {
+    more.style.display = "block";
+  }
+  function hideMore() {
+    more.style.display = "none";
+  }
+  if (mode != null) {
+    mode.onclick = function () {
+      mode.classList.toggle("night");
+      night.classList.toggle("night_body");
+      turn.classList.toggle("night_on");
+      btn_play_light.classList.toggle("light_btn");
+      time_play.classList.toggle("light_time_play");
+    };
+>>>>>>> c7692c09617838f290b2e66e64c7597211ea9f32
   };
 }
 
+<<<<<<< HEAD
 function log_in() {
   window.location = "log-in.php";
 }
@@ -251,6 +358,115 @@ function playNext() {
   currentSongIndex++;
   if (currentSongIndex >= playlist.length) {
     currentSongIndex = 0;
+=======
+  function log_in() {
+    window.location = "log-in.php";
+  }
+  function Edit() {
+    window.location = "EditProfile.html";
+  }
+  function back() {
+    window.history.back();
+  }
+  function Home() {
+    window.location = "index.php";
+  }
+  function playList() {
+    window.location = "playlist.html";
+  }
+  function Register() {
+    window.location = "Register.php";
+  }
+
+// chinh sửa ở đâyy
+  var playlist = [];
+
+var xhr = new XMLHttpRequest();
+xhr.onreadystatechange = function() {
+    if (xhr.readyState == 4 && xhr.status == 200) {
+       
+        playlist = JSON.parse(xhr.responseText);
+
+        if (playlist.length > 0) {
+          
+          audioPlayer.src = playlist[0];
+      }
+    }
+};
+// const temp = document.querySelector("#btn ");
+// temp.click = function(){
+  
+// }
+
+xhr.open("GET", "laypath.php", true);
+xhr.send();
+
+// chỉnh sửa ơ
+function increaseListenCount(songId) {
+ 
+  var xhr = new XMLHttpRequest();
+  xhr.open("GET", "increase_listen_count.php?id=" + songId, true);
+  xhr.send();
+}
+  var currentSongIndex = 0;
+  var audioPlayer = document.getElementById("music");
+  var loop = false;
+
+  function playNext() {
+    currentSongIndex++;
+    if (currentSongIndex >= playlist.length) {
+      currentSongIndex = 0;
+    }
+    var listId = [];
+    var z = new XMLHttpRequest();
+    z.onreadystatechange = function() {
+        if (z.readyState == 4 && z.status == 200) {
+           
+            listId = JSON.parse(z.responseText);
+            if(listId.length > 0 ){
+
+              var mabaihat = listId[currentSongIndex];
+              var xhr = new XMLHttpRequest();
+              xhr.open("GET", "increase_listen_count.php?Ma_Bai_Hat=" + mabaihat, true);
+               xhr.send();
+            }
+        }
+    };
+    z.open("GET", "layMa.php", true);
+    z.send();
+    audioPlayer.src = playlist[currentSongIndex];
+    audioPlayer.load();
+    audioPlayer.play();
+
+  }
+  function playPrev() {
+    currentSongIndex--;
+    if (currentSongIndex < 0)
+      currentSongIndex = 0;
+    if (currentSongIndex >= playlist.length) {
+      currentSongIndex = 0;
+    }
+    var listId = [];
+    var z = new XMLHttpRequest();
+    z.onreadystatechange = function() {
+        if (z.readyState == 4 && z.status == 200) {
+           
+            listId = JSON.parse(z.responseText);
+            if(listId.length > 0 ){
+
+              var mabaihat = listId[currentSongIndex];
+              var xhr = new XMLHttpRequest();
+              xhr.open("GET", "increase_listen_count.php?Ma_Bai_Hat=" + mabaihat, true);
+               xhr.send();
+            }
+        }
+    };
+    z.open("GET", "layMa.php", true);
+    z.send();
+    audioPlayer.src = playlist[currentSongIndex];
+    audioPlayer.load();
+    audioPlayer.play();
+>>>>>>> c7692c09617838f290b2e66e64c7597211ea9f32
   }
   audioPlayer.src = playlist[currentSongIndex];
   audioPlayer.load();

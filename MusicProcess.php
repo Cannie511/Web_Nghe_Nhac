@@ -82,6 +82,44 @@ function loadPlaylist()
         </div>";
     }
 }
+function loadBXHNgheNhieu()
+{
+    include("DB/ketnoi.php");
+    $sql = "SELECT * FROM bai_hat join trinhbay join nghesi on bai_hat.Ma_Bai_Hat =trinhbay.Ma_Bai_Hat  and nghesi.Ma_NS =trinhbay.Ma_NS  
+    ORDER BY Luot_nghe  DESC LIMIT 10";
+    $stm = $conn->prepare($sql);
+    $stm->execute();
+    $data = $stm->fetchAll(PDO::FETCH_ASSOC);
+
+    foreach ($data as $key => $music) {
+        echo "<tr class='music-row' data-music-link='" . $data[$key]['path'] . "'>";
+        echo "<td>";
+        print_r($data[$key]['Ma_Bai_Hat']);
+        echo "</td>";
+        echo "<td>";
+        print_r($data[$key]['Ma_Bai_Hat']);
+        echo "</td>";
+        echo "<td>";
+        echo "<div id='crop_img'><img src = '" . $data[$key]['Anh_Bia'] . "'></div>";
+        echo "</td>";
+        echo "<td>";
+        print_r($data[$key]['Ten_Bai_Hat']);
+        echo "</td>";
+        echo "<td>";
+        print_r($data[$key]['Ten_Ca_Si']);
+        echo "</td>";
+        echo "<td>";
+        print_r($data[$key]['Ngay_Phat_Hanh']);
+        echo "</td>";
+        echo "<td>";
+        print_r($data[$key]['Thoi_Luong']);
+        echo "</td>";
+        echo "<td>";
+        echo "<ion-icon name='trash'></ion-icon>";
+        echo "</td>";
+        echo "</tr>";
+    }
+}
 function loadUserAccount($n)
 {
     require_once("DB/ketnoi.php");
