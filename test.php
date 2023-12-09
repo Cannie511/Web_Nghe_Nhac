@@ -3,39 +3,56 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Button Click</title>
+    <title>Search Example</title>
+    <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
 </head>
 <body>
 
-    <!-- Các button có class 'button' và id khác nhau -->
-    <button class="button" id="button1">Button 1</button>
-    <button class="button" id="button2">Button 2</button>
-    <button class="button" id="button3">Button 3</button>
+    <form id="searchForm">
+        <input type="text" id="searchInput" name="term" placeholder="Enter search term">
+        <input type="submit" value="Search">
+    </form>
+    <div id="searchModal" class="layout">
+    <h1>Kết Quả Tìm Kiếm:</h1><br>
+    <div id='music_panel'>
+        <table class="table table-dark table-hover list">
+            <thead>
+                <tr>
+                    <th scope="col">STT</th>
+                    <th scope="col">Hình</th>
+                    <th scope="col">Tiêu đề</th>
+                    <th scope="col">Tác giả, ca sĩ</th>
+                    <th scope="col">Ngày phát hành</th>
+                    <th scope="col">Thời lượng</th>
+                    <th scope="col"></th>
+                </tr>
+            </thead>
+            <tbody id="searchResults">
+                    
+            </tbody>
+        </table>
+    </div>
 
-    <!-- Hiển thị kết quả từ PHP -->
-    <p id="result"></p>
+    <div ></div>
 
-    <!-- JavaScript -->
     <script>
-        // Lấy tất cả các button có class 'button'
-        var buttons = document.querySelectorAll('.button');
+        $(document).ready(function() {
+            $('#searchForm').submit(function(event) {
+                event.preventDefault(); // Prevents the form from submitting the traditional way
 
-        // Đặt sự kiện click cho mỗi button
-        buttons.forEach(function(button) {
-            button.addEventListener('click', function() {
-                // Lấy giá trị ID của button được click
-                var buttonId = button.id;
+                var searchTerm = $('#searchInput').val();
 
-                // Sử dụng Ajax để gửi giá trị lên máy chủ
-                var xhr = new XMLHttpRequest();
-                xhr.onreadystatechange = function() {
-                    if (this.readyState == 4 && this.status == 200) {
-                        // Hiển thị kết quả từ PHP
-                        document.getElementById('result').innerText = 'Kết quả từ PHP: ' + this.responseText;
+                $.ajax({
+                    type: 'POST',
+                    url: 'process.php',
+                    data: { term: searchTerm },
+                    success: function(data) {
+                        $('#searchResults').html(data);
+                    },
+                    error: function() {
+                        alert('An error occurred while processing your request.');
                     }
-                };
-                xhr.open("GET", "process.php?buttonId=" + buttonId, true);
-                xhr.send();
+                });
             });
         });
     </script>

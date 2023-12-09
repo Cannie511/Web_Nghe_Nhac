@@ -1,10 +1,16 @@
 <?php
-// Nhận giá trị từ biến $_GET
-$buttonId = isset($_GET['buttonId']) ? $_GET['buttonId'] : '';
+// Kết nối CSDL và thực hiện tìm kiếm theo term được gửi từ trang index
 
-// Gán giá trị cho biến $test
-$test = $buttonId;
+if (isset($_POST['term'])) {
+    $searchTerm = $_POST['term'];
 
-// Trả về giá trị $test
-echo $test;
+    // Thực hiện tìm kiếm trong CSDL hoặc bất kỳ logic tìm kiếm nào bạn cần ở đây
+
+    // Ví dụ trả về kết quả dạng HTML
+    echo '<tr><td>Search results for: ' . $searchTerm . '</td>';
+    echo '<td>Sample search result 1</td>';
+    echo '<td>Sample search result 2</td></tr>';
+} else {
+    echo 'Invalid request';
+}
 ?>

@@ -29,8 +29,7 @@
             <ion-icon name="warning"></ion-icon>&nbsp;&nbsp;
             Vui lòng <a href="log-in.php">Đăng nhập</a> để thực hiện chức năng
         </div>
-        <?php require_once('timkiem.php');
-        timNhac(); ?>
+
     </div>
     <div class="container-fluid">
         <div class="col-sm-4">
@@ -55,15 +54,6 @@
                         aria-expanded="true" aria-controls="collapseOne">
                         <ion-icon name="list-outline">
                         </ion-icon><span>DANH SÁCH PHÁT</span>
-                    </div>
-                    <div class="">
-                        <div id="collapseOne" class="accordion-collapse collapse" aria-labelledby="headingOne"
-                            data-bs-parent="#accordionExample">
-                            <div class="menu_item col-md-4 " id="">
-                                <ion-icon name="musical-notes"></ion-icon>
-                                <span>DANH SÁCH 1</span>
-                            </div>
-                        </div>
                     </div>
                     <div id="collapseOne" class="accordion-collapse collapse " aria-labelledby="headingOne"
                         data-bs-parent="#accordionExample">
@@ -199,14 +189,15 @@
                     </div>
                     <div id="search" class="col-sm-4">
                         <ion-icon name="chevron-back-circle" style="margin-left: 10px;" id="backTab"></ion-icon>
-                        <form action="index.php" method="get">
+                        <form action="index.php" id="searchForm" method="get">
                             <div>
                                 <ion-icon name="search-outline"></ion-icon>
                                 <input type="text" placeholder="Bạn muốn nghe gì ?" id="search_input" name="search"
                                     class="col-sm-4">
                                 <button type="submit" class="btn btn-secondary"
                                     style="border-radius: 50%; width: 45px; height: 45px; margin-left: 5px;"><ion-icon
-                                        name="search-outline"></ion-icon></button>
+                                        name="search-outline"></ion-icon>
+                                </button>
                             </div>
 
                         </form>
@@ -215,7 +206,7 @@
 
                 </div>
                 <!-- -----------------------------------CAN CHANGED------------------------------------------ -->
-
+                <div id="search_result"></div>
                 <div id="music_list" class="layout">
                     <div id="banner_play_list">
                         <img src="IMAGE/Hay-Trao-Cho-Anh-3.jpg" alt="">
@@ -247,8 +238,7 @@
                                     <th scope="col"></th>
                                 </tr>
                             </thead>
-                            <tbody id = 'result'>
-                                
+                            <tbody id='result'>
                             </tbody>
                         </table>
                     </div>
@@ -284,6 +274,28 @@
                     </div>
                     <div id="artis" class="list_item">
                         <?php loadPlaylist() ?>
+                    </div>
+                </div>
+                <!-- -------------------------------------THẺ TÌM KIẾM------------------------------------------------- -->
+                <div id="searchModal" class="layout">
+                    <h1>Kết Quả Tìm Kiếm:</h1><br>
+                    <div id='music_panel'>
+                        <table class="table table-dark table-hover list">
+                            <thead>
+                                <tr>
+                                    <th scope="col">STT</th>
+                                    <th scope="col">Hình</th>
+                                    <th scope="col">Tiêu đề</th>
+                                    <th scope="col">Tác giả, ca sĩ</th>
+                                    <th scope="col">Ngày phát hành</th>
+                                    <th scope="col">Thời lượng</th>
+                                    <th scope="col"></th>
+                                </tr>
+                            </thead>
+                            <tbody id="searchResults">
+                                
+                            </tbody>
+                        </table>
                     </div>
                 </div>
                 <!-- ---------------------------------------DANH SÁCH PHÁT CỦA TÔI---------------------------------------------------- -->
@@ -432,15 +444,15 @@
 </script> -->
 <script>
     $(document).ready(function () {
-    var idPL = document.querySelectorAll('.view_item');
-    
-    idPL.forEach(function (div) {
+        var idPL = document.querySelectorAll('.view_item');
+
+        idPL.forEach(function (div) {
             div.addEventListener('click', function () {
                 var idPlaylist = div.id;
                 console.log('idPlaylist:', idPlaylist);
                 // Sử dụng $.ajax để gửi dữ liệu về server
                 var xhr = new XMLHttpRequest();
-                xhr.onreadystatechange = function() {
+                xhr.onreadystatechange = function () {
                     if (this.readyState == 4 && this.status == 200) {
                         // Hiển thị kết quả từ PHP
                         document.getElementById('result').innerHTML = this.responseText;
@@ -450,6 +462,23 @@
                 xhr.send();
             });
         });
+        $('#searchForm').submit(function(event) {
+                event.preventDefault(); // Prevents the form from submitting the traditional way
+
+                var searchTerm = $('#search_input').val();
+
+                $.ajax({
+                    type: 'GET',
+                    url: 'timkiem.php',
+                    data: { term: searchTerm },
+                    success: function(data) {
+                        $('#searchResults').html(data);
+                    },
+                    error: function() {
+                        alert('An error occurred while processing your request.');
+                    }
+                });
+            });
     });
 </script>
 
