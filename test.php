@@ -34,7 +34,7 @@
     </div>
 
     <div ></div>
-
+    <img src="" alt="">
     <script>
         $(document).ready(function() {
             $('#searchForm').submit(function(event) {

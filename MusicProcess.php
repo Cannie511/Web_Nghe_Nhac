@@ -94,10 +94,7 @@ function loadBXHNgheNhieu()
     foreach ($data as $key => $music) {
         echo "<tr class='music-row' data-music-link='" . $data[$key]['path'] . "'>";
         echo "<td>";
-        print_r($data[$key]['Ma_Bai_Hat']);
-        echo "</td>";
-        echo "<td>";
-        print_r($data[$key]['Ma_Bai_Hat']);
+        print_r("#".$data[$key]['Ma_Bai_Hat']);
         echo "</td>";
         echo "<td>";
         echo "<div id='crop_img'><img src = '" . $data[$key]['Anh_Bia'] . "'></div>";
@@ -112,10 +109,9 @@ function loadBXHNgheNhieu()
         print_r($data[$key]['Ngay_Phat_Hanh']);
         echo "</td>";
         echo "<td>";
-        print_r($data[$key]['Thoi_Luong']);
+        print_r(intval($data[$key]['Thoi_Luong']/60).":".($data[$key]['Thoi_Luong']%60));
         echo "</td>";
         echo "<td>";
-        echo "<ion-icon name='trash'></ion-icon>";
         echo "</td>";
         echo "</tr>";
     }

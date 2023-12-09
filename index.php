@@ -1,8 +1,7 @@
-<?php 
+<?php
 session_start();
-if(isset( $_SESSION['Ma_ND']))
-{
-    echo $_SESSION['Ma_ND'] ;
+if (isset($_SESSION['Ma_ND'])) {
+    echo $_SESSION['Ma_ND'];
 
 }
 
@@ -13,15 +12,14 @@ include('Xuly/NewPlaylist.php');
 // Xử lý khi form được submit
 if (isset($_POST['TaoMoi'])) {
     // Gọi hàm khi cần thiết
-    TaoMoiPlaylist($_POST['TenPlayL'],$_SESSION['Ma_ND']);
+    TaoMoiPlaylist($_POST['TenPlayL'], $_SESSION['Ma_ND']);
 }
 
 ?>
 <?php
 include('Xuly/doiMK.php');
-if(isset($_POST['doiMK']))
-{
-    doiMK($_POST['old_pass_user'],$_POST['new_pass_user'],$_POST['retype_pass_user'],$_SESSION['Ma_ND']);
+if (isset($_POST['doiMK'])) {
+    doiMK($_POST['old_pass_user'], $_POST['new_pass_user'], $_POST['retype_pass_user'], $_SESSION['Ma_ND']);
 }
 ?>
 
@@ -89,7 +87,8 @@ if(isset($_POST['doiMK']))
                     <div id="collapseOne" class="accordion-collapse collapse " aria-labelledby="headingOne"
                         data-bs-parent="#accordionExample">
                         <!-- data-bs-target="#exampleModal" -->
-                        <div class="col-md-4 menu_item" id="newPlaylist" data-bs-toggle="modal" data-bs-whatever="@mdo" data-bs-target="#exampleModal">
+                        <div class="col-md-4 menu_item" id="newPlaylist" data-bs-toggle="modal" data-bs-whatever="@mdo"
+                            data-bs-target="#exampleModal">
                             <ion-icon name="add"></ion-icon><span>Tạo mới</span>
                         </div>
                     </div>
@@ -107,7 +106,8 @@ if(isset($_POST['doiMK']))
                     <div id="collapseOne1" class="accordion-collapse collapse menu_item" aria-labelledby="headingOne"
                         data-bs-parent="#accordionExample">
                         <!-- data-bs-target="#ModalChangePass" -->
-                        <div class="col-md-4 menu_item" id="btnChangePass" data-bs-toggle="modal" data-bs-target="#ModalChangePass">
+                        <div class="col-md-4 menu_item" id="btnChangePass" data-bs-toggle="modal"
+                            data-bs-target="#ModalChangePass">
                             <ion-icon name="lock-closed"></ion-icon><span>Đổi mật khẩu</span>
                         </div>
                     </div>
@@ -133,22 +133,24 @@ if(isset($_POST['doiMK']))
                         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                     </div>
                     <div class="modal-body">
-                        <form method = "post" action= "index.php">
+                        <form method="post" action="index.php">
                             <div class="mb-3">
                                 <label for="recipient-name" class="col-form-label">Tên Danh Sách:</label>
-                                <input type="text" class="form-control" id="recipient-name" name= "TenPlayL">
+                                <input type="text" class="form-control" id="recipient-name" name="TenPlayL">
                             </div>
                             <div class="mb-3">
                                 <label for="message-text" class="col-form-label">Mô tả:</label>
-                                <textarea class="form-control" id="message-text" name= "MoTa"></textarea>
+                                <textarea class="form-control" id="message-text" name="MoTa"></textarea>
                             </div>
                             <div class="modal-footer">
-                        <button type="button" class="btn btn-secondary btnCancel" data-bs-dismiss="modal">Hủy</button>
-                        <button id="btnConfirm" type="Submit" class="btnAll primary" name="TaoMoi">Tạo mới</button>
-                    </div>
+                                <button type="button" class="btn btn-secondary btnCancel"
+                                    data-bs-dismiss="modal">Hủy</button>
+                                <button id="btnConfirm" type="Submit" class="btnAll primary" name="TaoMoi">Tạo
+                                    mới</button>
+                            </div>
                         </form>
                     </div>
-                  
+
                 </div>
             </div>
         </div>
@@ -221,7 +223,7 @@ if(isset($_POST['doiMK']))
                     </div>
                     <div id="search" class="col-sm-4">
                         <ion-icon name="chevron-back-circle" style="margin-left: 10px;" id="backTab"></ion-icon>
-                        <form action="index.php" id="searchForm" method="get">
+                        <form action="" id="searchForm" method="get">
                             <div>
                                 <ion-icon name="search-outline"></ion-icon>
                                 <input type="text" placeholder="Bạn muốn nghe gì ?" id="search_input" name="search"
@@ -231,14 +233,13 @@ if(isset($_POST['doiMK']))
                                         name="search-outline"></ion-icon>
                                 </button>
                             </div>
-
                         </form>
 
                     </div>
 
                 </div>
                 <!-- -----------------------------------CAN CHANGED------------------------------------------ -->
-                <div id="search_result"></div>
+
                 <div id="music_list" class="layout">
                     <div id="banner_play_list">
                         <img src="IMAGE/Hay-Trao-Cho-Anh-3.jpg" alt="">
@@ -252,7 +253,7 @@ if(isset($_POST['doiMK']))
                         </div>
                     </div>
                     <div id="title_music">
-                        <ion-icon id="playButton" name="play-circle-sharp" ></ion-icon>
+                        <ion-icon id="playButton" name="play-circle-sharp"></ion-icon>
                         <ion-icon name="heart-outline"></ion-icon>
                         <strong
                             style="margin-left: 20px; font-family: Georgia, 'Times New Roman', Times, serif;">...</strong>
@@ -310,7 +311,7 @@ if(isset($_POST['doiMK']))
                 </div>
                 <!-- -------------------------------------THẺ TÌM KIẾM------------------------------------------------- -->
                 <div id="searchModal" class="layout">
-                    <h1>Kết Quả Tìm Kiếm:</h1><br>
+                    <h1 id='searchKeys'>&nbsp;&nbsp;&nbsp;&nbsp;Kết Quả Tìm Kiếm:</h1><br>
                     <div id='music_panel'>
                         <table class="table table-dark table-hover list">
                             <thead>
@@ -325,7 +326,29 @@ if(isset($_POST['doiMK']))
                                 </tr>
                             </thead>
                             <tbody id="searchResults">
-                                
+                                <script>
+                                    document.getElementById('searchForm').addEventListener('submit', function (e) {
+                                        e.preventDefault();
+                                        $(".layout.show").removeClass("show");
+                                        $("#searchModal").addClass("show");
+                                        var searchInput = document.getElementById('search_input').value;
+                                        var showKeys =document.getElementById('searchKeys');
+                                        showKeys.innerHTML ='&nbsp;&nbsp;&nbsp;&nbsp;Kết Quả Tìm Kiếm: "'+ searchInput+'"';
+                                        searchWithAjax(searchInput);
+                                    });
+                                    
+                                    function searchWithAjax(searchTerm) {
+                                        var xhr = new XMLHttpRequest();
+                                        xhr.onreadystatechange = function () {
+                                            if (xhr.readyState == 4 && xhr.status == 200) {
+                                                // Xử lý kết quả từ PHP
+                                                document.getElementById('searchResults').innerHTML = xhr.responseText;
+                                            }
+                                        };
+                                        xhr.open('GET', 'timkiem.php?search=' + searchTerm, true);
+                                        xhr.send();
+                                    }
+                                </script>
                             </tbody>
                         </table>
                     </div>
@@ -384,7 +407,8 @@ if(isset($_POST['doiMK']))
                                     <th scope="col">Tác giả, ca sĩ</th>
                                     <th scope="col">Ngày phát hành</th>
                                     <th scope="col">Thời lượng</th>
-                                    <th scope="col"></th>
+                                    <th scope="col">Lượt nghe</th>
+
                                 </tr>
                             </thead>
                             <tbody>
@@ -451,8 +475,7 @@ if(isset($_POST['doiMK']))
             </div>
         </div>
         <audio controls style='opacity:0' id='music'>
-            <source
-                src="" />
+            <source src="" />
         </audio>
         <form id="myForm" action="MusicProcess.php" method="POST">
             <input type="hidden" id="idPLInput" name="idPL" value="">
@@ -494,75 +517,59 @@ if(isset($_POST['doiMK']))
                 xhr.send();
             });
         });
-        $('#searchForm').submit(function(event) {
-                event.preventDefault(); // Prevents the form from submitting the traditional way
-
-                var searchTerm = $('#search_input').val();
-
-                $.ajax({
-                    type: 'GET',
-                    url: 'timkiem.php',
-                    data: { term: searchTerm },
-                    success: function(data) {
-                        $('#searchResults').html(data);
-                    },
-                    error: function() {
-                        alert('An error occurred while processing your request.');
-                    }
-                });
-            });
     });
 </script>
 
 <!-- play nhạc của playlist khi ấn vào nút play của playlist -->
 <script>
     $(document).ready(function () {
-    var idPL = document.querySelectorAll('.view_item');
+        var idPL = document.querySelectorAll('.view_item');
 
-    idPL.forEach(function (div) {
-        div.addEventListener('click', function () {
-            var idPlaylist = div.id;
+        idPL.forEach(function (div) {
+            div.addEventListener('click', function () {
+                var idPlaylist = div.id;
 
-            // Sử dụng $.ajax để gửi dữ liệu về server
-            var xhr = new XMLHttpRequest();
-            xhr.onreadystatechange = function () {
-                if (this.readyState == 4 && this.status == 200) {
-                    // Hiển thị kết quả từ PHP
-                    var data = JSON.parse(this.responseText);
+                // Sử dụng $.ajax để gửi dữ liệu về server
+                var xhr = new XMLHttpRequest();
+                xhr.onreadystatechange = function () {
+                    if (this.readyState == 4 && this.status == 200) {
+                        // Hiển thị kết quả từ PHP
+                        var data = JSON.parse(this.responseText);
 
-                    // Cập nhật nguồn âm thanh cho thẻ audio
-                    if (data.length > 0) {
-                        var audioElement = document.getElementById('music');
-                        audioElement.src = data[0].path;
-                        audioElement.load(); // Tải lại audio
+                        // Cập nhật nguồn âm thanh cho thẻ audio
+                        if (data.length > 0) {
+                            var audioElement = document.getElementById('music');
+                            audioElement.src = data[0].path;
+                            audioElement.load(); // Tải lại audio
+                        }
+
+                        // Sự kiện click cho ion-icon
+                        $('#playButton').on('click', function () {
+                            // Đoạn mã xử lý khi người dùng click vào nút phát
+                            console.log('Phát bài hát!');
+
+                            // Gửi yêu cầu AJAX để tăng lượt nghe
+                            var xhrIncreaseListen = new XMLHttpRequest();
+                            xhrIncreaseListen.onreadystatechange = function () {
+                                if (this.readyState == 4 && this.status == 200) {
+                                    // Hiển thị kết quả từ PHP (nếu cần)
+                                    console.log(this.responseText);
+                                }
+                            };
+                            xhrIncreaseListen.open("GET", "increaseListen.php?idPlaylist=" + idPlaylist, true);
+                            xhrIncreaseListen.send();
+
+                            // Thực hiện chạy audio
+                            document.getElementById('music').play();
+                        });
                     }
-
-                    // Sự kiện click cho ion-icon
-                    $('#playButton').on('click', function () {
-                        // Đoạn mã xử lý khi người dùng click vào nút phát
-                        console.log('Phát bài hát!');
-                        
-                        // Gửi yêu cầu AJAX để tăng lượt nghe
-                        var xhrIncreaseListen = new XMLHttpRequest();
-                        xhrIncreaseListen.onreadystatechange = function () {
-                            if (this.readyState == 4 && this.status == 200) {
-                                // Hiển thị kết quả từ PHP (nếu cần)
-                                console.log(this.responseText);
-                            }
-                        };
-                        xhrIncreaseListen.open("GET", "increaseListen.php?idPlaylist=" + idPlaylist, true);
-                        xhrIncreaseListen.send();
-                        
-                        // Thực hiện chạy audio
-                        document.getElementById('music').play();
-                    });
-                }
-            };
-            xhr.open("GET", "tesst.php?idPlaylist=" + idPlaylist, true);
-            xhr.send();
+                };
+                xhr.open("GET", "tesst.php?idPlaylist=" + idPlaylist, true);
+                xhr.send();
+            });
         });
     });
-});
 
 </script>
+
 </html>
