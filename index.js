@@ -4,6 +4,7 @@ $(document).ready(function () {
     if ($(this).scrollTop()) {
       $('#topMenu').css('background-color', 'var(--primary-color-custom)');
       $('#topMenu').css('box-shadow', '1px 2px 5px black');
+      $('#topMenu').css('z-index', '3000');
       $('#personal').css('color', 'black');
     }
     else {

@@ -7,10 +7,11 @@
     <meta name="viewport" content="width=device-width, initial-scale=0.0">
     <title>TriVie Music</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.4.2/css/fontawesome.min.css">
+    <link rel="stylesheet"
+        href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.4.2/css/fontawesome.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" />
     <link rel="stylesheet" href="index.css">
-    
+
 </head>
 <?php include "MusicProcess.php" ?>
 
@@ -28,7 +29,8 @@
             <ion-icon name="warning"></ion-icon>&nbsp;&nbsp;
             Vui lòng <a href="log-in.php">Đăng nhập</a> để thực hiện chức năng
         </div>
-        <?php require_once('timkiem.php');timNhac();?>
+        <?php require_once('timkiem.php');
+        timNhac(); ?>
     </div>
     <div class="container-fluid">
         <div class="col-sm-4">
@@ -50,9 +52,9 @@
                         <span>TÌM KIẾM</span>
                     </div>
                     <div class="menu_item" id="dsphat" data-bs-toggle="collapse" data-bs-target="#collapseOne"
-                            aria-expanded="true" aria-controls="collapseOne">
-                            <ion-icon name="list-outline">
-                            </ion-icon><span>DANH SÁCH PHÁT</span>
+                        aria-expanded="true" aria-controls="collapseOne">
+                        <ion-icon name="list-outline">
+                        </ion-icon><span>DANH SÁCH PHÁT</span>
                     </div>
                     <div class="">
                         <div id="collapseOne" class="accordion-collapse collapse" aria-labelledby="headingOne"
@@ -63,37 +65,38 @@
                             </div>
                         </div>
                     </div>
-                        <div id="collapseOne" class="accordion-collapse collapse " aria-labelledby="headingOne"
-                            data-bs-parent="#accordionExample">
-                            <!-- data-bs-target="#exampleModal" -->
-                            <div class="col-md-4 menu_item" id="newPlaylist" data-bs-toggle="modal" 
-                                data-bs-whatever="@mdo">
-                                <ion-icon name="add"></ion-icon><span>Tạo mới</span>
-                            </div>
+                    <div id="collapseOne" class="accordion-collapse collapse " aria-labelledby="headingOne"
+                        data-bs-parent="#accordionExample">
+                        <!-- data-bs-target="#exampleModal" -->
+                        <div class="col-md-4 menu_item" id="newPlaylist" data-bs-toggle="modal" data-bs-whatever="@mdo">
+                            <ion-icon name="add"></ion-icon><span>Tạo mới</span>
                         </div>
-                    
-                    <div class="col-md-4 menu_item" id="bxh"><ion-icon name="bar-chart-outline"></ion-icon><span>BẢNG XẾP HẠNG</span>
                     </div>
-                    <div class="col-md-4 menu_item" id="yeu thich"><ion-icon name="heart-outline"></ion-icon><span>YÊU THÍCH</span></div>
-                    
-                        <div class="menu_item" data-bs-toggle="collapse" data-bs-target="#collapseOne1"
-                            aria-expanded="true" aria-controls="collapseOne">
-                            <ion-icon name="settings"></ion-icon><span>CÀI ĐẶT</span>
+
+                    <div class="col-md-4 menu_item" id="bxh"><ion-icon name="bar-chart-outline"></ion-icon><span>BẢNG
+                            XẾP HẠNG</span>
+                    </div>
+                    <div class="col-md-4 menu_item" id="yeu thich"><ion-icon name="heart-outline"></ion-icon><span>YÊU
+                            THÍCH</span></div>
+
+                    <div class="menu_item" data-bs-toggle="collapse" data-bs-target="#collapseOne1" aria-expanded="true"
+                        aria-controls="collapseOne">
+                        <ion-icon name="settings"></ion-icon><span>CÀI ĐẶT</span>
+                    </div>
+                    <div id="collapseOne1" class="accordion-collapse collapse menu_item" aria-labelledby="headingOne"
+                        data-bs-parent="#accordionExample">
+                        <!-- data-bs-target="#ModalChangePass" -->
+                        <div class="col-md-4 menu_item" id="btnChangePass" data-bs-toggle="modal">
+                            <ion-icon name="lock-closed"></ion-icon><span>Đổi mật khẩu</span>
                         </div>
-                        <div id="collapseOne1" class="accordion-collapse collapse menu_item" aria-labelledby="headingOne"
-                            data-bs-parent="#accordionExample">
-                            <!-- data-bs-target="#ModalChangePass" -->
-                            <div class="col-md-4 menu_item" id="btnChangePass" data-bs-toggle="modal">
-                                <ion-icon name="lock-closed"></ion-icon><span>Đổi mật khẩu</span>
-                            </div>
+                    </div>
+                    <div id="collapseOne1" class="accordion-collapse collapse " aria-labelledby="headingOne"
+                        data-bs-parent="#accordionExample">
+                        <div class="col-md-4 menu_item" id="">
+                            <ion-icon name="pencil"></ion-icon><span>Chỉnh sửa tài khoản</span>
                         </div>
-                        <div id="collapseOne1" class="accordion-collapse collapse " aria-labelledby="headingOne"
-                            data-bs-parent="#accordionExample">
-                            <div class="col-md-4 menu_item" id="">
-                                <ion-icon name="pencil"></ion-icon><span>Chỉnh sửa tài khoản</span>
-                            </div>
-                        </div>
-                    
+                    </div>
+
                 </div>
                 <div id="navbar">
                     <ion-icon name="chevron-back-outline"></ion-icon>
@@ -199,14 +202,17 @@
                         <form action="index.php" method="get">
                             <div>
                                 <ion-icon name="search-outline"></ion-icon>
-                                <input type="text" placeholder="Bạn muốn nghe gì ?" id="search_input" name="search" class="col-sm-4">
-                                <button type="submit" class="btn btn-secondary" style="border-radius: 50%; width: 45px; height: 45px; margin-left: 5px;" ><ion-icon name="search-outline"></ion-icon></button>
+                                <input type="text" placeholder="Bạn muốn nghe gì ?" id="search_input" name="search"
+                                    class="col-sm-4">
+                                <button type="submit" class="btn btn-secondary"
+                                    style="border-radius: 50%; width: 45px; height: 45px; margin-left: 5px;"><ion-icon
+                                        name="search-outline"></ion-icon></button>
                             </div>
-                            
+
                         </form>
-                        
+
                     </div>
-                    
+
                 </div>
                 <!-- -----------------------------------CAN CHANGED------------------------------------------ -->
 
@@ -229,7 +235,7 @@
                             style="margin-left: 20px; font-family: Georgia, 'Times New Roman', Times, serif;">...</strong>
                     </div>
                     <div id='music_panel'>
-                    <table class="table table-dark table-hover list">
+                        <table class="table table-dark table-hover list">
                             <thead>
                                 <tr>
                                     <th scope="col">STT</th>
@@ -241,8 +247,8 @@
                                     <th scope="col"></th>
                                 </tr>
                             </thead>
-                            <tbody>
-                                <?php loadMusic() ?>
+                            <tbody id = 'result'>
+                                
                             </tbody>
                         </table>
                     </div>
@@ -255,7 +261,8 @@
                         <h1>THỊNH HÀNH</h1>
                     </div>
                     <div id="1" class="list_item">
-                        <?php loadPlaylist() ?>
+                        <?php loadPlaylist();
+                        ?>
                     </div>
                     <br>
                     <div class="title_pl">
@@ -324,7 +331,7 @@
                             style="margin-left: 20px; font-family: Georgia, 'Times New Roman', Times, serif;">...</strong>
                     </div>
                     <div id='music_panel'>
-                    <table class="table table-dark table-hover list">
+                        <table class="table table-dark table-hover list">
                             <thead>
                                 <tr>
                                     <th scope="col">STT</th>
@@ -337,7 +344,7 @@
                                 </tr>
                             </thead>
                             <tbody>
-                                <?php loadMusic() ?>
+                                <?php ?>
                             </tbody>
                         </table>
                     </div>
@@ -375,7 +382,7 @@
                                 </tr>
                             </thead>
                             <tbody>
-                                <?php loadMusic() ?>
+                                <?php ?>
                             </tbody>
                         </table>
                     </div>
@@ -384,33 +391,28 @@
         </div>
         <!-- -----------------------------------------------HIỆN NÚT BẤM NGHE--------------------------------------------- -->
         <div id="play">
-        <div id="info_music"></div>
+            <div id="info_music"></div>
             <div id="btn">
                 <ion-icon name="shuffle"></ion-icon>
-                <ion-icon name="play-skip-back-circle"  onclick="playPrev()"></ion-icon>
+                <ion-icon name="play-skip-back-circle" onclick="playPrev()"></ion-icon>
                 <ion-icon id="play_btn" name="play-circle" onclick="play()"></ion-icon>
                 <ion-icon id="pause_btn" name="pause-circle" onclick="pause()"></ion-icon>
                 <ion-icon name="play-skip-forward-circle" onclick="playNext()"></ion-icon>
-                <ion-icon name="refresh" id = "loopBtn" onclick="Loop()"></ion-icon>
+                <ion-icon name="refresh" id="loopBtn" onclick="Loop()"></ion-icon>
             </div>
-              
-
-
-
-
-
-
-
-
             <div id="time_play">
                 <span id="start-time">00:00</span>
-                <input type="range" id="timeline" min="0" value="0" step="0.5"> 
+                <input type="range" id="timeline" min="0" value="0" step="0.5">
                 <span id="end-time">00:00</span>
             </div>
         </div>
         <audio controls style='opacity:0' id='music'>
-            <source src="https://vnso-pt-24-tf-a128-zmp3.zmdcdn.me/966012e4e868f2efc96237dedc1145af?authen=exp=1702026755~acl=/966012e4e868f2efc96237dedc1145af/*~hmac=082a75cb29b93bf5b0684f81ff20e085" />
+            <source
+                src="https://vnso-zn-15-tf-a128-zmp3.zmdcdn.me/966012e4e868f2efc96237dedc1145af?authen=exp=1702278399~acl=/966012e4e868f2efc96237dedc1145af/*~hmac=d0812454fa72be47848d1658a4fdfc9a" />
         </audio>
+        <form id="myForm" action="MusicProcess.php" method="POST">
+            <input type="hidden" id="idPLInput" name="idPL" value="">
+        </form>
     </div>
 </body>
 <script crossorigin src="https://unpkg.com/react@17/umd/react.development.js"></script>
@@ -419,6 +421,7 @@
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
 <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
 <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
 <script src="index.js"></script>
 <!-- <script type="text/babel" src="Playlists.js"></script>
 <script type="text/babel">
@@ -427,5 +430,27 @@
     }
     document.getElementById('dsphat').addEventListener('click', handleCLick)
 </script> -->
+<script>
+    $(document).ready(function () {
+    var idPL = document.querySelectorAll('.view_item');
+    
+    idPL.forEach(function (div) {
+            div.addEventListener('click', function () {
+                var idPlaylist = div.id;
+                console.log('idPlaylist:', idPlaylist);
+                // Sử dụng $.ajax để gửi dữ liệu về server
+                var xhr = new XMLHttpRequest();
+                xhr.onreadystatechange = function() {
+                    if (this.readyState == 4 && this.status == 200) {
+                        // Hiển thị kết quả từ PHP
+                        document.getElementById('result').innerHTML = this.responseText;
+                    }
+                };
+                xhr.open("GET", "loadMusic.php?idPlaylist=" + idPlaylist, true);
+                xhr.send();
+            });
+        });
+    });
+</script>
 
 </html>
