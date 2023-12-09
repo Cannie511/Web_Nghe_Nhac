@@ -13,7 +13,7 @@ function login($username, $password)
       //       $response = array("code" => "400", "message" => "Invalid username or password");
       //       return json_encode($response);
       // }
-
+            session_start();
       require_once(__DIR__ . '/DB/loginDB.php');
       try {
 
@@ -25,6 +25,10 @@ function login($username, $password)
             $result = $stmt->fetch(PDO::FETCH_ASSOC);
             if ($result) {
                   $response = array("code" => "200", "message" => "Login successfully", "id" => $result["id"], "role" => $result["role"]);
+                  foreach($result as $key => $v)
+                  {
+                        $_SESSION['Ma_ND'] = $result['id'];
+                  }
                   return json_encode($response);
             } else {
                   $response = array("code" => "404", "message" => "Account's Credential not found ");

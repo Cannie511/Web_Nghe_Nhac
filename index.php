@@ -1,3 +1,34 @@
+<?php 
+session_start();
+if(isset( $_SESSION['Ma_ND']))
+{
+    echo $_SESSION['Ma_ND'] ;
+
+}
+
+?>
+<?php
+include('Xuly/NewPlaylist.php');
+
+// Xử lý khi form được submit
+if (isset($_POST['TaoMoi'])) {
+    // Gọi hàm khi cần thiết
+    TaoMoiPlaylist($_POST['TenPlayL'],$_SESSION['Ma_ND']);
+}
+
+?>
+<?php
+include('Xuly/doiMK.php');
+if(isset($_POST['doiMK']))
+{
+    doiMK($_POST['old_pass_user'],$_POST['new_pass_user'],$_POST['retype_pass_user'],$_SESSION['Ma_ND']);
+}
+?>
+
+
+
+
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -68,7 +99,7 @@
                     <div id="collapseOne" class="accordion-collapse collapse " aria-labelledby="headingOne"
                         data-bs-parent="#accordionExample">
                         <!-- data-bs-target="#exampleModal" -->
-                        <div class="col-md-4 menu_item" id="newPlaylist" data-bs-toggle="modal" data-bs-whatever="@mdo">
+                        <div class="col-md-4 menu_item" id="newPlaylist" data-bs-toggle="modal" data-bs-whatever="@mdo" data-bs-target="#exampleModal">
                             <ion-icon name="add"></ion-icon><span>Tạo mới</span>
                         </div>
                     </div>
@@ -86,7 +117,7 @@
                     <div id="collapseOne1" class="accordion-collapse collapse menu_item" aria-labelledby="headingOne"
                         data-bs-parent="#accordionExample">
                         <!-- data-bs-target="#ModalChangePass" -->
-                        <div class="col-md-4 menu_item" id="btnChangePass" data-bs-toggle="modal">
+                        <div class="col-md-4 menu_item" id="btnChangePass" data-bs-toggle="modal" data-bs-target="#ModalChangePass">
                             <ion-icon name="lock-closed"></ion-icon><span>Đổi mật khẩu</span>
                         </div>
                     </div>
@@ -112,21 +143,22 @@
                         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                     </div>
                     <div class="modal-body">
-                        <form>
+                        <form method = "post" action= "index.php">
                             <div class="mb-3">
                                 <label for="recipient-name" class="col-form-label">Tên Danh Sách:</label>
-                                <input type="text" class="form-control" id="recipient-name">
+                                <input type="text" class="form-control" id="recipient-name" name= "TenPlayL">
                             </div>
                             <div class="mb-3">
                                 <label for="message-text" class="col-form-label">Mô tả:</label>
-                                <textarea class="form-control" id="message-text"></textarea>
+                                <textarea class="form-control" id="message-text" name= "MoTa"></textarea>
                             </div>
+                            <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary btnCancel" data-bs-dismiss="modal">Hủy</button>
+                        <button id="btnConfirm" type="Submit" class="btnAll primary" name="TaoMoi">Tạo mới</button>
+                    </div>
                         </form>
                     </div>
-                    <div class="modal-footer">
-                        <button type="button" class="btn btn-secondary btnCancel" data-bs-dismiss="modal">Hủy</button>
-                        <button id="btnConfirm" type="button" class="btnAll primary">Tạo mới</button>
-                    </div>
+                  
                 </div>
             </div>
         </div>
@@ -229,7 +261,7 @@
                         </div>
                     </div>
                     <div id="title_music">
-                        <ion-icon name="play-circle-sharp"></ion-icon>
+                        <ion-icon id="playButton" name="play-circle-sharp" ></ion-icon>
                         <ion-icon name="heart-outline"></ion-icon>
                         <strong
                             style="margin-left: 20px; font-family: Georgia, 'Times New Roman', Times, serif;">...</strong>
@@ -344,7 +376,7 @@
                                 </tr>
                             </thead>
                             <tbody>
-                                <?php ?>
+                                <?php loadBXHNgheNhieu(); ?>
                             </tbody>
                         </table>
                     </div>
@@ -408,7 +440,7 @@
         </div>
         <audio controls style='opacity:0' id='music'>
             <source
-                src="https://vnso-zn-15-tf-a128-zmp3.zmdcdn.me/966012e4e868f2efc96237dedc1145af?authen=exp=1702278399~acl=/966012e4e868f2efc96237dedc1145af/*~hmac=d0812454fa72be47848d1658a4fdfc9a" />
+                src="" />
         </audio>
         <form id="myForm" action="MusicProcess.php" method="POST">
             <input type="hidden" id="idPLInput" name="idPL" value="">
@@ -453,4 +485,55 @@
     });
 </script>
 
+<!-- play nhạc của playlist khi ấn vào nút play của playlist -->
+<script>
+    $(document).ready(function () {
+    var idPL = document.querySelectorAll('.view_item');
+
+    idPL.forEach(function (div) {
+        div.addEventListener('click', function () {
+            var idPlaylist = div.id;
+
+            // Sử dụng $.ajax để gửi dữ liệu về server
+            var xhr = new XMLHttpRequest();
+            xhr.onreadystatechange = function () {
+                if (this.readyState == 4 && this.status == 200) {
+                    // Hiển thị kết quả từ PHP
+                    var data = JSON.parse(this.responseText);
+
+                    // Cập nhật nguồn âm thanh cho thẻ audio
+                    if (data.length > 0) {
+                        var audioElement = document.getElementById('music');
+                        audioElement.src = data[0].path;
+                        audioElement.load(); // Tải lại audio
+                    }
+
+                    // Sự kiện click cho ion-icon
+                    $('#playButton').on('click', function () {
+                        // Đoạn mã xử lý khi người dùng click vào nút phát
+                        console.log('Phát bài hát!');
+                        
+                        // Gửi yêu cầu AJAX để tăng lượt nghe
+                        var xhrIncreaseListen = new XMLHttpRequest();
+                        xhrIncreaseListen.onreadystatechange = function () {
+                            if (this.readyState == 4 && this.status == 200) {
+                                // Hiển thị kết quả từ PHP (nếu cần)
+                                console.log(this.responseText);
+                            }
+                        };
+                        xhrIncreaseListen.open("GET", "increaseListen.php?idPlaylist=" + idPlaylist, true);
+                        xhrIncreaseListen.send();
+                        
+                        // Thực hiện chạy audio
+                        document.getElementById('music').play();
+                    });
+                }
+            };
+            xhr.open("GET", "tesst.php?idPlaylist=" + idPlaylist, true);
+            xhr.send();
+        });
+    });
+});
+
+</script>
 </html>
