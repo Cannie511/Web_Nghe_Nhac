@@ -1,8 +1,7 @@
 <?php
 session_start();
 if (isset($_SESSION['Ma_ND'])) {
-    echo $_SESSION['Ma_ND'];
-
+    // echo $_SESSION['Ma_ND'];
 }
 
 ?>
@@ -229,7 +228,7 @@ if (isset($_POST['doiMK'])) {
                                 <input type="text" placeholder="Bạn muốn nghe gì ?" id="search_input" name="search"
                                     class="col-sm-4">
                                 <button type="submit" class="btn btn-secondary"
-                                    style="border-radius: 50%; width: 45px; height: 45px; margin-left: 5px;"><ion-icon
+                                    style="border-radius: 50%; width: 45px; height: 45px; margin-left: 5px; display: none"><ion-icon
                                         name="search-outline"></ion-icon>
                                 </button>
                             </div>
@@ -253,15 +252,17 @@ if (isset($_POST['doiMK'])) {
                         </div>
                     </div>
                     <div id="title_music">
-                        <ion-icon id="playButton" name="play-circle-sharp"></ion-icon>
+                        <div class="cover">
+                            <ion-icon id="playButton" name="play-circle-sharp"></ion-icon>
+                            <strong>Play</strong>
+                        </div>
                         <ion-icon name="heart-outline"></ion-icon>
-                        <strong
-                            style="margin-left: 20px; font-family: Georgia, 'Times New Roman', Times, serif;">...</strong>
                     </div>
                     <div id='music_panel'>
                         <table class="table table-dark table-hover list">
                             <thead>
                                 <tr>
+                                    <th scope="col"></th>
                                     <th scope="col">STT</th>
                                     <th scope="col">Hình</th>
                                     <th scope="col">Tiêu đề</th>
@@ -316,13 +317,14 @@ if (isset($_POST['doiMK'])) {
                         <table class="table table-dark table-hover list">
                             <thead>
                                 <tr>
+                                    <th scope="col"></th>
                                     <th scope="col">STT</th>
                                     <th scope="col">Hình</th>
                                     <th scope="col">Tiêu đề</th>
                                     <th scope="col">Tác giả, ca sĩ</th>
                                     <th scope="col">Ngày phát hành</th>
                                     <th scope="col">Thời lượng</th>
-                                    <th scope="col"></th>
+                                    
                                 </tr>
                             </thead>
                             <tbody id="searchResults">
@@ -474,7 +476,7 @@ if (isset($_POST['doiMK'])) {
                 <span id="end-time">00:00</span>
             </div>
         </div>
-        <audio controls style='opacity:0' id='music'>
+        <audio controls style='opacity:0' id='music' onplay ="showStopButton()" onpause="showPlayButton()">
             <source src="" />
         </audio>
         <form id="myForm" action="MusicProcess.php" method="POST">

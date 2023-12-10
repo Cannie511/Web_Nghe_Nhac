@@ -18,6 +18,20 @@ header {
     background-color: #3376BC;
     position: fixed;
 }
+td{
+    vertical-align: middle;
+}
+
+td>ion-icon{
+    font-size: 1.5em;
+    position: relative;
+    opacity: 0;
+    transition: all 0.2s ease-in-out;
+}
+tr:hover ion-icon {
+    /* display: inline-block; */
+    opacity: 1;
+  }
 td>ion-icon:hover{
     color: gray    ;
 }
@@ -177,7 +191,6 @@ th{
     margin-left: 20px;
     cursor: pointer;
 }
-
 #title_music>strong {
     color: gray;
     cursor: pointer;
@@ -186,12 +199,29 @@ th{
 #title_music>strong:hover {
     color: white;
 }
-
-#title_music>ion-icon:first-child {
-    color: green;
-    font-size: 80px;
+.cover{
+    width: 160px;
+    height: 80px;
+    border-radius: 40px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: var(--primary-color-custom);
 }
-
+.cover strong{
+    vertical-align: super;
+    margin-right: 10px;
+    color: black;
+}
+.cover ion-icon {
+    color: black;
+    font-size: 80px;
+    cursor: pointer;
+    transition: all 0.2s ease-in-out;
+}
+.cover ion-icon:hover{
+    color: green;
+}
 #menu.hide {
     width: 4.5vw;
     z-index: 10;
@@ -541,7 +571,7 @@ th{
 
 #pause_btn {
     font-size: 5vh;
-    position: absolute;
+    position: relative;
     display: none;
 }
 #loopBtn.loop{

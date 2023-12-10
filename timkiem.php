@@ -13,13 +13,14 @@ if (isset($_GET["search"]) && $_GET["search"] !== "") {
         if (count($result) > 0) {
             foreach ($result as $row) {
                 echo "<tr>
+                        <td><ion-icon name='play'></ion-icon></td>
                         <td>#{$row['Ma_Bai_Hat']}</td>
                         <td><img src = '{$row['Anh_Bia']}'></td>
                         <td>{$row['Ten_Bai_Hat']}</td>
                         <td>{$row['Ten_Ca_Si']}</td>
                         <td>{$row['Ngay_Phat_Hanh']}</td><td>";
                         print_r(intval($row['Thoi_Luong']/60).":".($row['Thoi_Luong']%60));
-                      "</td></tr>";
+                      "</td><td></td></tr>";
             }
         } else {
             echo "<tr><td colspan='7'>Không tìm thấy</td></tr>";

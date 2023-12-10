@@ -121,6 +121,7 @@ $(document).ready(function () {
   //     $('#alert-login').css("display", "none");
   //   }, 2500);
   // })
+
 });
 var navbar_toggle = document.getElementById("navbar");
 var menu = document.getElementById("menu");
@@ -143,7 +144,9 @@ var logo = document.getElementById("logo");
 var nav_rotate = document.getElementById("nav_rotate");
 var topMenu = document.getElementById("topMenu");
 var menu_cover = document.getElementById("menu_cover");
-
+var play_btn = document.getElementById("play_btn");
+var pause_btn = document.getElementById("pause_btn");
+var music_src = document.getElementById("music");
 if (navbar_toggle != null) {
   navbar_toggle.onclick = function () {
     navbar_toggle.classList.toggle("open");
@@ -159,7 +162,15 @@ if (navbar_toggle != null) {
     menu_cover.classList.toggle("hide");
   };
 }
+function showStopButton() {
+  play_btn.style.display = "none";
+  pause_btn.style.display = "inline-block";
+}
 
+function showPlayButton() {
+  play_btn.style.display = "inline-block";
+  pause_btn.style.display = "none";
+}
 function play() {
   var play = document.getElementById("play_btn");
   var pause = document.getElementById("pause_btn");
@@ -174,7 +185,11 @@ function play() {
       if (listId.length > 0) {
         var mabaihat = listId[currentSongIndex];
         var xhr = new XMLHttpRequest();
-        xhr.open("GET","increase_listen_count.php?Ma_Bai_Hat=" + mabaihat,true);
+        xhr.open(
+          "GET",
+          "increase_listen_count.php?Ma_Bai_Hat=" + mabaihat,
+          true
+        );
         xhr.send();
       }
     }

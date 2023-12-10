@@ -14,6 +14,7 @@ $Maplaylist = $dataMusic;
     $data = $stm->fetchAll(PDO::FETCH_ASSOC);
     foreach ($data as $key => $music) {
         echo "<tr class='music-row' data-music-link='" . $data[$key]['path'] . "'>";
+        echo "<td><ion-icon name='play'></ion-icon></td>";
         echo "<td>";
         print_r("#".$data[$key]['Ma_Bai_Hat']);
         echo "</td>";
@@ -33,7 +34,7 @@ $Maplaylist = $dataMusic;
         print_r(intval($data[$key]['Thoi_Luong']/60).":".($data[$key]['Thoi_Luong']%60));
         echo "</td>";
         echo "<td>";
-        echo "<ion-icon name='trash'></ion-icon>";
+        echo "";
         echo "</td>";
         echo "</tr>";
     }
