@@ -13,7 +13,7 @@ if (isset($_GET["search"]) && $_GET["search"] !== "") {
         if (count($result) > 0) {
             foreach ($result as $row) {
                 echo "<tr>
-                        <td><ion-icon name='play'></ion-icon></td>
+                        <td><ion-icon name='play'></ion-icon>&nbsp;<ion-icon name='heart'></ion-icon></td>
                         <td>#{$row['Ma_Bai_Hat']}</td>
                         <td><img src = '{$row['Anh_Bia']}'></td>
                         <td>{$row['Ten_Bai_Hat']}</td>

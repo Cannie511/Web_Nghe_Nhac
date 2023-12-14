@@ -6,18 +6,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Login page</title>
     <link rel="stylesheet" href="log-in.css" />
-    <script>
-    if (window.history.replaceState) {
-        window.history.replaceState(null, null, window.location.href);
-    }
-    document.addEventListener('DOMContentLoaded', function() {
-        let loginForm = document.getElementById('login-form');
-        loginForm.addEventListener('submit', function(event) {
-            event.preventDefault();
-
-        });
-    });
-    </script>
+   
+    
 </head>
 
 <body>
@@ -28,7 +18,7 @@
             </h2>
         </div>
         <div id="q1">
-            <div id="g1">
+            <!-- <div id="g1">
                 <img id="g2" src="IMAGE/logogg.png" />
                 <a id="g3" href="">
                     Tiếp tục bằng Google</a>
@@ -47,8 +37,8 @@
                 <div id="d1">
                     <a id="d3" href="">Tiếp tục bằng số điện thoại</a>
                 </div>
-            </div>
-            <hr id="hr">
+            </div> -->
+            <!-- <hr id="hr"> -->
             <form id="login-form" action="" method="POST" onsubmit="return handleSubmit(event)">
                 <div class="product-item">
                     <div class="down-content">
@@ -108,6 +98,18 @@
 
         return false;
     }
+    </script>
+     <script>
+    if (window.history.replaceState) {
+        window.history.replaceState(null, null, window.location.href);
+    }
+    document.addEventListener('DOMContentLoaded', function() {
+        let loginForm = document.getElementById('login-form');
+        loginForm.addEventListener('submit', function(event) {
+            event.preventDefault();
+
+        });
+    });
     </script>
 </body>
 

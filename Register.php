@@ -13,13 +13,10 @@
 
 <body>
   <div class="container-fluid text-center main">
-
-
-
     <div class="row row-cols-2 ">
 
       <div class="col info">
-        <form action="xuly.php" id="register" method="post">
+        <form action="Xuly/xulyRegister.php" id="register" method="post">
           <h2><strong>Bắt đầu với <span style="color: var(--logo-Tri-custom);">Tri</span><span
                 style="color: var(--logo-Vie-custom);">Vie</span></strong></h2>
           <div class="icon-btn">

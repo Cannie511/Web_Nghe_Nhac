@@ -8,7 +8,7 @@
   <link rel="icon" href="IMAGE/T.png" />
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" />
-  <link rel="stylesheet" href="Register.css" />
+  <link rel="stylesheet" href="../Register.css" />
   <style>
     body {
       margin: 0;
@@ -46,12 +46,12 @@
 <body>
       <div class="alert alert-success allAlert" role="alert" id="alert-success">
       <ion-icon name="checkmark"></ion-icon>&nbsp;&nbsp;
-      Đăng ký thành công! <a href="log-in.php" class="alert-link">Tiếp tục</a>
+      Đăng ký thành công! <a href="../log-in.php" class="alert-link">Tiếp tục</a>
       </div>
       
       <div class="alert alert-danger allAlert" id="alert-warning" role="alert">
         <ion-icon name="warning"></ion-icon>&nbsp;&nbsp;
-        Tài khoản đã tồn tại! vui lòng <a href="Register.php">Thử lại</a>.
+        Tài khoản đã tồn tại! vui lòng <a href="../Register.php">Thử lại</a>.
       </div>
   
   <div class="container-fluid text-center main">
@@ -102,7 +102,7 @@
 
 
       <div class="col banner">
-        <img src="IMAGE/banner-log-vertical.jpg" style = 'opacity: 0.5' alt="">
+        <img src="../IMAGE/banner-log-vertical.jpg" style = 'opacity: 0.5' alt="">
       </div>
     </div>
   </div>
@@ -116,7 +116,7 @@
 
 </html>
 <?php
-require_once("DB/ketnoi.php");
+require_once("../DB/ketnoi.php");
 if (isset($_POST["dangKy"])) {
   //lấy thông tin từ các form 
   $username = $_POST["id_user"];

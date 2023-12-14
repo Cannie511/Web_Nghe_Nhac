@@ -3,18 +3,29 @@ session_start();
 if (isset($_SESSION['Ma_ND'])) {
     // echo $_SESSION['Ma_ND'];
 }
-
+include "Xuly/MusicProcess.php";
+include('Xuly/NewPlaylist.php');
+include('Xuly/doiMK.php');
 ?>
 
 
 <?php
-include('Xuly/NewPlaylist.php');
+
 // Xử lý khi form được submit
 if (isset($_POST['TaoMoi'])) {
     // Gọi hàm khi cần thiết
     TaoMoiPlaylist($_POST['TenPlayL'], $_SESSION['Ma_ND']);
 }
 ?>
+<<<<<<< HEAD
+=======
+<?php
+
+if (isset($_POST['doiMK'])) {
+    doiMK($_POST['old_pass_user'], $_POST['new_pass_user'], $_POST['retype_pass_user'], $_SESSION['Ma_ND']);
+}
+?>
+>>>>>>> c623305d2716d92b0aa21acdc0b58f4d33c3cc3e
 <!DOCTYPE html>
 <html lang="en">
 
@@ -30,7 +41,7 @@ if (isset($_POST['TaoMoi'])) {
     <link rel="stylesheet" href="index.css">
 
 </head>
-<?php include "MusicProcess.php" ?>
+<?php  ?>
 
 <body>
     <div class="noti">
@@ -86,23 +97,16 @@ if (isset($_POST['TaoMoi'])) {
                     </div>
                     <div class="col-md-4 menu_item" id="yeu thich"><ion-icon name="heart-outline"></ion-icon><span>YÊU
                             THÍCH</span></div>
-
                     <div class="menu_item" data-bs-toggle="collapse" data-bs-target="#collapseOne1" aria-expanded="true"
-                        aria-controls="collapseOne">
+                        aria-controls="collapseOne1">
                         <ion-icon name="settings"></ion-icon><span>CÀI ĐẶT</span>
                     </div>
-                    <div id="collapseOne1" class="accordion-collapse collapse menu_item" aria-labelledby="headingOne"
+                    <div id="collapseOne1" class="accordion-collapse collapse" aria-labelledby="headingOne"
                         data-bs-parent="#accordionExample">
                         <!-- data-bs-target="#ModalChangePass" -->
                         <div class="col-md-4 menu_item" id="btnChangePass" data-bs-toggle="modal"
                             data-bs-target="#ModalChangePass">
                             <ion-icon name="lock-closed"></ion-icon><span>Đổi mật khẩu</span>
-                        </div>
-                    </div>
-                    <div id="collapseOne1" class="accordion-collapse collapse " aria-labelledby="headingOne"
-                        data-bs-parent="#accordionExample">
-                        <div class="col-md-4 menu_item" id="">
-                            <ion-icon name="pencil"></ion-icon><span>Chỉnh sửa tài khoản</span>
                         </div>
                     </div>
 
@@ -117,17 +121,17 @@ if (isset($_POST['TaoMoi'])) {
             <div class="modal-dialog">
                 <div class="modal-content">
                     <div class="modal-header">
-                        <h1 class="modal-title fs-5" id="exampleModalLabel">Danh Sách Mới</h1>
+                        <h1 class="modal-title fs-5" style= "color: black;" id="exampleModalLabel">Danh Sách Mới</h1>
                         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                     </div>
                     <div class="modal-body">
                         <form method="post" action="index.php">
                             <div class="mb-3">
-                                <label for="recipient-name" class="col-form-label">Tên Danh Sách:</label>
+                                <label for="recipient-name" class="col-form-label" style= "color: black;">Tên Danh Sách:</label>
                                 <input type="text" class="form-control" id="recipient-name" name="TenPlayL">
                             </div>
                             <div class="mb-3">
-                                <label for="message-text" class="col-form-label">Mô tả:</label>
+                                <label for="message-text" style= "color: black;" class="col-form-label">Mô tả:</label>
                                 <textarea class="form-control" id="message-text" name="MoTa"></textarea>
                             </div>
                             <div class="modal-footer">
@@ -148,7 +152,7 @@ if (isset($_POST['TaoMoi'])) {
             <div class="modal-dialog">
                 <div class="modal-content">
                     <div class="modal-header">
-                        <h1 class="modal-title fs-5" id="exampleModalLabel">Đổi mật khẩu</h1>
+                        <h1 class="modal-title fs-5" id="exampleModalLabel" style= "color: black;">Đổi mật khẩu</h1>
                         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                     </div>
                     <div class="modal-body">
@@ -156,17 +160,17 @@ if (isset($_POST['TaoMoi'])) {
                             <div class="form-floating mb-3">
                                 <input type="password" class="form-control" id="old-pass" name="pass_user"
                                     placeholder="Mật khẩu cũ">
-                                <label for="floatingPassword">Mật khẩu cũ</label>
+                                <label for="floatingPassword" style= "color: black;">Mật khẩu cũ</label>
                             </div>
                             <div class="form-floating mb-3">
                                 <input type="password" class="form-control" id="new-pass" name="new_pass"
                                     placeholder="Mật khẩu mới">
-                                <label for="floatingPassword">Mật khẩu mới</label>
+                                <label for="floatingPassword" style= "color: black;">Mật khẩu mới</label>
                             </div>
                             <div class="form-floating mb-3">
                                 <input type="password" class="form-control" id="retype-new-pass" name="retype_pass"
                                     placeholder="Nhập lại mật khẩu mới">
-                                <label for="floatingPassword">Nhập lại mật khẩu mới</label>
+                                <label for="floatingPassword" style= "color: black;">Nhập lại mật khẩu mới</label>
                             </div>
                             <input type="hidden" class="form-control" id="trigger" name="doiMK" value="active"                                  />
                             <div class="modal-footer">
@@ -245,10 +249,7 @@ if (isset($_POST['TaoMoi'])) {
                             <ion-icon id="playButton" name="play-circle-sharp"></ion-icon>
                             <strong>Play</strong>
                         </div>
-                        <select class="form-select form-select-lg mb-3 BXH_item" aria-label=".form-select-lg example">
-                            <option selected>Bảng xếp hạng theo lượt thích</option>
-                            <option value="1">Bảng xếp hạng theo Quốc gia</option>
-                        </select>
+                        
                         <!-- <ion-icon name="heart-outline"></ion-icon> -->
                     </div>
                     <div id='music_panel'>
@@ -305,7 +306,7 @@ if (isset($_POST['TaoMoi'])) {
                 </div>
                 <!-- -------------------------------------THẺ TÌM KIẾM------------------------------------------------- -->
                 <div id="searchModal" class="layout">
-                    <h1 id='searchKeys'>&nbsp;&nbsp;&nbsp;&nbsp;Kết Quả Tìm Kiếm:</h1><br>
+                    <h1 id='searchKeys' style = 'color:white'>&nbsp;&nbsp;&nbsp;&nbsp;Kết Quả Tìm Kiếm:</h1><br>
                     <div id='music_panel'>
                         <table class="table table-dark table-hover list">
                             <thead>
@@ -381,16 +382,17 @@ if (isset($_POST['TaoMoi'])) {
                             <strong style="font-size: 110%;">Bảng Xếp Hạng</strong><br>
                             <strong style="font-size: 300%;">V-POP INDIE Việt</strong>
                             <br>
-                            <strong style="font-size: 120%;">50 Bài hát <ion-icon name="musical-notes-outline">
-                                </ion-icon>: Không thể say, Nấu ăn
-                                cho em, That's way, GODs,...</strong>
                         </div>
                     </div>
                     <div id="title_music">
-                        <ion-icon name="play-circle-sharp"></ion-icon>
-                        <ion-icon name="heart-outline"></ion-icon>
-                        <strong
-                            style="margin-left: 20px; font-family: Georgia, 'Times New Roman', Times, serif;">...</strong>
+                    <div class="cover">
+                            <ion-icon id="playButton" name="play-circle-sharp"></ion-icon>
+                            <strong>Play</strong>
+                        </div>
+                        <select class="form-select form-select-lg mb-3 BXH_item" aria-label=".form-select-lg example">
+                            <option selected>Bảng xếp hạng theo lượt thích</option>
+                            <option value="1">Bảng xếp hạng theo Quốc gia</option>
+                        </select>
                     </div>
                     <div id='music_panel'>
                         <table class="table table-dark table-hover list">
@@ -403,8 +405,13 @@ if (isset($_POST['TaoMoi'])) {
                                     <th scope="col">Ngày phát hành</th>
                                     <th scope="col">Thời lượng</th>
                                     <th scope="col">Lượt nghe</th>
+<<<<<<< HEAD
 
                                 </tr>   
+=======
+                                    <th scope="col">#</th>
+                                </tr>
+>>>>>>> c623305d2716d92b0aa21acdc0b58f4d33c3cc3e
                             </thead>
                             <tbody>
                                 <?php loadBXHNgheNhieu(); ?>
@@ -420,16 +427,13 @@ if (isset($_POST['TaoMoi'])) {
                             <strong style="font-size: 110%;">Playlist</strong><br>
                             <strong style="font-size: 300%;"> PLAYLIST YÊU THÍCH CỦA TÔI</strong>
                             <br>
-                            <strong style="font-size: 120%;">13 Bài hát <ion-icon name="musical-notes-outline">
-                                </ion-icon>:Cắt đôi nỗi sầu, Trời hôm nay nhiều mây
-                                cực,...</strong>
                         </div>
                     </div>
                     <div id="title_music">
-                        <ion-icon name="play-circle-sharp"></ion-icon>
-                        <ion-icon name="heart-outline"></ion-icon>
-                        <strong
-                            style="margin-left: 20px; font-family: Georgia, 'Times New Roman', Times, serif;">...</strong>
+                    <div class="cover">
+                            <ion-icon id="playButton" name="play-circle-sharp"></ion-icon>
+                            <strong>Play</strong>
+                        </div>
                     </div>
                     <div id='music_panel'>
                         <table class="table table-dark table-hover list">
@@ -509,7 +513,7 @@ if (isset($_POST['TaoMoi'])) {
                         document.getElementById('result').innerHTML = this.responseText;
                     }
                 };
-                xhr.open("GET", "loadMusic.php?idPlaylist=" + idPlaylist, true);
+                xhr.open("GET", "Xuly/loadMusic.php?idPlaylist=" + idPlaylist, true);
                 xhr.send();
             });
         });
@@ -524,8 +528,6 @@ if (isset($_POST['TaoMoi'])) {
         idPL.forEach(function (div) {
             div.addEventListener('click', function () {
                 var idPlaylist = div.id;
-
-                // Sử dụng $.ajax để gửi dữ liệu về server
                 var xhr = new XMLHttpRequest();
                 xhr.onreadystatechange = function () {
                     if (this.readyState == 4 && this.status == 200) {
