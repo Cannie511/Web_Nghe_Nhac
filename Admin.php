@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <?php 
-include 'MusicProcess.php'; 
+include 'Xuly/MusicProcess.php'; 
 include "Xuly/loadingUI.php";
 ?>
 
@@ -14,7 +14,7 @@ include "Xuly/loadingUI.php";
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" />
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/boxicons@latest/css/boxicons.min.css">
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css"> 
-  <link rel="stylesheet" href="Admin.css">
+  <link rel="stylesheet" href="style/Admin.css">
 </head>
 <style>
 

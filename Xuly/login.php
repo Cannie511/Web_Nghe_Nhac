@@ -14,7 +14,7 @@ function login($username, $password)
       //       return json_encode($response);
       // }
             session_start();
-      require_once(__DIR__ . '/DB/loginDB.php');
+      require_once('../DB/loginDB.php');
       try {
 
             $query = 'SELECT Ma_ND as id,Phan_Quyen as role FROM nguoi_dung WHERE Ten_Dang_Nhap = :username and Mat_Khau = :password ';
