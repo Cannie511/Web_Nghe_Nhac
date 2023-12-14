@@ -1,7 +1,7 @@
 <?php
 include("../DB/ketnoi.php");
 $idPlaylist = isset($_GET['idPlaylist']) ? $_GET['idPlaylist'] : '';
-
+session_start();
 // Gán giá trị cho biến $test
 $dataMusic = $idPlaylist;
 
@@ -13,8 +13,9 @@ $Maplaylist = $dataMusic;
     $stm->execute();
     $data = $stm->fetchAll(PDO::FETCH_ASSOC);
     foreach ($data as $key => $music) {
-        echo "<tr class='music-row' data-music-link='" . $data[$key]['path'] . "'>";
-        echo "<td><ion-icon name='play'></ion-icon>&nbsp;<ion-icon name='heart'></ion-icon></td>";
+        echo "<tr class='music-row' data-music-link=')'>";
+        echo "<td><ion-icon name='play'  data-music-link='" . $data[$key]['path'] . "' onclick='playMusic(this, " . $data[$key]['Ma_Bai_Hat'] . ")'></ion-icon>&nbsp;<ion-icon name='heart' class='yeu-thich' data-ma-bai-hat='" . $data[$key]['Ma_Bai_Hat'] . "' onclick='addToFavorites(this)'></ion-icon></td>";
+
         echo "<td>";
         print_r("#".$data[$key]['Ma_Bai_Hat']);
         echo "</td>";
@@ -38,4 +39,6 @@ $Maplaylist = $dataMusic;
         echo "</td>";
         echo "</tr>";
     }
+    
 ?>
+
