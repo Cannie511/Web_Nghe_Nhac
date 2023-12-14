@@ -6,11 +6,20 @@ if (isset($_SESSION['Ma_ND'])) {
 include "Xuly/MusicProcess.php";
 include('Xuly/NewPlaylist.php');
 include('Xuly/doiMK.php');
+?>
+
+
+<?php
+
 // Xử lý khi form được submit
 if (isset($_POST['TaoMoi'])) {
     // Gọi hàm khi cần thiết
     TaoMoiPlaylist($_POST['TenPlayL'], $_SESSION['Ma_ND']);
 }
+
+?>
+<?php
+
 if (isset($_POST['doiMK'])) {
     doiMK($_POST['old_pass_user'], $_POST['new_pass_user'], $_POST['retype_pass_user'], $_SESSION['Ma_ND']);
 }
@@ -145,26 +154,29 @@ if (isset($_POST['doiMK'])) {
                         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                     </div>
                     <div class="modal-body">
-                        <form method="post">
+                        <form method="post" action="handleChangePassword.php">
                             <div class="form-floating mb-3">
                                 <input type="password" class="form-control" id="old-pass" name="pass_user"
                                     placeholder="Mật khẩu cũ">
                                 <label for="floatingPassword" style="color: black;">Mật khẩu cũ</label>
                             </div>
                             <div class="form-floating mb-3">
-                                <input type="password" class="form-control" id="new-pass" name="pass_user"
+                                <input type="password" class="form-control" id="new-pass" name="new_pass"
                                     placeholder="Mật khẩu mới">
                                 <label for="floatingPassword" style="color: black;">Mật khẩu mới</label>
                             </div>
                             <div class="form-floating mb-3">
-                                <input type="password" class="form-control" id="retype-new-pass" name="retype_pass_user"
+                                <input type="password" class="form-control" id="retype-new-pass" name="retype_pass"
                                     placeholder="Nhập lại mật khẩu mới">
                                 <label for="floatingPassword" style="color: black;">Nhập lại mật khẩu mới</label>
                             </div>
+                            <input type="hidden" class="form-control" id="trigger" name="doiMK" value="active"                                  />
                             <div class="modal-footer">
                                 <button type="button" class="btn btn-secondary btnCancel"
                                     data-bs-dismiss="modal">Hủy</button>
-                                <input type="submit" class="btnAll primary" id='btnPassConfirm' value="Đổi mật khẩu">
+                                <button type="submit" class="btnAll primary"   >
+                               Đổi mật khẩu
+</button>
                             </div>
                         </form>
                     </div>
