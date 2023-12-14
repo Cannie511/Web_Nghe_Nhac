@@ -5,7 +5,7 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Login page</title>
-    <link rel="stylesheet" href="log-in.css" />
+    <link rel="stylesheet" href="style/log-in.css" />
    
     
 </head>
@@ -72,7 +72,7 @@
     <script>
     function handleSubmit(event) {
         event.preventDefault();
-        fetch('./handleLogin.php', {
+        fetch('Xuly/handleLogin.php', {
                 method: 'POST',
                 body: new FormData(event.target)
             })

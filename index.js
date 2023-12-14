@@ -187,14 +187,14 @@ function play() {
         var xhr = new XMLHttpRequest();
         xhr.open(
           "GET",
-          "increase_listen_count.php?Ma_Bai_Hat=" + mabaihat,
+          "Xuly/increase_listen_count.php?Ma_Bai_Hat=" + mabaihat,
           true
         );
         xhr.send();
       }
     }
   };
-  z.open("GET", "layMa.php", true);
+  z.open("GET", "Xuly/layMa.php", true);
   z.send();
 }
 function pause() {
@@ -254,7 +254,7 @@ xhr.onreadystatechange = function () {
 // temp.click = function(){
 
 // }
-xhr.open("GET", "laypath.php", true);
+xhr.open("GET", "Xuly/laypath.php", true);
 xhr.send();
 // chỉnh sửa ơ
 function increaseListenCount(songId) {
@@ -288,7 +288,7 @@ function playNext() {
       }
     }
   };
-  z.open("GET", "layMa.php", true);
+  z.open("GET", "Xuly/layMa.php", true);
   z.send();
   audioPlayer.src = playlist[currentSongIndex];
   audioPlayer.load();
@@ -317,7 +317,7 @@ function playPrev() {
       }
     }
   };
-  z.open("GET", "layMa.php", true);
+  z.open("GET", "Xuly/layMa.php", true);
   z.send();
   audioPlayer.src = playlist[currentSongIndex];
   audioPlayer.load();
