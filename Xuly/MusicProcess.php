@@ -32,7 +32,7 @@ function loadMusic()
     $data = $stm->fetchAll(PDO::FETCH_ASSOC);
 
     foreach ($data as $key => $music) {
-        echo "<tr class='music-row' data-music-link='" . $data[$key]['path'] . "'>";
+        echo "<tr class='music-row' data-music-link='" . $data[$key]['path'] . "' data-img-link ='".$data[$key]['Anh_Bia']."'>";
         echo "<td>";
         print_r($data[$key]['Ma_Bai_Hat']);
         echo "</td>";
@@ -96,7 +96,7 @@ function loadBXHNgheNhieu()
         echo "<td>";
         print_r("#".$data[$key]['Ma_Bai_Hat']);
         echo "</td>";
-        echo "<td>";
+        echo "<td data-img-link ='".$data[$key]['Anh_Bia']."'>";
         echo "<div id='crop_img'><img src = '" . $data[$key]['Anh_Bia'] . "'></div>";
         echo "</td>";
         echo "<td>";
@@ -267,8 +267,9 @@ function loadThinhHanh()
  }
  function loadYeuThich()
  {
+
     include("DB/ketnoi.php");
-    session_start();
+    
     $user = $_SESSION['Ma_ND'];
     $sql = "SELECT * FROM bai_hat JOIN trinhbay join nghesi JOIN yeu_thich JOIN nguoi_dung ON bai_hat.Ma_Bai_Hat = trinhbay.Ma_Bai_Hat AND trinhbay.Ma_NS = nghesi.Ma_NS AND bai_hat.Ma_Bai_Hat = yeu_thich.Ma_Bai_Hat 
     and yeu_thich.Ma_ND = nguoi_dung.Ma_ND and nguoi_dung.Ma_ND = ' $user'";

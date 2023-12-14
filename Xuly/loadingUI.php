@@ -1,6 +1,6 @@
 <?php
 function loadQuocGia(){
-    include("DB/ketnoi.php");
+    include("../DB/ketnoi.php");
     $sql = "SELECT * FROM `quocgia`";
     $stm = $conn->prepare($sql);
     $stm->execute();

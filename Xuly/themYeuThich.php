@@ -1,6 +1,6 @@
 <?php
 session_start();
-include("DB/ketnoi.php"); 
+include("../DB/ketnoi.php"); 
     $songId = $_GET['maBaiHat'];
     $user = $_SESSION['Ma_ND'];
     $sql = "INSERT INTO yeu_thich VALUES('$songId','$user')";

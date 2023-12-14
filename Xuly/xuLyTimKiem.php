@@ -2,7 +2,7 @@
 
 function timNguoiDung($name)
 {
-    include ("DB/ketnoi.php");
+    include ("../DB/ketnoi.php");
 
 $sql = "SELECT Ten_Dang_Nhap FROM nguoi_dung WHERE LEFT(Ten_Dang_Nhap, 3) = '$name'";
     $stm = $conn->prepare($sql);

@@ -4,7 +4,7 @@ function doiMK($a,$b,$c,$d)
 {
     if(isset($_POST['doiMK']))
     {
-    include('DB/ketnoi.php');
+    include('../DB/ketnoi.php');
     $oldpass =$a;
     $newpass =$b;
     $cpass = $c;

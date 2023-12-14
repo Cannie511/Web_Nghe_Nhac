@@ -13,7 +13,7 @@ function login($username, $password)
       //       $response = array("code" => "400", "message" => "Invalid username or password");
       //       return json_encode($response);
       // }
-            session_start();
+      session_start();
       require_once('../DB/loginDB.php');
       try {
 

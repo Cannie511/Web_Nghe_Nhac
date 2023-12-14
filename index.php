@@ -24,12 +24,12 @@ if (isset($_POST['doiMK'])) {
     <meta name="viewport" content="width=device-width, initial-scale=0.0">
     <title>TriVie Music</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.4.2/css/fontawesome.min.css">
+    <link rel="stylesheet"
+        href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.4.2/css/fontawesome.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" />
     <link rel="stylesheet" href="style/index.css">
 
 </head>
-<?php  ?>
 
 <body>
     <div class="noti">
@@ -109,17 +109,18 @@ if (isset($_POST['doiMK'])) {
             <div class="modal-dialog">
                 <div class="modal-content">
                     <div class="modal-header">
-                        <h1 class="modal-title fs-5" style= "color: black;" id="exampleModalLabel">Danh Sách Mới</h1>
+                        <h1 class="modal-title fs-5" style="color: black;" id="exampleModalLabel">Danh Sách Mới</h1>
                         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                     </div>
                     <div class="modal-body">
                         <form method="post" action="index.php">
                             <div class="mb-3">
-                                <label for="recipient-name" class="col-form-label" style= "color: black;">Tên Danh Sách:</label>
+                                <label for="recipient-name" class="col-form-label" style="color: black;">Tên Danh
+                                    Sách:</label>
                                 <input type="text" class="form-control" id="recipient-name" name="TenPlayL">
                             </div>
                             <div class="mb-3">
-                                <label for="message-text" style= "color: black;" class="col-form-label">Mô tả:</label>
+                                <label for="message-text" style="color: black;" class="col-form-label">Mô tả:</label>
                                 <textarea class="form-control" id="message-text" name="MoTa"></textarea>
                             </div>
                             <div class="modal-footer">
@@ -140,7 +141,7 @@ if (isset($_POST['doiMK'])) {
             <div class="modal-dialog">
                 <div class="modal-content">
                     <div class="modal-header">
-                        <h1 class="modal-title fs-5" id="exampleModalLabel" style= "color: black;">Đổi mật khẩu</h1>
+                        <h1 class="modal-title fs-5" id="exampleModalLabel" style="color: black;">Đổi mật khẩu</h1>
                         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                     </div>
                     <div class="modal-body">
@@ -148,17 +149,17 @@ if (isset($_POST['doiMK'])) {
                             <div class="form-floating mb-3">
                                 <input type="password" class="form-control" id="old-pass" name="pass_user"
                                     placeholder="Mật khẩu cũ">
-                                <label for="floatingPassword" style= "color: black;">Mật khẩu cũ</label>
+                                <label for="floatingPassword" style="color: black;">Mật khẩu cũ</label>
                             </div>
                             <div class="form-floating mb-3">
                                 <input type="password" class="form-control" id="new-pass" name="pass_user"
                                     placeholder="Mật khẩu mới">
-                                <label for="floatingPassword" style= "color: black;">Mật khẩu mới</label>
+                                <label for="floatingPassword" style="color: black;">Mật khẩu mới</label>
                             </div>
                             <div class="form-floating mb-3">
                                 <input type="password" class="form-control" id="retype-new-pass" name="retype_pass_user"
                                     placeholder="Nhập lại mật khẩu mới">
-                                <label for="floatingPassword" style= "color: black;">Nhập lại mật khẩu mới</label>
+                                <label for="floatingPassword" style="color: black;">Nhập lại mật khẩu mới</label>
                             </div>
                             <div class="modal-footer">
                                 <button type="button" class="btn btn-secondary btnCancel"
@@ -234,11 +235,11 @@ if (isset($_POST['doiMK'])) {
                             <ion-icon id="playButton" name="play-circle-sharp"></ion-icon>
                             <strong>Play</strong>
                         </div>
-                        
+
                         <!-- <ion-icon name="heart-outline"></ion-icon> -->
                     </div>
                     <div id='music_panel'>
-                        <table class="table table-dark table-hover list">
+                        <table class="table table-dark table-hover list" id="viewMusic">
                             <thead>
                                 <tr>
                                     <th scope="col"></th>
@@ -270,7 +271,7 @@ if (isset($_POST['doiMK'])) {
                 </div>
                 <!-- -------------------------------------THẺ TÌM KIẾM------------------------------------------------- -->
                 <div id="searchModal" class="layout">
-                    <h1 id='searchKeys' style = 'color:white'>&nbsp;&nbsp;&nbsp;&nbsp;Kết Quả Tìm Kiếm:</h1><br>
+                    <h1 id='searchKeys' style='color:white'>&nbsp;&nbsp;&nbsp;&nbsp;Kết Quả Tìm Kiếm:</h1><br>
                     <div id='music_panel'>
                         <table class="table table-dark table-hover list">
                             <thead>
@@ -305,7 +306,7 @@ if (isset($_POST['doiMK'])) {
                                                 document.getElementById('searchResults').innerHTML = xhr.responseText;
                                             }
                                         };
-                                        xhr.open('GET', 'timkiem.php?search=' + searchTerm, true);
+                                        xhr.open('GET', 'Xuly/timkiem.php?search=' + searchTerm, true);
                                         xhr.send();
                                     }
                                 </script>
@@ -349,7 +350,7 @@ if (isset($_POST['doiMK'])) {
                         </div>
                     </div>
                     <div id="title_music">
-                    <div class="cover">
+                        <div class="cover">
                             <ion-icon id="playButton" name="play-circle-sharp"></ion-icon>
                             <strong>Play</strong>
                         </div>
@@ -389,7 +390,7 @@ if (isset($_POST['doiMK'])) {
                         </div>
                     </div>
                     <div id="title_music">
-                    <div class="cover">
+                        <div class="cover">
                             <ion-icon id="playButton" name="play-circle-sharp"></ion-icon>
                             <strong>Play</strong>
                         </div>
@@ -408,7 +409,7 @@ if (isset($_POST['doiMK'])) {
                                 </tr>
                             </thead>
                             <tbody>
-                                <?php loadYeuThich();?>
+                                <?php loadYeuThich(); ?>
                             </tbody>
                         </table>
                     </div>
@@ -418,11 +419,12 @@ if (isset($_POST['doiMK'])) {
         <!-- -----------------------------------------------HIỆN NÚT BẤM NGHE--------------------------------------------- -->
         <div id="play">
             <div id="music_play_info">
-                <img src="https://is1-ssl.mzstatic.com/image/thumb/Music116/v4/04/6f/81/046f815e-0e4a-db2c-7d18-4dfc82944c8a/23UM1IM14926.rgb.jpg/1200x1200bf-60.jpg" alt="" id="music_play_banner">
-                
+                <img src="https://is1-ssl.mzstatic.com/image/thumb/Music116/v4/04/6f/81/046f815e-0e4a-db2c-7d18-4dfc82944c8a/23UM1IM14926.rgb.jpg/1200x1200bf-60.jpg"
+                    alt="" id="music_play_banner">
+
                 <div id="music_play_title">
-                    <Strong>Vui vẻ</Strong>
-                    <h6>Nguyễn Văn Chung</h3>
+                    <Strong id="title">Vui vẻ</Strong>
+                    <h6 id="singer">Nguyễn Văn Chung</h3>
                 </div>
             </div>
             <div id="info_music"></div>
@@ -441,16 +443,14 @@ if (isset($_POST['doiMK'])) {
             </div>
         </div>
         <audio controls style='opacity:0' id='music' onplay="showStopButton()" onpause="showPlayButton()">
-            <source src="https://vnso-zn-5-tf-a128-zmp3.zmdcdn.me/966012e4e868f2efc96237dedc1145af?authen=exp=1702723501~acl=/966012e4e868f2efc96237dedc1145af/*~hmac=56bbcbb0ff47336e4a4ffebcbeb9bc7c" />
+            <source
+                src="https://vnso-zn-5-tf-a128-zmp3.zmdcdn.me/966012e4e868f2efc96237dedc1145af?authen=exp=1702723501~acl=/966012e4e868f2efc96237dedc1145af/*~hmac=56bbcbb0ff47336e4a4ffebcbeb9bc7c" />
         </audio>
         <form id="myForm" action="MusicProcess.php" method="POST">
             <input type="hidden" id="idPLInput" name="idPL" value="">
         </form>
     </div>
 </body>
-<script crossorigin src="https://unpkg.com/react@17/umd/react.development.js"></script>
-<script crossorigin src="https://unpkg.com/react-dom@17/umd/react-dom.development.js"></script>
-<script crossorigin src="https://unpkg.com/babel-standalone@6/babel.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
 <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
 
@@ -509,7 +509,7 @@ if (isset($_POST['doiMK'])) {
                     }
                 };
 
-                xhr.open("GET", "nhacPL.php?idPlaylist=" + idPlaylist, true);
+                xhr.open("GET", "Xuly/nhacPL.php?idPlaylist=" + idPlaylist, true);
                 xhr.send();
             });
         });
@@ -522,58 +522,67 @@ if (isset($_POST['doiMK'])) {
     function playMusic(row, maBaiHat) {
         // Lấy đường dẫn âm nhạc từ thuộc tính data-music-link
         var musicLink = row.getAttribute('data-music-link');
-        
+        var imgLink = row.getAttribute('data-img-link');
+        var titleLink = row.getAttribute('data-title-link');
+        var singerLink = row.getAttribute('data-singer-link');
+        console.log(imgLink);
+        console.log(musicLink);
         // Lấy thẻ audio
         var audio = document.getElementById('music');
-        
-        // Cập nhật đường dẫn âm nhạc và play
-        audio.src = musicLink;
-        audio.play();
-        
-        // Hiển thị nút dừng khi bắt đầu phát âm nhạc
-        audio.addEventListener('play', function() {
-            showStopButton();
-            
-            // Gọi hàm để tăng giá trị cột luot_nghe trong PHP
-            increaseListenCount(maBaiHat);
-        });
-        
-        // Hiển thị nút phát khi âm nhạc dừng
-        audio.addEventListener('pause', function() {
-            showPlayButton();
-        });
-    }
+        var banner = document.getElementById('music_play_banner');
+        var title =document.getElementById('title');
+        var singer =document.getElementById('singer');
+            // Cập nhật đường dẫn âm nhạc và play
+            audio.src = musicLink;
+            banner.src = imgLink;
+            title.innerText =titleLink;
+            singer.innerText =singerLink;
+            audio.play();
 
-    function increaseListenCount(maBaiHat) {
-        // Sử dụng Ajax để gửi yêu cầu tăng giá trị cột luot_nghe
-        var xhr = new XMLHttpRequest();
-        xhr.onreadystatechange = function() {
-            if (xhr.readyState == 4 && xhr.status == 200) {
-                // Xử lý kết quả nếu cần
-            }
-        };
-        xhr.open('GET', 'increase_listen_count.php?Ma_Bai_Hat=' + maBaiHat, true);
-        xhr.send();
-    }
+            // Hiển thị nút dừng khi bắt đầu phát âm nhạc
+            audio.addEventListener('play', function () {
+                showStopButton();
+
+                // Gọi hàm để tăng giá trị cột luot_nghe trong PHP
+                increaseListenCount(maBaiHat);
+            });
+
+            // Hiển thị nút phát khi âm nhạc dừng
+            audio.addEventListener('pause', function () {
+                showPlayButton();
+            });
+        }
+
+        function increaseListenCount(maBaiHat) {
+            // Sử dụng Ajax để gửi yêu cầu tăng giá trị cột luot_nghe
+            var xhr = new XMLHttpRequest();
+            xhr.onreadystatechange = function () {
+                if (xhr.readyState == 4 && xhr.status == 200) {
+                    // Xử lý kết quả nếu cần
+                }
+            };
+            xhr.open('GET', 'Xuly/increase_listen_count.php?Ma_Bai_Hat=' + maBaiHat, true);
+            xhr.send();
+        }
 </script>
 <!-- yêu thích -->
 <script>
-     var maBaiHat = -1;
-    function addToFavorites(heartIcon) {
-        maBaiHat = heartIcon.getAttribute('data-ma-bai-hat');
-        
-        // Sử dụng $.ajax để gửi dữ liệu về server
-        // Gửi dữ liệu lên server thông qua GET hoặc POST, tùy thuộc vào cách bạn đã cấu hình server.
-  var z = new XMLHttpRequest();
-  z.onreadystatechange = function () {
-    if (z.readyState == 4 && z.status == 200) {
-      
-        console.log("abc");
-    }
-  };
-  z.open("GET", "themYeuThich.php?maBaiHat=" + maBaiHat, true);
-  z.send();
-    }
+        var maBaiHat = -1;
+        function addToFavorites(heartIcon) {
+            maBaiHat = heartIcon.getAttribute('data-ma-bai-hat');
+
+            // Sử dụng $.ajax để gửi dữ liệu về server
+            // Gửi dữ liệu lên server thông qua GET hoặc POST, tùy thuộc vào cách bạn đã cấu hình server.
+            var z = new XMLHttpRequest();
+            z.onreadystatechange = function () {
+                if (z.readyState == 4 && z.status == 200) {
+
+                    console.log("abc");
+                }
+            };
+            z.open("GET", "Xuly/themYeuThich.php?maBaiHat=" + maBaiHat, true);
+            z.send();
+        }
 
 </script>
 
