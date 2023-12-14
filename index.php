@@ -6,32 +6,24 @@ if (isset($_SESSION['Ma_ND'])) {
 include "Xuly/MusicProcess.php";
 include('Xuly/NewPlaylist.php');
 include('Xuly/doiMK.php');
-<<<<<<< HEAD
 ?>
 
 
 <?php
 
-=======
->>>>>>> 66781877cbf4177abbaa929f369d4851c0d96959
 // Xử lý khi form được submit
 if (isset($_POST['TaoMoi'])) {
     // Gọi hàm khi cần thiết
     TaoMoiPlaylist($_POST['TenPlayL'], $_SESSION['Ma_ND']);
 }
-<<<<<<< HEAD
+
 ?>
-<<<<<<< HEAD
-=======
 <?php
 
-=======
->>>>>>> 66781877cbf4177abbaa929f369d4851c0d96959
 if (isset($_POST['doiMK'])) {
     doiMK($_POST['old_pass_user'], $_POST['new_pass_user'], $_POST['retype_pass_user'], $_SESSION['Ma_ND']);
 }
 ?>
->>>>>>> c623305d2716d92b0aa21acdc0b58f4d33c3cc3e
 <!DOCTYPE html>
 <html lang="en">
 
@@ -389,13 +381,8 @@ if (isset($_POST['doiMK'])) {
                                     <th scope="col">Ngày phát hành</th>
                                     <th scope="col">Thời lượng</th>
                                     <th scope="col">Lượt nghe</th>
-<<<<<<< HEAD
-
-                                </tr>   
-=======
                                     <th scope="col">#</th>
                                 </tr>
->>>>>>> c623305d2716d92b0aa21acdc0b58f4d33c3cc3e
                             </thead>
                             <tbody>
                                 <?php loadBXHNgheNhieu(); ?>
