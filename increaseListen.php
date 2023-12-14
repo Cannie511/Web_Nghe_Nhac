@@ -1,5 +1,5 @@
 <?php
-include("../DB/ketnoi.php");
+include("DB/ketnoi.php");
 
 $idPlaylist = isset($_GET['idPlaylist']) ? $_GET['idPlaylist'] : '';
 
