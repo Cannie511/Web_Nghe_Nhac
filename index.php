@@ -408,7 +408,7 @@ if (isset($_POST['doiMK'])) {
                                 </tr>
                             </thead>
                             <tbody>
-                                <?php ?>
+                                <?php loadYeuThich();?>
                             </tbody>
                         </table>
                     </div>
@@ -521,11 +521,72 @@ if (isset($_POST['doiMK'])) {
                         });
                     }
                 };
-                xhr.open("GET", "Xuly/playNhac.php?idPlaylist=" + idPlaylist, true);
+
+                xhr.open("GET", "nhacPL.php?idPlaylist=" + idPlaylist, true);
                 xhr.send();
             });
         });
     });
+
+</script>
+
+<!-- ấn vào nút play -->
+<script>
+    function playMusic(row, maBaiHat) {
+        // Lấy đường dẫn âm nhạc từ thuộc tính data-music-link
+        var musicLink = row.getAttribute('data-music-link');
+        
+        // Lấy thẻ audio
+        var audio = document.getElementById('music');
+        
+        // Cập nhật đường dẫn âm nhạc và play
+        audio.src = musicLink;
+        audio.play();
+        
+        // Hiển thị nút dừng khi bắt đầu phát âm nhạc
+        audio.addEventListener('play', function() {
+            showStopButton();
+            
+            // Gọi hàm để tăng giá trị cột luot_nghe trong PHP
+            increaseListenCount(maBaiHat);
+        });
+        
+        // Hiển thị nút phát khi âm nhạc dừng
+        audio.addEventListener('pause', function() {
+            showPlayButton();
+        });
+    }
+
+    function increaseListenCount(maBaiHat) {
+        // Sử dụng Ajax để gửi yêu cầu tăng giá trị cột luot_nghe
+        var xhr = new XMLHttpRequest();
+        xhr.onreadystatechange = function() {
+            if (xhr.readyState == 4 && xhr.status == 200) {
+                // Xử lý kết quả nếu cần
+            }
+        };
+        xhr.open('GET', 'increase_listen_count.php?Ma_Bai_Hat=' + maBaiHat, true);
+        xhr.send();
+    }
+</script>
+<!-- yêu thích -->
+<script>
+     var maBaiHat = -1;
+    function addToFavorites(heartIcon) {
+        maBaiHat = heartIcon.getAttribute('data-ma-bai-hat');
+        
+        // Sử dụng $.ajax để gửi dữ liệu về server
+        // Gửi dữ liệu lên server thông qua GET hoặc POST, tùy thuộc vào cách bạn đã cấu hình server.
+  var z = new XMLHttpRequest();
+  z.onreadystatechange = function () {
+    if (z.readyState == 4 && z.status == 200) {
+      
+        console.log("abc");
+    }
+  };
+  z.open("GET", "themYeuThich.php?maBaiHat=" + maBaiHat, true);
+  z.send();
+    }
 
 </script>
 
