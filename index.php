@@ -412,7 +412,7 @@ if (isset($_POST['doiMK'])) {
                                     <th scope="col">Thời lượng</th>
                                     <th scope="col">Lượt nghe</th>
 
-                                </tr>
+                                </tr>   
                             </thead>
                             <tbody>
                                 <?php loadBXHNgheNhieu(); ?>
