@@ -112,7 +112,9 @@ function loadBXHNgheNhieu()
         print_r(intval($data[$key]['Thoi_Luong']/60).":".($data[$key]['Thoi_Luong']%60));
         echo "</td>";
         echo "<td>";
+        
         echo "</td>";
+        echo "<td><ion-icon name='play'></ion-icon>&nbsp;<ion-icon name='heart'></ion-icon></td>";
         echo "</tr>";
     }
 }

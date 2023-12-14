@@ -3,10 +3,12 @@ session_start();
 if (isset($_SESSION['Ma_ND'])) {
     // echo $_SESSION['Ma_ND'];
 }
-
+include "Xuly/MusicProcess.php";
+include('Xuly/NewPlaylist.php');
+include('Xuly/doiMK.php');
 ?>
 <?php
-include('Xuly/NewPlaylist.php');
+
 // Xử lý khi form được submit
 if (isset($_POST['TaoMoi'])) {
     // Gọi hàm khi cần thiết
@@ -14,7 +16,7 @@ if (isset($_POST['TaoMoi'])) {
 }
 ?>
 <?php
-include('Xuly/doiMK.php');
+
 if (isset($_POST['doiMK'])) {
     doiMK($_POST['old_pass_user'], $_POST['new_pass_user'], $_POST['retype_pass_user'], $_SESSION['Ma_ND']);
 }
@@ -34,7 +36,7 @@ if (isset($_POST['doiMK'])) {
     <link rel="stylesheet" href="index.css">
 
 </head>
-<?php include "MusicProcess.php" ?>
+<?php  ?>
 
 <body>
     <div class="noti">
@@ -239,10 +241,7 @@ if (isset($_POST['doiMK'])) {
                             <ion-icon id="playButton" name="play-circle-sharp"></ion-icon>
                             <strong>Play</strong>
                         </div>
-                        <select class="form-select form-select-lg mb-3 BXH_item" aria-label=".form-select-lg example">
-                            <option selected>Bảng xếp hạng theo lượt thích</option>
-                            <option value="1">Bảng xếp hạng theo Quốc gia</option>
-                        </select>
+                        
                         <!-- <ion-icon name="heart-outline"></ion-icon> -->
                     </div>
                     <div id='music_panel'>
@@ -299,7 +298,7 @@ if (isset($_POST['doiMK'])) {
                 </div>
                 <!-- -------------------------------------THẺ TÌM KIẾM------------------------------------------------- -->
                 <div id="searchModal" class="layout">
-                    <h1 id='searchKeys'>&nbsp;&nbsp;&nbsp;&nbsp;Kết Quả Tìm Kiếm:</h1><br>
+                    <h1 id='searchKeys' style = 'color:white'>&nbsp;&nbsp;&nbsp;&nbsp;Kết Quả Tìm Kiếm:</h1><br>
                     <div id='music_panel'>
                         <table class="table table-dark table-hover list">
                             <thead>
@@ -375,16 +374,17 @@ if (isset($_POST['doiMK'])) {
                             <strong style="font-size: 110%;">Bảng Xếp Hạng</strong><br>
                             <strong style="font-size: 300%;">V-POP INDIE Việt</strong>
                             <br>
-                            <strong style="font-size: 120%;">50 Bài hát <ion-icon name="musical-notes-outline">
-                                </ion-icon>: Không thể say, Nấu ăn
-                                cho em, That's way, GODs,...</strong>
                         </div>
                     </div>
                     <div id="title_music">
-                        <ion-icon name="play-circle-sharp"></ion-icon>
-                        <ion-icon name="heart-outline"></ion-icon>
-                        <strong
-                            style="margin-left: 20px; font-family: Georgia, 'Times New Roman', Times, serif;">...</strong>
+                    <div class="cover">
+                            <ion-icon id="playButton" name="play-circle-sharp"></ion-icon>
+                            <strong>Play</strong>
+                        </div>
+                        <select class="form-select form-select-lg mb-3 BXH_item" aria-label=".form-select-lg example">
+                            <option selected>Bảng xếp hạng theo lượt thích</option>
+                            <option value="1">Bảng xếp hạng theo Quốc gia</option>
+                        </select>
                     </div>
                     <div id='music_panel'>
                         <table class="table table-dark table-hover list">
@@ -397,7 +397,7 @@ if (isset($_POST['doiMK'])) {
                                     <th scope="col">Ngày phát hành</th>
                                     <th scope="col">Thời lượng</th>
                                     <th scope="col">Lượt nghe</th>
-
+                                    <th scope="col">#</th>
                                 </tr>
                             </thead>
                             <tbody>
@@ -414,16 +414,13 @@ if (isset($_POST['doiMK'])) {
                             <strong style="font-size: 110%;">Playlist</strong><br>
                             <strong style="font-size: 300%;"> PLAYLIST YÊU THÍCH CỦA TÔI</strong>
                             <br>
-                            <strong style="font-size: 120%;">13 Bài hát <ion-icon name="musical-notes-outline">
-                                </ion-icon>:Cắt đôi nỗi sầu, Trời hôm nay nhiều mây
-                                cực,...</strong>
                         </div>
                     </div>
                     <div id="title_music">
-                        <ion-icon name="play-circle-sharp"></ion-icon>
-                        <ion-icon name="heart-outline"></ion-icon>
-                        <strong
-                            style="margin-left: 20px; font-family: Georgia, 'Times New Roman', Times, serif;">...</strong>
+                    <div class="cover">
+                            <ion-icon id="playButton" name="play-circle-sharp"></ion-icon>
+                            <strong>Play</strong>
+                        </div>
                     </div>
                     <div id='music_panel'>
                         <table class="table table-dark table-hover list">
@@ -503,7 +500,7 @@ if (isset($_POST['doiMK'])) {
                         document.getElementById('result').innerHTML = this.responseText;
                     }
                 };
-                xhr.open("GET", "loadMusic.php?idPlaylist=" + idPlaylist, true);
+                xhr.open("GET", "Xuly/loadMusic.php?idPlaylist=" + idPlaylist, true);
                 xhr.send();
             });
         });
@@ -518,8 +515,6 @@ if (isset($_POST['doiMK'])) {
         idPL.forEach(function (div) {
             div.addEventListener('click', function () {
                 var idPlaylist = div.id;
-
-                // Sử dụng $.ajax để gửi dữ liệu về server
                 var xhr = new XMLHttpRequest();
                 xhr.onreadystatechange = function () {
                     if (this.readyState == 4 && this.status == 200) {

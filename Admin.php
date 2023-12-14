@@ -2,7 +2,7 @@
 <html lang="en">
 <?php 
 include 'MusicProcess.php'; 
-include "loadingUI.php";
+include "Xuly/loadingUI.php";
 ?>
 
 <head>
