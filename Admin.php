@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
-<?php include 'MusicProcess.php';?>
+<?php include 'MusicProcess.php'; ?>
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -9,6 +10,7 @@
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" />
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/boxicons@latest/css/boxicons.min.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css"> 
   <link rel="stylesheet" href="Admin.css">
 </head>
 <style>
@@ -29,26 +31,17 @@
             class="dashboard-nav-item dashboard-nav-dropdown-toggle"><ion-icon name="people"></ion-icon> Quản lý người
             dùng </a>
           <div class='dashboard-nav-dropdown-menu'>
-            <a href="#" class="dashboard-nav-dropdown-item">Chỉnh sửa người dùng</a>
-            <a href="#" class="dashboard-nav-dropdown-item">Xóa người dùng</a>
             <a href="#" class="dashboard-nav-dropdown-item">Khóa tài khoản</a>
           </div>
         </div>
         <div class='dashboard-nav-dropdown'><a href="#!"
-            class="dashboard-nav-item dashboard-nav-dropdown-toggle"><ion-icon name="bookmarks"></ion-icon> Duyệt Nhạc
+            class="dashboard-nav-item dashboard-nav-dropdown-toggle"><ion-icon name="bookmarks"></ion-icon> Quản Lý Nhạc
           </a>
           <div class='dashboard-nav-dropdown-menu'>
             <a href="#" class="dashboard-nav-dropdown-item">Đang chờ duyệt</a>
+            <a href="#" id="loadThemNhac" class="dashboard-nav-dropdown-item">Thêm nhạc mới</a>
             <a href="#" class="dashboard-nav-dropdown-item">Đã duyệt</a>
             <a href="#" class="dashboard-nav-dropdown-item">Đã hủy</a>
-          </div>
-        </div>
-        <div class='dashboard-nav-dropdown'><a href="#!"
-            class="dashboard-nav-item dashboard-nav-dropdown-toggle"><ion-icon name="key"></ion-icon>Quản lý tài
-            khoản</a>
-          <div class='dashboard-nav-dropdown-menu'>
-            <a href="#" class="dashboard-nav-dropdown-item">Đang hoạt động</a>
-            <a href="#" class="dashboard-nav-dropdown-item">Đã khóa</a>
           </div>
         </div>
         <a href="#" class="dashboard-nav-item"><ion-icon name="person-sharp"></ion-icon> Hồ sơ </a>
@@ -58,7 +51,6 @@
       </nav>
     </div>
     <div class='dashboard-app'>
-
       <header class='dashboard-toolbar'><a href="#!" class="menu-toggle"><ion-icon name="grid"
             style="font-size: 20px"></ion-icon></a></header>
       <div class='dashboard-content'>
@@ -70,86 +62,89 @@
               <h1>Chào mừng đến với <strong><span style="color: var(--logo-Tri-custom);">Tri</span><span
                     style="color: var(--logo-Vie-custom);">Vie</span></strong> Administrator</h1>
             </div>
-            <div class='card-body fade' id="Account">
-              <div class='card-header'>
-                <h1><strong>Quản lý tài khoản</strong></h1>
+            
+              <div class='card-body fade' id="Account">
+                
+                <div class='card-header'>
+                  <h1><strong>Quản lý tài khoản</strong></h1>
+                </div>
+                <nav class="navbar bg-light">
+                  <div class="search_input md-8">
+                    <form class="d-flex" role="search" method="get" action="xuLyTimKiem.php">
+                      <input class="form-control me-2" type="search" placeholder="ID người dùng" aria-label="Search"
+                        name="IDsearch">
+                      <button class="btn btn-outline-success" type="submit" name="timKiem"><i
+                          class="fas fa-search"></i></button>
+                    </form>
+                  </div>
+                </nav>
+                <table class="table table-dark table-striped table-hover">
+                  <thead>
+                    <tr>
+                      <th scope="col">#</th>
+                      <th scope="col">Tài khoản</th>
+                      <th scope="col">Mật khẩu</th>
+                      <th scope="col">Chức vụ</th>
+                      <th scope="col">Ngày sinh</th>
+                      <th scope="col"></th>
+                      <th scope="col"></th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <?php loadUserAccount(5); ?>
+                  </tbody>
+                </table>
               </div>
-              <nav class="navbar bg-light">
-                <div class="search_input md-8">
-                  <form class="d-flex" role="search" method="get" action="xuLyTimKiem.php" >
-                    <input class="form-control me-2" type="search" placeholder="ID người dùng" aria-label="Search" name="IDsearch">
-                    <button class="btn btn-outline-success" type="submit" name= "timKiem"><i class="fas fa-search"></i></button>
-                  </form>
+              <!-- ----------------------------------------PHÂN QUYỀN------------------------------------------------- -->
+              <div class='card-body ' id="Permission">
+                <div class='card-header'>
+                  <h1><strong>Quản Lý Quyền Truy Cập</strong></h1>
                 </div>
-              </nav>
-              <table class="table table-dark table-striped table-hover">
-                <thead>
-               
-                  <tr>
-                    <th scope="col">#</th>
-                    <th scope="col">Tài khoản</th>
-                    <th scope="col">Mật khẩu</th>
-                    <th scope="col">Chức vụ</th>
-                    <th scope="col">Ngày sinh</th>
-                    <th scope="col"></th>
-                    <th scope="col"></th>
-                  </tr>
-                </thead>
-                <tbody>
-                  <?php loadUserAccount(5); ?>
-                </tbody>
-              </table>
-            </div>
-            <!-- ----------------------------------------PHÂN QUYỀN------------------------------------------------- -->
-            <div class='card-body ' id="Permission">
-              <div class='card-header'>
-                <h1><strong>Quản Lý Quyền Truy Cập</strong></h1>
+                <nav class="navbar bg-light">
+                  <div class="search_input md-8">
+                    <form class="d-flex" role="search">
+                      <input class="form-control me-2" type="search" placeholder="ID người dùng" aria-label="Search">
+                      <button class="btn btn-outline-success" type="submit"><i class="fas fa-search"></i></button>
+                    </form>
+                  </div>
+                </nav>
+                <table class="table table-dark table-striped table-hover">
+                  <thead>
+                    <tr>
+                      <th scope="col">#</th>
+                      <th scope="col">Tài khoản</th>
+                      <th scope="col">Mật khẩu</th>
+                      <th scope="col">Chức vụ</th>
+                      <th scope="col">Ngày sinh</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <th scope='row'>#1</th>
+                      <td>admin@trivieco.com</td>
+                      <td><input type='password' id='pass' readonly value='Abc123@'></td>
+                      <td>
+                        <Select>
+                          <option value="0">Người dùng</option>
+                          <option value="1">Nghệ sĩ</option>
+                          <option value="2">Admin</option>
+                        </Select>
+                      </td>
+                      <td>1/1/2023</td>
+                    </tr>
+                  </tbody>
+                </table>
+                <nav class="navbar bg-light">
+                  <div class="search_input md-8">
+                    <form class="d-flex" role="search">
+                      <button type="button" class="btn btn-success right">Lưu thay đổi</button>
+                    </form>
+                  </div>
+                </nav>
               </div>
-              <nav class="navbar bg-light">
-                <div class="search_input md-8">
-                  <form class="d-flex" role="search">
-                    <input class="form-control me-2" type="search" placeholder="ID người dùng" aria-label="Search">
-                    <button class="btn btn-outline-success" type="submit"><i class="fas fa-search"></i></button>
-                  </form>
-                </div>
-              </nav>
-              <table class="table table-dark table-striped table-hover">
-                <thead>
-                  <tr>
-                    <th scope="col">#</th>
-                    <th scope="col">Tài khoản</th>
-                    <th scope="col">Mật khẩu</th>
-                    <th scope="col">Chức vụ</th>
-                    <th scope="col">Ngày sinh</th>
-                  </tr>
-                </thead>
-                <tbody>
-                  <tr>
-                    <th scope='row'>#1</th>
-                    <td>admin@trivieco.com</td>
-                    <td><input type='password' id='pass' readonly value='Abc123@'></td>
-                    <td>
-                      <Select>
-                        <option value="0">Người dùng</option>
-                        <option value="1">Nghệ sĩ</option>
-                        <option value="2">Admin</option>
-                      </Select>
-                    </td>
-                    <td>1/1/2023</td>
-                  </tr>
-                </tbody>
-              </table>
-              <nav class="navbar bg-light">
-                <div class="search_input md-8">
-                  <form class="d-flex" role="search">
-                  <button type="button" class="btn btn-success right">Lưu thay đổi</button>                
-                </form>
-                </div>
-              </nav>
+              <!-- --------------------------------------------------------------------------------------------------------------- -->
             </div>
-            <!-- --------------------------------------------------------------------------------------------------------------- -->
           </div>
-
         </div>
       </div>
     </div>
@@ -158,7 +153,7 @@
 
 
 <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.4.2/css/fontawesome.min.css"></script>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/js/bootstrap.bundle.min.js"></script>
 <script>
@@ -190,7 +185,7 @@
           $('#Account').removeClass('fade');
           break;
         case 1:
-          
+
           break;
         case 2:
           $('.card-body').addClass('fade');
@@ -199,6 +194,21 @@
         default:
           break;
       }
+    });
+  });
+  document.addEventListener("DOMContentLoaded", function () {
+    // Gán sự kiện click cho thẻ a
+    document.getElementById("loadThemNhac").addEventListener("click", function (e) {
+      e.preventDefault();
+
+      // Sử dụng Fetch API để tải nội dung từ file PHP
+      fetch("ThemNhac.php")
+        .then(response => response.text())
+        .then(data => {
+          // Thêm nội dung vào div#root
+          document.getElementById("root").innerHTML = data;
+        })
+        .catch(error => console.error('Error:', error));
     });
   });
 </script>

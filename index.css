@@ -470,7 +470,14 @@ th{
 .sticky {
     background-color: darkgreen;
 }
-
+.BXH_item{
+    width: 400px;
+    background-color: #4F4F4F;
+    color: #fff;
+    border: 0;
+    border-radius: 5px;
+    margin-left: 30px;
+}
 #topMenu.hide {
     width: 93vw;
 }
