@@ -1,6 +1,6 @@
 <?php
 function loadUserAccount(){
-    require_once("../DB/ketnoi.php");
+    require_once("DB/ketnoi.php");
     // $userAccount = array(
     //     array("Id" => "admin@trivieco.com", "pass"=>"Abc123@", "rule"=>2,"birth"=>"05/11/2002", "state"=>1),
     //     array("Id" => "Demo1@trivieco.com", "pass"=>"Abc123@", "rule"=>1, "birth"=>"25/08/2002", "state"=>0),
