@@ -6,21 +6,27 @@ if (isset($_SESSION['Ma_ND'])) {
 include "Xuly/MusicProcess.php";
 include('Xuly/NewPlaylist.php');
 include('Xuly/doiMK.php');
+<<<<<<< HEAD
 ?>
 
 
 <?php
 
+=======
+>>>>>>> 66781877cbf4177abbaa929f369d4851c0d96959
 // Xử lý khi form được submit
 if (isset($_POST['TaoMoi'])) {
     // Gọi hàm khi cần thiết
     TaoMoiPlaylist($_POST['TenPlayL'], $_SESSION['Ma_ND']);
 }
+<<<<<<< HEAD
 ?>
 <<<<<<< HEAD
 =======
 <?php
 
+=======
+>>>>>>> 66781877cbf4177abbaa929f369d4851c0d96959
 if (isset($_POST['doiMK'])) {
     doiMK($_POST['old_pass_user'], $_POST['new_pass_user'], $_POST['retype_pass_user'], $_SESSION['Ma_ND']);
 }
@@ -35,10 +41,9 @@ if (isset($_POST['doiMK'])) {
     <meta name="viewport" content="width=device-width, initial-scale=0.0">
     <title>TriVie Music</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
-    <link rel="stylesheet"
-        href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.4.2/css/fontawesome.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.4.2/css/fontawesome.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" />
-    <link rel="stylesheet" href="index.css">
+    <link rel="stylesheet" href="style/index.css">
 
 </head>
 <?php  ?>
@@ -276,32 +281,11 @@ if (isset($_POST['doiMK'])) {
                 <?php $path = './IMAGE/album_demo.png' ?>
                 <div id="playlist" class="col-md-5 layout show">
                     <div class="title_pl">
-                        <h1>THỊNH HÀNH</h1>
+                        <h1>TẤT CẢ PLAYLIST HIỆN CÓ</h1>
                     </div>
                     <div id="1" class="list_item">
                         <?php loadPlaylist();
                         ?>
-                    </div>
-                    <br>
-                    <div class="title_pl">
-                        <h1>CHỦ ĐỀ MỚI</h1>
-                    </div>
-                    <div id="theme" class="list_item">
-                        <?php loadPlaylist() ?>
-                    </div>
-                    <br>
-                    <div class="title_pl">
-                        <h1>NỔI BẬT</h1>
-                    </div>
-                    <div id="hot_album" class="list_item">
-                        <?php loadPlaylist() ?>
-                    </div>
-                    <br>
-                    <div class="title_pl">
-                        <h1>NGHỆ SĨ</h1>
-                    </div>
-                    <div id="artis" class="list_item">
-                        <?php loadPlaylist() ?>
                     </div>
                 </div>
                 <!-- -------------------------------------THẺ TÌM KIẾM------------------------------------------------- -->
@@ -554,7 +538,7 @@ if (isset($_POST['doiMK'])) {
                                     console.log(this.responseText);
                                 }
                             };
-                            xhrIncreaseListen.open("GET", "increaseListen.php?idPlaylist=" + idPlaylist, true);
+                            xhrIncreaseListen.open("GET", "Xuly/increaseListen.php?idPlaylist=" + idPlaylist, true);
                             xhrIncreaseListen.send();
 
                             // Thực hiện chạy audio
@@ -562,7 +546,7 @@ if (isset($_POST['doiMK'])) {
                         });
                     }
                 };
-                xhr.open("GET", "tesst.php?idPlaylist=" + idPlaylist, true);
+                xhr.open("GET", "Xuly/playNhac.php?idPlaylist=" + idPlaylist, true);
                 xhr.send();
             });
         });

@@ -1,0 +1,876 @@
+/* THẺ MẶC ĐỊNH CỦA HTML */
+* {
+    padding: 0;
+    margin: 0;
+}
+
+body {
+    background: var(--body-bg-custom);
+    background-attachment: fixed ;
+    overflow-x: hidden;
+    overflow-y: hidden;
+    transition: all 0.3s ease-in-out;
+}
+
+header {
+    width: 100%;
+    height: 300px;
+    background-color: #3376BC;
+    position: fixed;
+}
+td{
+    vertical-align: middle;
+}
+
+td>ion-icon{
+    font-size: 1.5em;
+    position: relative;
+    opacity: 0;
+    transition: all 0.2s ease-in-out;
+}
+tr:hover ion-icon {
+    /* display: inline-block; */
+    opacity: 1;
+  }
+td>ion-icon:hover{
+    color: gray    ;
+}
+td>img{
+    width: 50px;
+    height: 50px;
+}
+ul li {
+    list-style: none;
+}
+
+th{
+    font-size: 20px;
+}
+/* -------------------------------------------------NOTIFICATION----------------------------------------------- */
+.noti{
+    margin-left: 43%;
+    margin-top: 20px;
+    width: 400px;
+    height: 30px;
+    position: absolute;
+}
+.allAlert{
+    position: absolute;
+    opacity: 1;
+    z-index: 2000;
+    display: none;
+    transition: slide-down 0.5s ease-in-out;
+}
+
+/* THẺ MENU */
+#menu {
+    width: 16vw;
+    height: 88vh;
+    background-color: rgb(37, 37, 37);
+    border-radius: 5px 5px 0 0;
+    margin-left: 5px;
+    color: gray;
+    font-size: 1.2vw;
+    opacity: 0.8;
+    position: fixed;
+    z-index: 10;
+    overflow-y: scroll;
+    overflow-x: hidden;
+    transition: all 0.3s ease-in-out;
+    float: left;
+}
+
+#menu_cover {
+    margin-top: 70px;
+    margin-bottom: 30px;
+    overflow: scroll;
+    transition: all 0.3s ease-in-out;
+}
+
+.menu_item.init {
+    background-color: var(--primary-color-custom);
+    color: #fff;
+}
+
+.layout {
+    display: none;
+}
+
+.layout.show {
+    display: block;
+}
+
+.menu_item {
+    width: 100%;
+    height: 60px;
+    font-weight: bolder;
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+    padding-left: 15px;
+    transition: all 0.2s ease-in-out;
+}
+
+.menu_item>span {
+    margin-left: 10px;
+    font-size: 20px;
+    transition: all 0.1s ease-in-out;
+}
+
+.menu_item>ion-icon {
+    font-size: 30px;
+    transition: all 0.2s ease-in-out;
+}
+
+.menu_item:hover {
+    color: white;
+    background-color: var(--primary-color-custom);
+}
+
+.menu_item:hover a {
+    color: white;
+    background-color: gray;
+}
+
+#logo {
+    width: 80%;
+    height: 7vh;
+    margin-left: 3vh;
+    border-radius: 40px;
+    position: relative;
+    background-color: var(--logo-Bg-custom);
+    top: 3vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    box-shadow: 0 0 5px 5px;
+    transition: all 0.3s ease-in-out;
+    cursor: pointer;
+}
+
+#logo_T {
+    color: var(--logo-Tri-custom);
+    font-size: 6.5vh;
+    left: 1px;
+}
+
+#logo_V {
+    position: relative;
+    color: var(--logo-Vie-customL);
+    top: -4px;
+    font-size: 6.5vh;
+}
+
+#logo_ri {
+    color: var(--logo-Tri-custom);
+}
+
+#logo_ie {
+    color: var(--logo-Vie-customL);
+}
+
+#logo_ri,
+#logo_ie {
+    font-size: 6.5vh;
+    transition: all 0.5s ease-in-out;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+#title_music {
+    padding: 20px;
+    color: white;
+    z-index: 100;
+    font-size: 40px;
+    padding: 30px;
+    display: flex;
+    align-items: center;
+}
+
+#title_music>ion-icon {
+    margin-left: 20px;
+    cursor: pointer;
+}
+#title_music>strong {
+    color: gray;
+    cursor: pointer;
+}
+
+#title_music>strong:hover {
+    color: white;
+}
+.cover{
+    width: 160px;
+    height: 80px;
+    border-radius: 40px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: var(--primary-color-custom);
+}
+.cover strong{
+    vertical-align: super;
+    margin-right: 10px;
+    color: black;
+}
+.cover ion-icon {
+    color: black;
+    font-size: 80px;
+    cursor: pointer;
+    transition: all 0.2s ease-in-out;
+}
+.cover ion-icon:hover{
+    color: green;
+}
+#menu.hide {
+    width: 4.5vw;
+    z-index: 10;
+}
+
+#menu.hide>h1>span {
+    font-size: 0px;
+    transition: all 0.3s ease-in-out;
+}
+
+#menu_cover.hide>div>span {
+    font-size: 0px;
+    
+}
+#menu_cover>div.accordion-collapse>div.menu_item>span{
+    font-size: 1vw;
+}
+#menu_cover>div.accordion-collapse>div.menu_item>ion-icon{
+    margin-left: 30px;
+    font-size: 1vw;
+    cursor: pointer;
+}
+#menu_cover.hide>div.accordion-collapse>div.menu_item>span{
+    font-size: 0px;
+}
+
+#menu_cover.hide>div.accordion-collapse>div.menu_item>ion-icon{
+    font-size: 2vw;
+    transform: translateX(5px);
+    cursor: pointer;
+}
+#menu_cover.hide>div.menu_item>span{
+    font-size: 0px;
+}
+
+#menu_cover.hide>div.menu_item>ion-icon{
+    font-size: 2vw;
+    transform: translateX(5px);
+    cursor: pointer;
+}
+#menu_cover.hide>div.menu_item>ion-icon{
+    transform: translateX(5px);
+}
+#logo_T.hide {
+    position: relative;
+    padding-left: 2.5vw;
+}
+
+#logo_V.hide {
+    position: relative;
+    transform: translateX(-107%);
+
+}
+.btnAll{
+    display: inline-block;
+    font-weight: 400;
+    line-height: 1.5;
+    color: #212529;
+    text-align: center;
+    text-decoration: none;
+    vertical-align: middle;
+    cursor: pointer;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    user-select: none;
+    background-color: transparent;
+    border: 1px solid transparent;
+    padding: 0.375rem 0.75rem;
+    font-size: 1rem;
+    border-radius: 0.25rem;
+    transition: color 0.15s ease-in-out, background-color 0.15s ease-in-out, border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
+}
+.primary{
+    color: #fff;
+    background-color: var(--primary-color-custom);
+    border-color: var(--primary-color-custom);
+}
+#logo_ri.hide,
+#logo_ie.hide {
+    font-size: 0px;
+}
+
+#logo.hide {
+    width: 7vh;
+    height: 7vh;
+    margin-left: 1vh;
+    border-radius: 50%;
+    background-color: var(--logo-Bg-custom);
+    transition: all 0.3s ease-in-out;
+}
+.accordion-button{
+    background-color: transparent;
+}
+/* THẺ ĐỂ XEM NHẠC */
+#main_play {
+    width: 80vw;
+    height: 88vh;
+    margin-left: 17vw;
+    background-color: rgb(37, 37, 37);
+    opacity: 0.8;
+    overflow: hidden;
+    overflow-y: scroll;
+    position: fixed;
+    border-radius: 5px 5px 0 0;
+    transition: all 0.4s ease-in-out;
+}
+#contentContainer{
+    width: 80vw;
+    height: 88vh;
+    opacity: 1;
+    overflow-y: scroll;
+    position: inherit;
+    z-index: -1;
+    border-radius: 5px 5px 0 0;
+    transition: all 0.4s ease-in-out;
+}
+#main_play.full {
+    width: 93vw;
+    margin-left: 6vw;
+}
+
+#personal {
+    width: 5vw;
+    height: 5vw;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: white;
+    font-size: 3vw;
+    float: right;
+    position: relative;
+    z-index: 2000;
+}
+
+#personal>ion-icon {
+    cursor: pointer;
+    transition: all 0.2s ease-in-out;
+}
+
+#personal>ion-icon:hover {
+    color: white;
+}
+
+#more {
+    width: 10vw;
+    height: fit-content;
+    background-color: black;
+    top: 9vh;
+    right: 1vw;
+    border-radius: 5px;
+    box-shadow: 1px 2px 5px black;
+    display: none;
+    position: absolute;
+    overflow: hidden;
+}
+
+#more>div {
+    margin: 0;
+    width: 100%;
+    height: 2vw;
+    display: flex;
+    cursor: pointer;
+    align-items: center;
+    color: white;
+    font-size: 2.5vh;
+    font-family: Arial, Helvetica, sans-serif
+}
+
+#more>div>span {
+    margin-left: 1vh;
+    cursor: pointer;
+}
+
+#more>div>ion-icon {
+    margin-left: 1vh;
+}
+
+#more>div:hover {
+    background-color: pink;
+    color: black;
+}
+
+#music_list,
+#Ranked, #LoveIt, #searchModal {
+    position: relative;
+    float: left;
+    width: 100%;
+    margin-top: 20px;
+}
+#searchModal{
+    top: 100px;
+}
+#music_list>div>table#list_mp3,
+#Ranked>div>table#list_mp3,
+#LoveIt>div>table#list_mp3  {
+    width: 95%;
+    height: 5vh;
+    color: white;
+    font-weight: bold;
+    margin-left: 2vw;
+    border-radius: 10px;
+    border-collapse: collapse;
+    text-align: center;
+
+}
+#crop_img {
+    width: 23%;
+    height: 90%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+    border-radius: 5px;
+    margin-bottom: 6px;
+}
+
+#crop_img>img {
+    width: 120px;
+    height: 50px;
+}
+
+.list{
+    cursor: pointer;    
+}
+.list tr{
+    height: fit-content;
+    font-size: 18px;
+}
+.list td:first-child{
+    text-align: center;
+}
+#music_panel {
+    width: 100%;
+    height: fit-content;
+}
+
+#topMenu {
+    width: 80vw;
+    position: fixed;
+    z-index: 2000;
+    border-radius: 5px 5px 0 0;
+    background-color: transparent;
+    transition: all 0.4s ease-in-out;
+}
+
+.sticky {
+    background-color: darkgreen;
+}
+.BXH_item{
+    width: 400px;
+    background-color: #4F4F4F;
+    color: #fff;
+    border: 0;
+    border-radius: 5px;
+    margin-left: 30px;
+}
+#topMenu.hide {
+    width: 93vw;
+}
+#banner_play_list_LoveIt{
+    width: 100%;
+    height: 400px;
+    top: -20px;
+    position: relative;
+    background: var(--bg-love-custom);
+    border-radius: 5px 5px 0 0;
+    z-index: 1;
+    overflow: hidden;
+}
+#banner_play_list_BXH  {
+    width: 100%;
+    height: 400px;
+    top: -20px;
+    position: relative;
+    background: var(--bg-BXH-custom);
+    border-radius: 5px 5px 0 0;
+    z-index: 1;
+    overflow: hidden;
+}
+#banner_play_list{
+    width: 100%;
+    height: 400px;
+    top: -20px;
+    position: relative;
+    background: var(--bg-banner-custom);
+    border-radius: 5px 5px 0 0;
+    z-index: 1;
+    overflow: hidden;
+}
+
+#play_list_info {
+    position: relative;
+    top: -45%;
+    left: 32%;
+    color: white;
+}
+
+#banner_play_list>img,#banner_play_list_BXH>img, #banner_play_list_LoveIt>img {
+    image-rendering: optimizeQuality;
+    width: 300px;
+    height: 300px;
+    margin-top: 90px;
+    margin-left: 70px;
+    border-radius: 10px;
+    box-shadow: 0 3px 10px black;
+}
+
+/* PHẦN NÚT BẤM */
+#play {
+    width: 100vw;
+    height: 12vh;
+    background-color: transparent;
+    color: gray;
+    font-size: 4vh;
+    display: flex;
+    transform: translatey(88vh);
+    justify-content: center;
+    margin-top: 10px;
+}
+
+#btn {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    top: -20px;
+}
+
+#btn>ion-icon {
+    cursor: pointer;
+    margin: 0 1vh;
+}
+
+#btn.light_btn {
+    color: black;
+}
+
+#btn.light_btn {
+    color: black;
+}
+
+#btn.light_btn>ion-icon:hover {
+    color: gray;
+}
+
+#btn>ion-icon:hover {
+    color: white;
+    transition: all 0.3s ease-in-out;
+}
+
+#play_btn {
+    font-size: 5vh;
+}
+
+#pause_btn {
+    font-size: 5vh;
+    position: relative;
+    display: none;
+}
+#loopBtn.loop{
+    color: white;
+    font-weight: bold;
+}
+
+#time_play {
+    width: 35vw;
+    height: 1vh;
+    position: absolute;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 8vh;
+    font-size: 1vw;
+    font-weight: bolder;
+    color: white;
+}
+
+#time_play.light_time_play {
+    color: black;
+}
+
+#time_play>input {
+    width: 100vw;
+}
+
+#time_play>span {
+    margin-left: 10px;
+}
+
+input[type="range"] {
+    accent-color: green;
+    margin-left: 10px;
+    height: 5px;
+}
+
+/* PHẦN NÚT ẨN HIỆN CỦA MENU */
+#navbar {
+    width: 16vw;;
+    height: 6vh;
+    background-color: rgb(92, 91, 91);
+    border-radius: 5px 5px 0 0;
+    position: fixed;
+    top: 83.2vh;
+    font-size: 5vh;
+    cursor: pointer;
+    z-index: 10;
+    transition: 0.3s all ease-in-out;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#navbar>ion-icon {
+    transition: all 0.2s ease-in-out;
+}
+
+#navbar.open>ion-icon {
+    transform: rotate(3.1rad);
+}
+
+#navbar:hover {
+    background-color: var(--primary-color-custom);
+    color: var(--logo-Bg-custom);
+}
+
+#navbar.open:hover {
+    background-color: green;
+}
+
+#navbar.open {
+    width: 4.5vw;
+}
+
+/* NÚT DARKMODE */
+#switch {
+    margin-left: 1vh;
+    width: 2vw;
+    height: 0.7vw;
+    border: 1px solid black;
+    background-color: gray;
+    font-size: 1vw;
+
+    border-radius: 50px;
+}
+
+#scroll {
+    width: 1vw;
+    height: 1vw;
+    background-color: rgb(240, 130, 207);
+    border-radius: 50%;
+    margin-left: 1vw;
+    top: -0.4vh;
+    transition: all 0.3s ease-in-out;
+    border: 1px solid black;
+    cursor: pointer;
+    z-index: 1000;
+    position: relative;
+}
+
+.night {
+    transform: translateX(-1vw);
+}
+
+.night_body {
+    background-color: white;
+}
+
+#switch.night_on {
+    background-color: white;
+}
+
+/* THANH TÌM KIẾM */
+#search {
+    float: left;
+    width: 35vw;
+    height: 5vw;
+    display: flex;
+    align-items: center;
+    position: relative;
+    color: gray;
+    transition: all 0.4s ease-in-out;
+}
+#search>form{
+    width: 100%;
+    height: 100%;
+}
+#search>form>div {
+    width: 100%;
+    height: 100%;
+    z-index: 1000;
+    position: relative;
+    display: flex;
+    align-items: center;
+   
+}
+
+#search>form>div>input {
+    width: 40%;
+    height: 2.5vw;
+    border-radius: 30px;
+    font-size: 2vh;
+    padding-left: 2.5vw;
+    background-color: #363636;
+    border: 1px solid white;
+    color: whitesmoke;
+    position: relative;
+    z-index: 1;
+    transition: all 0.3s ease-in-out;
+}
+
+#search>form>div>input:focus {
+    border: 1px solid white;
+    width: 360px;
+}
+
+#search>form>div>input:hover {
+    border: 1px solid white;
+}
+
+#search>form>div>ion-icon {
+    position: relative;
+    color: lightgray;
+    left: 30px;
+    font-size: 3vh;
+    z-index: 10;
+    
+}
+
+#search>ion-icon {
+
+    font-size: 5vh;
+    cursor: pointer;
+    transition: all 0.2s ease-in-out;
+}
+
+#search>ion-icon:hover {
+    color: lightgray;
+}
+
+/* ---------------------------------------------------Thẻ playlist---------------------------------------------- */
+#playlist,
+#myPL {
+    width: 100%;
+    margin-top: 100px;
+    overflow: hidden;
+}
+
+.title_pl {
+    color: white;
+    margin-left: 20px;
+}
+
+.list_item {
+    width: 100%;
+    height: 265px;
+    overflow-x: scroll;
+    margin-top: 20px;
+}
+
+.view_item {
+    width: 190px;
+    height: 95%;
+    margin-left: 30px;
+    margin-top: 10px;
+    float: left;
+    border-radius: 5px;
+    background-color: #363636;
+    overflow: hidden;
+    cursor: pointer;
+    transition: all 0.2s ease-in-out;
+}
+
+.view_item:hover {
+    background-color: #4F4F4F;
+}
+
+.img_item {
+    display: flex;
+    width: 100%;
+    height: 70%;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+}
+
+.img_item img {
+    width: 80%;
+    height: 90%;
+    border-radius: 5px;
+}
+
+.info_item {
+    width: 100%;
+    height: fit-content;
+    display: flex;
+    align-items: center;
+    margin-top: 5px;
+    padding-left: 10px;
+    color: white;
+    position: relative;
+}
+
+.info_item strong,
+.info_item span {
+    float: left;
+    width: 100%;
+}
+
+/*------------------------------------------------------ THẺ DEFAULT ------------------------------------------------------------------*/
+::-webkit-scrollbar {
+    width: 0px;
+}
+
+::-webkit-scrollbar-thumb {
+    background-color: gray;
+    border-radius: 5px;
+}
+
+:-ms-input-placeholder {
+    color: gray;
+    /* Internet Explorer 10-11 */
+}
+
+::-ms-input-placeholder {
+    color: gray;
+    /* Microsoft Edge */
+}
+
+::placeholder {
+    color: gray;
+    /* Firefox, Chrome, Opera */
+}
+@keyframes slide-down {
+    from {
+      opacity: 0;
+      transform: translateY(-50px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+:root {
+    --logo-Tri-custom: #32CD32;
+    --logo-Vie-customL: #EE6363;
+    --logo-Bg-custom: #FEF9EF;
+    --bg-banner-custom: linear-gradient(to right, #33CCFF, #996633);
+    --bg-BXH-custom: linear-gradient(to right, #1E90FF,#B0E0E6,#6495ED);
+    --body-bg-custom: linear-gradient(to bottom,rgb(48,48,48, 0.9)5%, rgb(37, 36, 36) 30%, rgb(8,8,8,1) 100%);
+    --bg-love-custom:linear-gradient(to right, #800000,#A52A2A,#A0522D);;
+    --primary-color-custom: #1ED760;
+}
