@@ -196,10 +196,6 @@ include "loadingUI.php";
                                 <?php 
                                 loadQuocGia();
                                 ?>
-                                  <!-- <option value="1" selected>Việt Nam</option>
-                                  <option value="3">Lào</option>
-                                  <option value="4">Trung Quốc</option>
-                                  <option value="5">Hàn Quốc</option> -->
                               </select>
                           </div>
 
