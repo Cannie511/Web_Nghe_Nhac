@@ -244,11 +244,8 @@ if (isset($_POST['doiMK'])) {
                         <img src="IMAGE/Hay-Trao-Cho-Anh-3.jpg" alt="">
                         <div id="play_list_info">
                             <strong style="font-size: 110%;">playlist</strong><br>
-                            <strong style="font-size: 300%;">SƠN TÙNG M-TP Radio</strong>
+                            <strong style="font-size: 300%;">PLAYLIST của tôi</strong>
                             <br>
-                            <strong style="font-size: 120%" ;>20 Bài hát <ion-icon name="musical-notes-outline">
-                                </ion-icon>: Có chắc yêu là đây,
-                                There's no one at all, Em của ngày hôm qua,...</strong>
                         </div>
                     </div>
                     <div id="title_music">
@@ -256,7 +253,11 @@ if (isset($_POST['doiMK'])) {
                             <ion-icon id="playButton" name="play-circle-sharp"></ion-icon>
                             <strong>Play</strong>
                         </div>
-                        <ion-icon name="heart-outline"></ion-icon>
+                        <select class="form-select form-select-lg mb-3 BXH_item" aria-label=".form-select-lg example">
+                            <option selected>Bảng xếp hạng theo lượt thích</option>
+                            <option value="1">Bảng xếp hạng theo Quốc gia</option>
+                        </select>
+                        <!-- <ion-icon name="heart-outline"></ion-icon> -->
                     </div>
                     <div id='music_panel'>
                         <table class="table table-dark table-hover list">
@@ -324,7 +325,7 @@ if (isset($_POST['doiMK'])) {
                                     <th scope="col">Tác giả, ca sĩ</th>
                                     <th scope="col">Ngày phát hành</th>
                                     <th scope="col">Thời lượng</th>
-                                    
+
                                 </tr>
                             </thead>
                             <tbody id="searchResults">
@@ -334,11 +335,11 @@ if (isset($_POST['doiMK'])) {
                                         $(".layout.show").removeClass("show");
                                         $("#searchModal").addClass("show");
                                         var searchInput = document.getElementById('search_input').value;
-                                        var showKeys =document.getElementById('searchKeys');
-                                        showKeys.innerHTML ='&nbsp;&nbsp;&nbsp;&nbsp;Kết Quả Tìm Kiếm: "'+ searchInput+'"';
+                                        var showKeys = document.getElementById('searchKeys');
+                                        showKeys.innerHTML = '&nbsp;&nbsp;&nbsp;&nbsp;Kết Quả Tìm Kiếm: "' + searchInput + '"';
                                         searchWithAjax(searchInput);
                                     });
-                                    
+
                                     function searchWithAjax(searchTerm) {
                                         var xhr = new XMLHttpRequest();
                                         xhr.onreadystatechange = function () {
@@ -476,7 +477,7 @@ if (isset($_POST['doiMK'])) {
                 <span id="end-time">00:00</span>
             </div>
         </div>
-        <audio controls style='opacity:0' id='music' onplay ="showStopButton()" onpause="showPlayButton()">
+        <audio controls style='opacity:0' id='music' onplay="showStopButton()" onpause="showPlayButton()">
             <source src="" />
         </audio>
         <form id="myForm" action="MusicProcess.php" method="POST">
@@ -489,6 +490,7 @@ if (isset($_POST['doiMK'])) {
 <script crossorigin src="https://unpkg.com/babel-standalone@6/babel.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
 <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
+<script src="https://cdn.tailwindcss.com"></script>
 <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
 <script src="index.js"></script>
