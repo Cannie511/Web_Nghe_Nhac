@@ -7,13 +7,11 @@ if (isset($_SESSION['Ma_ND'])) {
 ?>
 <?php
 include('Xuly/NewPlaylist.php');
-
 // Xử lý khi form được submit
 if (isset($_POST['TaoMoi'])) {
     // Gọi hàm khi cần thiết
     TaoMoiPlaylist($_POST['TenPlayL'], $_SESSION['Ma_ND']);
 }
-
 ?>
 <?php
 include('Xuly/doiMK.php');
@@ -21,11 +19,6 @@ if (isset($_POST['doiMK'])) {
     doiMK($_POST['old_pass_user'], $_POST['new_pass_user'], $_POST['retype_pass_user'], $_SESSION['Ma_ND']);
 }
 ?>
-
-
-
-
-
 <!DOCTYPE html>
 <html lang="en">
 
