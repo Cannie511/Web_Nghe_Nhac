@@ -533,7 +533,6 @@ th{
 #play {
     width: 100vw;
     height: 12vh;
-    background-color: transparent;
     color: gray;
     font-size: 4vh;
     display: flex;
@@ -541,7 +540,22 @@ th{
     justify-content: center;
     margin-top: 10px;
 }
-
+#music_play_info{
+    position: absolute;
+    left: 10px;
+    margin-top: 5px;
+    font-size: 20px;
+    display: flex;
+    
+}
+#music_play_banner{
+   width: 70px;
+   height: 70px;
+   border-radius: 10px;
+}
+#music_play_title{
+    margin-left: 5px;
+}
 #btn {
     display: flex;
     justify-content: center;

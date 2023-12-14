@@ -417,6 +417,14 @@ if (isset($_POST['doiMK'])) {
         </div>
         <!-- -----------------------------------------------HIỆN NÚT BẤM NGHE--------------------------------------------- -->
         <div id="play">
+            <div id="music_play_info">
+                <img src="https://is1-ssl.mzstatic.com/image/thumb/Music116/v4/04/6f/81/046f815e-0e4a-db2c-7d18-4dfc82944c8a/23UM1IM14926.rgb.jpg/1200x1200bf-60.jpg" alt="" id="music_play_banner">
+                
+                <div id="music_play_title">
+                    <Strong>Vui vẻ</Strong>
+                    <h6>Nguyễn Văn Chung</h3>
+                </div>
+            </div>
             <div id="info_music"></div>
             <div id="btn">
                 <ion-icon name="shuffle"></ion-icon>
@@ -433,7 +441,7 @@ if (isset($_POST['doiMK'])) {
             </div>
         </div>
         <audio controls style='opacity:0' id='music' onplay="showStopButton()" onpause="showPlayButton()">
-            <source src="" />
+            <source src="https://vnso-zn-5-tf-a128-zmp3.zmdcdn.me/966012e4e868f2efc96237dedc1145af?authen=exp=1702723501~acl=/966012e4e868f2efc96237dedc1145af/*~hmac=56bbcbb0ff47336e4a4ffebcbeb9bc7c" />
         </audio>
         <form id="myForm" action="MusicProcess.php" method="POST">
             <input type="hidden" id="idPLInput" name="idPL" value="">
@@ -449,13 +457,6 @@ if (isset($_POST['doiMK'])) {
 <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
 <script src="index.js"></script>
-<!-- <script type="text/babel" src="Playlists.js"></script>
-<script type="text/babel">
-    function handleCLick(){
-        ReactDOM.render(<Playlists />, document.getElementById('myPL'))
-    }
-    document.getElementById('dsphat').addEventListener('click', handleCLick)
-</script> -->
 <script>
     $(document).ready(function () {
         var idPL = document.querySelectorAll('.view_item');
@@ -464,11 +465,9 @@ if (isset($_POST['doiMK'])) {
             div.addEventListener('click', function () {
                 var idPlaylist = div.id;
                 console.log('idPlaylist:', idPlaylist);
-                // Sử dụng $.ajax để gửi dữ liệu về server
                 var xhr = new XMLHttpRequest();
                 xhr.onreadystatechange = function () {
                     if (this.readyState == 4 && this.status == 200) {
-                        // Hiển thị kết quả từ PHP
                         document.getElementById('result').innerHTML = this.responseText;
                     }
                 };
@@ -483,40 +482,28 @@ if (isset($_POST['doiMK'])) {
 <script>
     $(document).ready(function () {
         var idPL = document.querySelectorAll('.view_item');
-
         idPL.forEach(function (div) {
             div.addEventListener('click', function () {
                 var idPlaylist = div.id;
                 var xhr = new XMLHttpRequest();
                 xhr.onreadystatechange = function () {
                     if (this.readyState == 4 && this.status == 200) {
-                        // Hiển thị kết quả từ PHP
                         var data = JSON.parse(this.responseText);
-
-                        // Cập nhật nguồn âm thanh cho thẻ audio
                         if (data.length > 0) {
                             var audioElement = document.getElementById('music');
                             audioElement.src = data[0].path;
                             audioElement.load(); // Tải lại audio
                         }
-
-                        // Sự kiện click cho ion-icon
                         $('#playButton').on('click', function () {
-                            // Đoạn mã xử lý khi người dùng click vào nút phát
                             console.log('Phát bài hát!');
-
-                            // Gửi yêu cầu AJAX để tăng lượt nghe
                             var xhrIncreaseListen = new XMLHttpRequest();
                             xhrIncreaseListen.onreadystatechange = function () {
                                 if (this.readyState == 4 && this.status == 200) {
-                                    // Hiển thị kết quả từ PHP (nếu cần)
                                     console.log(this.responseText);
                                 }
                             };
                             xhrIncreaseListen.open("GET", "Xuly/increaseListen.php?idPlaylist=" + idPlaylist, true);
                             xhrIncreaseListen.send();
-
-                            // Thực hiện chạy audio
                             document.getElementById('music').play();
                         });
                     }
