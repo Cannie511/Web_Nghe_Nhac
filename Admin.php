@@ -2,7 +2,10 @@
 <html lang="en">
 <?php 
 include "Xuly/loadingUI.php";
+
+
 include "Xuly/loadAccount.php";
+
 ?>
 
 <head>
@@ -150,7 +153,7 @@ include "Xuly/loadAccount.php";
                 <div class="container max-width-xxl">
                   <h1 class="text-center mb-4"><strong>Thêm Nhạc Mới</strong> </h1>
 
-                  <form action="/submit-music" method="post" enctype="multipart/form-data">
+                  <form action="AddNhac.php" method="post" enctype="multipart/form-data">
                       <div class="row mb-3">
                           <div class="col-md-6">
                               <label for="songTitle" class="form-label">Tiêu đề bài hát</label>
@@ -178,7 +181,7 @@ include "Xuly/loadAccount.php";
                       <div class="row mb-3">
                           <div class="col-md-6">
                               <label for="musicFile" class="form-label">File Âm Thanh</label>
-                              <input type="file" class="form-control" id="musicFile" name="musicFile" accept="audio/*" required>
+                              <input type="file" class="form-control" id="musicFile" name="musicFile"  required>
                           </div>
 
                           <div class="col-md-6">
@@ -208,7 +211,7 @@ include "Xuly/loadAccount.php";
 
                       <div class="row mt-4">
                           <div class="col-md-12">
-                              <button type="submit" class="btn btn-primary right">Add Music</button>
+                              <button type="submit" class="btn btn-primary right" name ="Submit">Add Music</button>
                           </div>
                       </div>
                   </form>
