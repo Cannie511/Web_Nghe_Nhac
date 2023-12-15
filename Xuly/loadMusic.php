@@ -39,7 +39,7 @@ $Maplaylist = $dataMusic;
         print_r(intval($data[$key]['Thoi_Luong']/60).":".($data[$key]['Thoi_Luong']%60));
         echo "</td>";
         echo "<td>";
-        echo "";
+        echo "<ion-icon name='add-outline'  data-bs-toggle='offcanvas' href='#playlistChoice' role='button' aria-controls='offcanvasExample'></ion-icon>";
         echo "</td>";
         echo "</tr>";
     }

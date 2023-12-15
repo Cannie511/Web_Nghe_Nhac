@@ -20,6 +20,31 @@ $(document).ready(function () {
     );
     return false;
   });
+  $(".index").click(function (event) {
+    index = $(this).index();
+    backBtn = index;
+    $(".menu_item").removeClass("init");
+    $(this).addClass("init");
+    switch (index) {
+      case 0:
+        $(".layout.show").removeClass("show");
+        $("#playlist").addClass("show");
+        break;
+      case 1:
+        $(".layout.show").removeClass("show");
+        $("#searchModal").addClass("show");
+        var searchinput = document.getElementById("search_input");
+        searchinput.focus();
+        break;
+      case 3:
+        $(".layout.show").removeClass("show");
+        $("#Ranked").addClass("show");
+        break;
+      default:
+        break;
+    }
+    console.log(index);
+  });
   $(".menu_item").click(function (event) {
     index = $(this).index();
     backBtn = index;
@@ -53,6 +78,7 @@ $(document).ready(function () {
     }
     console.log(index);
   });
+  
   $(".view_item").click(function () {
     $(".layout.show").removeClass("show");
     $("#music_list").addClass("show");
@@ -87,13 +113,14 @@ $(document).ready(function () {
         break;
     }
   });
-  // $('#btnConfirm').click(function () {
-  //     $('#alert-login').css("display", "block");
-  //     setTimeout(function () {
-  //         $('#alert-login').css("display", "none");
-  //     }, 2500);
-  //     $('#exampleModal').modal('hide');
-  // });
+  $('.log-in-for-next').click(function () {
+    $('#alert-login').css("display", "block");
+    setTimeout(function () {
+      $('#alert-login').css("display", "none");
+    }, 2500);
+    $(".layout.show").removeClass("show");
+    $("#playlist").addClass("show");
+  });
   $("#btnPassConfirm").click(function () {
     $("#alert-success").css("display", "block");
     setTimeout(function () {

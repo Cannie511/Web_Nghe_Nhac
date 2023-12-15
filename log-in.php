@@ -86,7 +86,7 @@
                 if (data.id ) {
                     sessionStorage.setItem("id", data.id);
                     sessionStorage.setItem("role", data.role);
-                    window.location.href = "index.php";
+                    window.location.href = "index-ID.php";
                 } else {
                     let resp = document.getElementById("login-response");
                     resp.innerHTML = `<p style="color: red;">${data.message}</p>`;

@@ -67,125 +67,30 @@ if (isset($_POST['doiMK'])) {
                     </h1>
                 </div>
                 <div id="menu_cover">
-                    <div class="menu_item init" data-bs-toggle="tooltip" data-bs-placement="top" title="Trang chủ"
+                    <div class="menu_item index init" data-bs-toggle="tooltip" data-bs-placement="top" title="Trang chủ"
                         id="home">
                         <ion-icon name="home-outline"></ion-icon><span>TRANG CHỦ</span>
                     </div>
-                    <div class="menu_item" id="timkiem">
+                    <div class="menu_item index" id="timkiem">
                         <ion-icon name="search-outline"></ion-icon>
                         <span>TÌM KIẾM</span>
                     </div>
-                    <div class="menu_item" id="dsphat" data-bs-toggle="collapse" data-bs-target="#collapseOne"
+                    <div class="menu_item index log-in-for-next" id="log-in-for-next" data-bs-toggle="collapse" data-bs-target="#collapseOne"
                         aria-expanded="true" aria-controls="collapseOne">
                         <ion-icon name="list-outline">
                         </ion-icon><span>DANH SÁCH PHÁT</span>
                     </div>
-                    <div id="collapseOne" class="accordion-collapse collapse " aria-labelledby="headingOne"
-                        data-bs-parent="#accordionExample">
-                        <!-- data-bs-target="#exampleModal" -->
-                        <div class="col-md-4 menu_item" id="newPlaylist" data-bs-toggle="modal" data-bs-whatever="@mdo"
-                            data-bs-target="#exampleModal">
-                            <ion-icon name="add"></ion-icon><span>Tạo mới</span>
-                        </div>
-                    </div>
-
-                    <div class="col-md-4 menu_item" id="bxh"><ion-icon name="bar-chart-outline"></ion-icon><span>BẢNG
+                    <div class="col-md-4 menu_item index" id="bxh"><ion-icon name="bar-chart-outline"></ion-icon><span>BẢNG
                             XẾP HẠNG</span>
                     </div>
-                    <div class="col-md-4 menu_item" id="yeu thich"><ion-icon name="heart-outline"></ion-icon><span>YÊU
+                    <div class="col-md-4 menu_item index log-in-for-next" id="yeu thich"><ion-icon name="heart-outline"></ion-icon><span>YÊU
                             THÍCH</span></div>
-                    <div class="menu_item" data-bs-toggle="collapse" data-bs-target="#collapseOne1" aria-expanded="true"
-                        aria-controls="collapseOne1">
-                        <ion-icon name="settings"></ion-icon><span>CÀI ĐẶT</span>
-                    </div>
-                    <div id="collapseOne1" class="accordion-collapse collapse" aria-labelledby="headingOne"
-                        data-bs-parent="#accordionExample">
-                        <!-- data-bs-target="#ModalChangePass" -->
-                        <div class="col-md-4 menu_item" id="btnChangePass" data-bs-toggle="modal"
-                            data-bs-target="#ModalChangePass">
-                            <ion-icon name="lock-closed"></ion-icon><span>Đổi mật khẩu</span>
-                        </div>
-                    </div>
-
                 </div>
                 <div id="navbar">
                     <ion-icon name="chevron-back-outline"></ion-icon>
                 </div>
             </div>
         </div>
-        <!-- --------------------------------------------------GIAO DIỆN TẠO MỚI-------------------------------------------------- -->
-        <div class="modal fade " id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-            <div class="modal-dialog">
-                <div class="modal-content">
-                    <div class="modal-header">
-                        <h1 class="modal-title fs-5" style="color: black;" id="exampleModalLabel">Danh Sách Mới</h1>
-                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                    </div>
-                    <div class="modal-body">
-                        <form method="post" action="index.php">
-                            <div class="mb-3">
-                                <label for="recipient-name" class="col-form-label" style="color: black;">Tên Danh
-                                    Sách:</label>
-                                <input type="text" class="form-control" id="recipient-name" name="TenPlayL">
-                            </div>
-                            <div class="mb-3">
-                                <label for="message-text" style="color: black;" class="col-form-label">Mô tả:</label>
-                                <textarea class="form-control" id="message-text" name="MoTa"></textarea>
-                            </div>
-                            <div class="modal-footer">
-                                <button type="button" class="btn btn-secondary btnCancel"
-                                    data-bs-dismiss="modal">Hủy</button>
-                                <button id="btnConfirm" type="Submit" class="btnAll primary" name="TaoMoi">Tạo
-                                    mới</button>
-                            </div>
-                        </form>
-                    </div>
-
-                </div>
-            </div>
-        </div>
-        <!-- --------------------------------------------------GIAO DIỆN ĐỔI MK-------------------------------------------------- -->
-        <div class="modal fade " id="ModalChangePass" tabindex="-1" aria-labelledby="exampleModalLabel"
-            aria-hidden="true">
-            <div class="modal-dialog">
-                <div class="modal-content">
-                    <div class="modal-header">
-                        <h1 class="modal-title fs-5" id="exampleModalLabel" style="color: black;">Đổi mật khẩu</h1>
-                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                    </div>
-                    <div class="modal-body">
-                        <form method="post" action="handleChangePassword.php">
-                            <div class="form-floating mb-3">
-                                <input type="password" class="form-control" id="old-pass" name="pass_user"
-                                    placeholder="Mật khẩu cũ">
-                                <label for="floatingPassword" style="color: black;">Mật khẩu cũ</label>
-                            </div>
-                            <div class="form-floating mb-3">
-                                <input type="password" class="form-control" id="new-pass" name="new_pass"
-                                    placeholder="Mật khẩu mới">
-                                <label for="floatingPassword" style="color: black;">Mật khẩu mới</label>
-                            </div>
-                            <div class="form-floating mb-3">
-                                <input type="password" class="form-control" id="retype-new-pass" name="retype_pass"
-                                    placeholder="Nhập lại mật khẩu mới">
-                                <label for="floatingPassword" style="color: black;">Nhập lại mật khẩu mới</label>
-                            </div>
-                            <input type="hidden" class="form-control" id="trigger" name="doiMK" value="active"                                  />
-                            <div class="modal-footer">
-                                <button type="button" class="btn btn-secondary btnCancel"
-                                    data-bs-dismiss="modal">Hủy</button>
-                                <button type="submit" class="btnAll primary"   >
-                               Đổi mật khẩu
-</button>
-                            </div>
-                        </form>
-                    </div>
-
-                </div>
-            </div>
-        </div>
-        <!-- --------------------------------------------ADVANCED LIST---------------------------------------------- -->
-
         <!-- --------------------------------------------ADVANCED LIST---------------------------------------------- -->
         <div class="col-sm-7">
             <div id="main_play">
@@ -194,19 +99,19 @@ if (isset($_POST['doiMK'])) {
                     <div id="personal" onmouseup='showMore()' onmouseleave="setTimeout('hideMore(),1500')">
                         <ion-icon id="ic_per" name="person-circle-sharp"></ion-icon>
                         <div id="more">
-                            <div onclick="Edit()">
+                            <!-- <div onclick="Edit()">
                                 <ion-icon name="key-outline"></ion-icon><span>Tài khoản</span>
-                            </div>
+                            </div> -->
                             <div onclick="Register()">
-                                <ion-icon name="log-in-outline"></ion-icon><span>Đăng
+                            <ion-icon name="link-outline"></ion-icon><span>Đăng
                                     ký</span>
                             </div>
                             <div onclick="log_in()">
                                 <ion-icon name="person"></ion-icon><span>Đăng nhập</span>
                             </div>
-                            <div>
+                            <!-- <div>
                                 <ion-icon name="settings-sharp"></ion-icon><span>Cài đặt</span>
-                            </div>
+                            </div> -->
                             <!-- <div>
                                 <div id="switch">
                                     <div id="scroll"></div>
@@ -270,9 +175,28 @@ if (isset($_POST['doiMK'])) {
                     </div>
                 </div>
 
-                <!-- -------------------------------------THẺ PLAYLISTS------------------------------------------------- -->
+                <!-- -------------------------------------THẺ TRANG CHỦ------------------------------------------------- -->
                 <?php $path = './IMAGE/album_demo.png' ?>
                 <div id="playlist" class="col-md-5 layout show">
+                    <div class="title_pl">
+                        <h1>BÀI HÁT HIỆN CÓ</h1>
+                        <table class="table table-dark table-hover list">
+                            <thead>
+                                <tr>
+                                    <th scope="col"></th>
+                                    <th scope="col">STT</th>
+                                    <th scope="col">Hình</th>
+                                    <th scope="col">Tiêu đề</th>
+                                    <th scope="col">Tác giả, ca sĩ</th>
+                                    <th scope="col">Ngày phát hành</th>
+                                    <th scope="col">Thời lượng</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <?php getAllMusic();?>
+                            </tbody>
+                        </table>
+                    </div>
                     <div class="title_pl">
                         <h1>TẤT CẢ PLAYLIST HIỆN CÓ</h1>
                     </div>
