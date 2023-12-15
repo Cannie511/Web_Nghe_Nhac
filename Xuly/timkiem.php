@@ -1,6 +1,6 @@
 <?php
 if (isset($_GET["search"]) && $_GET["search"] !== "") {
-    require_once(__DIR__ . '/DB/ketnoi.php');
+    require_once('../DB/ketnoi.php');
     try {
         $timKiem = '%' . trim(strtolower($_GET["search"])) . '%';
         $query = "SELECT * FROM bai_hat JOIN trinhbay JOIN nghesi ON bai_hat.Ma_Bai_Hat = trinhbay.Ma_Bai_Hat 

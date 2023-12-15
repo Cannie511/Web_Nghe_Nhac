@@ -1,5 +1,5 @@
 <?php
-include("DB/ketnoi.php");
+include("../DB/ketnoi.php");
 
 if (isset($_GET['Ma_Bai_Hat'])) {
     $songId = $_GET['Ma_Bai_Hat'];

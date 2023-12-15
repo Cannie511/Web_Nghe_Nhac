@@ -1,5 +1,5 @@
 <?php
-include("DB/ketnoi.php");
+include("../DB/ketnoi.php");
 
 $sql = "SELECT bai_hat.Ma_Bai_Hat FROM nghesi JOIN trinhbay JOIN bai_hat ON nghesi.Ma_NS = trinhbay.Ma_NS AND bai_hat.Ma_Bai_Hat = trinhbay.Ma_Bai_Hat";
 $stm = $conn->prepare($sql);

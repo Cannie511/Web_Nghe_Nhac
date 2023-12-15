@@ -14,52 +14,7 @@ $dataMusic = $idPlaylist;
 
 // Trả về giá trị $test
 echo $dataMusic;
-function loadMusic()
-{
-    // $Maplaylist = isset($_COOKIE['idPL']) ? $_COOKIE['idPL'] : 'không có dữ liệu';
-    // echo $Maplaylist;
 
-
-
-    include("DB/ketnoi.php");
-    // $Maplaylist = ????
-    // "Select * from nghesi join trinhbay join bai_hat join playlist on nghesi.Ma_NS = trinhbay.Ma_NS AND bai_hat.Ma_Bai_Hat = trinhbay.Ma_Bai_Hat and playlist.Ma_Playlist = '$Maplaylist'"
-    $Maplaylist = $dataMusic;
-    $sql = "Select * from nghesi join trinhbay join bai_hat join thuoc join playlist on nghesi.Ma_NS = trinhbay.Ma_NS AND bai_hat.Ma_Bai_Hat = trinhbay.Ma_Bai_Hat and playlist.Ma_Playlist = '$Maplaylist'
-    and thuoc.Ma_Playlist = '$Maplaylist' and thuoc.Ma_Bai_Hat =bai_hat.Ma_Bai_Hat";
-    $stm = $conn->prepare($sql);
-    $stm->execute();
-    $data = $stm->fetchAll(PDO::FETCH_ASSOC);
-
-    foreach ($data as $key => $music) {
-        echo "<tr class='music-row' data-music-link='" . $data[$key]['path'] . "'>";
-        echo "<td>";
-        print_r($data[$key]['Ma_Bai_Hat']);
-        echo "</td>";
-        echo "<td>";
-        print_r($data[$key]['Ma_Bai_Hat']);
-        echo "</td>";
-        echo "<td>";
-        echo "<div id='crop_img'><img src = '" . $data[$key]['Anh_Bia'] . "'></div>";
-        echo "</td>";
-        echo "<td>";
-        print_r($data[$key]['Ten_Bai_Hat']);
-        echo "</td>";
-        echo "<td>";
-        print_r($data[$key]['Ten_Ca_Si']);
-        echo "</td>";
-        echo "<td>";
-        print_r($data[$key]['Ngay_Phat_Hanh']);
-        echo "</td>";
-        echo "<td>";
-        print_r($data[$key]['Thoi_Luong']);
-        echo "</td>";
-        echo "<td>";
-        echo "<ion-icon name='trash'></ion-icon>";
-        echo "</td>";
-        echo "</tr>";
-    }
-}
 function loadPlaylist()
 {
     include("DB/ketnoi.php");
@@ -82,6 +37,42 @@ function loadPlaylist()
         </div>";
     }
 }
+function getAllMusic(){
+    include("DB/ketnoi.php");
+    $sql = "SELECT * FROM bai_hat JOIN trinhbay JOIN nghesi ON bai_hat.Ma_Bai_Hat = trinhbay.Ma_Bai_Hat 
+    and  trinhbay.Ma_NS = nghesi.Ma_NS";
+    $stm = $conn->prepare($sql);
+    $stm->execute();
+    $data = $stm->fetchAll(PDO::FETCH_ASSOC);
+    foreach ($data as $key => $music) {
+        echo "<tr class='music-row' data-music-link=''>";
+        echo "<td><ion-icon name='play'  
+        data-music-link='" . $data[$key]['path'] . 
+        "'data-img-link ='".$data[$key]['Anh_Bia']. "' data-title-link = '".$data[$key]['Ten_Bai_Hat']."' data-singer-link='".$data[$key]['Ten_Ca_Si']."' onclick='playMusic(this, " . $data[$key]['Ma_Bai_Hat'] . ")'>
+        </ion-icon></td>";
+        echo "</td>";
+        echo "<td>";
+        print_r("#".$data[$key]['Ma_Bai_Hat']);
+        echo "</td>";
+        echo "<td>";
+        echo "<div id='crop_img'><img src = '" . $data[$key]['Anh_Bia'] . "'></div>";
+        echo "</td>";
+        echo "<td>";
+        print_r($data[$key]['Ten_Bai_Hat']);
+        echo "</td>";
+        echo "<td>";
+        print_r($data[$key]['Ten_Ca_Si']);
+        echo "</td>";
+        echo "<td>";
+        print_r($data[$key]['Ngay_Phat_Hanh']);
+        echo "</td>";
+        echo "<td>";
+        print_r(intval($data[$key]['Thoi_Luong']/60).":".($data[$key]['Thoi_Luong']%60));
+        echo "</td>";
+        
+        echo "</tr>";
+    }
+}
 function loadBXHNgheNhieu()
 {
     include("DB/ketnoi.php");
@@ -96,7 +87,7 @@ function loadBXHNgheNhieu()
         echo "<td>";
         print_r("#".$data[$key]['Ma_Bai_Hat']);
         echo "</td>";
-        echo "<td>";
+        echo "<td data-img-link ='".$data[$key]['Anh_Bia']."'>";
         echo "<div id='crop_img'><img src = '" . $data[$key]['Anh_Bia'] . "'></div>";
         echo "</td>";
         echo "<td>";
@@ -118,9 +109,9 @@ function loadBXHNgheNhieu()
         echo "</tr>";
     }
 }
-function loadUserAccount($n)
+function loadUserAccount()
 {
-    require_once("DB/ketnoi.php");
+    require_once("../DB/ketnoi.php");
     // $userAccount = array(
     //     array("Id" => "admin@trivieco.com", "pass"=>"Abc123@", "rule"=>2,"birth"=>"05/11/2002", "state"=>1),
     //     array("Id" => "Demo1@trivieco.com", "pass"=>"Abc123@", "rule"=>1, "birth"=>"25/08/2002", "state"=>0),
@@ -267,8 +258,9 @@ function loadThinhHanh()
  }
  function loadYeuThich()
  {
+
     include("DB/ketnoi.php");
-    session_start();
+    
     $user = $_SESSION['Ma_ND'];
     $sql = "SELECT * FROM bai_hat JOIN trinhbay join nghesi JOIN yeu_thich JOIN nguoi_dung ON bai_hat.Ma_Bai_Hat = trinhbay.Ma_Bai_Hat AND trinhbay.Ma_NS = nghesi.Ma_NS AND bai_hat.Ma_Bai_Hat = yeu_thich.Ma_Bai_Hat 
     and yeu_thich.Ma_ND = nguoi_dung.Ma_ND and nguoi_dung.Ma_ND = ' $user'";

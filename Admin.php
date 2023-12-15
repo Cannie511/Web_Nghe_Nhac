@@ -1,8 +1,10 @@
 <!DOCTYPE html>
 <html lang="en">
 <?php 
-include 'Xuly/MusicProcess.php'; 
 include "Xuly/loadingUI.php";
+
+
+include "Xuly/loadAccount.php";
 
 ?>
 
@@ -95,7 +97,7 @@ include "Xuly/loadingUI.php";
                     </tr>
                   </thead>
                   <tbody>
-                    <?php loadUserAccount(5); ?>
+                    <?php loadUserAccount(); ?>
                   </tbody>
                 </table>
               </div>
