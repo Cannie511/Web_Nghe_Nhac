@@ -266,23 +266,23 @@ function Register() {
 }
 
 // chinh sửa ở đâyy
-var playlist = [];
+// var playlist = [];
 
-var xhr = new XMLHttpRequest();
-xhr.onreadystatechange = function () {
-  if (xhr.readyState == 4 && xhr.status == 200) {
-    playlist = JSON.parse(xhr.responseText);
-    if (playlist.length > 0) {
-      audioPlayer.src = playlist[0];
-    }
-  }
-};
-// const temp = document.querySelector("#btn ");
-// temp.click = function(){
+// var xhr = new XMLHttpRequest();
+// xhr.onreadystatechange = function () {
+//   if (xhr.readyState == 4 && xhr.status == 200) {
+//     playlist = JSON.parse(xhr.responseText);
+//     if (playlist.length > 0) {
+//       audioPlayer.src = playlist[0];
+//     }
+//   }
+// };
+// // const temp = document.querySelector("#btn ");
+// // temp.click = function(){
 
-// }
-xhr.open("GET", "Xuly/laypath.php", true);
-xhr.send();
+// // }
+// xhr.open("GET", "Xuly/laypath.php", true);
+// xhr.send();
 // chỉnh sửa ơ
 function increaseListenCount(songId) {
   var xhr = new XMLHttpRequest();

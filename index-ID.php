@@ -170,13 +170,13 @@ if (isset($_POST['doiMK'])) {
                                     placeholder="Nhập lại mật khẩu mới">
                                 <label for="floatingPassword" style="color: black;">Nhập lại mật khẩu mới</label>
                             </div>
-                            <input type="hidden" class="form-control" id="trigger" name="doiMK" value="active"                                  />
+                            <input type="hidden" class="form-control" id="trigger" name="doiMK" value="active" />
                             <div class="modal-footer">
                                 <button type="button" class="btn btn-secondary btnCancel"
                                     data-bs-dismiss="modal">Hủy</button>
-                                <button type="submit" class="btnAll primary"   >
-                               Đổi mật khẩu
-</button>
+                                <button type="submit" class="btnAll primary">
+                                    Đổi mật khẩu
+                                </button>
                             </div>
                         </form>
                     </div>
@@ -185,13 +185,15 @@ if (isset($_POST['doiMK'])) {
             </div>
         </div>
         <!-- --------------------------------------------CHỌN DANH SÁCH---------------------------------------------- -->
-        <div class="offcanvas offcanvas-start text-bg-dark" tabindex="-1" id="playlistChoice" aria-labelledby="offcanvasExampleLabel">
+        <div class="offcanvas offcanvas-start text-bg-dark" tabindex="-1" id="playlistChoice"
+            aria-labelledby="offcanvasExampleLabel">
             <div class="offcanvas-header">
                 <h5 class="offcanvas-title" id="offcanvasExampleLabel">Chọn playlist</h5>
-                <button type="button" class="btn-close btn-close-white" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+                <button type="button" class="btn-close btn-close-white" data-bs-dismiss="offcanvas"
+                    aria-label="Close"></button>
             </div>
             <div class="offcanvas-body">
-                <strong style = "font-size: 20px">Playlist hiện có</strong>
+                <strong style="font-size: 20px">Playlist hiện có</strong>
                 <select class="form-select form-select-lg mb-3" aria-label="Large select example">
                     <option selected>chọn danh sách thêm</option>
                     <option value="1">Danh sách 1</option>
@@ -210,8 +212,8 @@ if (isset($_POST['doiMK'])) {
                         <ion-icon id="ic_per" name="person-circle-sharp"></ion-icon>
                         <div id="more">
                             <div onclick="Edit()">
-                            
-                               &nbsp;&nbsp; <strong>Administrator</strong>
+
+                                &nbsp;&nbsp; <strong>Administrator</strong>
                             </div>
                             <div onclick="Home()">
                                 <ion-icon name="log-in-outline"></ion-icon><span>Đăng Xuất</span>
@@ -300,7 +302,7 @@ if (isset($_POST['doiMK'])) {
                                 </tr>
                             </thead>
                             <tbody>
-                                <?php getAllMusic();?>
+                                <?php getAllMusic(); ?>
                             </tbody>
                         </table>
                     </div>
@@ -308,7 +310,7 @@ if (isset($_POST['doiMK'])) {
                         <h1>TẤT CẢ PLAYLIST HIỆN CÓ</h1>
                     </div>
                     <div id="1" class="list_item">
-                        <?php loadPlaylist();?>
+                        <?php loadPlaylist(); ?>
                     </div>
                 </div>
                 <!-- -------------------------------------THẺ TÌM KIẾM------------------------------------------------- -->
@@ -495,14 +497,12 @@ if (isset($_POST['doiMK'])) {
 </body>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
 <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
-
 <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
 <script src="index.js"></script>
 <script>
     $(document).ready(function () {
         var idPL = document.querySelectorAll('.view_item');
-
         idPL.forEach(function (div) {
             div.addEventListener('click', function () {
                 var idPlaylist = div.id;
@@ -524,6 +524,8 @@ if (isset($_POST['doiMK'])) {
 <script>
     $(document).ready(function () {
         var idPL = document.querySelectorAll('.view_item');
+        let currentSongIndex = 0;
+        let playlist = [];
         idPL.forEach(function (div) {
             div.addEventListener('click', function () {
                 var idPlaylist = div.id;
@@ -572,59 +574,59 @@ if (isset($_POST['doiMK'])) {
         // Lấy thẻ audio
         var audio = document.getElementById('music');
         var banner = document.getElementById('music_play_banner');
-        var title =document.getElementById('title');
-        var singer =document.getElementById('singer');
-            // Cập nhật đường dẫn âm nhạc và play
-            audio.src = musicLink;
-            banner.src = imgLink;
-            title.innerText =titleLink;
-            singer.innerText =singerLink;
-            audio.play();
+        var title = document.getElementById('title');
+        var singer = document.getElementById('singer');
+        // Cập nhật đường dẫn âm nhạc và play
+        audio.src = musicLink;
+        banner.src = imgLink;
+        title.innerText = titleLink;
+        singer.innerText = singerLink;
+        audio.play();
 
-            // Hiển thị nút dừng khi bắt đầu phát âm nhạc
-            audio.addEventListener('play', function () {
-                showStopButton();
+        // Hiển thị nút dừng khi bắt đầu phát âm nhạc
+        audio.addEventListener('play', function () {
+            showStopButton();
 
-                // Gọi hàm để tăng giá trị cột luot_nghe trong PHP
-                increaseListenCount(maBaiHat);
-            });
+            // Gọi hàm để tăng giá trị cột luot_nghe trong PHP
+            increaseListenCount(maBaiHat);
+        });
 
-            // Hiển thị nút phát khi âm nhạc dừng
-            audio.addEventListener('pause', function () {
-                showPlayButton();
-            });
-        }
+        // Hiển thị nút phát khi âm nhạc dừng
+        audio.addEventListener('pause', function () {
+            showPlayButton();
+        });
+    }
 
-        function increaseListenCount(maBaiHat) {
-            // Sử dụng Ajax để gửi yêu cầu tăng giá trị cột luot_nghe
-            var xhr = new XMLHttpRequest();
-            xhr.onreadystatechange = function () {
-                if (xhr.readyState == 4 && xhr.status == 200) {
-                    // Xử lý kết quả nếu cần
-                }
-            };
-            xhr.open('GET', 'Xuly/increase_listen_count.php?Ma_Bai_Hat=' + maBaiHat, true);
-            xhr.send();
-        }
+    function increaseListenCount(maBaiHat) {
+        // Sử dụng Ajax để gửi yêu cầu tăng giá trị cột luot_nghe
+        var xhr = new XMLHttpRequest();
+        xhr.onreadystatechange = function () {
+            if (xhr.readyState == 4 && xhr.status == 200) {
+                // Xử lý kết quả nếu cần
+            }
+        };
+        xhr.open('GET', 'Xuly/increase_listen_count.php?Ma_Bai_Hat=' + maBaiHat, true);
+        xhr.send();
+    }
 </script>
 <!-- yêu thích -->
 <script>
-        var maBaiHat = -1;
-        function addToFavorites(heartIcon) {
-            maBaiHat = heartIcon.getAttribute('data-ma-bai-hat');
+    var maBaiHat = -1;
+    function addToFavorites(heartIcon) {
+        maBaiHat = heartIcon.getAttribute('data-ma-bai-hat');
 
-            // Sử dụng $.ajax để gửi dữ liệu về server
-            // Gửi dữ liệu lên server thông qua GET hoặc POST, tùy thuộc vào cách bạn đã cấu hình server.
-            var z = new XMLHttpRequest();
-            z.onreadystatechange = function () {
-                if (z.readyState == 4 && z.status == 200) {
+        // Sử dụng $.ajax để gửi dữ liệu về server
+        // Gửi dữ liệu lên server thông qua GET hoặc POST, tùy thuộc vào cách bạn đã cấu hình server.
+        var z = new XMLHttpRequest();
+        z.onreadystatechange = function () {
+            if (z.readyState == 4 && z.status == 200) {
 
-                    console.log("abc");
-                }
-            };
-            z.open("GET", "Xuly/themYeuThich.php?maBaiHat=" + maBaiHat, true);
-            z.send();
-        }
+                console.log("abc");
+            }
+        };
+        z.open("GET", "Xuly/themYeuThich.php?maBaiHat=" + maBaiHat, true);
+        z.send();
+    }
 
 </script>
 

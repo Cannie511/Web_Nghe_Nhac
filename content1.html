@@ -1,0 +1,32 @@
+<!-- content.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Content Page</title>
+  <!-- Thêm thư viện jQuery -->
+  <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+</head>
+<body>
+
+  <!-- Content của trang content.html -->
+  <div>
+    <h1>Content Page</h1>
+    <p>This is the content 1 of the page.</p>
+  </div>
+
+  <script>
+    // Kiểm tra xem trang đang ở trang content.html hay không
+    var isContentPage = window.location.href.indexOf('content.html') !== -1;
+
+    // Nếu là trang content.html và người dùng bấm reload, điều hướng về trang index.html
+    if (isContentPage) {
+      window.onbeforeunload = function() {
+        window.location.href = 'index.html';
+      };
+    }
+  </script>
+
+</body>
+</html>

@@ -75,15 +75,17 @@ if (isset($_POST['doiMK'])) {
                         <ion-icon name="search-outline"></ion-icon>
                         <span>TÌM KIẾM</span>
                     </div>
-                    <div class="menu_item index log-in-for-next" id="log-in-for-next" data-bs-toggle="collapse" data-bs-target="#collapseOne"
-                        aria-expanded="true" aria-controls="collapseOne">
+                    <div class="menu_item index log-in-for-next" id="log-in-for-next" data-bs-toggle="collapse"
+                        data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
                         <ion-icon name="list-outline">
                         </ion-icon><span>DANH SÁCH PHÁT</span>
                     </div>
-                    <div class="col-md-4 menu_item index" id="bxh"><ion-icon name="bar-chart-outline"></ion-icon><span>BẢNG
+                    <div class="col-md-4 menu_item index" id="bxh"><ion-icon
+                            name="bar-chart-outline"></ion-icon><span>BẢNG
                             XẾP HẠNG</span>
                     </div>
-                    <div class="col-md-4 menu_item index log-in-for-next" id="yeu thich"><ion-icon name="heart-outline"></ion-icon><span>YÊU
+                    <div class="col-md-4 menu_item index log-in-for-next" id="yeu thich"><ion-icon
+                            name="heart-outline"></ion-icon><span>YÊU
                             THÍCH</span></div>
                 </div>
                 <div id="navbar">
@@ -103,7 +105,7 @@ if (isset($_POST['doiMK'])) {
                                 <ion-icon name="key-outline"></ion-icon><span>Tài khoản</span>
                             </div> -->
                             <div onclick="Register()">
-                            <ion-icon name="link-outline"></ion-icon><span>Đăng
+                                <ion-icon name="link-outline"></ion-icon><span>Đăng
                                     ký</span>
                             </div>
                             <div onclick="log_in()">
@@ -193,7 +195,7 @@ if (isset($_POST['doiMK'])) {
                                 </tr>
                             </thead>
                             <tbody>
-                                <?php getAllMusic();?>
+                                <?php getAllMusic(); ?>
                             </tbody>
                         </table>
                     </div>
@@ -251,7 +253,7 @@ if (isset($_POST['doiMK'])) {
                     </div>
                 </div>
                 <!-- ---------------------------------------DANH SÁCH PHÁT CỦA TÔI---------------------------------------------------- -->
-                <?php $pathPL = './IMAGE/pathPL.png' ?>
+
                 <div id="myPL" class="layout">
                     <div class="title_pl">
                         <h1>DANH SÁCH CỦA TÔI</h1>
@@ -366,10 +368,10 @@ if (isset($_POST['doiMK'])) {
             <div id="info_music"></div>
             <div id="btn">
                 <ion-icon name="shuffle"></ion-icon>
-                <ion-icon name="play-skip-back-circle" onclick="playPrev()"></ion-icon>
+                <ion-icon name="play-skip-back-circle" id="prevButton"></ion-icon>
                 <ion-icon id="play_btn" name="play-circle" onclick="play()"></ion-icon>
                 <ion-icon id="pause_btn" name="pause-circle" onclick="pause()"></ion-icon>
-                <ion-icon name="play-skip-forward-circle" onclick="playNext()"></ion-icon>
+                <ion-icon name="play-skip-forward-circle" id="nextButton"></ion-icon>
                 <ion-icon name="refresh" id="loopBtn" onclick="Loop()"></ion-icon>
             </div>
             <div id="time_play">
@@ -414,43 +416,123 @@ if (isset($_POST['doiMK'])) {
     });
 </script>
 
+
 <!-- play nhạc của playlist khi ấn vào nút play của playlist -->
 <script>
-    $(document).ready(function () {
+    // $(document).ready(function () {
+    //     var idPL = document.querySelectorAll('.view_item');
+    //     idPL.forEach(function (div) {
+    //         div.addEventListener('click', function () {
+    //             var idPlaylist = div.id;
+    //             var xhr = new XMLHttpRequest();
+    //             xhr.onreadystatechange = function () {
+    //                 if (this.readyState == 4 && this.status == 200) {
+    //                     var data = JSON.parse(this.responseText);
+    //                     if (data.length > 0) {
+    //                         var audioElement = document.getElementById('music');
+    //                         audioElement.src = data[0].path;
+    //                         audioElement.load(); // Tải lại audio
+    //                     }
+    //                     $('#playButton').on('click', function () {
+    //                         console.log('Phát bài hát!');
+    //                         var xhrIncreaseListen = new XMLHttpRequest();
+    //                         xhrIncreaseListen.onreadystatechange = function () {
+    //                             if (this.readyState == 4 && this.status == 200) {
+    //                                 console.log(this.responseText);
+    //                             }
+    //                         };
+    //                         xhrIncreaseListen.open("GET", "Xuly/increaseListen.php?idPlaylist=" + idPlaylist, true);
+    //                         xhrIncreaseListen.send();
+    //                         document.getElementById('music').play();
+    //                     });
+    //                 }
+    //             };
+
+    //             xhr.open("GET", "Xuly/nhacPL.php?idPlaylist=" + idPlaylist, true);
+    //             xhr.send();
+    //         });
+    //     });
+    // });
+    document.addEventListener('DOMContentLoaded', function () {
+        const audioPlayer = document.getElementById('music');
+        const albumArt = document.getElementById('music_play_banner');
+        const singer = document.getElementById('singer');
+        const songTitle = document.getElementById('title');
+        const playButton = document.getElementById('playButton');
+        const nextButton = document.getElementById('nextButton');
+        const prevButton = document.getElementById('prevButton');
+        let currentSongIndex = 0;
+        let playlist = [];
         var idPL = document.querySelectorAll('.view_item');
         idPL.forEach(function (div) {
             div.addEventListener('click', function () {
+                //lấy id của playlist gửi qua http
                 var idPlaylist = div.id;
-                var xhr = new XMLHttpRequest();
-                xhr.onreadystatechange = function () {
+                console.log('idPlaylist:', idPlaylist);
+                const xhrPath = new XMLHttpRequest();
+                xhrPath.onreadystatechange = function () {
                     if (this.readyState == 4 && this.status == 200) {
-                        var data = JSON.parse(this.responseText);
-                        if (data.length > 0) {
-                            var audioElement = document.getElementById('music');
-                            audioElement.src = data[0].path;
-                            audioElement.load(); // Tải lại audio
+                        playlist = JSON.parse(this.responseText);
+                        //nhận json, gán vào playlist[]
+                        if (playlist.length > 0) {
+                            playCurrentSong();
+                            console.log(playlist);
+                        } else {
+                            console.log("playlist rỗng");
                         }
-                        $('#playButton').on('click', function () {
-                            console.log('Phát bài hát!');
-                            var xhrIncreaseListen = new XMLHttpRequest();
-                            xhrIncreaseListen.onreadystatechange = function () {
-                                if (this.readyState == 4 && this.status == 200) {
-                                    console.log(this.responseText);
-                                }
-                            };
-                            xhrIncreaseListen.open("GET", "Xuly/increaseListen.php?idPlaylist=" + idPlaylist, true);
-                            xhrIncreaseListen.send();
-                            document.getElementById('music').play();
-                        });
                     }
                 };
 
-                xhr.open("GET", "Xuly/nhacPL.php?idPlaylist=" + idPlaylist, true);
-                xhr.send();
+                xhrPath.open("GET", "Xuly/laypath.php?idPlaylist=" + idPlaylist, true);
+                xhrPath.send();
             });
         });
-    });
+        function playCurrentSong() {
+            const currentSong = playlist[currentSongIndex];
+            if (currentSong && currentSong.path) {
+                audioPlayer.src = currentSong.path;
+                albumArt.src = currentSong.Anh_Bia;
+                singer.innerText = currentSong.Ten_Ca_Si;
+                songTitle.innerText = currentSong.Ten_Bai_Hat;
+                audioPlayer.play();
+            } else {
+                console.error("Invalid or missing 'path' in the current song");
+            }
+        }
 
+        playButton.addEventListener('click', function () {
+            playCurrentSong();
+            console.log('Phát bài hát!');
+            var xhrIncreaseListen = new XMLHttpRequest();
+            xhrIncreaseListen.onreadystatechange = function () {
+                if (this.readyState == 4 && this.status == 200) {
+                    console.log(this.responseText);
+                }
+            };
+            xhrIncreaseListen.open("GET", "Xuly/increaseListen.php?idPlaylist=" + idPlaylist, true);
+            xhrIncreaseListen.send();
+        });
+
+        nextButton.addEventListener('click', function () {
+            if (currentSongIndex < playlist.length - 1) {
+                currentSongIndex++;
+            } else {
+                currentSongIndex = 0;
+            }
+            playCurrentSong();
+        });
+
+        prevButton.addEventListener('click', function () {
+            if (currentSongIndex > 0) {
+                currentSongIndex--;
+            } else {
+                currentSongIndex = playlist.length - 1;
+            }
+            playCurrentSong();
+        });
+
+
+    });
 </script>
 
 <!-- ấn vào nút play -->
@@ -466,59 +548,59 @@ if (isset($_POST['doiMK'])) {
         // Lấy thẻ audio
         var audio = document.getElementById('music');
         var banner = document.getElementById('music_play_banner');
-        var title =document.getElementById('title');
-        var singer =document.getElementById('singer');
-            // Cập nhật đường dẫn âm nhạc và play
-            audio.src = musicLink;
-            banner.src = imgLink;
-            title.innerText =titleLink;
-            singer.innerText =singerLink;
-            audio.play();
+        var title = document.getElementById('title');
+        var singer = document.getElementById('singer');
+        // Cập nhật đường dẫn âm nhạc và play
+        audio.src = musicLink;
+        banner.src = imgLink;
+        title.innerText = titleLink;
+        singer.innerText = singerLink;
+        audio.play();
 
-            // Hiển thị nút dừng khi bắt đầu phát âm nhạc
-            audio.addEventListener('play', function () {
-                showStopButton();
+        // Hiển thị nút dừng khi bắt đầu phát âm nhạc
+        audio.addEventListener('play', function () {
+            showStopButton();
 
-                // Gọi hàm để tăng giá trị cột luot_nghe trong PHP
-                increaseListenCount(maBaiHat);
-            });
+            // Gọi hàm để tăng giá trị cột luot_nghe trong PHP
+            increaseListenCount(maBaiHat);
+        });
 
-            // Hiển thị nút phát khi âm nhạc dừng
-            audio.addEventListener('pause', function () {
-                showPlayButton();
-            });
-        }
+        // Hiển thị nút phát khi âm nhạc dừng
+        audio.addEventListener('pause', function () {
+            showPlayButton();
+        });
+    }
 
-        function increaseListenCount(maBaiHat) {
-            // Sử dụng Ajax để gửi yêu cầu tăng giá trị cột luot_nghe
-            var xhr = new XMLHttpRequest();
-            xhr.onreadystatechange = function () {
-                if (xhr.readyState == 4 && xhr.status == 200) {
-                    // Xử lý kết quả nếu cần
-                }
-            };
-            xhr.open('GET', 'Xuly/increase_listen_count.php?Ma_Bai_Hat=' + maBaiHat, true);
-            xhr.send();
-        }
+    function increaseListenCount(maBaiHat) {
+        // Sử dụng Ajax để gửi yêu cầu tăng giá trị cột luot_nghe
+        var xhr = new XMLHttpRequest();
+        xhr.onreadystatechange = function () {
+            if (xhr.readyState == 4 && xhr.status == 200) {
+                // Xử lý kết quả nếu cần
+            }
+        };
+        xhr.open('GET', 'Xuly/increase_listen_count.php?Ma_Bai_Hat=' + maBaiHat, true);
+        xhr.send();
+    }
 </script>
 <!-- yêu thích -->
 <script>
-        var maBaiHat = -1;
-        function addToFavorites(heartIcon) {
-            maBaiHat = heartIcon.getAttribute('data-ma-bai-hat');
+    var maBaiHat = -1;
+    function addToFavorites(heartIcon) {
+        maBaiHat = heartIcon.getAttribute('data-ma-bai-hat');
 
-            // Sử dụng $.ajax để gửi dữ liệu về server
-            // Gửi dữ liệu lên server thông qua GET hoặc POST, tùy thuộc vào cách bạn đã cấu hình server.
-            var z = new XMLHttpRequest();
-            z.onreadystatechange = function () {
-                if (z.readyState == 4 && z.status == 200) {
+        // Sử dụng $.ajax để gửi dữ liệu về server
+        // Gửi dữ liệu lên server thông qua GET hoặc POST, tùy thuộc vào cách bạn đã cấu hình server.
+        var z = new XMLHttpRequest();
+        z.onreadystatechange = function () {
+            if (z.readyState == 4 && z.status == 200) {
 
-                    console.log("abc");
-                }
-            };
-            z.open("GET", "Xuly/themYeuThich.php?maBaiHat=" + maBaiHat, true);
-            z.send();
-        }
+                console.log("abc");
+            }
+        };
+        z.open("GET", "Xuly/themYeuThich.php?maBaiHat=" + maBaiHat, true);
+        z.send();
+    }
 
 </script>
 

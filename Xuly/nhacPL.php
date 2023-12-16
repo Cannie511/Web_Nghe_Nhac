@@ -9,7 +9,10 @@ $sql = "Select * from nghesi join trinhbay join bai_hat join thuoc join playlist
 $stm = $conn->prepare($sql);
 $stm->execute();
 $data = $stm->fetchAll(PDO::FETCH_ASSOC);
-
+// foreach($data as $k => $v){
+//     echo $data[$k]['path'];
+//     echo $data[$k]['Anh_Bia'];
+// }
 // Trả về dữ liệu dưới dạng JSON
 echo json_encode($data);
 ?>

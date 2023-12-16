@@ -3,30 +3,70 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <title>Your Page</title>
 </head>
 <body>
-<ion-icon name='add-outline' data-bs-toggle="offcanvas" href="#offcanvasExample" role="button" aria-controls="offcanvasExample"></ion-icon>
 
+<div class="view_item" id="1">Playlist 1</div>
+<div class="view_item" id="2">Playlist 2</div>
+<!-- Add more div.view_item as needed -->
 
-<div class="offcanvas offcanvas-start text-bg-dark" tabindex="-1" id="offcanvasExample" aria-labelledby="offcanvasExampleLabel">
-  <div class="offcanvas-header">
-    <h5 class="offcanvas-title" id="offcanvasExampleLabel">Chọn playlist</h5>
-    <button type="button" class="btn-close btn-close-white" data-bs-dismiss="offcanvas" aria-label="Close"></button>
-  </div>
-  <div class="offcanvas-body">
-    <strong style = "font-size: 20px">Playlist hiện có</strong>
-    <select class="form-select form-select-lg mb-3" aria-label="Large select example">
-        <option selected>chọn danh sách thêm</option>
-        <option value="1">Danh sách 1</option>
-        <option value="2">Danh sách 2</option>
-        <option value="3">Danh sách 3</option>
-    </select>
-    <button type="button" class="btn btn-success float-sm-end">Xác nhận</button>
-  </div>
-</div>
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
-<script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
+<script>
+  var playlist = [];
+document.addEventListener('DOMContentLoaded', function () {
+  
+    var idPL = document.querySelectorAll('.view_item');
+    idPL.forEach(function (div) {
+        div.addEventListener('click', function () {
+            var idPlaylist = div.id;
+            console.log('idPlaylist:', idPlaylist);
+            const xhrPath = new XMLHttpRequest();
+            xhrPath.onreadystatechange = function () {
+                if (this.readyState == 4 && this.status == 200) {
+                    playlist = JSON.parse(this.responseText);
+                    console.log(playlist);
+
+                    // Rest of your code...
+                }
+            };
+            xhrPath.open("GET", "Xuly/laypath.php?idPlaylist=" + idPlaylist, true);
+            xhrPath.send();
+        });
+    });
+});
+</script>
+<!-- #region-->
+<script>
+   var idPL = document.querySelectorAll('.view_item');
+        idPL.forEach(function (div) {
+            div.addEventListener('click', function () {
+                var idPlaylist = div.id;
+                console.log('idPlaylist:', idPlaylist);
+                const xhrPath = new XMLHttpRequest();
+                xhrPath.onreadystatechange = function () {
+                    if (this.readyState == 4 && this.status == 200) {
+                        console.log(idPlaylist);
+                    }
+                };
+                xhrPath.open("GET", "Xuly/laypath.php?idPlaylist=" + idPlaylist, true);
+                xhrPath.send();
+                const xhr = new XMLHttpRequest();
+                xhr.onreadystatechange = function () {
+                    if (xhr.readyState == 4 && xhr.status == 200) {
+                        playlist = JSON.parse(xhr.responseText);
+                        if (playlist.length > 0) {
+                            // playCurrentSong();
+                            console.log(playlist);
+                        }
+                        else {
+                            console.log("playlist rỗng");
+                        }
+                    }
+                };
+                xhr.open("GET", "Xuly/laypath.php", true);
+                xhr.send();
+            });
+        });
+</script>
 </body>
 </html>
