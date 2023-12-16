@@ -1,8 +1,4 @@
-<style>
-    body {
-        color: white;
-    }
-</style>
+
 <?php
 // $Ma = isset($_POST['idPL']) ? $_POST['idPL'] : 'không có dữ liệu';
 // $Maplaylist = $Ma;  
@@ -40,10 +36,11 @@ function loadPlaylist()
 function getAllMusic(){
     include("DB/ketnoi.php");
     $sql = "SELECT * FROM bai_hat JOIN trinhbay JOIN nghesi ON bai_hat.Ma_Bai_Hat = trinhbay.Ma_Bai_Hat 
-    and  trinhbay.Ma_NS = nghesi.Ma_NS";
+    and  trinhbay.Ma_NS = nghesi.Ma_NS ORDER BY Ngay_Phat_Hanh DESC";
     $stm = $conn->prepare($sql);
     $stm->execute();
     $data = $stm->fetchAll(PDO::FETCH_ASSOC);
+    $no = 1;
     foreach ($data as $key => $music) {
         echo "<tr class='music-row' data-music-link=''>";
         echo "<td><ion-icon name='play'  
@@ -52,7 +49,7 @@ function getAllMusic(){
         </ion-icon></td>";
         echo "</td>";
         echo "<td>";
-        print_r("#".$data[$key]['Ma_Bai_Hat']);
+        print_r("#".$no);
         echo "</td>";
         echo "<td>";
         echo "<div id='crop_img'><img src = '" . $data[$key]['Anh_Bia'] . "'></div>";
@@ -66,11 +63,8 @@ function getAllMusic(){
         echo "<td>";
         print_r($data[$key]['Ngay_Phat_Hanh']);
         echo "</td>";
-        echo "<td>";
-        print_r(intval($data[$key]['Thoi_Luong']/60).":".($data[$key]['Thoi_Luong']%60));
-        echo "</td>";
-        
         echo "</tr>";
+        $no++;
     }
 }
 function loadBXHNgheNhieu()

@@ -17,21 +17,22 @@ function login($username, $password)
       require_once('../DB/loginDB.php');
       try {
 
-            $query = 'SELECT Ma_ND as id,Phan_Quyen as role FROM nguoi_dung WHERE Ten_Dang_Nhap = :username and Mat_Khau = :password ';
+            $query = 'SELECT Ma_ND as id,Ten_Dang_Nhap as ten, Phan_Quyen as role FROM nguoi_dung WHERE Ten_Dang_Nhap = :username and Mat_Khau = :password ';
             $stmt = $conn->prepare($query);
             $stmt->bindParam(':username', $username);
             $stmt->bindParam(':password', $password);
             $stmt->execute();
             $result = $stmt->fetch(PDO::FETCH_ASSOC);
             if ($result) {
-                  $response = array("code" => "200", "message" => "Login successfully", "id" => $result["id"], "role" => $result["role"]);
+                  $response = array("code" => "200", "message" => "Login successfully", "id" => $result["id"], "ten" => $result['ten'], "role" => $result["role"]);
                   foreach($result as $key => $v)
                   {
                         $_SESSION['Ma_ND'] = $result['id'];
+                        $_SESSION['Ten_Dang_Nhap'] = $result['ten'];
                   }
                   return json_encode($response);
             } else {
-                  $response = array("code" => "404", "message" => "Account's Credential not found ");
+                  $response = array("code" => "404", "message" => "Sai thông tin đăng nhập!");
                   return json_encode($response);
             }
       } catch (PDOException $e) {

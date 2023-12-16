@@ -12,6 +12,7 @@ $Maplaylist = $dataMusic;
     $stm = $conn->prepare($sql);
     $stm->execute();
     $data = $stm->fetchAll(PDO::FETCH_ASSOC);
+    $no = 1;
     foreach ($data as $key => $music) {
         echo "<tr class='music-row' data-music-link=''>";
         echo "<td><ion-icon name='play'  
@@ -21,7 +22,7 @@ $Maplaylist = $dataMusic;
         "' onclick='addToFavorites(this)'></ion-icon></td>";
         echo "</td>";
         echo "<td>";
-        print_r("#".$data[$key]['Ma_Bai_Hat']);
+        print_r("#".$no);
         echo "</td>";
         echo "<td>";
         echo "<div id='crop_img'><img src = '" . $data[$key]['Anh_Bia'] . "'></div>";
@@ -42,6 +43,7 @@ $Maplaylist = $dataMusic;
         echo "<ion-icon name='add-outline'  data-bs-toggle='offcanvas' href='#playlistChoice' role='button' aria-controls='offcanvasExample'></ion-icon>";
         echo "</td>";
         echo "</tr>";
+        $no++;
     }
     
 ?>

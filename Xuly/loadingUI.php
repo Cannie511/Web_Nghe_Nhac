@@ -1,4 +1,6 @@
+
 <?php
+
 function loadQuocGia(){
     include("DB/ketnoi.php");
     $sql = "SELECT * FROM `quocgia`";
@@ -17,6 +19,16 @@ function loadTheLoai(){
     $data = $stm->fetchAll(PDO::FETCH_ASSOC);
     foreach ($data as $k=> $theloai){
         echo "<option value='".$data[$k]['Ma_The_Loai']."'>".$data[$k]['Ten']."</option>";  
+    }
+}
+function loadUserPL(){
+    include("DB/ketnoi.php");
+    $sql = "SELECT * FROM `playlist` WHERE Ma_ND = {$_SESSION['Ma_ND']}";
+    $stm = $conn->prepare($sql);
+    $stm->execute();
+    $data = $stm->fetchAll(PDO::FETCH_ASSOC);
+    foreach ($data as $k=> $playlist){
+        echo "<option value='".$data[$k]['Ma_Playlist']."'>".$data[$k]['Ten_playlist']."</option>";  
     }
 }
 ?>

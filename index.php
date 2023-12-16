@@ -1,11 +1,12 @@
 <?php
 session_start();
 if (isset($_SESSION['Ma_ND'])) {
-    // echo $_SESSION['Ma_ND'];
+    session_destroy();
 }
 include "Xuly/MusicProcess.php";
 include('Xuly/NewPlaylist.php');
 include('Xuly/doiMK.php');
+include('Xuly/loadingUI.php');
 ?>
 
 
@@ -181,7 +182,7 @@ if (isset($_POST['doiMK'])) {
                 <?php $path = './IMAGE/album_demo.png' ?>
                 <div id="playlist" class="col-md-5 layout show">
                     <div class="title_pl">
-                        <h1>BÀI HÁT HIỆN CÓ</h1>
+                        <h1>BÀI HÁT MỚI</h1>
                         <table class="table table-dark table-hover list">
                             <thead>
                                 <tr>
@@ -191,7 +192,6 @@ if (isset($_POST['doiMK'])) {
                                     <th scope="col">Tiêu đề</th>
                                     <th scope="col">Tác giả, ca sĩ</th>
                                     <th scope="col">Ngày phát hành</th>
-                                    <th scope="col">Thời lượng</th>
                                 </tr>
                             </thead>
                             <tbody>
@@ -419,40 +419,6 @@ if (isset($_POST['doiMK'])) {
 
 <!-- play nhạc của playlist khi ấn vào nút play của playlist -->
 <script>
-    // $(document).ready(function () {
-    //     var idPL = document.querySelectorAll('.view_item');
-    //     idPL.forEach(function (div) {
-    //         div.addEventListener('click', function () {
-    //             var idPlaylist = div.id;
-    //             var xhr = new XMLHttpRequest();
-    //             xhr.onreadystatechange = function () {
-    //                 if (this.readyState == 4 && this.status == 200) {
-    //                     var data = JSON.parse(this.responseText);
-    //                     if (data.length > 0) {
-    //                         var audioElement = document.getElementById('music');
-    //                         audioElement.src = data[0].path;
-    //                         audioElement.load(); // Tải lại audio
-    //                     }
-    //                     $('#playButton').on('click', function () {
-    //                         console.log('Phát bài hát!');
-    //                         var xhrIncreaseListen = new XMLHttpRequest();
-    //                         xhrIncreaseListen.onreadystatechange = function () {
-    //                             if (this.readyState == 4 && this.status == 200) {
-    //                                 console.log(this.responseText);
-    //                             }
-    //                         };
-    //                         xhrIncreaseListen.open("GET", "Xuly/increaseListen.php?idPlaylist=" + idPlaylist, true);
-    //                         xhrIncreaseListen.send();
-    //                         document.getElementById('music').play();
-    //                     });
-    //                 }
-    //             };
-
-    //             xhr.open("GET", "Xuly/nhacPL.php?idPlaylist=" + idPlaylist, true);
-    //             xhr.send();
-    //         });
-    //     });
-    // });
     document.addEventListener('DOMContentLoaded', function () {
         const audioPlayer = document.getElementById('music');
         const albumArt = document.getElementById('music_play_banner');
@@ -463,11 +429,12 @@ if (isset($_POST['doiMK'])) {
         const prevButton = document.getElementById('prevButton');
         let currentSongIndex = 0;
         let playlist = [];
+        var idPlaylist = "";
         var idPL = document.querySelectorAll('.view_item');
         idPL.forEach(function (div) {
             div.addEventListener('click', function () {
                 //lấy id của playlist gửi qua http
-                var idPlaylist = div.id;
+                 idPlaylist = div.id;
                 console.log('idPlaylist:', idPlaylist);
                 const xhrPath = new XMLHttpRequest();
                 xhrPath.onreadystatechange = function () {
@@ -475,8 +442,10 @@ if (isset($_POST['doiMK'])) {
                         playlist = JSON.parse(this.responseText);
                         //nhận json, gán vào playlist[]
                         if (playlist.length > 0) {
-                            playCurrentSong();
+                            
                             console.log(playlist);
+
+
                         } else {
                             console.log("playlist rỗng");
                         }
@@ -499,19 +468,25 @@ if (isset($_POST['doiMK'])) {
                 console.error("Invalid or missing 'path' in the current song");
             }
         }
-
+        function playAllSongs(){
+            currentSongIndex = 0;
+            playCurrentSong();
+            audioPlayer.addEventListener('ended', function(){
+                currentSongIndex++;
+                if(currentSongIndex < playlist.length){
+                    playCurrentSong();
+                }
+                else{
+                    currentSongIndex = 0;
+                    playCurrentSong();
+                }
+            })
+        }
         playButton.addEventListener('click', function () {
             playCurrentSong();
             console.log('Phát bài hát!');
-            var xhrIncreaseListen = new XMLHttpRequest();
-            xhrIncreaseListen.onreadystatechange = function () {
-                if (this.readyState == 4 && this.status == 200) {
-                    console.log(this.responseText);
-                }
-            };
-            xhrIncreaseListen.open("GET", "Xuly/increaseListen.php?idPlaylist=" + idPlaylist, true);
-            xhrIncreaseListen.send();
         });
+
 
         nextButton.addEventListener('click', function () {
             if (currentSongIndex < playlist.length - 1) {
