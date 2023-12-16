@@ -1,10 +1,11 @@
 /* THẺ MẶC ĐỊNH CỦA HTML */
 * {
-    padding: 0;
-    margin: 0;
+    
 }
 
 body {
+    padding: 0;
+    margin: 0;
     background: var(--body-bg-custom);
     background-attachment: fixed ;
     overflow-x: hidden;
@@ -67,8 +68,8 @@ th{
     width: 16vw;
     height: 88vh;
     background-color: rgb(37, 37, 37);
-    border-radius: 5px 5px 0 0;
-    margin-left: 5px;
+    border-radius: 5px 0px 0 5px;
+    
     color: gray;
     font-size: 1.2vw;
     opacity: 0.8;
@@ -317,16 +318,16 @@ th{
 }
 /* THẺ ĐỂ XEM NHẠC */
 #main_play {
-    width: 80vw;
+    width: 82vw;
     height: 88vh;
-    margin-left: 17vw;
+    margin-left: 16vw;
     background-color: rgb(37, 37, 37);
     opacity: 0.8;
     overflow: hidden;
     overflow-y: scroll;
     position: fixed;
-    border-radius: 5px 5px 0 0;
-    transition: all 0.4s ease-in-out;
+    border-radius: 0px 5px 5px 0;
+    transition: all 0.3s ease-in-out;
 }
 #contentContainer{
     width: 80vw;
@@ -339,8 +340,8 @@ th{
     transition: all 0.4s ease-in-out;
 }
 #main_play.full {
-    width: 93vw;
-    margin-left: 6vw;
+    width: 94vw;
+    margin-left: 4.5vw;
 }
 
 #personal {
@@ -459,10 +460,10 @@ th{
 }
 
 #topMenu {
-    width: 80vw;
+    width: 82vw;
     position: fixed;
     z-index: 2000;
-    border-radius: 5px 5px 0 0;
+    border-radius: 0px 5px 5px 0;
     background-color: transparent;
     transition: all 0.4s ease-in-out;
 }
@@ -479,7 +480,7 @@ th{
     margin-left: 30px;
 }
 #topMenu.hide {
-    width: 93vw;
+    width: 94vw;
 }
 #banner_play_list_LoveIt{
     width: 100%;
@@ -534,6 +535,7 @@ th{
     width: 100vw;
     height: 10vh;
     color: gray;
+    border-top: 0.1px solid gray;
     font-size: 4vh;
     display: flex;
     transform: translatey(88vh);
@@ -635,7 +637,7 @@ input[type="range"] {
     width: 16vw;;
     height: 6vh;
     background-color: rgb(92, 91, 91);
-    border-radius: 5px 5px 0 0;
+    border-radius: 5px 0 0 0;
     position: fixed;
     top: 83.2vh;
     font-size: 5vh;

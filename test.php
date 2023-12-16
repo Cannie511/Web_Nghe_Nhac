@@ -1,72 +1,62 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Your Page</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <title>Biểu Đồ Bootstrap</title>
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 </head>
 <body>
+  <div class="container mt-5">
+    <canvas id="myChart" width="400" height="200"></canvas>
+  </div>
 
-<div class="view_item" id="1">Playlist 1</div>
-<div class="view_item" id="2">Playlist 2</div>
-<!-- Add more div.view_item as needed -->
+  <script>
+    // Dữ liệu biểu đồ
+    var data = {
+      labels: ['Tháng 1', 'Tháng 2', 'Tháng 3', 'Tháng 4', 'Tháng 5', 'Tháng 6', 'Tháng 7', 'Tháng 8', 'Tháng 9', 'Tháng 10', 'Tháng 11', 'Tháng 12'],
+      datasets: [{
+        label: 'Số lượng Bài hát năm 2023',
+        data: [12, 19, 3, 5, 2,20, 10, 6, 2, 1, 11, 4],
+        backgroundColor: [
+          'rgba(255, 99, 132, 0.2)',
+          'rgba(54, 162, 235, 0.2)',
+          'rgba(255, 206, 86, 0.2)',
+          'rgba(75, 192, 192, 0.2)',
+          'rgba(153, 102, 255, 0.2)'
+        ],
+        borderColor: [
+          'rgba(255, 99, 132, 1)',
+          'rgba(54, 162, 235, 1)',
+          'rgba(255, 206, 86, 1)',
+          'rgba(75, 192, 192, 1)',
+          'rgba(153, 102, 255, 1)'
+        ],
+        borderWidth: 1
+      }]
+    };
 
-<script>
-  var playlist = [];
-document.addEventListener('DOMContentLoaded', function () {
-  
-    var idPL = document.querySelectorAll('.view_item');
-    idPL.forEach(function (div) {
-        div.addEventListener('click', function () {
-            var idPlaylist = div.id;
-            console.log('idPlaylist:', idPlaylist);
-            const xhrPath = new XMLHttpRequest();
-            xhrPath.onreadystatechange = function () {
-                if (this.readyState == 4 && this.status == 200) {
-                    playlist = JSON.parse(this.responseText);
-                    console.log(playlist);
+    // Tùy chọn biểu đồ
+    var options = {
+      scales: {
+        y: {
+          beginAtZero: true
+        }
+      }
+    };
 
-                    // Rest of your code...
-                }
-            };
-            xhrPath.open("GET", "Xuly/laypath.php?idPlaylist=" + idPlaylist, true);
-            xhrPath.send();
-        });
+    // Lấy thẻ canvas và vẽ biểu đồ
+    var ctx = document.getElementById('myChart').getContext('2d');
+    var myChart = new Chart(ctx, {
+      type: 'bar',
+      data: data,
+      options: options
     });
-});
-</script>
-<!-- #region-->
-<script>
-   var idPL = document.querySelectorAll('.view_item');
-        idPL.forEach(function (div) {
-            div.addEventListener('click', function () {
-                var idPlaylist = div.id;
-                console.log('idPlaylist:', idPlaylist);
-                const xhrPath = new XMLHttpRequest();
-                xhrPath.onreadystatechange = function () {
-                    if (this.readyState == 4 && this.status == 200) {
-                        console.log(idPlaylist);
-                    }
-                };
-                xhrPath.open("GET", "Xuly/laypath.php?idPlaylist=" + idPlaylist, true);
-                xhrPath.send();
-                const xhr = new XMLHttpRequest();
-                xhr.onreadystatechange = function () {
-                    if (xhr.readyState == 4 && xhr.status == 200) {
-                        playlist = JSON.parse(xhr.responseText);
-                        if (playlist.length > 0) {
-                            // playCurrentSong();
-                            console.log(playlist);
-                        }
-                        else {
-                            console.log("playlist rỗng");
-                        }
-                    }
-                };
-                xhr.open("GET", "Xuly/laypath.php", true);
-                xhr.send();
-            });
-        });
-</script>
+  </script>
+
+  <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.0.8/dist/umd/popper.min.js"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"></script>
 </body>
 </html>

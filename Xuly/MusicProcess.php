@@ -75,11 +75,11 @@ function loadBXHNgheNhieu()
     $stm = $conn->prepare($sql);
     $stm->execute();
     $data = $stm->fetchAll(PDO::FETCH_ASSOC);
-
+    $no = 1;
     foreach ($data as $key => $music) {
         echo "<tr class='music-row' data-music-link='" . $data[$key]['path'] . "'>";
         echo "<td>";
-        print_r("#".$data[$key]['Ma_Bai_Hat']);
+        print_r("#".$no);
         echo "</td>";
         echo "<td data-img-link ='".$data[$key]['Anh_Bia']."'>";
         echo "<div id='crop_img'><img src = '" . $data[$key]['Anh_Bia'] . "'></div>";
@@ -101,6 +101,7 @@ function loadBXHNgheNhieu()
         echo "</td>";
         echo "<td><ion-icon name='play'></ion-icon>&nbsp;<ion-icon name='heart'></ion-icon></td>";
         echo "</tr>";
+        $no++;
     }
 }
 function loadUserAccount()

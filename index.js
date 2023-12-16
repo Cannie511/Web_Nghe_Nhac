@@ -71,6 +71,7 @@ $(document).ready(function () {
         break;
       case 5:
         $(".layout.show").removeClass("show");
+        
         $("#LoveIt").addClass("show");
         break;
       default:

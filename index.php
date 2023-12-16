@@ -58,7 +58,7 @@ if (isset($_POST['doiMK'])) {
 
     </div>
     <div class="container-fluid">
-        <div class="col-sm-4">
+        <div class="">
             <div id="menu">
                 <div id="logo" class="col-xl-12">
                     <h1>
@@ -301,7 +301,7 @@ if (isset($_POST['doiMK'])) {
                         <table class="table table-dark table-hover list">
                             <thead>
                                 <tr>
-                                    <th scope="col">STT</th>
+                                    <th scope="col">Hạng</th>
                                     <th scope="col">Hình</th>
                                     <th scope="col">Tiêu đề</th>
                                     <th scope="col">Tác giả, ca sĩ</th>

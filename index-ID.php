@@ -196,12 +196,12 @@ if (isset($_POST['doiMK'])) {
             </div>
             <div class="offcanvas-body">
                 <strong style="font-size: 20px">Playlist hiện có</strong>
-                <form action="" id="listChoice">
-                <select class="form-select form-select-lg mb-3" aria-label="Large select example">
-                    <option selected>chọn danh sách thêm</option>
-                    <?php loadUserPL();?>
-                </select>
-                <button type="submit" class="btn btn-success float-sm-end">Xác nhận</button>
+                <form action="" id="listChoice" method="get">
+                    <select class="form-select form-select-lg mb-3" aria-label="Large select example">
+                        <option selected>chọn danh sách thêm</option>
+                        <?php loadUserPL(); ?>
+                    </select>
+                    <button type="submit" class="btn btn-success float-sm-end">Xác nhận</button>
                 </form>
             </div>
         </div>
@@ -215,7 +215,9 @@ if (isset($_POST['doiMK'])) {
                         <div id="more">
                             <div onclick="Edit()">
 
-                                &nbsp;&nbsp; <strong><?php echo $_SESSION['Ten_Dang_Nhap'] ?></strong>
+                                &nbsp;&nbsp; <strong>
+                                    <?php echo $_SESSION['Ten_Dang_Nhap'] ?>
+                                </strong>
                             </div>
                             <div onclick="Home()">
                                 <ion-icon name="log-in-outline"></ion-icon><span>Đăng Xuất</span>
@@ -300,7 +302,7 @@ if (isset($_POST['doiMK'])) {
                                     <th scope="col">Tiêu đề</th>
                                     <th scope="col">Tác giả, ca sĩ</th>
                                     <th scope="col">Ngày phát hành</th>
-                                    
+
                                 </tr>
                             </thead>
                             <tbody>
@@ -476,7 +478,7 @@ if (isset($_POST['doiMK'])) {
             <div id="info_music"></div>
             <div id="btn">
                 <ion-icon name="shuffle"></ion-icon>
-                <ion-icon name="play-skip-back-circle" id = "prevButton"></ion-icon>
+                <ion-icon name="play-skip-back-circle" id="prevButton"></ion-icon>
                 <ion-icon id="play_btn" name="play-circle" onclick="play()"></ion-icon>
                 <ion-icon id="pause_btn" name="pause-circle" onclick="pause()"></ion-icon>
                 <ion-icon name="play-skip-forward-circle" id="nextButton"></ion-icon>
@@ -541,7 +543,7 @@ if (isset($_POST['doiMK'])) {
         idPL.forEach(function (div) {
             div.addEventListener('click', function () {
                 //lấy id của playlist gửi qua http
-                 idPlaylist = div.id;
+                idPlaylist = div.id;
                 console.log('idPlaylist:', idPlaylist);
                 const xhrPath = new XMLHttpRequest();
                 xhrPath.onreadystatechange = function () {
@@ -549,7 +551,7 @@ if (isset($_POST['doiMK'])) {
                         playlist = JSON.parse(this.responseText);
                         //nhận json, gán vào playlist[]
                         if (playlist.length > 0) {
-                            
+
                             console.log(playlist);
 
 
@@ -575,15 +577,15 @@ if (isset($_POST['doiMK'])) {
                 console.error("Invalid or missing 'path' in the current song");
             }
         }
-        function playAllSongs(){
+        function playAllSongs() {
             currentSongIndex = 0;
             playCurrentSong();
-            audioPlayer.addEventListener('ended', function(){
+            audioPlayer.addEventListener('ended', function () {
                 currentSongIndex++;
-                if(currentSongIndex < playlist.length){
+                if (currentSongIndex < playlist.length) {
                     playCurrentSong();
                 }
-                else{
+                else {
                     currentSongIndex = 0;
                     playCurrentSong();
                 }
