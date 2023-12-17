@@ -187,24 +187,25 @@ if (isset($_POST['doiMK'])) {
             </div>
         </div>
         <!-- --------------------------------------------CHỌN DANH SÁCH---------------------------------------------- -->
-        <div class="offcanvas offcanvas-start text-bg-dark" tabindex="-1" id="playlistChoice"
-            aria-labelledby="offcanvasExampleLabel">
+        <!-- SỬA TÍ -->
+        <div class="offcanvas offcanvas-start text-bg-dark" tabindex="-1" id="playlistChoice" aria-labelledby="offcanvasExampleLabel">
             <div class="offcanvas-header">
-                <h5 class="offcanvas-title" id="offcanvasExampleLabel">Chọn playlist</h5>
-                <button type="button" class="btn-close btn-close-white" data-bs-dismiss="offcanvas"
-                    aria-label="Close"></button>
-            </div>
-            <div class="offcanvas-body">
-                <strong style="font-size: 20px">Playlist hiện có</strong>
-                <form action="" id="listChoice" method="get">
-                    <select class="form-select form-select-lg mb-3" aria-label="Large select example">
-                        <option selected>chọn danh sách thêm</option>
-                        <?php loadUserPL(); ?>
-                    </select>
-                    <button type="submit" class="btn btn-success float-sm-end">Xác nhận</button>
-                </form>
-            </div>
-        </div>
+        <h5 class="offcanvas-title" id="offcanvasExampleLabel">Chọn playlist</h5>
+        <button type="button" class="btn-close btn-close-white" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+    </div>
+    <div class="offcanvas-body">
+        <strong style="font-size: 20px">Playlist hiện có</strong>
+        <form action="addMusic.php" id="listChoice" method="get" onsubmit="addPlayListSubmit()">
+            <select class="form-select form-select-lg mb-3" aria-label="Large select example" name="tenPlaylist">
+                <option selected>chọn danh sách thêm</option>
+                <?php loadUserPL(); ?>
+            </select>
+            <!-- Thêm trường ẩn để giữ giá trị của maBaiHat1 -->
+            <input type="hidden" id="maBaiHat1Input" name="maBaiHat1" value="">
+            <button type="submit" class="btn btn-success float-sm-end">Xác nhận</button>
+        </form>
+    </div>
+</div>
         <!-- --------------------------------------------ADVANCED LIST---------------------------------------------- -->
         <div class="col-sm-7">
             <div id="main_play">
@@ -688,4 +689,18 @@ if (isset($_POST['doiMK'])) {
 
 </script>
 
+
+<script>
+    var maBaiHat1 = -1;
+
+    function addPlayList(icon) {
+        maBaiHat1 = icon.getAttribute('data-ma-bai');
+        console.log(maBaiHat1);
+    }
+
+    function addPlayListSubmit() {
+        // Truyền  maBaiHat1 vào maBaiHat1Input trong form
+        document.getElementById('maBaiHat1Input').value = maBaiHat1;
+    }
+</script>
 </html>
