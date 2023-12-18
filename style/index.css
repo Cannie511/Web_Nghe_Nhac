@@ -1,8 +1,8 @@
 /* THẺ MẶC ĐỊNH CỦA HTML */
 * {
-    
+    padding: 0;
+    margin: 0;
 }
-
 body {
     padding: 0;
     margin: 0;
@@ -66,19 +66,20 @@ th{
 /* THẺ MENU */
 #menu {
     width: 16vw;
-    height: 88vh;
+    height: 89.5vh;
     background-color: rgb(37, 37, 37);
     border-radius: 5px 0px 0 5px;
-    
     color: gray;
-    font-size: 1.2vw;
-    opacity: 0.8;
+    
+    opacity: 1;
+    top: 0;
     position: fixed;
     z-index: 10;
     overflow-y: scroll;
     overflow-x: hidden;
     transition: all 0.3s ease-in-out;
     float: left;
+
 }
 
 #menu_cover {
@@ -318,8 +319,9 @@ th{
 }
 /* THẺ ĐỂ XEM NHẠC */
 #main_play {
-    width: 82vw;
-    height: 88vh;
+    width: 84vw;
+    height: 89.5vh;
+    top: 0;
     margin-left: 16vw;
     background-color: rgb(37, 37, 37);
     opacity: 0.8;
@@ -340,18 +342,19 @@ th{
     transition: all 0.4s ease-in-out;
 }
 #main_play.full {
-    width: 94vw;
+    width: 96vw;
     margin-left: 4.5vw;
 }
 
 #personal {
-    width: 5vw;
+    width: 10vw;
     height: 5vw;
     display: flex;
     justify-content: center;
     align-items: center;
     color: white;
     font-size: 3vw;
+    margin-right: 10px;
     float: right;
     position: relative;
     z-index: 2000;
@@ -460,7 +463,7 @@ th{
 }
 
 #topMenu {
-    width: 82vw;
+    width: 84vw;
     position: fixed;
     z-index: 2000;
     border-radius: 0px 5px 5px 0;
@@ -480,7 +483,7 @@ th{
     margin-left: 30px;
 }
 #topMenu.hide {
-    width: 94vw;
+    width: 96vw;
 }
 #banner_play_list_LoveIt{
     width: 100%;
@@ -790,23 +793,36 @@ input[type="range"] {
 }
 
 .list_item {
+    white-space: nowrap;
     width: 100%;
-    height: 265px;
-    overflow-x: scroll;
+    height: 225px;
+    overflow-x: auto;
     margin-top: 20px;
+    display: flex;
+    scrollbar-width: thin;
+}
+.list_item::-webkit-scrollbar {
+    width: 8px;
+    height: 5px;
 }
 
+.list_item::-webkit-scrollbar-thumb {
+    background-color: #888;
+    border-radius: 4px;
+}
 .view_item {
-    width: 190px;
-    height: 95%;
-    margin-left: 30px;
-    margin-top: 10px;
+    flex: 0 0 auto;
+    width: 160px;
+    height: 100%; /* Thay đổi từ 95% thành 100% để nó không bị mất khoảng trống phía dưới */
+    margin-left: 10px; /* Thay đổi từ 30px thành 5px để giảm khoảng trống giữa các .view_item */
+    margin-right: 10px; /* Thêm margin-right để giảm khoảng trống bên phải */
     float: left;
     border-radius: 5px;
     background-color: #363636;
     overflow: hidden;
     cursor: pointer;
     transition: all 0.2s ease-in-out;
+    box-sizing: border-box;
 }
 
 .view_item:hover {
@@ -827,7 +843,12 @@ input[type="range"] {
     height: 90%;
     border-radius: 5px;
 }
-
+.singer_img img{
+    border-radius: 50%;
+}
+.singer_img h5{
+    text-align: center;
+}
 .info_item {
     width: 100%;
     height: fit-content;

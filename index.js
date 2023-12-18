@@ -36,10 +36,11 @@ $(document).ready(function () {
         var searchinput = document.getElementById("search_input");
         searchinput.focus();
         break;
-      case 3:
+      case 2:
         $(".layout.show").removeClass("show");
         $("#Ranked").addClass("show");
         break;
+      case 4:
       default:
         break;
     }
@@ -71,7 +72,6 @@ $(document).ready(function () {
         break;
       case 5:
         $(".layout.show").removeClass("show");
-        
         $("#LoveIt").addClass("show");
         break;
       default:
@@ -79,7 +79,7 @@ $(document).ready(function () {
     }
     console.log(index);
   });
-  
+
   $(".view_item").click(function () {
     $(".layout.show").removeClass("show");
     $("#music_list").addClass("show");
@@ -114,10 +114,10 @@ $(document).ready(function () {
         break;
     }
   });
-  $('.log-in-for-next').click(function () {
-    $('#alert-login').css("display", "block");
+  $(".log-in-for-next").click(function () {
+    $("#alert-login").css("display", "block");
     setTimeout(function () {
-      $('#alert-login').css("display", "none");
+      $("#alert-login").css("display", "none");
     }, 2500);
     $(".layout.show").removeClass("show");
     $("#playlist").addClass("show");
@@ -149,7 +149,6 @@ $(document).ready(function () {
   //     $('#alert-login').css("display", "none");
   //   }, 2500);
   // })
-
 });
 var navbar_toggle = document.getElementById("navbar");
 var menu = document.getElementById("menu");
@@ -433,3 +432,166 @@ $(".btnChangePass").click(function () {
     $("#alert-login").css("display", "none");
   }, 2500);
 });
+$(document).ready(function () {
+  var idPL = document.querySelectorAll(".view_item");
+
+  idPL.forEach(function (div) {
+    div.addEventListener("click", function () {
+      var idPlaylist = div.id;
+      console.log("idPlaylist:", idPlaylist);
+      var xhr = new XMLHttpRequest();
+      xhr.onreadystatechange = function () {
+        if (this.readyState == 4 && this.status == 200) {
+          document.getElementById("result").innerHTML = this.responseText;
+        }
+      };
+      xhr.open("GET", "Xuly/loadMusic.php?idPlaylist=" + idPlaylist, true);
+      xhr.send();
+    });
+  });
+});
+document.addEventListener("DOMContentLoaded", function () {
+  const audioPlayer = document.getElementById("music");
+  const albumArt = document.getElementById("music_play_banner");
+  const singer = document.getElementById("singer");
+  const songTitle = document.getElementById("title");
+  const playButton = document.getElementById("playButton");
+  const nextButton = document.getElementById("nextButton");
+  const prevButton = document.getElementById("prevButton");
+  let currentSongIndex = 0;
+  let playlist = [];
+  var idPlaylist = "";
+  var idPL = document.querySelectorAll(".view_item");
+  idPL.forEach(function (div) {
+    div.addEventListener("click", function () {
+      //lấy id của playlist gửi qua http
+      idPlaylist = div.id;
+      console.log("idPlaylist:", idPlaylist);
+      const xhrPath = new XMLHttpRequest();
+      xhrPath.onreadystatechange = function () {
+        if (this.readyState == 4 && this.status == 200) {
+          playlist = JSON.parse(this.responseText);
+          //nhận json, gán vào playlist[]
+          if (playlist.length > 0) {
+            console.log(playlist);
+          } else {
+            console.log("playlist rỗng");
+          }
+        }
+      };
+
+      xhrPath.open("GET", "Xuly/laypath.php?idPlaylist=" + idPlaylist, true);
+      xhrPath.send();
+    });
+  });
+  function playCurrentSong() {
+    const currentSong = playlist[currentSongIndex];
+    if (currentSong && currentSong.path) {
+      audioPlayer.src = currentSong.path;
+      albumArt.src = currentSong.Anh_Bia;
+      singer.innerText = currentSong.Ten_Ca_Si;
+      songTitle.innerText = currentSong.Ten_Bai_Hat;
+      audioPlayer.play();
+    } else {
+      console.error("Invalid or missing 'path' in the current song");
+    }
+  }
+  function playAllSongs() {
+    currentSongIndex = 0;
+    playCurrentSong();
+    audioPlayer.addEventListener("ended", function () {
+      currentSongIndex++;
+      if (currentSongIndex < playlist.length) {
+        playCurrentSong();
+      } else {
+        currentSongIndex = 0;
+        playCurrentSong();
+      }
+    });
+  }
+  playButton.addEventListener("click", function () {
+    playCurrentSong();
+    console.log("Phát bài hát!");
+  });
+  nextButton.addEventListener("click", function () {
+    if (currentSongIndex < playlist.length - 1) {
+      currentSongIndex++;
+    } else {
+      currentSongIndex = 0;
+    }
+    playCurrentSong();
+  });
+  prevButton.addEventListener("click", function () {
+    if (currentSongIndex > 0) {
+      currentSongIndex--;
+    } else {
+      currentSongIndex = playlist.length - 1;
+    }
+    playCurrentSong();
+  });
+});
+function playMusic(row, maBaiHat) {
+  // Lấy đường dẫn âm nhạc từ thuộc tính data-music-link
+  var musicLink = row.getAttribute("data-music-link");
+  var imgLink = row.getAttribute("data-img-link");
+  var titleLink = row.getAttribute("data-title-link");
+  var singerLink = row.getAttribute("data-singer-link");
+  console.log(imgLink);
+  console.log(musicLink);
+  // Lấy thẻ audio
+  var audio = document.getElementById("music");
+  var banner = document.getElementById("music_play_banner");
+  var title = document.getElementById("title");
+  var singer = document.getElementById("singer");
+  // Cập nhật đường dẫn âm nhạc và play
+  audio.src = musicLink;
+  banner.src = imgLink;
+  title.innerText = titleLink;
+  singer.innerText = singerLink;
+  audio.play();
+
+  // Hiển thị nút dừng khi bắt đầu phát âm nhạc
+  audio.addEventListener("play", function () {
+    showStopButton();
+
+    // Gọi hàm để tăng giá trị cột luot_nghe trong PHP
+    increaseListenCount(maBaiHat);
+  });
+
+  // Hiển thị nút phát khi âm nhạc dừng
+  audio.addEventListener("pause", function () {
+    showPlayButton();
+  });
+}
+
+function increaseListenCount(maBaiHat) {
+  // Sử dụng Ajax để gửi yêu cầu tăng giá trị cột luot_nghe
+  var xhr = new XMLHttpRequest();
+  xhr.onreadystatechange = function () {
+    if (xhr.readyState == 4 && xhr.status == 200) {
+      // Xử lý kết quả nếu cần
+    }
+  };
+  xhr.open(
+    "GET",
+    "Xuly/increase_listen_count.php?Ma_Bai_Hat=" + maBaiHat,
+    true
+  );
+  xhr.send();
+}
+var maBaiHat = -1;
+function addToFavorites(heartIcon) {
+  maBaiHat = heartIcon.getAttribute("data-ma-bai-hat");
+  // Sử dụng $.ajax để gửi dữ liệu về server
+  // Gửi dữ liệu lên server thông qua GET hoặc POST, tùy thuộc vào cách bạn đã cấu hình server.
+  var z = new XMLHttpRequest();
+  z.onreadystatechange = function () {
+    if (z.readyState == 4 && z.status == 200) {
+      location.reload();
+      alert('Thêm vào yêu thích thành công!');
+      
+    }
+  };
+  z.open("GET", "Xuly/themYeuThich.php?maBaiHat=" + maBaiHat, true);
+  z.send();
+}

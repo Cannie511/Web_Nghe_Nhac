@@ -1,9 +1,5 @@
 <?php 
-
     include("DB/ketnoi.php");
-
-        
-       
         $tenBai = $_POST['songTitle'];
         $caSi = $_POST['artistName'];
         $thoiLuong = $_POST['duration'];

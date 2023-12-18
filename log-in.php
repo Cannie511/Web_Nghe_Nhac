@@ -6,8 +6,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Login page</title>
     <link rel="stylesheet" href="style/log-in.css" />
-   
-    
 </head>
 
 <body>
@@ -86,7 +84,7 @@
                 if (data.id ) {
                     sessionStorage.setItem("id", data.id);
                     sessionStorage.setItem("role", data.role);
-                    window.location.href = "index-ID.php";
+                    window.location = "index-ID.php";
                 } else {
                     let resp = document.getElementById("login-response");
                     resp.innerHTML = `<p style="color: red;">${data.message}</p>`;

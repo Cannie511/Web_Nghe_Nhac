@@ -6,5 +6,4 @@ include("../DB/ketnoi.php");
     $sql = "INSERT INTO yeu_thich VALUES('$songId','$user')";
     $stm = $conn->prepare($sql);
     $stm->execute();
-    
 ?>

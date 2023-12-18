@@ -1,16 +1,8 @@
 
 <?php
-// $Ma = isset($_POST['idPL']) ? $_POST['idPL'] : 'không có dữ liệu';
-// $Maplaylist = $Ma;  
-// echo "<script>alert('. $Maplaylist.')</script>";
 $idPlaylist = isset($_GET['idPlaylist']) ? $_GET['idPlaylist'] : '';
-
-// Gán giá trị cho biến $test
 $dataMusic = $idPlaylist;
-
-// Trả về giá trị $test
 echo $dataMusic;
-
 function loadPlaylist()
 {
     include("DB/ketnoi.php");
@@ -99,7 +91,10 @@ function loadBXHNgheNhieu()
         echo "<td>";
         print_r($data[$key]['Luot_nghe']);
         echo "</td>";
-        echo "<td><ion-icon name='play'></ion-icon>&nbsp;<ion-icon name='heart'></ion-icon></td>";
+        echo "<td><ion-icon name='play'  
+        data-music-link='" . $data[$key]['path'] . 
+        "'data-img-link ='".$data[$key]['Anh_Bia']. "' data-title-link = '".$data[$key]['Ten_Bai_Hat']."' data-singer-link='".$data[$key]['Ten_Ca_Si']."' onclick='playMusic(this, " . $data[$key]['Ma_Bai_Hat'] . ")'>
+        </ion-icon>&nbsp;<ion-icon name='heart'></ion-icon></td>";
         echo "</tr>";
         $no++;
     }
@@ -107,18 +102,10 @@ function loadBXHNgheNhieu()
 function loadUserAccount()
 {
     require_once("../DB/ketnoi.php");
-    // $userAccount = array(
-    //     array("Id" => "admin@trivieco.com", "pass"=>"Abc123@", "rule"=>2,"birth"=>"05/11/2002", "state"=>1),
-    //     array("Id" => "Demo1@trivieco.com", "pass"=>"Abc123@", "rule"=>1, "birth"=>"25/08/2002", "state"=>0),
-    //     array("Id" => "Demo2@trivieco.com", "pass"=>"Abc123@", "rule"=>0, "birth"=>"31/10/2002","state"=>0),
-    //     array("Id" => "Demo3@trivieco.com", "pass"=>"Abc123@", "rule"=>0, "birth"=>"15/11/2002","state"=>1),
-    // );
-
     $sql = "select * from nguoi_dung ";
     $stm = $conn->prepare($sql);
     $stm->execute();
     $userAccount = $stm->fetchAll(PDO::FETCH_ASSOC);
-
     foreach ($userAccount as $k => $v) {
         echo "<tr>
             <td>" . $userAccount[$k]['Ma_ND'] . "</td>
@@ -140,9 +127,7 @@ function loadUserAccount()
         echo "</td>
             <td><i class='fas fa-pen'></i>&nbsp;&nbsp;&nbsp;&nbsp;<i class='fas fa-trash'></i></td>
           </tr>";
-
     }
-
 }
 
 function loadThinhHanh()
@@ -186,10 +171,9 @@ function loadThinhHanh()
     $ngheSi = $stm->fetchAll(PDO::FETCH_ASSOC);
     foreach ($ngheSi as $key => $music) {
         echo "<div class='col view_item' class='view_NS'  id='" .$ngheSi[$key]['Ma_NS'] . "'>
-            <div class='img_item'><img src='" . $ngheSi[$key]['Anh_dai_dien'] . "'></div>
+            <div class='img_item singer_img'><img src='" . $ngheSi[$key]['Anh_dai_dien'] . "'></div>
             <div class='info_item row'>
-                
-                <h6>" . $ngheSi[$key]['Ten_Ca_Si'] . "</h6>
+                <h5>" . $ngheSi[$key]['Ten_Ca_Si'] . "</h5>
             </div>
         </div>";
     }
@@ -253,16 +237,13 @@ function loadThinhHanh()
  }
  function loadYeuThich()
  {
-
     include("DB/ketnoi.php");
-    
     $user = $_SESSION['Ma_ND'];
     $sql = "SELECT * FROM bai_hat JOIN trinhbay join nghesi JOIN yeu_thich JOIN nguoi_dung ON bai_hat.Ma_Bai_Hat = trinhbay.Ma_Bai_Hat AND trinhbay.Ma_NS = nghesi.Ma_NS AND bai_hat.Ma_Bai_Hat = yeu_thich.Ma_Bai_Hat 
     and yeu_thich.Ma_ND = nguoi_dung.Ma_ND and nguoi_dung.Ma_ND = ' $user'";
     $stm = $conn->prepare($sql);
     $stm->execute();
     $data = $stm->fetchAll(PDO::FETCH_ASSOC);
-
     foreach ($data as $key => $music) {
         echo "<tr class='music-row' data-music-link='" . $data[$key]['path'] . "' onclick='playMusic(this, " . $data[$key]['Ma_Bai_Hat'] . ")'>";
         echo "<td><ion-icon name='play'></ion-icon></td>";

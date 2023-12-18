@@ -22,18 +22,74 @@ function doiMK($oldpass, $newpass, $cpass, $maND)
                         $rowCount = $stmtUpdatePass->rowCount();
 
                         if ($rowCount > 0) {
-                            echo "Đổi mật khẩu thành công.";
+                            echo "
+                            <div class='toast-container position-fixed bottom-0 end-0 p-3' >
+                                <div id='liveToast'style='background-color: green;' class='toast fade show' role='alert' aria-live='ssertive' aria-atomic='true'>
+                                    <div class='toast-header'>
+                                        <strong class='me-auto'>Thông báo</strong>
+                                        <button type='button' class='btn-close' data-bs-dismiss='toast' aria-label='Close'></button>
+                                    </div>
+                                    <div class='toast-body' style=' color: white'>
+                                        Đổi mật khẩu thành công!
+                                    </div>
+                                </div>
+                            </div>
+                            ";
                         } else {
-                            echo "Không thể cập nhật mật khẩu.";
+                            echo "
+                            <div class='toast-container position-fixed bottom-0 end-0 p-3' >
+                                <div id='liveToast'style='background-color: red;' class='toast fade show' role='alert' aria-live='ssertive' aria-atomic='true'>
+                                    <div class='toast-header'>
+                                        <strong class='me-auto'>Thông báo</strong>
+                                        <button type='button' class='btn-close' data-bs-dismiss='toast' aria-label='Close'></button>
+                                    </div>
+                                    <div class='toast-body' style=' color: white'>
+                                        Đổi mật khẩu thất bại, vui lòng thử lại sau!
+                                    </div>
+                                </div>
+                            </div>
+                            ";
                         }
                     } else {
-                        echo "Mật khẩu mới không khớp.";
+                        echo "
+                        <div class='toast-container position-fixed bottom-0 end-0 p-3' >
+                        <div id='liveToast'style='background-color: red;' class='toast fade show' role='alert' aria-live='ssertive' aria-atomic='true'>
+                            <div class='toast-header'>
+                                <strong class='me-auto'>Thông báo</strong>
+                                <button type='button' class='btn-close' data-bs-dismiss='toast' aria-label='Close'></button>
+                            </div>
+                            <div class='toast-body' style=' color: white'>
+                                Đổi mật khẩu thất bại, vui lòng thử lại sau!
+                            </div>
+                        </div>
+                    </div>
+                        ";
                     }
                 } else {
-                    echo "Mật khẩu cũ không đúng.";
+                    echo "<div class='toast-container position-fixed bottom-0 end-0 p-3' >
+                    <div id='liveToast'style='background-color: red;' class='toast fade show' role='alert' aria-live='ssertive' aria-atomic='true'>
+                        <div class='toast-header'>
+                            <strong class='me-auto'>Thông báo</strong>
+                            <button type='button' class='btn-close' data-bs-dismiss='toast' aria-label='Close'></button>
+                        </div>
+                        <div class='toast-body' style=' color: white'>
+                            Mật khẩu cũ không đúng!
+                        </div>
+                    </div>
+                </div>";
                 }
             } else {
-                echo "Không tìm thấy người dùng.";
+                echo "<div class='toast-container position-fixed bottom-0 end-0 p-3' >
+                <div id='liveToast'style='background-color: red;' class='toast fade show' role='alert' aria-live='ssertive' aria-atomic='true'>
+                    <div class='toast-header'>
+                        <strong class='me-auto'>Thông báo</strong>
+                        <button type='button' class='btn-close' data-bs-dismiss='toast' aria-label='Close'></button>
+                    </div>
+                    <div class='toast-body' style=' color: white'>
+                        không tìm thấy người dùng, vui lòng <a href='login.php'>Đăng nhập</a> lại!
+                    </div>
+                </div>
+            </div>";
             }
         } catch (PDOException $e) {
             echo "Lỗi truy vấn cơ sở dữ liệu: " . $e->getMessage();
