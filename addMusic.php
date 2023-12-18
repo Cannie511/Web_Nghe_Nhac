@@ -10,5 +10,4 @@ include("DB/ketnoi.php");
     $stm = $conn->prepare($sql);
     $stm->execute();
 echo "THÊM THÀNH CÔNG";
-var_dump($maPL);
 ?>

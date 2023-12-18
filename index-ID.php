@@ -292,5 +292,15 @@ if (isset($_POST['doiMK'])) {
         toastLiveExample.style.display = "none";
     }, 5000);
 </script>
+<script>
+    var maBaiHat1 = -1;
+    function addPlayList(icon){
+        maBaiHat1 = icon.getAttribute('data-ma-bai');
+        console.log(maBaiHat1);
+    }
+    function addPlayListSubmit(){
+        document.getElementById('maBaiHat1Input').value = maBaiHat1;
+    }
+</script>
 
 </html>
