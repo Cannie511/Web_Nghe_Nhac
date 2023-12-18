@@ -285,7 +285,7 @@ function loadThinhHanh()
         print_r(intval($data[$key]['Thoi_Luong']/60).":".($data[$key]['Thoi_Luong']%60));
         echo "</td>";
         echo "<td>";
-        echo "";
+        echo "<ion-icon name='trash'></ion-icon>";
         echo "</td>";
         echo "</tr>";
     }
