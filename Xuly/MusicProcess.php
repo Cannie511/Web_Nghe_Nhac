@@ -99,7 +99,9 @@ function loadBXHNgheNhieu()
         echo "<td>";
         print_r($data[$key]['Luot_nghe']);
         echo "</td>";
-        echo "<td><ion-icon name='play'></ion-icon>&nbsp;<ion-icon name='heart'></ion-icon></td>";
+        echo "<td><ion-icon name='play' data-music-link='" . $data[$key]['path'] . 
+        "'data-img-link ='".$data[$key]['Anh_Bia']. "' data-title-link = '".$data[$key]['Ten_Bai_Hat']."' data-singer-link='".$data[$key]['Ten_Ca_Si']."' onclick='playMusic(this, " . $data[$key]['Ma_Bai_Hat'] . ")'></ion-icon>&nbsp;<ion-icon name='heart' data-ma-bai-hat='" . $data[$key]['Ma_Bai_Hat'] . 
+        "' onclick='addToFavorites(this)'></ion-icon></td>";
         echo "</tr>";
         $no++;
     }
