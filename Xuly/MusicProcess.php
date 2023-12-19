@@ -17,7 +17,12 @@ function loadPlaylist()
     // );
     foreach ($playlist as $key => $music) {
         echo "<div class='col view_item' id='" . $playlist[$key]['Ma_Playlist'] . "'>
-            <div class='img_item'><img src='" . $playlist[$key]['bia'] . "'></div>
+            <div class='img_item'><img src='"; 
+            if($playlist[$key]['bia']!=null){
+               echo $playlist[$key]['bia'];
+            } 
+               else echo "IMAGE/playlist.jpg";
+        echo "'></div>
             <div class='info_item row'>
                 <strong>" . $playlist[$key]['Ten_playlist'] . "</strong>
                 <h6>" . $playlist[$key]['Ten_Ca_Si'] . "</h6>
@@ -170,7 +175,13 @@ function loadThinhHanh()
     $ngheSi = $stm->fetchAll(PDO::FETCH_ASSOC);
     foreach ($ngheSi as $key => $music) {
         echo "<div class='col view_item' class='view_NS'  id='" .$ngheSi[$key]['Ma_NS'] . "'>
-            <div class='img_item singer_img'><img src='" . $ngheSi[$key]['Anh_dai_dien'] . "'></div>
+            <div class='img_item singer_img'><img src='";
+            if($ngheSi[$key]['Anh_dai_dien']!=null){
+                echo $ngheSi[$key]['Anh_dai_dien'] ;
+             } 
+                else echo "IMAGE/loadAnh.jpg";
+             
+        echo "'></div>
             <div class='info_item row'>
                 <h5>" . $ngheSi[$key]['Ten_Ca_Si'] . "</h5>
             </div>

@@ -60,6 +60,7 @@
         <?php loadPlaylist();
         ?>
     </div>
+    <br>
     <div class="title_pl">
         <h1>CA SĨ HIỆN CÓ</h1>
     </div>
