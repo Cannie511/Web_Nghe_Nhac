@@ -6,8 +6,8 @@ echo $dataMusic;
 function loadPlaylist()
 {
     include("DB/ketnoi.php");
-    $sql = "Select * from playlist join thuoc join bai_hat join trinhbay join nghesi on playlist.Ma_Playlist = thuoc.Ma_Playlist and bai_hat.Ma_Bai_Hat = thuoc.Ma_Bai_Hat 
-    and bai_hat.Ma_Bai_Hat = trinhbay.Ma_Bai_Hat and trinhbay.Ma_NS =nghesi.Ma_NS  ";
+    $idUser = $_SESSION['Ma_ND'];
+    $sql = "Select * from playlist WHERE playlist.Ma_ND != ' $idUser'";
     $stm = $conn->prepare($sql);
     $stm->execute();
     $playlist = $stm->fetchAll(PDO::FETCH_ASSOC);
@@ -20,7 +20,7 @@ function loadPlaylist()
             <div class='img_item'><img src='" . $playlist[$key]['bia'] . "'></div>
             <div class='info_item row'>
                 <strong>" . $playlist[$key]['Ten_playlist'] . "</strong>
-                <h6>" . $playlist[$key]['Ten_Ca_Si'] . "</h6>
+               
             </div>
         </div>";
     }
@@ -270,4 +270,118 @@ function loadThinhHanh()
         echo "</tr>";
     }
  }
+
+
+ function loadBXHTuan()
+ {
+     
+     include("DB/ketnoi.php");
+     $sql = "SELECT b.Ma_Bai_Hat, COUNT(*) AS SoLuotNghe,b.Anh_Bia,b.Thoi_Luong,b.Ngay_Phat_Hanh,ns.Ten_Ca_Si,b.Ten_Bai_Hat,b.path
+     FROM luot_nghe l
+     JOIN bai_hat b ON l.Ma_Bai_Hat = b.Ma_Bai_Hat
+     JOIN trinhbay tb ON b.Ma_Bai_Hat = tb.Ma_Bai_Hat
+     JOIN nghesi ns ON tb.Ma_NS = ns.Ma_NS
+     WHERE l.Ngay_Nghe BETWEEN CURDATE() - INTERVAL 7 DAY AND CURDATE() 
+     GROUP BY l.Ma_Bai_Hat LIMIT 10";
+     $stm = $conn->prepare($sql);
+     $stm->execute();
+     $data = $stm->fetchAll(PDO::FETCH_ASSOC);
+     $no = 1;
+     foreach ($data as $key => $music) {
+         echo "<tr class='music-row' data-music-link='" . $data[$key]['path'] . "'>";
+         echo "<td>";
+         print_r("#".$no);
+         echo "</td>";
+         echo "<td data-img-link ='".$data[$key]['Anh_Bia']."'>";
+         echo "<div id='crop_img'><img src = '" . $data[$key]['Anh_Bia'] . "'></div>";
+         echo "</td>";
+         echo "<td>";
+         print_r($data[$key]['Ten_Bai_Hat']);
+         echo "</td>";
+         echo "<td>";
+         print_r($data[$key]['Ten_Ca_Si']);
+         echo "</td>";
+         echo "<td>";
+         print_r($data[$key]['Ngay_Phat_Hanh']);
+         echo "</td>";
+         echo "<td>";
+         print_r(intval($data[$key]['Thoi_Luong']/60).":".($data[$key]['Thoi_Luong']%60));
+         echo "</td>";
+         echo "<td>";
+         print_r($data[$key]['SoLuotNghe']);
+         echo "</td>";
+         echo "<td><ion-icon name='play' data-music-link='" . $data[$key]['path'] . 
+         "'data-img-link ='".$data[$key]['Anh_Bia']. "' data-title-link = '".$data[$key]['Ten_Bai_Hat']."' data-singer-link='".$data[$key]['Ten_Ca_Si']."' onclick='playMusic(this, " . $data[$key]['Ma_Bai_Hat'] . ")'></ion-icon>&nbsp;<ion-icon name='heart' data-ma-bai-hat='" . $data[$key]['Ma_Bai_Hat'] . 
+         "' onclick='addToFavorites(this)'></ion-icon></td>";
+         echo "</tr>";
+         $no++;
+     }
+ }
+ 
+ function loadBXHThang()
+ {
+     
+     include("DB/ketnoi.php");
+     $sql = "SELECT b.Ma_Bai_Hat, COUNT(*) AS SoLuotNghe,b.Anh_Bia,b.Thoi_Luong,b.Ngay_Phat_Hanh,ns.Ten_Ca_Si,b.Ten_Bai_Hat,b.path
+     FROM luot_nghe l
+     JOIN bai_hat b ON l.Ma_Bai_Hat = b.Ma_Bai_Hat
+     JOIN trinhbay tb ON b.Ma_Bai_Hat = tb.Ma_Bai_Hat
+     JOIN nghesi ns ON tb.Ma_NS = ns.Ma_NS
+     WHERE MONTH(l.Ngay_Nghe) = MONTH(CURDATE()) AND YEAR(l.Ngay_Nghe) = YEAR(CURDATE())  
+     GROUP BY l.Ma_Bai_Hat LIMIT 10";
+     $stm = $conn->prepare($sql);
+     $stm->execute();
+     $data = $stm->fetchAll(PDO::FETCH_ASSOC);
+     $no = 1;
+     foreach ($data as $key => $music) {
+         echo "<tr class='music-row' data-music-link='" . $data[$key]['path'] . "'>";
+         echo "<td>";
+         print_r("#".$no);
+         echo "</td>";
+         echo "<td data-img-link ='".$data[$key]['Anh_Bia']."'>";
+         echo "<div id='crop_img'><img src = '" . $data[$key]['Anh_Bia'] . "'></div>";
+         echo "</td>";
+         echo "<td>";
+         print_r($data[$key]['Ten_Bai_Hat']);
+         echo "</td>";
+         echo "<td>";
+         print_r($data[$key]['Ten_Ca_Si']);
+         echo "</td>";
+         echo "<td>";
+         print_r($data[$key]['Ngay_Phat_Hanh']);
+         echo "</td>";
+         echo "<td>";
+         print_r(intval($data[$key]['Thoi_Luong']/60).":".($data[$key]['Thoi_Luong']%60));
+         echo "</td>";
+         echo "<td>";
+         print_r($data[$key]['SoLuotNghe']);
+         echo "</td>";
+         echo "<td><ion-icon name='play' data-music-link='" . $data[$key]['path'] . 
+         "'data-img-link ='".$data[$key]['Anh_Bia']. "' data-title-link = '".$data[$key]['Ten_Bai_Hat']."' data-singer-link='".$data[$key]['Ten_Ca_Si']."' onclick='playMusic(this, " . $data[$key]['Ma_Bai_Hat'] . ")'></ion-icon>&nbsp;<ion-icon name='heart' data-ma-bai-hat='" . $data[$key]['Ma_Bai_Hat'] . 
+         "' onclick='addToFavorites(this)'></ion-icon></td>";
+         echo "</tr>";
+         $no++;
+     }
+ }
+ function loadPlaylistUser()
+{
+    $idUser = $_SESSION['Ma_ND'];
+    include("DB/ketnoi.php");
+    $sql = "SELECT * FROM playlist JOIN nguoi_dung on playlist.Ma_ND = nguoi_dung.Ma_ND And playlist.Ma_ND = '$idUser' ";
+    $stm = $conn->prepare($sql);
+    $stm->execute();
+    $playlist = $stm->fetchAll(PDO::FETCH_ASSOC);
+
+    // $playlist = array(
+    //     array("thumb"=> "","title"=> "Playlist song","artist"=> "Lyly, Sơn Tùng, Mono")
+    // );
+    foreach ($playlist as $key => $music) {
+        echo "<div class='col view_item' id='" . $playlist[$key]['Ma_Playlist'] . "'>
+            <div class='img_item'><img src='" . $playlist[$key]['bia'] . "'></div>
+            <div class='info_item row'>
+                <strong>" . $playlist[$key]['Ten_playlist'] . "</strong>
+            </div>
+        </div>";
+    }
+}
 ?>

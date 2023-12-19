@@ -32,7 +32,7 @@
                 </tr>
             </thead>
             <tbody>
-                <?php loadBXHNgheNhieu(); ?>
+                <?php loadBXHTuan(); ?>
             </tbody>
         </table>
     </div>
