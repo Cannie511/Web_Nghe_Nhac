@@ -20,10 +20,14 @@ $(document).ready(function () {
     );
     return false;
   });
+  // $('#bxh').click(function(){
+  //   $(".layout.show").removeClass("show");
+  //   $("#Ranked").addClass("show");
+  // })
   $(".index").click(function (event) {
     index = $(this).index();
     backBtn = index;
-    $(".menu_item").removeClass("init");
+    $(".index").removeClass("init");
     $(this).addClass("init");
     switch (index) {
       case 0:
@@ -40,7 +44,6 @@ $(document).ready(function () {
         $(".layout.show").removeClass("show");
         $("#Ranked").addClass("show");
         break;
-      case 4:
       default:
         break;
     }
@@ -248,9 +251,6 @@ if (mode != null) {
 
 function log_in() {
   window.location = "log-in.php";
-}
-function Edit() {
-  window.location = "EditProfile.html";
 }
 function back() {
   window.history.back();
@@ -588,8 +588,7 @@ function addToFavorites(heartIcon) {
   z.onreadystatechange = function () {
     if (z.readyState == 4 && z.status == 200) {
       location.reload();
-      alert('Thêm vào yêu thích thành công!');
-      
+      alert("Thêm vào yêu thích thành công!");
     }
   };
   z.open("GET", "Xuly/themYeuThich.php?maBaiHat=" + maBaiHat, true);

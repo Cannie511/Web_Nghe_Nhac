@@ -60,11 +60,10 @@ if (isset($_POST['doiMK'])) {
                     </h1>
                 </div>
                 <div id="menu_cover">
-                    <div class="menu_item init" data-bs-toggle="tooltip" data-bs-placement="top" title="Trang chủ"
-                        id="home">
+                    <div class="menu_item init" data-bs-toggle="tooltip" data-bs-placement="top" title="Trang chủ">
                         <ion-icon name="home-outline"></ion-icon><span>TRANG CHỦ</span>
                     </div>
-                    <div class="menu_item" id="timkiem">
+                    <div class="menu_item">
                         <ion-icon name="search-outline"></ion-icon>
                         <span>TÌM KIẾM</span>
                     </div>
@@ -82,7 +81,7 @@ if (isset($_POST['doiMK'])) {
                         </div>
                     </div>
  
-                    <div class="menu_item" id="bxh"><ion-icon name="bar-chart-outline"></ion-icon><span>BẢNG
+                    <div class="menu_item"><ion-icon name="bar-chart-outline"></ion-icon><span>BẢNG
                             XẾP HẠNG</span>
                     </div>
                     <div class="menu_item" id="yeu thich"><ion-icon name="heart-outline"></ion-icon><span>YÊU
@@ -208,7 +207,7 @@ if (isset($_POST['doiMK'])) {
                             </strong></h5>&nbsp;
                         <ion-icon id="ic_per" name="person-circle-sharp"></ion-icon>
                         <div id="more">
-                            <div onclick="Edit()">
+                            <div>
                                 &nbsp;&nbsp; <strong>
                                     <?php echo $_SESSION['Ten_Dang_Nhap'] ?>
                                 </strong>

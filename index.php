@@ -57,15 +57,15 @@ if (isset($_POST['doiMK'])) {
                     </h1>
                 </div>
                 <div id="menu_cover">
-                    <div class="menu_item index init" data-bs-toggle="tooltip" data-bs-placement="top" title="Trang chủ"
+                    <div class="index init" data-bs-toggle="tooltip" data-bs-placement="top" title="Trang chủ"
                         id="home">
                         <ion-icon name="home-outline"></ion-icon><span>TRANG CHỦ</span>
                     </div>
-                    <div class="menu_item index" id="timkiem">
+                    <div class="index " id="timkiem">
                         <ion-icon name="search-outline"></ion-icon>
                         <span>TÌM KIẾM</span>
                     </div>
-                    <div class="col-md-4 menu_item index" id="bxh"><ion-icon
+                    <div class="index " id="bxh"><ion-icon
                             name="bar-chart-outline"></ion-icon><span>BẢNG
                             XẾP HẠNG</span>
                     </div>
@@ -83,9 +83,6 @@ if (isset($_POST['doiMK'])) {
                     <div id="personal" onmouseup='showMore()' onmouseleave="setTimeout('hideMore(),1500')">
                         <ion-icon id="ic_per" name="person-circle-sharp"></ion-icon>
                         <div id="more">
-                            <!-- <div onclick="Edit()">
-                                <ion-icon name="key-outline"></ion-icon><span>Tài khoản</span>
-                            </div> -->
                             <div onclick="Register()">
                                 <ion-icon name="link-outline"></ion-icon><span>Đăng
                                     ký</span>
@@ -124,7 +121,6 @@ if (isset($_POST['doiMK'])) {
                 include_once "view/view_trangChu.php";
                 include_once "view/view_timKiem.php";
                 include_once "view/view_BXH.php";
-                include_once "view/view_yeuThich.php";
                 ?>
                 <!-- -----------------------------------------------------YÊU THÍCH------------------------------------------ -->
                 
@@ -156,7 +152,7 @@ if (isset($_POST['doiMK'])) {
                 <span id="end-time">00:00</span>
             </div>
         </div>
-        <audio controls style='opacity:0' id='music' onplay="showStopButton()" onpause="showPlayButton()">
+        <audio controls style='display: none;' id='music' onplay="showStopButton()" onpause="showPlayButton()">
             <source
                 src="https://vnso-zn-5-tf-a128-zmp3.zmdcdn.me/966012e4e868f2efc96237dedc1145af?authen=exp=1702723501~acl=/966012e4e868f2efc96237dedc1145af/*~hmac=56bbcbb0ff47336e4a4ffebcbeb9bc7c" />
         </audio>
@@ -167,7 +163,6 @@ if (isset($_POST['doiMK'])) {
 </body>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
 <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
-
 <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
 <script src="index.js"></script>

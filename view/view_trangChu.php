@@ -60,13 +60,10 @@
         <?php loadPlaylist();
         ?>
     </div>
-    <br>
     <div class="title_pl">
         <h1>CA SĨ HIỆN CÓ</h1>
     </div>
     <div id="1" class="list_item">
         <?php loadNgheSi();?>
     </div>
-
-    
 </div>
