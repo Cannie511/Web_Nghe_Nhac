@@ -95,7 +95,8 @@ function getAllMusic()
         $no++;
     }
 }
-function loadBXHNgheNhieu(){
+function loadBXHNgheNhieu()
+{
     include("DB/ketnoi.php");
     $sql = "SELECT * FROM bai_hat join trinhbay join nghesi on bai_hat.Ma_Bai_Hat =trinhbay.Ma_Bai_Hat  and nghesi.Ma_NS =trinhbay.Ma_NS  
     ORDER BY Luot_nghe  DESC LIMIT 10";
@@ -164,37 +165,38 @@ function loadBXHNgheNhieu(){
             $no++;
         }
     }
-    function loadUserAccount()
-    {
-        require_once("../DB/ketnoi.php");
-        $sql = "select * from nguoi_dung ";
-        $stm = $conn->prepare($sql);
-        $stm->execute();
-        $userAccount = $stm->fetchAll(PDO::FETCH_ASSOC);
-        foreach ($userAccount as $k => $v) {
-            echo "<tr>
+}
+function loadUserAccount()
+{
+    require_once("../DB/ketnoi.php");
+    $sql = "select * from nguoi_dung ";
+    $stm = $conn->prepare($sql);
+    $stm->execute();
+    $userAccount = $stm->fetchAll(PDO::FETCH_ASSOC);
+    foreach ($userAccount as $k => $v) {
+        echo "<tr>
             <td>" . $userAccount[$k]['Ma_ND'] . "</td>
             <td>" . $userAccount[$k]['Ten_Dang_Nhap'] . "</td>
             <td><input type='password' id='pass' readonly value='" . $userAccount[$k]['Mat_Khau'] . "'></td>
             <td>";
-            if ($userAccount[$k]['Phan_Quyen'] == 0) {
-                echo "Người dùng";
-            }
-            if ($userAccount[$k]['Phan_Quyen'] == 1) {
-                echo "Nghệ sĩ";
-            }
-            if ($userAccount[$k]['Phan_Quyen'] == 2) {
-                echo "Admin";
-            }
-            echo "</td>
+        if ($userAccount[$k]['Phan_Quyen'] == 0) {
+            echo "Người dùng";
+        }
+        if ($userAccount[$k]['Phan_Quyen'] == 1) {
+            echo "Nghệ sĩ";
+        }
+        if ($userAccount[$k]['Phan_Quyen'] == 2) {
+            echo "Admin";
+        }
+        echo "</td>
             <td>" . $userAccount[$k]['Ngay_Sinh'] . "</td>
             <td>";
-            echo "</td>
+        echo "</td>
             <td><i class='fas fa-pen'></i>&nbsp;&nbsp;&nbsp;&nbsp;<i class='fas fa-trash'></i></td>
           </tr>";
-        }
     }
 }
+
 function loadThinhHanh()
 {
     include("DB/ketnoi.php");
@@ -250,42 +252,6 @@ function loadNgheSi()
     }
 }
 
-//  hien Bai hat cua ns
-function loadNhacNgheSi()
-{
-    include("DB/ketnoi.php");
-    $sql = "Select * from nghesi join trinhbay join bai_hat  on nghesi.Ma_NS = trinhbay.Ma_NS AND bai_hat.Ma_Bai_Hat = trinhbay.Ma_Bai_Hat 
-    and nghesi.Ma_NS = ? ";
-    $stm = $conn->prepare($sql);
-    $stm->execute();
-    $data = $stm->fetchAll(PDO::FETCH_ASSOC);
-    foreach ($data as $key => $music) {
-        echo "<tr class='music-row' data-music-link='" . $data[$key]['path'] . "' onclick='playMusic(this, " . $data[$key]['Ma_Bai_Hat'] . ")'>";
-        echo "<td><ion-icon name='play'></ion-icon></td>";
-        echo "<td>";
-        print_r("#" . $data[$key]['Ma_Bai_Hat']);
-        echo "</td>";
-        echo "<td>";
-        echo "<div id='crop_img'><img src = '" . $data[$key]['Anh_Bia'] . "'></div>";
-        echo "</td>";
-        echo "<td>";
-        print_r($data[$key]['Ten_Bai_Hat']);
-        echo "</td>";
-        echo "<td>";
-        print_r($data[$key]['Ten_Ca_Si']);
-        echo "</td>";
-        echo "<td>";
-        print_r($data[$key]['Ngay_Phat_Hanh']);
-        echo "</td>";
-        echo "<td>";
-        print_r(intval($data[$key]['Thoi_Luong'] / 60) . ":" . ($data[$key]['Thoi_Luong'] % 60));
-        echo "</td>";
-        echo "<td>";
-        echo "";
-        echo "</td>";
-        echo "</tr>";
-    }
-}
 // nhạc mới
 function loadNhacMoi()
 {
@@ -448,7 +414,7 @@ function loadPlaylistUser()
     //     array("thumb"=> "","title"=> "Playlist song","artist"=> "Lyly, Sơn Tùng, Mono")
     // );
     foreach ($playlist as $key => $music) {
-        echo "<div class='col view_item' id='" . $playlist[$key]['Ma_Playlist'] . "'>
+        echo "<div class='col view_item_user' id='" . $playlist[$key]['Ma_Playlist'] . "'>
         <div class='img_item'><img src='";
         if ($playlist[$key]['bia'] != null) {
             echo $playlist[$key]['bia'];

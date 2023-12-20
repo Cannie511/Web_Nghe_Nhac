@@ -77,6 +77,10 @@ $(document).ready(function () {
         $(".layout.show").removeClass("show");
         $("#LoveIt").addClass("show");
         break;
+      case 8:
+        $(".layout.show").removeClass("show");
+        $("#addMusicLayout").addClass("show");
+        break;
       default:
         break;
     }
@@ -86,6 +90,10 @@ $(document).ready(function () {
   $(".view_item").click(function () {
     $(".layout.show").removeClass("show");
     $("#music_list").addClass("show");
+  });
+  $(".view_item_user").click(function () {
+    $(".layout.show").removeClass("show");
+    $("#music_list_user").addClass("show");
   });
   $("#backTab").click(function () {
     switch (backBtn) {
@@ -450,6 +458,30 @@ $(document).ready(function () {
     });
   });
 });
+
+$(document).ready(function () {
+  var idPL = document.querySelectorAll(".view_item_user");
+
+  idPL.forEach(function (div) {
+    div.addEventListener("click", function () {
+      var idPlaylist = div.id;
+      console.log("idPlaylist:", idPlaylist);
+      var xhr = new XMLHttpRequest();
+      xhr.onreadystatechange = function () {
+        if (this.readyState == 4 && this.status == 200) {
+          document.getElementById("result_userplaylist").innerHTML =
+            this.responseText;
+        }
+      };
+      xhr.open(
+        "GET",
+        "Xuly/loadMusicFromPLUser.php?idPlaylist=" + idPlaylist,
+        true
+      );
+      xhr.send();
+    });
+  });
+});
 document.addEventListener("DOMContentLoaded", function () {
   const audioPlayer = document.getElementById("music");
   const albumArt = document.getElementById("music_play_banner");
@@ -594,3 +626,17 @@ function addToFavorites(heartIcon) {
   z.open("GET", "Xuly/themYeuThich.php?maBaiHat=" + maBaiHat, true);
   z.send();
 }
+document.getElementById("bxhSelect").onchange = function () {
+  // Lấy giá trị đã chọn
+  var selectedValue = this.value;
+  var bxhNgheNhieuTable = document.getElementById("bxhNgheNhieu");
+  var bxhTuanTable = document.getElementById("bxhTuan");
+  // Kiểm tra giá trị đã chọn
+  if (selectedValue === "1") {
+    bxhNgheNhieuTable.classList.add("hidden-table");
+    bxhTuanTable.classList.remove("hidden-table");
+  } else {
+    bxhNgheNhieuTable.classList.remove("hidden-table");
+    bxhTuanTable.classList.add("hidden-table");
+  }
+};

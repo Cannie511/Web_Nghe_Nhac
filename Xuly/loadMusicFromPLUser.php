@@ -38,13 +38,13 @@ if(isset($_SESSION['Ma_ND'])){
         print_r(intval($data[$key]['Thoi_Luong'] / 60) . ":" . ($data[$key]['Thoi_Luong'] % 60));
         echo "</td>";
         echo "<td>";
-        echo "<ion-icon name='add-outline'  data-bs-toggle='offcanvas' href='#playlistChoice' role='button' aria-controls='offcanvasExample' data-ma-bai='" . $data[$key]['Ma_Bai_Hat'] .
-            "' onclick='addPlayList(this)'></ion-icon></td>";
+        echo "<ion-icon name='trash'></ion-icon></td>";
         echo "</td>";
         echo "</tr>";
         $no++;
     }
-}else{
+}
+else{
     foreach ($data as $key => $music) {
         echo "<tr class='music-row' data-music-link=''>";
         echo "<td><ion-icon name='play'  

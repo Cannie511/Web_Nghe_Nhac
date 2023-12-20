@@ -29,6 +29,7 @@ function login($username, $password)
                   {
                         $_SESSION['Ma_ND'] = $result['id'];
                         $_SESSION['Ten_Dang_Nhap'] = $result['ten'];
+                        $_SESSION['Phan_Quyen'] = $result['role'];
                   }
                   return json_encode($response);
             } else {

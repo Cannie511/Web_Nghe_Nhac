@@ -8,10 +8,10 @@
         </div>
     </div>
     <div id="title_music">
-        <div class="cover">
+        <!-- <div class="cover">
             <ion-icon id="playButton" name="play-circle-sharp"></ion-icon>
             <strong>Play</strong>
-        </div>
+        </div> -->
         <select class="form-select form-select-lg mb-3 BXH_item" id="bxhSelect" aria-label=".form-select-lg example">
             <option selected>Bảng xếp hạng theo lượt nghe</option>
             <option value="1">Bản xếp hạng theo tuần</option>
