@@ -2,7 +2,6 @@
 $idPlaylist = isset($_GET['idPlaylist']) ? $_GET['idPlaylist'] : '';
 $dataMusic = $idPlaylist;
 echo $dataMusic;
-
 function loadPlaylist()
 {
     include("DB/ketnoi.php");
@@ -97,7 +96,6 @@ function getAllMusic()
     }
 }
 function loadBXHNgheNhieu(){
-    session_start();
     include("DB/ketnoi.php");
     $sql = "SELECT * FROM bai_hat join trinhbay join nghesi on bai_hat.Ma_Bai_Hat =trinhbay.Ma_Bai_Hat  and nghesi.Ma_NS =trinhbay.Ma_NS  
     ORDER BY Luot_nghe  DESC LIMIT 10";

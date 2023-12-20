@@ -9,6 +9,5 @@ if (isset($_GET['Ma_Bai_Hat'])) {
     $sql = "INSERT INTO luot_nghe (Ngay_Nghe,Ma_Bai_Hat) VALUES (CURDATE(), ' $songId')";
     $stm = $conn->prepare($sql);
     $stm->execute();
-    
 }
 ?>

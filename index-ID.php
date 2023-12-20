@@ -300,6 +300,20 @@ if (isset($_POST['doiMK'])) {
     function addPlayListSubmit(){
         document.getElementById('maBaiHat1Input').value = maBaiHat1;
     }
+    document.getElementById('bxhSelect').onchange = function() {
+        // Lấy giá trị đã chọn
+        var selectedValue = this.value;
+        var bxhNgheNhieuTable = document.getElementById('bxhNgheNhieu');
+        var bxhTuanTable = document.getElementById('bxhTuan');
+        // Kiểm tra giá trị đã chọn
+        if (selectedValue === '1') {
+            bxhNgheNhieuTable.classList.add('hidden-table'); 
+            bxhTuanTable.classList.remove('hidden-table');   
+        } else {
+            bxhNgheNhieuTable.classList.remove('hidden-table');
+            bxhTuanTable.classList.add('hidden-table'); 
+        }
+    };
 </script>
 
 </html>

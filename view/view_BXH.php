@@ -12,13 +12,13 @@
             <ion-icon id="playButton" name="play-circle-sharp"></ion-icon>
             <strong>Play</strong>
         </div>
-        <select class="form-select form-select-lg mb-3 BXH_item" aria-label=".form-select-lg example">
-            <option selected>Bảng xếp hạng theo lượt thích</option>
-            <option value="1">Bảng xếp hạng theo Quốc gia</option>
+        <select class="form-select form-select-lg mb-3 BXH_item" id="bxhSelect" aria-label=".form-select-lg example">
+            <option selected>Bảng xếp hạng theo lượt nghe</option>
+            <option value="1">Bản xếp hạng theo tuần</option>
         </select>
     </div>
     <div id='music_panel'>
-        <table class="table table-dark table-hover list">
+        <table class="table table-dark table-hover list" id="bxhNgheNhieu">
             <thead>
                 <tr>
                     <th scope="col">Hạng</th>
@@ -33,8 +33,26 @@
             </thead>
             <tbody>
                 <?php 
-                    // loadBXHTuan();
                     loadBXHNgheNhieu(); 
+                ?>
+            </tbody>
+        </table>
+        <table class="table table-dark table-hover list hidden-table" id="bxhTuan">
+            <thead>
+                <tr>
+                    <th scope="col">Hạng</th>
+                    <th scope="col">Hình</th>
+                    <th scope="col">Tiêu đề</th>
+                    <th scope="col">Tác giả, ca sĩ</th>
+                    <th scope="col">Ngày phát hành</th>
+                    <th scope="col">Thời lượng</th>
+                    <th scope="col">Lượt nghe</th>
+                    <th scope="col">#</th>
+                </tr>
+            </thead>
+            <tbody>
+                <?php 
+                    loadBXHTuan();
                 ?>
             </tbody>
         </table>

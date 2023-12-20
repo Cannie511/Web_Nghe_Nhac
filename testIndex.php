@@ -1,42 +1,54 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <title>Show Tbody on Option Change</title>
+    <style>
+        .hidden-tbody {
+            display: none;
+        }
+    </style>
 </head>
-
 <body>
-    <button type="button" class="btn btn-primary"  id="liveToastBtn">Show live toast</button>
 
-    <div class='toast-container position-fixed bottom-0 end-0 p-3' >
-        <div id='liveToast'style="background-color: green;" class='toast fade show' role='alert' aria-live='ssertive' aria-atomic='true'>
-            <div class='toast-header'>
-                <strong class='me-auto'>Thông báo</strong>
-                <button type='button' class='btn-close' data-bs-dismiss='toast' aria-label='Close'></button>
-            </div>
-            <div class='toast-body' style=" color: white">
-                Hello, world! This is a toast message.
-            </div>
-        </div>
-    </div>
-</body>
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+<select id="selectOption">
+    <option value="0">Select an option</option>
+    <option value="1">Show tbody</option>
+</select>
+
+<table>
+    <thead>
+        <tr>
+            <th>Header 1</th>
+            <th>Header 2</th>
+        </tr>
+    </thead>
+    <tbody id="myTbody" class="hidden-tbody">
+        <tr>
+            <td>Data 1</td>
+            <td>Data 2</td>
+        </tr>
+    </tbody>
+</table>
+
 <script>
-    const toastTrigger = document.getElementById('liveToastBtn')
-    const toastLiveExample = document.getElementById('liveToast');
+    // Lắng nghe sự kiện onchange của select
+    document.getElementById('selectOption').onchange = function() {
+        // Lấy giá trị đã chọn
+        var selectedValue = this.value;
 
-    if (toastTrigger) {
-        const toastBootstrap = bootstrap.Toast.getOrCreateInstance(toastLiveExample)
-        toastTrigger.addEventListener('click', () => {
-            toastBootstrap.show()
-        })
-    }
-    setInterval(function(){
-        toastLiveExample.style.display = "none";
-    }, 3000);
+        // Lấy thẻ tbody
+        var tbody = document.getElementById('myTbody');
+
+        // Kiểm tra giá trị đã chọn và hiển thị/ẩn tbody tương ứng
+        if (selectedValue === '1') {
+            tbody.classList.remove('hidden-tbody'); // Hiển thị tbody
+        } else {
+            tbody.classList.add('hidden-tbody'); // Ẩn tbody
+        }
+    };
 </script>
 
+</body>
 </html>

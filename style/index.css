@@ -441,9 +441,11 @@ th{
     width: 120px;
     height: 50px;
 }
-
+.hidden-table {
+    display: none;
+}
 .list{
-    cursor: pointer;    
+    cursor: pointer;  
 }
 .list tr{
     height: fit-content;
@@ -861,7 +863,13 @@ input[type="range"] {
     float: left;
     width: 100%;
 }
-
+.layout_bxh{
+    width: 100%;
+    display: none;
+}
+.layout_bxh.show{
+    display: block;
+}
 /*------------------------------------------------------ THẺ DEFAULT ------------------------------------------------------------------*/
 ::-webkit-scrollbar {
     width: 0px;
