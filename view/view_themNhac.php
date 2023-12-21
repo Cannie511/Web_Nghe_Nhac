@@ -20,12 +20,18 @@
         <div class="row mb-3">
             <div class="col">
                 <label for="theLoai" class="form-label">Thể Loại</label>
-                <input type="text" class="form-control" id="theLoai" name="theLoai" required>
+                <select class="form-select" id="musicGenre" name="musicGenre" required>
+                    <?php loadTheLoai() ?>
+                </select>
             </div>
 
             <div class="col">
                 <label for="quocGia" class="form-label">Quốc Gia</label>
-                <input type="text" class="form-control" id="quocGia" name="quocGia" required>
+                <select class="form-select" id="country" name="country" required>
+                    <?php
+                    loadQuocGia();
+                    ?>
+                </select>
             </div>
 
             <div class="col">
