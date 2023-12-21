@@ -100,7 +100,9 @@ if (isset($_POST['doiMK'])) {
                     <ion-icon name="lock-closed"></ion-icon><span>Đổi mật khẩu</span>
                 </div>
             </div>
-            <?php if($_SESSION['Phan_Quyen'] == "1"){
+            
+            <?php
+            if($_SESSION['Phan_Quyen'] == "1"){
                         echo "
                         <div class='menu_item' id='upMusic'><ion-icon name='mic'></ion-icon><span>ĐĂNG NHẠC</span></div>
                         ";

@@ -1,5 +1,22 @@
 <?php
-
+function loadDashboardMusic()
+{
+    include("DB/ketnoi.php");
+    $sql = "SELECT COUNT(Ma_Bai_Hat) as totalSongs FROM bai_hat";
+    $stm = $conn->prepare($sql);
+    $stm->execute();
+    $data = $stm->fetchColumn();
+    echo $data;
+}
+function loadDashboardUser()
+{
+    include("DB/ketnoi.php");
+    $sql = "SELECT COUNT(Ma_ND) as totalSongs FROM nguoi_dung";
+    $stm = $conn->prepare($sql);
+    $stm->execute();
+    $data = $stm->fetchColumn();
+    echo $data;
+}
 function loadQuocGia()
 {
     include("DB/ketnoi.php");
@@ -22,6 +39,7 @@ function loadTheLoai()
         echo "<option value='" . $data[$k]['Ma_The_Loai'] . "'>" . $data[$k]['Ten'] . "</option>";
     }
 }
+
 function loadUserPL()
 {
     include("DB/ketnoi.php");
@@ -32,14 +50,5 @@ function loadUserPL()
     foreach ($data as $k => $playlist) {
         echo "<option value='" . $data[$k]['Ma_Playlist'] . "'>" . $data[$k]['Ten_playlist'] . "</option>";
     }
-}
-function loadDashboardMusic()
-{
-    include("DB/ketnoi.php");
-    $sql = "SELECT COUNT(Ma_Bai_Hat) FROM bai_hat";
-    $stm = $conn->prepare($sql);
-    $stm->execute();
-    $data = $stm->fetchColumn();
-    echo $data;
 }
 ?>
