@@ -628,7 +628,34 @@ function addToFavorites(heartIcon) {
   z.open("GET", "Xuly/themYeuThich.php?maBaiHat=" + maBaiHat, true);
   z.send();
 }
+
+// XÓA NHAC YÊU THÍCH
+
+
+var maBaiHat1 = -1;
+function xoaYeuThich(icon) {
+    maBaiHat1 = icon.getAttribute("data-ma-bai-xoa");
+    user =icon.getAttribute("data-ND");
+  var z = new XMLHttpRequest();
+  z.onreadystatechange = function () {
+    if (z.readyState == 4 && z.status == 200) {
+      location.reload();
+      alert(maBaiHat1);
+    }
+  };
+  z.open("GET", "Xuly/xoaYeuThich.php?maBaiHat1=" + maBaiHat1 + "&maND=" + user, true);
+  z.send();
+}
+
+
+
+
+
+
+
+
 document.getElementById("bxhSelect").onchange = function () {
+  
   // Lấy giá trị đã chọn
   var selectedValue = this.value;
   var bxhNgheNhieuTable = document.getElementById("bxhNgheNhieu");
@@ -642,3 +669,4 @@ document.getElementById("bxhSelect").onchange = function () {
     bxhTuanTable.classList.add("hidden-table");
   }
 };
+

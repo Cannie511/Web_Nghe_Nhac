@@ -337,5 +337,24 @@ if (isset($_POST['doiMK'])) {
     }
 }
 </script>
+<!-- -- Xoa Nhac -->
 
+<script>
+var maBaiHat1 = -1;
+function xoa(icon) {
+    maBaiHat1 = icon.getAttribute("data-ma-bai-xoa");
+     maPL =icon.getAttribute("data-ma");
+
+  var z = new XMLHttpRequest();
+  z.onreadystatechange = function () {
+    if (z.readyState == 4 && z.status == 200) {
+      location.reload();
+      alert('Xóa thành công');
+    }
+  };
+  z.open("GET", "xoaNhacPl.php?maBaiHat1=" + maBaiHat1 + "&maPL=" + maPL, true);
+  z.send();
+}
+</script>
 </html>
+

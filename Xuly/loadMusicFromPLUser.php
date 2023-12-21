@@ -15,7 +15,7 @@ if(isset($_SESSION['Ma_ND'])){
         echo "<tr class='music-row' data-music-link=''>";
         echo "<td><ion-icon name='play'  
             data-music-link='" . $data[$key]['path'] .
-            "'data-img-link ='" . $data[$key]['Anh_Bia'] . "' data-title-link = '" . $data[$key]['Ten_Bai_Hat'] . "' data-singer-link='" . $data[$key]['Ten_Ca_Si'] . "' onclick='playMusic(this, " . $data[$key]['Ma_Bai_Hat'] . ")'>
+            "'data-img-link ='" . $data[$key]['Anh_Bia'] . "' data-title-link = '" . $data[$key]['Ten_Bai_Hat'] . "' data-singer-link='" . $data[$key]['Ten_Ca_Si'] . "' onclick='playMusic(this, " . $data[$key]['Ma_Bai_Hat'] .")'>
             </ion-icon>&nbsp;<ion-icon name='heart' class='yeu-thich' data-ma-bai-hat='" . $data[$key]['Ma_Bai_Hat'] .
             "' onclick='addToFavorites(this)'></ion-icon></td>";
         echo "</td>";
@@ -38,7 +38,8 @@ if(isset($_SESSION['Ma_ND'])){
         print_r(intval($data[$key]['Thoi_Luong'] / 60) . ":" . ($data[$key]['Thoi_Luong'] % 60));
         echo "</td>";
         echo "<td>";
-        echo "<ion-icon name='remove-circle' style = 'color:red;'></ion-icon></td>";
+        echo "<ion-icon name='remove-circle' style = 'color:red;' class='xoa' data-ma-bai-xoa='". $data[$key]['Ma_Bai_Hat'] ."' data-ma='". $data[$key]['Ma_Playlist'] ."'
+        onclick='xoa(this)'></ion-icon></td>";
         echo "</td>";
         echo "</tr>";
         $no++;

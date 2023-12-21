@@ -303,7 +303,10 @@ function loadYeuThich()
         print_r(intval($data[$key]['Thoi_Luong'] / 60) . ":" . ($data[$key]['Thoi_Luong'] % 60));
         echo "</td>";
         echo "<td>";
-        echo "<ion-icon name='remove-circle' style = 'color:red;'></ion-icon>";
+        echo "<ion-icon name='remove-circle' style = 'color:red;' class='xoa' data-ma-bai-xoa='". $data[$key]['Ma_Bai_Hat'] ."' 
+        data-ND='" .$user. "'
+        onclick='xoaYeuThich(this)'></ion-icon></td>";
+        
         echo "</td>";
         echo "</tr>";
     }
