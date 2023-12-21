@@ -3,91 +3,32 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-  <title>Your Dashboard</title>
+  <title>Add Country and Music Genre</title>
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
 </head>
 <body>
 
 <div class="container mt-4">
-  <h1>Dashboard</h1>
-
-  <div class="row mt-4">
-    <!-- Total Songs -->
-    <div class="col-md-3">
-      <div class="card">
-        <div class="card-body">
-          <h5 class="card-title">Total Songs</h5>
-          <p class="card-text">1000</p>
-        </div>
-      </div>
+  <h1>Add Country</h1>
+  <form id="addCountryForm" class="form-inline">
+    <div class="form-group mx-sm-3 mb-2">
+      <label for="countryName" class="sr-only">Country Name:</label>
+      <input type="text" class="form-control" id="countryName" name="countryName" placeholder="Country Name" required>
     </div>
+    <button type="submit" class="btn btn-primary mb-2">Add Country</button>
+  </form>
 
-    <!-- Total Users -->
-    <div class="col-md-3">
-      <div class="card">
-        <div class="card-body">
-          <h5 class="card-title">Total Users</h5>
-          <p class="card-text">500</p>
-        </div>
-      </div>
+  <h1 class="mt-4">Add Music Genre</h1>
+  <form id="addGenreForm" class="form-inline">
+    <div class="form-group mx-sm-3 mb-2">
+      <label for="genreName" class="sr-only">Genre Name:</label>
+      <input type="text" class="form-control" id="genreName" name="genreName" placeholder="Genre Name" required>
     </div>
-
-    <!-- Total Artists -->
-    <div class="col-md-3">
-      <div class="card">
-        <div class="card-body">
-          <h5 class="card-title">Total Artists</h5>
-          <p class="card-text">200</p>
-        </div>
-      </div>
-    </div>
-
-    <!-- Unapproved Songs -->
-    <div class="col-md-3">
-      <div class="card">
-        <div class="card-body">
-          <h5 class="card-title">Unapproved Songs</h5>
-          <p class="card-text">50</p>
-        </div>
-      </div>
-    </div>
-  </div>
-
-  <div class="row mt-4">
-    <div class="col-md-6">
-      <!-- Add a chart here using a chart library like Chart.js -->
-      <canvas id="myChart"></canvas>
-    </div>
-  </div>
+    <button type="submit" class="btn btn-primary mb-2">Add Genre</button>
+  </form>
 </div>
 
-<!-- Include Chart.js library -->
-<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-
-<script>
-// Example chart data (replace with your actual data)
-var ctx = document.getElementById('myChart').getContext('2d');
-var myChart = new Chart(ctx, {
-  type: 'bar',
-  data: {
-    labels: ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'],
-    datasets: [{
-      label: 'Songs in the Last 12 Months',
-      data: [50, 60, 80, 120, 90, 100, 70, 110, 130, 100, 80, 60],
-      backgroundColor: 'rgba(75, 192, 192, 0.2)',
-      borderColor: 'rgba(75, 192, 192, 1)',
-      borderWidth: 1
-    }]
-  },
-  options: {
-    scales: {
-      y: {
-        beginAtZero: true
-      }
-    }
-  }
-});
-</script>
+<!-- Include any additional scripts or use JavaScript to handle form submission -->
 
 </body>
 </html>

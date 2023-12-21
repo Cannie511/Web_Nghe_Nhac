@@ -166,66 +166,6 @@ function loadBXHNgheNhieu()
         }
     }
 }
-function loadUserAccount()
-{
-    require_once("../DB/ketnoi.php");
-    $sql = "select * from nguoi_dung ";
-    $stm = $conn->prepare($sql);
-    $stm->execute();
-    $userAccount = $stm->fetchAll(PDO::FETCH_ASSOC);
-    foreach ($userAccount as $k => $v) {
-        echo "<tr>
-            <td>" . $userAccount[$k]['Ma_ND'] . "</td>
-            <td>" . $userAccount[$k]['Ten_Dang_Nhap'] . "</td>
-            <td><input type='password' id='pass' readonly value='" . $userAccount[$k]['Mat_Khau'] . "'></td>
-            <td>";
-        if ($userAccount[$k]['Phan_Quyen'] == 0) {
-            echo "Người dùng";
-        }
-        if ($userAccount[$k]['Phan_Quyen'] == 1) {
-            echo "Nghệ sĩ";
-        }
-        if ($userAccount[$k]['Phan_Quyen'] == 2) {
-            echo "Admin";
-        }
-        echo "</td>
-            <td>" . $userAccount[$k]['Ngay_Sinh'] . "</td>
-            <td>";
-        echo "</td>
-            <td><i class='fas fa-pen'></i>&nbsp;&nbsp;&nbsp;&nbsp;<i class='fas fa-trash'></i></td>
-          </tr>";
-    }
-}
-
-function loadThinhHanh()
-{
-    include("DB/ketnoi.php");
-    $sql = "SELECT playlist.bia,playlist.Ten_playlist, nghesi.Ten_Ca_Si, 
-    playlist.Ma_Playlist, SUM(bai_hat.Luot_nghe) AS TongLuotNghe
-    FROM playlist
-    JOIN thuoc ON playlist.Ma_Playlist = thuoc.Ma_Playlist
-    JOIN bai_hat ON thuoc.Ma_Bai_Hat = bai_hat.Ma_Bai_Hat
-    join trinhbay ON bai_hat.Ma_Bai_Hat = trinhbay.Ma_Bai_Hat
-    join nghesi ON trinhbay.Ma_NS =nghesi.Ma_NS
-    GROUP BY playlist.Ma_Playlist
-    ORDER BY TongLuotNghe DESC LIMIT 5;";
-    $stm = $conn->prepare($sql);
-    $stm->execute();
-    $playlist = $stm->fetchAll(PDO::FETCH_ASSOC);
-
-    // $playlist = array(
-    //     array("thumb"=> "","title"=> "Playlist song","artist"=> "Lyly, Sơn Tùng, Mono")
-    // );
-    foreach ($playlist as $key => $music) {
-        echo "<div class='col view_item' id='" . $playlist[$key]['Ma_Playlist'] . "'>
-              <div class='img_item'><img src='" . $playlist[$key]['bia'] . "'></div>
-              <div class='info_item row'>
-                  <strong>" . $playlist[$key]['Ten_playlist'] . "</strong>
-                  <h6>" . $playlist[$key]['Ten_Ca_Si'] . "</h6>
-              </div>
-          </div>";
-    }
-}
 
 //  hien nghệ sĩ
 function loadNgheSi()
@@ -312,7 +252,42 @@ function loadYeuThich()
     }
 }
 
-
+function loadNhacAdmin(){
+    include("DB/ketnoi.php");
+    $sql = "SELECT * FROM bai_hat JOIN trinhbay JOIN nghesi ON bai_hat.Ma_Bai_Hat = trinhbay.Ma_Bai_Hat 
+    and  trinhbay.Ma_NS = nghesi.Ma_NS";
+    $stm = $conn->prepare($sql);
+    $stm->execute();
+    $data = $stm->fetchAll(PDO::FETCH_ASSOC);
+    foreach ($data as $key => $music) {
+    echo "<tr class='music-row' data-music-link='" . $data[$key]['path'] . "' onclick='playMusic(this, " . $data[$key]['Ma_Bai_Hat'] . ")'>";
+    echo "<td>";
+    print_r("#" . $data[$key]['Ma_Bai_Hat']);
+    echo "</td>";
+    echo "<td>";
+    echo "<div id='crop_img'><img src = '" . $data[$key]['Anh_Bia'] . "'></div>";
+    echo "</td>";
+    echo "<td>";
+    print_r($data[$key]['Ten_Bai_Hat']);
+    echo "</td>";
+    echo "<td>";
+    print_r($data[$key]['Ten_Ca_Si']);
+    echo "</td>";
+    echo "<td>";
+    print_r($data[$key]['Ngay_Phat_Hanh']);
+    echo "</td>";
+    echo "<td>";
+    print_r(intval($data[$key]['Thoi_Luong'] / 60) . ":" . ($data[$key]['Thoi_Luong'] % 60));
+    echo "</td>";
+    echo "<td>";
+    echo ""; 
+    echo "</td>";
+    echo "</tr>";
+    }
+}
+// <ion-icon name='remove-circle' style = 'color:red;' class='xoa' data-ma-bai-xoa='". $data[$key]['Ma_Bai_Hat'] ."' 
+//     data-ND='" .$user. "'
+//     onclick='xoaYeuThich(this)'></ion-icon></td>
 function loadBXHTuan()
 {
 

@@ -4,6 +4,7 @@
 session_start();
 include "Xuly/loadingUI.php";
 include "Xuly/loadAccount.php";
+include "Xuly/MusicProcess.php";
 ?>
 
 <head>
@@ -86,7 +87,7 @@ include "Xuly/loadAccount.php";
                     <div class="card">
                       <div class="card-body">
                         <h5 class="card-title">Bài Hát</h5>
-                        <p class="card-text">1000</p>
+                        <p class="card-text"><?php?></p>
                       </div>
                     </div>
                   </div>
@@ -125,9 +126,7 @@ include "Xuly/loadAccount.php";
                   </div>
                   <!-- </div>
 ------------------------------------------------------------------------------------------------------------------------------- -->
-                  <div class='card-body' id="Dashboard">
-                    
-                  </div>
+
                   <!-- -------------------------------------------------------------------------------------------------------------------------------------- -->
                   <div class='card-body fade' id="Account">
                     <div class='card-header'>
@@ -209,7 +208,7 @@ include "Xuly/loadAccount.php";
                     </nav>
                   </div>
                   <!-- --------------------------------------------------------------------------------------------------------------- -->
-                  <div class='card-body fade' id="addMusic">
+                  <div class='card-body' id="addMusic">
                     <div class="container max-width-xxl">
                       <h1 class="text-center mb-4"><strong>Thêm Nhạc Mới</strong> </h1>
 
@@ -263,11 +262,6 @@ include "Xuly/loadAccount.php";
                             </select>
                           </div>
 
-                          <!-- Add more input fields as needed -->
-
-                          <div class="col-md-6">
-                            <!-- Add more input fields as needed -->
-                          </div>
                         </div>
 
                         <div class="row mt-4">
@@ -275,6 +269,25 @@ include "Xuly/loadAccount.php";
                             <button type="submit" class="btn btn-primary right" name="Submit">Add Music</button>
                           </div>
                         </div>
+                      </form>
+                      <h1>Thêm Quốc Gia</h1>
+                      <form id="addCountryForm" class="form-inline">
+                        <div class="form-group mx-sm-3 mb-2">
+                          <label for="countryName" class="sr-only">Country Name:</label>
+                          <input type="text" class="form-control" id="countryName" name="countryName"
+                            placeholder="Country Name" required>
+                        </div>
+                        <button type="submit" class="btn btn-primary mb-2">Add Country</button>
+                      </form>
+
+                      <h1 class="mt-4">Thêm Thể Loại</h1>
+                      <form id="addGenreForm" class="form-inline">
+                        <div class="form-group mx-sm-3 mb-2">
+                          <label for="genreName" class="sr-only">Genre Name:</label>
+                          <input type="text" class="form-control" id="genreName" name="genreName"
+                            placeholder="Genre Name" required>
+                        </div>
+                        <button type="submit" class="btn btn-primary mb-2">Add Genre</button>
                       </form>
                       <br>
                       <table class="table table-light table-striped table-hover">
@@ -286,9 +299,11 @@ include "Xuly/loadAccount.php";
                             <th scope="col">Tác Giả, ca sĩ</th>
                             <th scope="col">Ngày Phát Hành</th>
                             <th scope="col">Thời Lượng</th>
+                            <th scope="col">Thao Tác</th>
                           </tr>
                         </thead>
                         <tbody>
+                          <?php loadNhacAdmin(); ?>
                         </tbody>
                       </table>
                     </div>
