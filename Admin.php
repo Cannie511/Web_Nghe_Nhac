@@ -45,18 +45,16 @@ include "Xuly/MusicProcess.php";
             <a href="#" class="dashboard-nav-dropdown-item">Khóa tài khoản</a>
           </div>
         </div>
-        <div class='dashboard-nav-dropdown'><a href="#!"
-            class="dashboard-nav-item dashboard-nav-dropdown-toggle"><ion-icon name="bookmarks"></ion-icon> Quản Lý Nhạc
-          </a>
+        <div class='dashboard-nav-dropdown'>
+          <a href="#!" class="dashboard-nav-item dashboard-nav-dropdown-toggle"><ion-icon name="bookmarks"></ion-icon>
+            Quản Lý Nhạc</a>
           <div class='dashboard-nav-dropdown-menu'>
-            <a href="#" class="dashboard-nav-dropdown-item">Đang chờ duyệt</a>
             <a href="#" id="loadThemNhac" class="dashboard-nav-dropdown-item">Thêm nhạc mới</a>
-            <a href="#" class="dashboard-nav-dropdown-item">Đã duyệt</a>
-            <a href="#" class="dashboard-nav-dropdown-item">Đã hủy</a>
           </div>
         </div>
         <a href="#" class="dashboard-nav-item"><ion-icon name="person-sharp"></ion-icon> Hồ sơ </a>
-        <a href="index.php" class="dashboard-nav-item"><ion-icon name="sync-outline"></ion-icon> Trang người dùng </a>
+        <a href="index-ID.php" class="dashboard-nav-item"><ion-icon name="sync-outline"></ion-icon> Trang người dùng
+        </a>
         <div class="nav-item-divider"></div>
         <a href="#" class="dashboard-nav-item"><ion-icon name="log-out"></ion-icon> Đăng xuất </a>
       </nav>
@@ -87,7 +85,9 @@ include "Xuly/MusicProcess.php";
                     <div class="card">
                       <div class="card-body">
                         <h5 class="card-title">Bài Hát</h5>
-                        <p class="card-text"><?php?></p>
+                        <p class="card-text">
+                          <? php ?>
+                        </p>
                       </div>
                     </div>
                   </div>
@@ -208,6 +208,44 @@ include "Xuly/MusicProcess.php";
                     </nav>
                   </div>
                   <!-- --------------------------------------------------------------------------------------------------------------- -->
+                  <div class='card-body ' id="Permission">
+                    <div class='card-header'>
+                      <h1><strong>Quản Lý Duyệt Nhạc</strong></h1>
+                    </div>
+                    <nav class="navbar bg-light">
+                      <div class="search_input md-8">
+                        <form class="d-flex" role="search">
+                          <input class="form-control me-2" type="search" placeholder="ID người dùng"
+                            aria-label="Search">
+                          <button class="btn btn-outline-success" type="submit"><i class="fas fa-search"></i></button>
+                        </form>
+                      </div>
+                    </nav>
+                    <table class="table table-dark table-striped table-hover">
+                      <thead>
+                        <tr>
+                          <th scope="col">#</th>
+                          <th scope="col">Hình</th>
+                          <th scope="col">Tiêu Đề</th>
+                          <!-- <th scope="col">Tác Giả, ca sĩ</th> -->
+                          <th scope="col">Ngày Phát Hành</th>
+                          <th scope="col">Thời Lượng</th>
+                          <th scope="col">Thao Tác</th>
+                        </tr>
+                      </thead>
+                      <tbody>
+                      <?php loadNhacDuyet(); ?>
+                      </tbody>
+                    </table>
+                    <nav class="navbar bg-light">
+                      <div class="search_input md-8">
+                        <form class="d-flex" role="search">
+                          <button type="button" class="btn btn-success right">Lưu thay đổi</button>
+                        </form>
+                      </div>
+                    </nav>
+                  </div>
+                  <!-- --------------------------------------------------------------------------------------------------------------- -->
                   <div class='card-body' id="addMusic">
                     <div class="container max-width-xxl">
                       <h1 class="text-center mb-4"><strong>Thêm Nhạc Mới</strong> </h1>
@@ -275,7 +313,7 @@ include "Xuly/MusicProcess.php";
                         <div class="form-group mx-sm-3 mb-2">
                           <label for="countryName" class="sr-only">Country Name:</label>
                           <input type="text" class="form-control" id="countryName" name="countryName"
-                            placeholder="Country Name" required>
+                            placeholder="Tên Quốc Gia" required>
                         </div>
                         <button type="submit" class="btn btn-primary mb-2">Add Country</button>
                       </form>
@@ -285,7 +323,7 @@ include "Xuly/MusicProcess.php";
                         <div class="form-group mx-sm-3 mb-2">
                           <label for="genreName" class="sr-only">Genre Name:</label>
                           <input type="text" class="form-control" id="genreName" name="genreName"
-                            placeholder="Genre Name" required>
+                            placeholder="Tên Thể Loại" required>
                         </div>
                         <button type="submit" class="btn btn-primary mb-2">Add Genre</button>
                       </form>

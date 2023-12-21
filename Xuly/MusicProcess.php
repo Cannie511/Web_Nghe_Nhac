@@ -285,6 +285,41 @@ function loadNhacAdmin(){
     echo "</tr>";
     }
 }
+
+function loadNhacDuyet(){
+    include("DB/ketnoi.php");
+    $sql = "SELECT * FROM duyet";
+    $stm = $conn->prepare($sql);
+    $stm->execute();
+    $data = $stm->fetchAll(PDO::FETCH_ASSOC);
+    $no = 1;
+    foreach ($data as $key => $music) {
+    echo "<tr class='music-row' data-music-link='" . $data[$key]['path'] . "'>";
+    echo "<td>";
+    print_r("#" . $no);
+    echo "</td>";
+    echo "<td>";
+    echo "<div id='crop_img'><img src = '" . $data[$key]['Anh_Bia'] . "'></div>";
+    echo "</td>";
+    echo "<td>";
+    print_r($data[$key]['Ten_Bai_Hat']);
+    echo "</td>";
+    // echo "<td>";
+    // print_r($data[$key]['Ten_Ca_Si']);
+    // echo "</td>";
+    echo "<td>";
+    print_r($data[$key]['Ngay_Phat_Hanh']);
+    echo "</td>";
+    echo "<td>";
+    print_r(intval($data[$key]['Thoi_Luong'] / 60) . ":" . ($data[$key]['Thoi_Luong'] % 60));
+    echo "</td>";
+    echo "<td>";
+    echo "<button type='button' class='btn btn-success'>Duyệt</button>&nbsp;<button type='button' class='btn btn-danger'>Huy</button>"; 
+    echo "</td>";
+    echo "</tr>";
+    $no++;
+    }
+}
 // <ion-icon name='remove-circle' style = 'color:red;' class='xoa' data-ma-bai-xoa='". $data[$key]['Ma_Bai_Hat'] ."' 
 //     data-ND='" .$user. "'
 //     onclick='xoaYeuThich(this)'></ion-icon></td>
