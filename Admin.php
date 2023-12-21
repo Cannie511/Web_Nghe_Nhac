@@ -86,7 +86,7 @@ include "Xuly/MusicProcess.php";
                       <div class="card-body">
                         <h5 class="card-title">Bài Hát</h5>
                         <p class="card-text">
-                          <? php ?>
+                          <?php ?>
                         </p>
                       </div>
                     </div>
@@ -239,7 +239,7 @@ include "Xuly/MusicProcess.php";
                     </table>
                     <nav class="navbar bg-light">
                       <div class="search_input md-8">
-                        <form class="d-flex" role="search">
+                        <form class="d-flex" role="search" >
                           <button type="button" class="btn btn-success right">Lưu thay đổi</button>
                         </form>
                       </div>
@@ -309,7 +309,7 @@ include "Xuly/MusicProcess.php";
                         </div>
                       </form>
                       <h1>Thêm Quốc Gia</h1>
-                      <form id="addCountryForm" class="form-inline">
+                      <form id="addCountryForm" method="post" action="themQuocGia.php" class="form-inline" >
                         <div class="form-group mx-sm-3 mb-2">
                           <label for="countryName" class="sr-only">Country Name:</label>
                           <input type="text" class="form-control" id="countryName" name="countryName"
@@ -319,7 +319,7 @@ include "Xuly/MusicProcess.php";
                       </form>
 
                       <h1 class="mt-4">Thêm Thể Loại</h1>
-                      <form id="addGenreForm" class="form-inline">
+                      <form id="addGenreForm" method="post" action="themTheloai.php" class="form-inline" >
                         <div class="form-group mx-sm-3 mb-2">
                           <label for="genreName" class="sr-only">Genre Name:</label>
                           <input type="text" class="form-control" id="genreName" name="genreName"
@@ -419,5 +419,16 @@ include "Xuly/MusicProcess.php";
     });
   });
 </script>
+
+<script>
+function submitForm(button) {
+    var maDuyet = button.getAttribute("data-ma-duyet");
+    var action = button.getAttribute("data-action");
+    document.getElementById("maDuyetInput").value = maDuyet;
+    document.getElementById("duyetForm").innerHTML += "<input type='hidden' name='action' value='" + action + "'>";
+    document.getElementById("duyetForm").submit();
+}
+</script>
+
 
 </html>

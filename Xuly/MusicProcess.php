@@ -288,7 +288,7 @@ function loadNhacAdmin(){
 
 function loadNhacDuyet(){
     include("DB/ketnoi.php");
-    $sql = "SELECT * FROM duyet";
+    $sql = "SELECT * FROM duyet WHERE trang_thai = 0";
     $stm = $conn->prepare($sql);
     $stm->execute();
     $data = $stm->fetchAll(PDO::FETCH_ASSOC);
@@ -314,7 +314,10 @@ function loadNhacDuyet(){
     print_r(intval($data[$key]['Thoi_Luong'] / 60) . ":" . ($data[$key]['Thoi_Luong'] % 60));
     echo "</td>";
     echo "<td>";
-    echo "<button type='button' class='btn btn-success'>Duyệt</button>&nbsp;<button type='button' class='btn btn-danger'>Huy</button>"; 
+    echo "<form id='duyetForm' method='post' action='duyet.php'>";
+    echo "<input type='hidden' id='maDuyetInput' name='maDuyet' value=''>";
+    echo "<button type='button' class='btn btn-success' data-ma-duyet='" . $data[$key]['Ma_Duyet'] . "' data-action='duyet' onclick='submitForm(this)'>Duyệt</button>&nbsp;<button type='button' class='btn btn-danger' data-ma-duyet='" . $data[$key]['Ma_Duyet'] . "' data-action='huy' onclick='submitForm(this)'>Huy</button>"; 
+    echo "<form>";
     echo "</td>";
     echo "</tr>";
     $no++;
