@@ -256,7 +256,9 @@ if (mode != null) {
     time_play.classList.toggle("light_time_play");
   };
 }
-
+function admin(){
+  window.location.href = "Admin.php";
+}
 function log_in() {
   window.location = "log-in.php";
 }

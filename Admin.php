@@ -1,11 +1,9 @@
 <!DOCTYPE html>
 <html lang="en">
 <?php
+session_start();
 include "Xuly/loadingUI.php";
-
-
 include "Xuly/loadAccount.php";
-
 ?>
 
 <head>

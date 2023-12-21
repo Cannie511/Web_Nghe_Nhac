@@ -101,10 +101,15 @@ if (isset($_POST['doiMK'])) {
                 </div>
             </div>
             <?php if($_SESSION['Phan_Quyen'] == "1"){
-                    echo "
-                    <div class='menu_item' id='upMusic'><ion-icon name='mic'></ion-icon><span>ĐĂNG NHẠC</span></div>
-                    ";
-                }?>
+                        echo "
+                        <div class='menu_item' id='upMusic'><ion-icon name='mic'></ion-icon><span>ĐĂNG NHẠC</span></div>
+                        ";
+                    }if($_SESSION['Phan_Quyen'] == "2"){
+                        echo "
+                        <div class='menu_item' onclick ='admin()' id='upMusic'><ion-icon name='sync-outline'></ion-icon><span>ADMINISTRATOR</span></div>
+                        "; 
+                    }
+            ?>
         </div>
         <div id="navbar">
             <ion-icon name="chevron-back-outline"></ion-icon>
@@ -248,18 +253,20 @@ if (isset($_POST['doiMK'])) {
             <?php
             include_once "view/view_trangChu.php";
             include_once "view/view_timKiem.php";
-            include_once "view/view_themNhac.php";
+            if($_SESSION['Phan_Quyen'] == "1"){
+                include_once "view/view_themNhac.php";
+            }
             include_once "view/view_BXH.php";
-            include_once "view/view_danhSach.php";
             include_once "view/view_yeuThich.php";
-            
+            include_once "view/view_danhSach.php";
             ?>
+            
         </div>
     </div>
     <!-- -----------------------------------------------HIỆN NÚT BẤM NGHE--------------------------------------------- -->
     <div id="play">
         <div id="music_play_info">
-            <img src="https://is1-ssl.mzstatic.com/image/thumb/Music116/v4/04/6f/81/046f815e-0e4a-db2c-7d18-4dfc82944c8a/23UM1IM14926.rgb.jpg/1200x1200bf-60.jpg"
+            <img src="IMAGE/s960_music-Streaming.jpg"
                 alt="" id="music_play_banner">
 
             <div id="music_play_title">
@@ -269,12 +276,12 @@ if (isset($_POST['doiMK'])) {
         </div>
         <div id="info_music"></div>
         <div id="btn">
-            <ion-icon name="shuffle"></ion-icon>
+            <!-- <ion-icon name="shuffle"></ion-icon> -->
             <ion-icon name="play-skip-back-circle" id="prevButton"></ion-icon>
             <ion-icon id="play_btn" name="play-circle" onclick="play()"></ion-icon>
             <ion-icon id="pause_btn" name="pause-circle" onclick="pause()"></ion-icon>
             <ion-icon name="play-skip-forward-circle" id="nextButton"></ion-icon>
-            <ion-icon name="refresh" id="loopBtn" onclick="Loop()"></ion-icon>
+            <!-- <ion-icon name="refresh" id="loopBtn" onclick="Loop()"></ion-icon> -->
         </div>
         <div id="time_play">
             <span id="start-time">00:00</span>

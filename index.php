@@ -65,8 +65,7 @@ if (isset($_POST['doiMK'])) {
                         <ion-icon name="search-outline"></ion-icon>
                         <span>TÌM KIẾM</span>
                     </div>
-                    <div class="index " id="bxh"><ion-icon
-                            name="bar-chart-outline"></ion-icon><span>BẢNG
+                    <div class="index " id="bxh"><ion-icon name="bar-chart-outline"></ion-icon><span>BẢNG
                             XẾP HẠNG</span>
                     </div>
                 </div>
@@ -123,28 +122,27 @@ if (isset($_POST['doiMK'])) {
                 include_once "view/view_BXH.php";
                 ?>
                 <!-- -----------------------------------------------------YÊU THÍCH------------------------------------------ -->
-                
+
             </div>
         </div>
         <!-- -----------------------------------------------HIỆN NÚT BẤM NGHE--------------------------------------------- -->
         <div id="play">
             <div id="music_play_info">
-                <img src="https://is1-ssl.mzstatic.com/image/thumb/Music116/v4/04/6f/81/046f815e-0e4a-db2c-7d18-4dfc82944c8a/23UM1IM14926.rgb.jpg/1200x1200bf-60.jpg"
-                    alt="" id="music_play_banner">
+                <img src="IMAGE/s960_music-Streaming.jpg" alt="" id="music_play_banner">
 
                 <div id="music_play_title">
-                    <Strong id="title">Vui vẻ</Strong>
-                    <h6 id="singer">Nguyễn Văn Chung</h3>
+                    <Strong id="title">Bài Hát</Strong>
+                    <h6 id="singer"></h6>
                 </div>
             </div>
             <div id="info_music"></div>
             <div id="btn">
-                <ion-icon name="shuffle"></ion-icon>
+                <!-- <ion-icon name="shuffle"></ion-icon> -->
                 <ion-icon name="play-skip-back-circle" id="prevButton"></ion-icon>
                 <ion-icon id="play_btn" name="play-circle" onclick="play()"></ion-icon>
                 <ion-icon id="pause_btn" name="pause-circle" onclick="pause()"></ion-icon>
                 <ion-icon name="play-skip-forward-circle" id="nextButton"></ion-icon>
-                <ion-icon name="refresh" id="loopBtn" onclick="Loop()"></ion-icon>
+                <!-- <ion-icon name="refresh" id="loopBtn" onclick="Loop()"></ion-icon> -->
             </div>
             <div id="time_play">
                 <span id="start-time">00:00</span>
@@ -152,13 +150,10 @@ if (isset($_POST['doiMK'])) {
                 <span id="end-time">00:00</span>
             </div>
         </div>
-        <audio controls style='display: none;' id='music' onplay="showStopButton()" onpause="showPlayButton()">
+        <audio controls style='opacity:0' id='music' onplay="showStopButton()" onpause="showPlayButton()">
             <source
                 src="https://vnso-zn-5-tf-a128-zmp3.zmdcdn.me/966012e4e868f2efc96237dedc1145af?authen=exp=1702723501~acl=/966012e4e868f2efc96237dedc1145af/*~hmac=56bbcbb0ff47336e4a4ffebcbeb9bc7c" />
         </audio>
-        <form id="myForm" action="MusicProcess.php" method="POST">
-            <input type="hidden" id="idPLInput" name="idPL" value="">
-        </form>
     </div>
 </body>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
@@ -166,4 +161,5 @@ if (isset($_POST['doiMK'])) {
 <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
 <script src="index.js"></script>
+
 </html>

@@ -17,7 +17,6 @@
                 <input type="number" class="form-control" id="thoiLuong" name="thoiLuong" required>
             </div>
         </div>
-
         <div class="row mb-3">
             <div class="col">
                 <label for="theLoai" class="form-label">Thể Loại</label>
