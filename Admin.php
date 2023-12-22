@@ -30,7 +30,8 @@ include('Xuly/loadingUI.php');
         <a href="#!" class="menu-toggle"><i class="fas fa-bars"></i></a>
         <a href="#" class="brand-logo">
           <span>
-            <span style="color: var(--logo-Tri-custom);">Tri</span><span style="color: var(--logo-Vie-custom);">Vie</span>
+            <span style="color: var(--logo-Tri-custom);">Tri</span><span
+              style="color: var(--logo-Vie-custom);">Vie</span>
             Admin
           </span>
         </a>
@@ -58,8 +59,6 @@ include('Xuly/loadingUI.php');
         <a href="login.php" class="dashboard-nav-item"><ion-icon name="log-out"></ion-icon> Đăng xuất </a>
       </nav>
     </div>
-
-    <!-- ----------------------------------------------------------------------------------------------------------------------------- -->
     <div class='dashboard-app'>
       <header class='dashboard-toolbar'><a href="#!" class="menu-toggle"><ion-icon name="grid"
             style="font-size: 20px"></ion-icon></a></header>
@@ -94,7 +93,7 @@ include('Xuly/loadingUI.php');
                   include "view/Admin_duyetNhac.php";
                   break;
               }
-            }else{
+            } else {
               include "view/Admin_dashboard.php";
             }
             ?>
@@ -104,9 +103,10 @@ include('Xuly/loadingUI.php');
     </div>
   </div>
   </div>
+  </div>
+  </div>
+  </div>
 </body>
-
-
 <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
 <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.4.2/css/fontawesome.min.css"></script>
@@ -201,5 +201,16 @@ include('Xuly/loadingUI.php');
   // Refresh data every 5 seconds (adjust as needed)
   setInterval(loadDashboardData, 5000);
 </script>
+
+<script>
+  function submitForm(button) {
+    var maDuyet = button.getAttribute("data-ma-duyet");
+    var action = button.getAttribute("data-action");
+    document.getElementById("maDuyetInput").value = maDuyet;
+    document.getElementById("duyetForm").innerHTML += "<input type='hidden' name='action' value='" + action + "'>";
+    document.getElementById("duyetForm").submit();
+  }
+</script>
+
 
 </html>
