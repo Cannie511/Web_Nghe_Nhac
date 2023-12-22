@@ -1,4 +1,5 @@
 $(document).ready(function () {
+  
   var backBtn = 0;
   $("#main_play").scroll(function () {
     if ($(this).scrollTop()) {
@@ -256,7 +257,7 @@ if (mode != null) {
     time_play.classList.toggle("light_time_play");
   };
 }
-function admin(){
+function admin() {
   window.location.href = "Admin.php";
 }
 function log_in() {
@@ -444,7 +445,6 @@ $(".btnChangePass").click(function () {
 });
 $(document).ready(function () {
   var idPL = document.querySelectorAll(".view_item");
-
   idPL.forEach(function (div) {
     div.addEventListener("click", function () {
       var idPlaylist = div.id;
@@ -628,34 +628,29 @@ function addToFavorites(heartIcon) {
   z.open("GET", "Xuly/themYeuThich.php?maBaiHat=" + maBaiHat, true);
   z.send();
 }
-
 // XÓA NHAC YÊU THÍCH
-
-
-var maBaiHat1 = -1;
+var maBaiHat2 = -1;
 function xoaYeuThich(icon) {
-    maBaiHat1 = icon.getAttribute("data-ma-bai-xoa");
-    user =icon.getAttribute("data-ND");
+  maBaiHat2 = icon.getAttribute("data-ma-bai-xoa");
+  user = icon.getAttribute("data-ND");
   var z = new XMLHttpRequest();
   z.onreadystatechange = function () {
     if (z.readyState == 4 && z.status == 200) {
+      localStorage.setItem("userSession", user);
+
       location.reload();
-      alert(maBaiHat1);
+      alert(maBaiHat2 + " " + user);
     }
   };
-  z.open("GET", "Xuly/xoaYeuThich.php?maBaiHat1=" + maBaiHat1 + "&maND=" + user, true);
+  z.open(
+    "GET",
+    "Xuly/xoaYeuThich.php?maBaiHat1=" + maBaiHat2 + "&maND=" + user,
+    true
+  );
   z.send();
 }
 
-
-
-
-
-
-
-
 document.getElementById("bxhSelect").onchange = function () {
-  
   // Lấy giá trị đã chọn
   var selectedValue = this.value;
   var bxhNgheNhieuTable = document.getElementById("bxhNgheNhieu");
@@ -669,4 +664,3 @@ document.getElementById("bxhSelect").onchange = function () {
     bxhTuanTable.classList.add("hidden-table");
   }
 };
-

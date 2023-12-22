@@ -244,9 +244,7 @@ function loadYeuThich()
         echo "</td>";
         echo "<td>";
         echo "<ion-icon name='remove-circle' style = 'color:red;' class='xoa' data-ma-bai-xoa='". $data[$key]['Ma_Bai_Hat'] ."' 
-        data-ND='" .$user. "'
-        onclick='xoaYeuThich(this)'></ion-icon></td>";
-        
+        data-ND='" .$user. "' onclick='xoaYeuThich(this)'></ion-icon></td>";
         echo "</td>";
         echo "</tr>";
     }
@@ -254,8 +252,7 @@ function loadYeuThich()
 
 function loadNhacAdmin(){
     include("DB/ketnoi.php");
-    $sql = "SELECT * FROM bai_hat JOIN trinhbay JOIN nghesi ON bai_hat.Ma_Bai_Hat = trinhbay.Ma_Bai_Hat 
-    and  trinhbay.Ma_NS = nghesi.Ma_NS";
+    $sql = "SELECT * FROM bai_hat";
     $stm = $conn->prepare($sql);
     $stm->execute();
     $data = $stm->fetchAll(PDO::FETCH_ASSOC);
@@ -271,7 +268,7 @@ function loadNhacAdmin(){
     print_r($data[$key]['Ten_Bai_Hat']);
     echo "</td>";
     echo "<td>";
-    print_r($data[$key]['Ten_Ca_Si']);
+    // print_r($data[$key]['Ten_Ca_Si']);
     echo "</td>";
     echo "<td>";
     print_r($data[$key]['Ngay_Phat_Hanh']);

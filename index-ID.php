@@ -3,7 +3,7 @@ session_start();
 if (isset($_SESSION['Ma_ND'])) {
     // echo"&nbsp;&nbsp;&nbsp;&nbsp". $_SESSION['Ma_ND'];
     // echo $_SESSION['Ten_Dang_Nhap'];
-
+    
 } else {
     header("Location: log-in.php");
 }
@@ -301,6 +301,7 @@ if (isset($_POST['doiMK'])) {
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
 <script src="index.js"></script>
 <script>
+    
     const toastLiveExample = document.getElementById('liveToast');
     setInterval(function () {
         toastLiveExample.style.display = "none";

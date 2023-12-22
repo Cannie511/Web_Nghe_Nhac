@@ -1,9 +1,10 @@
-<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+
 <div class='card-body' id="addMusic">
     <div class="container max-width-xxl">
+    <?php include "XuLy/AddNhac.php";?>
         <h1 class="text-center mb-4"><strong>Thêm Nhạc Mới</strong> </h1>
 
-        <form action="AddNhac.php" method="post" enctype="multipart/form-data">
+        <form action="Admin.php?action=addMusic" method="post" enctype="multipart/form-data">
             <div class="row mb-3">
                 <div class="col-md-6">
                     <label for="songTitle" class="form-label">Tiêu đề bài hát</label>
@@ -56,32 +57,33 @@
 
             <div class="row mt-4">
                 <div class="col-md-12">
-                    <button type="submit" class="btn btn-primary right" name="Submit">Add Music</button>
+                    <button type="submit" class="btn btn-primary right" name="SubmitMusic">Add Music</button>
                 </div>
             </div>
         </form>
 
 
-        <form id="themQuocGia" method="post" class="form-inline">
+        <form id="themQuocGia" action="Admin.php?action=addMusic" method="post" class="form-inline">
             <h1>Thêm Quốc Gia</h1>
             <div class="form-group mx-sm-3 mb-2">
                 <label for="countryName" class="sr-only">Tên Quốc Gia</label>
                 <input type="text" class="form-control" id="countryName" name="countryName" placeholder="Tên Quốc Gia"
                     required>
             </div>
-            <button type="button" class="btn btn-primary mb-2" onclick="newCountry()">Thêm mới</button>
+            <button type="submit"  class="btn btn-primary mb-2">Thêm mới</button>
         </form>
+        <?php include "XuLy/themQuocGia.php";?>
 
-
-        <form action="" id="themTheLoai">
+        <form action="Admin.php?action=addMusic" method="post" id="themTheLoai">
             <h1 class="mt-4">Thêm Thể Loại</h1>
             <div class="form-group mx-sm-3 mb-2">
                 <label for="genreName" class="sr-only">Genre Name:</label>
                 <input type="text" class="form-control" id="genreName" name="genreName" placeholder="Tên Thể Loại"
                     required>
             </div>
-            <button type="button" class="btn btn-primary mb-2" onclick="submitForm('addGenre')">Add Genre</button>
+            <button type="submit" class="btn btn-primary mb-2">Thêm Mới</button>
         </form>
+        <?php include "XuLy/themTheLoai.php";?>
         <br>
         <table class="table table-light table-striped table-hover">
             <thead>
@@ -101,23 +103,23 @@
         </table>
     </div>
     <div id="result_QGTL"></div>
+
 </div>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
 <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
 <script>
     function newCountry() {
-        function newCountry() {
-            var name = document.getElementById('countryName').value;
-            var xhr = new XMLHttpRequest();
-            xhr.open('POST', 'Xuly/themQuocGia.php', true);
-            xhr.setRequestHeader('Content-type', 'application/x-www-form-urlencoded');
-            xhr.onreadystatechange = function () {
-                if (xhr.readyState == 4 && xhr.status == 200) {
-                    document.getElementById('result_QGTL').innerHTML = xhr.responseText;
-                }
-            };
-            // Gửi dữ liệu form đến file xử lý
-            xhr.send('countryName=' + encodeURIComponent(name));
-        }
+        var name = document.getElementById('countryName').value;
+        var xhr = new XMLHttpRequest();
+
+        // xhr.setRequestHeader('Content-type', 'application/x-www-form-urlencoded');
+        xhr.onreadystatechange = function () {
+            if (xhr.readyState == 4 && xhr.status == 200) {
+                document.getElementById('result_QGTL').innerHTML = xhr.responseText;
+            }
+        };
+        xhr.open('POST', '../Xuly/themQuocGia.php', true);
+        // Gửi dữ liệu form đến file xử lý
+        xhr.send('countryName=' + encodeURIComponent(name));
     }
 </script>
