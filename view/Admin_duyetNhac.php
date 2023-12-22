@@ -24,7 +24,6 @@
         </thead>
         <tbody>
             <?php loadNhacDuyet(); ?>
-
         </tbody>
     </table>
     <nav class="navbar bg-light">

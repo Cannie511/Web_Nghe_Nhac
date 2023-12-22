@@ -1,3 +1,4 @@
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
 <div class='card-body' id="addMusic">
     <div class="container max-width-xxl">
         <h1 class="text-center mb-4"><strong>Thêm Nhạc Mới</strong> </h1>
@@ -36,7 +37,7 @@
                 <div class="col-md-6">
                     <label for="musicGenre" class="form-label">Thể Loại Bài Hát</label>
                     <select class="form-select" id="musicGenre" name="musicGenre" required>
-                        <?php loadTheLoai(); ?>
+                        <?php loadTheLoai() ?>
                     </select>
                 </div>
             </div>
@@ -47,7 +48,6 @@
                     <select class="form-select" id="country" name="country" required>
                         <?php
                         loadQuocGia();
-
                         ?>
                     </select>
                 </div>
@@ -60,24 +60,27 @@
                 </div>
             </div>
         </form>
-        <h1>Thêm Quốc Gia</h1>
-        <form id="addCountryForm" class="form-inline">
+
+
+        <form id="themQuocGia" method="post" class="form-inline">
+            <h1>Thêm Quốc Gia</h1>
             <div class="form-group mx-sm-3 mb-2">
-                <label for="countryName" class="sr-only">Country Name:</label>
+                <label for="countryName" class="sr-only">Tên Quốc Gia</label>
                 <input type="text" class="form-control" id="countryName" name="countryName" placeholder="Tên Quốc Gia"
                     required>
             </div>
-            <button type="submit" class="btn btn-primary mb-2">Add Country</button>
+            <button type="button" class="btn btn-primary mb-2" onclick="newCountry()">Thêm mới</button>
         </form>
 
-        <h1 class="mt-4">Thêm Thể Loại</h1>
-        <form id="addGenreForm" class="form-inline">
+
+        <form action="" id="themTheLoai">
+            <h1 class="mt-4">Thêm Thể Loại</h1>
             <div class="form-group mx-sm-3 mb-2">
                 <label for="genreName" class="sr-only">Genre Name:</label>
                 <input type="text" class="form-control" id="genreName" name="genreName" placeholder="Tên Thể Loại"
                     required>
             </div>
-            <button type="submit" class="btn btn-primary mb-2">Add Genre</button>
+            <button type="button" class="btn btn-primary mb-2" onclick="submitForm('addGenre')">Add Genre</button>
         </form>
         <br>
         <table class="table table-light table-striped table-hover">
@@ -93,9 +96,28 @@
                 </tr>
             </thead>
             <tbody>
-                <?php loadNhacAdmin();
-                ?>
+                <?php loadNhacAdmin(); ?>
             </tbody>
         </table>
     </div>
+    <div id="result_QGTL"></div>
 </div>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+<script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+<script>
+    function newCountry() {
+        function newCountry() {
+            var name = document.getElementById('countryName').value;
+            var xhr = new XMLHttpRequest();
+            xhr.open('POST', 'Xuly/themQuocGia.php', true);
+            xhr.setRequestHeader('Content-type', 'application/x-www-form-urlencoded');
+            xhr.onreadystatechange = function () {
+                if (xhr.readyState == 4 && xhr.status == 200) {
+                    document.getElementById('result_QGTL').innerHTML = xhr.responseText;
+                }
+            };
+            // Gửi dữ liệu form đến file xử lý
+            xhr.send('countryName=' + encodeURIComponent(name));
+        }
+    }
+</script>

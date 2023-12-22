@@ -3,7 +3,7 @@ session_start();
 if (isset($_SESSION['Ma_ND'])) {
     // echo"&nbsp;&nbsp;&nbsp;&nbsp". $_SESSION['Ma_ND'];
     // echo $_SESSION['Ten_Dang_Nhap'];
-    
+
 } else {
     header("Location: log-in.php");
 }
@@ -100,17 +100,18 @@ if (isset($_POST['doiMK'])) {
                     <ion-icon name="lock-closed"></ion-icon><span>Đổi mật khẩu</span>
                 </div>
             </div>
-            
+
             <?php
-            if($_SESSION['Phan_Quyen'] == "1"){
-                        echo "
+            if ($_SESSION['Phan_Quyen'] == "1") {
+                echo "
                         <div class='menu_item' id='upMusic'><ion-icon name='mic'></ion-icon><span>ĐĂNG NHẠC</span></div>
                         ";
-                    }if($_SESSION['Phan_Quyen'] == "2"){
-                        echo "
+            }
+            if ($_SESSION['Phan_Quyen'] == "2") {
+                echo "
                         <div class='menu_item' onclick ='admin()' id='upMusic'><ion-icon name='sync-outline'></ion-icon><span>ADMINISTRATOR</span></div>
-                        "; 
-                    }
+                        ";
+            }
             ?>
         </div>
         <div id="navbar">
@@ -188,7 +189,6 @@ if (isset($_POST['doiMK'])) {
         </div>
     </div>
     <!-- --------------------------------------------CHỌN DANH SÁCH---------------------------------------------- -->
-    <!-- SỬA TÍ -->
     <div class="offcanvas offcanvas-start text-bg-dark" tabindex="-1" id="playlistChoice"
         aria-labelledby="offcanvasExampleLabel">
         <div class="offcanvas-header">
@@ -206,7 +206,7 @@ if (isset($_POST['doiMK'])) {
                 <input type="hidden" id="maBaiHat1Input" name="maBaiHat1">
                 <button type="submit" class="btn btn-success float-sm-end">Xác nhận</button>
             </form>
-            
+
         </div>
     </div>
     <!-- ---------------------------------------------------------------------------------------------------------------------- -->
@@ -255,21 +255,20 @@ if (isset($_POST['doiMK'])) {
             <?php
             include_once "view/view_trangChu.php";
             include_once "view/view_timKiem.php";
-            if($_SESSION['Phan_Quyen'] == "1"){
+            if ($_SESSION['Phan_Quyen'] == "1") {
                 include_once "view/view_themNhac.php";
             }
             include_once "view/view_BXH.php";
             include_once "view/view_yeuThich.php";
             include_once "view/view_danhSach.php";
             ?>
-            
+
         </div>
     </div>
     <!-- -----------------------------------------------HIỆN NÚT BẤM NGHE--------------------------------------------- -->
     <div id="play">
         <div id="music_play_info">
-            <img src="IMAGE/s960_music-Streaming.jpg"
-                alt="" id="music_play_banner">
+            <img src="IMAGE/s960_music-Streaming.jpg" alt="" id="music_play_banner">
 
             <div id="music_play_title">
                 <Strong id="title">Vui vẻ</Strong>
@@ -314,49 +313,49 @@ if (isset($_POST['doiMK'])) {
         console.log(maBaiHat1);
     }
     function addPlayListSubmit() {
-        document.getElementById('maBaiHat1Input').value = maBaiHat1;{
-        // Lấy giá trị từ input và select
-        var songId = $('#maBaiHat1Input').val();
-        var playlistName = $('select[name="tenPlaylist"]').val();
+        document.getElementById('maBaiHat1Input').value = maBaiHat1; {
+            // Lấy giá trị từ input và select
+            var songId = $('#maBaiHat1Input').val();
+            var playlistName = $('select[name="tenPlaylist"]').val();
 
-        // Gửi yêu cầu Ajax
-        $.ajax({
-            type: 'GET',
-            url: 'Xuly/addMusic.php',
-            data: {
-                maBaiHat1: songId,
-                tenPlaylist: playlistName
-            },
-            success: function(response) {
-                // Hiển thị thông báo trên console hoặc có thể hiển thị trực tiếp trên trang
-                
-                alert(response);
-            },
-            error: function() {
-                alert('Đã xảy ra lỗi.');
-            }
-        });
+            // Gửi yêu cầu Ajax
+            $.ajax({
+                type: 'GET',
+                url: 'Xuly/addMusic.php',
+                data: {
+                    maBaiHat1: songId,
+                    tenPlaylist: playlistName
+                },
+                success: function (response) {
+                    // Hiển thị thông báo trên console hoặc có thể hiển thị trực tiếp trên trang
+
+                    alert(response);
+                },
+                error: function () {
+                    alert('Đã xảy ra lỗi.');
+                }
+            });
+        }
     }
-}
 </script>
 <!-- -- Xoa Nhac -->
 
 <script>
-var maBaiHat1 = -1;
-function xoa(icon) {
-    maBaiHat1 = icon.getAttribute("data-ma-bai-xoa");
-     maPL =icon.getAttribute("data-ma");
+    var maBaiHat1 = -1;
+    function xoa(icon) {
+        maBaiHat1 = icon.getAttribute("data-ma-bai-xoa");
+        maPL = icon.getAttribute("data-ma");
 
-  var z = new XMLHttpRequest();
-  z.onreadystatechange = function () {
-    if (z.readyState == 4 && z.status == 200) {
-      location.reload();
-      alert('Xóa thành công');
+        var z = new XMLHttpRequest();
+        z.onreadystatechange = function () {
+            if (z.readyState == 4 && z.status == 200) {
+                location.reload();
+                alert('Xóa thành công');
+            }
+        };
+        z.open("GET", "xoaNhacPl.php?maBaiHat1=" + maBaiHat1 + "&maPL=" + maPL, true);
+        z.send();
     }
-  };
-  z.open("GET", "xoaNhacPl.php?maBaiHat1=" + maBaiHat1 + "&maPL=" + maPL, true);
-  z.send();
-}
 </script>
-</html>
 
+</html>

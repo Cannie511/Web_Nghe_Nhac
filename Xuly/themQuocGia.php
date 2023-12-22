@@ -7,16 +7,13 @@ $stm = $conn->prepare($sql);
 $stm->execute();
 
 $data = $stm->fetchAll(PDO::FETCH_ASSOC);
- if (empty($data))
- {
-   
+
+if (empty($data)) {
     $sql1 = "INSERT INTO quocgia (Ten_Quoc_Gia) VALUES ('$name')";
     $stm = $conn->prepare($sql1);
     $stm->execute();
-    echo "da them thanh cong";
- }
-else
-{
-    echo "ton tai";
+    echo "Đã thêm thành công";
+} else {
+    echo "Quốc gia đã tồn tại";
 }
 ?>
