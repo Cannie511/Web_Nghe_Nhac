@@ -125,6 +125,7 @@ if (isset($_POST["dangKy"])) {
   $birth = $_POST["birth_user"];
   // $check = $_POST["policy_user"];
   $gioiTinh = $_POST["gender_user"];
+
   //Kiểm tra rỗng
   // if ($username == "" || $password == "" ||$Rpass == "" ||$birth == ""||$gioiTinh == -1) {
   // 	echo "bạn vui lòng nhập đầy đủ thông tin";
@@ -151,7 +152,6 @@ if (isset($_POST["dangKy"])) {
       $conn->query($sql);
       echo "<script>$('.allAlert').css('display','none')</script>";
       echo "<script>$('#alert-success').css('display','block')</script>";
-      //    header("Location: Register.php");
     }
   }
 

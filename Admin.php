@@ -37,8 +37,7 @@ include('Xuly/loadingUI.php');
       <nav class="dashboard-nav-list">
         <a href="/Admin.php?action=dashboard" class="dashboard-nav-item "><ion-icon name="stats-chart"></ion-icon>Tổng
           quan</a>
-        <a href="/Admin.php?action=permision" class="dashboard-nav-item"><ion-icon name="lock-open"></ion-icon>Phân
-          quyền </a>
+        
         <a href="/Admin.php?action=useraccount" class="dashboard-nav-item"><ion-icon name="people"></ion-icon>Quản lý
           người dùng</a>
         <div class='dashboard-nav-dropdown'>
@@ -54,7 +53,7 @@ include('Xuly/loadingUI.php');
         <a href="index-ID.php" class="dashboard-nav-item"><ion-icon name="sync-outline"></ion-icon> Trang người dùng
         </a>
         <div class="nav-item-divider"></div>
-        <a href="login.php" class="dashboard-nav-item"><ion-icon name="log-out"></ion-icon> Đăng xuất </a>
+        <a href="log-in.php" class="dashboard-nav-item"><ion-icon name="log-out"></ion-icon> Đăng xuất </a>
       </nav>
     </div>
     <div class='dashboard-app'>
@@ -174,8 +173,8 @@ include('Xuly/loadingUI.php');
         label: 'Dashboard Data',
         data: [0, 0], // Initial data
         backgroundColor: [
-          'rgba(75, 192, 192, 0.2)',
-          'rgba(255, 99, 132, 0.2)'
+          'rgba(75, 100, 192, 0.5)',
+          'rgba(255, 199, 132, 0.5)'
         ],
         borderColor: [
           'rgba(75, 192, 192, 1)',

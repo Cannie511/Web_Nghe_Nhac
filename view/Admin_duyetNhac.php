@@ -34,3 +34,13 @@
         </div>
     </nav>
 </div>
+
+<script>
+function submitForm(button) {
+    var maDuyet = button.getAttribute("data-ma-duyet");
+    var action = button.getAttribute("data-action");
+    document.getElementById("maDuyetInput").value = maDuyet;
+    document.getElementById("duyetForm").innerHTML += "<input type='hidden' name='action' value='" + action + "'>";
+    document.getElementById("duyetForm").submit();
+}
+</script>

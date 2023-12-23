@@ -1,9 +1,7 @@
 <?php
 session_start();
 if (isset($_SESSION['Ma_ND'])) {
-    // echo"&nbsp;&nbsp;&nbsp;&nbsp". $_SESSION['Ma_ND'];
-    // echo $_SESSION['Ten_Dang_Nhap'];
-    
+   
 } else {
     header("Location: log-in.php");
 }
@@ -11,7 +9,7 @@ include "Xuly/MusicProcess.php";
 include('Xuly/NewPlaylist.php');
 include('Xuly/doiMK.php');
 include('Xuly/loadingUI.php');
-
+include('process.php');
 ?>
 <?php
 if (isset($_POST['TaoMoi'])) {
@@ -328,7 +326,7 @@ if (isset($_POST['doiMK'])) {
                     tenPlaylist: playlistName
                 },
                 success: function (response) {
-                    // Hiển thị thông báo trên console hoặc có thể hiển thị trực tiếp trên trang
+                    // Hiển thị thông báo trên local hoặc có thể hiển thị trực tiếp trên trang
 
                     alert(response);
                 },

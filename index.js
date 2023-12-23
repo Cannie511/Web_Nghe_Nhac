@@ -130,7 +130,7 @@ $(document).ready(function () {
     $("#alert-login").css("display", "block");
     setTimeout(function () {
       $("#alert-login").css("display", "none");
-    }, 2500);
+    }, 4000);
     $(".layout.show").removeClass("show");
     $("#playlist").addClass("show");
   });
@@ -138,7 +138,7 @@ $(document).ready(function () {
     $("#alert-success").css("display", "block");
     setTimeout(function () {
       $("#alert-success").css("display", "none");
-    }, 2500);
+    }, 4000);
     $("#ModalChangePass").modal("hide");
     return false;
   });
@@ -146,7 +146,7 @@ $(document).ready(function () {
     $("#alert-warning").css("display", "bloack");
     setTimeout(function () {
       $("#alert-warning").css("display", "none");
-    }, 2500);
+    }, 4000);
   });
   const music = document.getElementById("music");
   $("#play_btn").click(function () {
@@ -210,6 +210,9 @@ function showPlayButton() {
   play_btn.style.display = "inline-block";
   pause_btn.style.display = "none";
 }
+
+
+//nut playy nho
 function play() {
   var play = document.getElementById("play_btn");
   var pause = document.getElementById("pause_btn");
@@ -375,15 +378,15 @@ function playPrev() {
 //   audioPlayer.load();
 //   audioPlayer.play();
 // }
-function Loop() {
-  var loopBtn = document.getElementById("loopBtn");
-  if (loop == true) {
-    loopBtn.classList.add("loop");
-  } else loopBtn.classList.remove("loop");
-  loop = !loop;
-  audioPlayer.loop = loop;
-  console.log(loop);
-}
+// function Loop() {
+//   var loopBtn = document.getElementById("loopBtn");
+//   if (loop == true) {
+//     loopBtn.classList.add("loop");
+//   } else loopBtn.classList.remove("loop");
+//   loop = !loop;
+//   audioPlayer.loop = loop;
+//   console.log(loop);
+// }
 document.addEventListener("DOMContentLoaded", function () {
   var audio = document.getElementById("music");
   var timeline = document.getElementById("timeline");
@@ -484,6 +487,8 @@ $(document).ready(function () {
     });
   });
 });
+
+//play bu
 document.addEventListener("DOMContentLoaded", function () {
   const audioPlayer = document.getElementById("music");
   const albumArt = document.getElementById("music_play_banner");
@@ -564,6 +569,10 @@ document.addEventListener("DOMContentLoaded", function () {
     playCurrentSong();
   });
 });
+
+
+
+//play trong dong
 function playMusic(row, maBaiHat) {
   // Lấy đường dẫn âm nhạc từ thuộc tính data-music-link
   var musicLink = row.getAttribute("data-music-link");
@@ -616,8 +625,6 @@ function increaseListenCount(maBaiHat) {
 var maBaiHat = -1;
 function addToFavorites(heartIcon) {
   maBaiHat = heartIcon.getAttribute("data-ma-bai-hat");
-  // Sử dụng $.ajax để gửi dữ liệu về server
-  // Gửi dữ liệu lên server thông qua GET hoặc POST, tùy thuộc vào cách bạn đã cấu hình server.
   var z = new XMLHttpRequest();
   z.onreadystatechange = function () {
     if (z.readyState == 4 && z.status == 200) {
@@ -636,10 +643,8 @@ function xoaYeuThich(icon) {
   var z = new XMLHttpRequest();
   z.onreadystatechange = function () {
     if (z.readyState == 4 && z.status == 200) {
-      localStorage.setItem("userSession", user);
-
       location.reload();
-      alert(maBaiHat2 + " " + user);
+      alert(maBaiHat2);
     }
   };
   z.open(

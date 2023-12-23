@@ -52,7 +52,7 @@
             </thead>
             <tbody>
                 <?php 
-                    loadBXHTuan();
+                    loadBXHThang();
                 ?>
             </tbody>
         </table>

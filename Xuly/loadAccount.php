@@ -8,7 +8,7 @@ function loadUserAccount(){
     //     array("Id" => "Demo3@trivieco.com", "pass"=>"Abc123@", "rule"=>0, "birth"=>"15/11/2002","state"=>1),
     // );
 
-    $sql="select * from nguoi_dung ";
+    $sql="select * from nguoi_dung  ";
     $stm = $conn->prepare($sql);
     $stm->execute();
     $userAccount = $stm->fetchAll(PDO::FETCH_ASSOC);
@@ -32,7 +32,9 @@ function loadUserAccount(){
             <td>".$userAccount[$k]['Ngay_Sinh']."</td>
             <td>"; 
             echo "</td>
-            <td><i class='fas fa-pen' data-bs-toggle='offcanvas' href='#editRole' role='button' aria-controls='offcanvasExample'></i>&nbsp;&nbsp;&nbsp;&nbsp;<i class='fas fa-trash'></i></td>
+            <td><i class='fas fa-pen' data-bs-toggle='offcanvas' href='#editRole' role='button' aria-controls='offcanvasExample'  data-ma-ND='" . $userAccount[$k]['Ma_ND'] .
+            "' onclick='phanQuyen(this)' ></i>&nbsp;&nbsp;&nbsp;&nbsp;<i class='fas fa-trash' data-ma-xoa='" .$userAccount[$k]['Ma_ND'].
+            "' onclick='xoaND(this)'></i></td>
           </tr>";
          
         }

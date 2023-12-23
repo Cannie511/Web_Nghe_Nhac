@@ -1,9 +1,8 @@
 <?php 
 include("DB/ketnoi.php");
+if(isset($_POST['submitAddMusic'])){
 $duoiAnh = ['png','jpg','jpeg','gif'];
 $duoiFile = ['mp3'];
-
-session_start();
 
         $tenBai = $_POST['tenBaiHat'];
         $maNS = $_SESSION['Ma_ND'];
@@ -36,11 +35,24 @@ session_start();
         $stm = $conn->prepare($sql);
         if ($stm->execute()) {
             // Câu truy vấn đã được thực hiện thành công
-            echo "Thêm dữ liệu thành công!";
+            echo "
+            <div class='toast-container position-fixed bottom-0 end-0 p-3' >
+                                <div id='liveToast'style='background-color: green;' class='toast fade show' role='alert' aria-live='ssertive' aria-atomic='true'>
+                                    <div class='toast-header'>
+                                        <strong class='me-auto'>Thông báo</strong>
+                                        <button type='button' class='btn-close' data-bs-dismiss='toast' aria-label='Close'></button>
+                                    </div>
+                                    <div class='toast-body' style=' color: white'>
+                                        Them thanh cong!
+                                    </div>
+                                </div>
+                            </div>
+            ";
         }
         else
         {
             echo "lỗi";
         }
+    }
 
 ?>

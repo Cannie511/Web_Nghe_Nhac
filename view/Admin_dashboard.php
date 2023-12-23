@@ -8,7 +8,7 @@
             <div class="col-md-6">
                 <div class="card">
                     <div class="card-body">
-                        <h5 class="card-title">Total Songs</h5>
+                        <h5 class="card-title">Tổng Bài Hát</h5>
                         <!-- Replace the value with your actual total songs count -->
                         <p class="card-text" id="totalSongs">
                             <?php loadDashboardMusic(); ?>
@@ -16,11 +16,10 @@
                     </div>
                 </div>
             </div>
-
             <div class="col-md-6">
                 <div class="card">
                     <div class="card-body">
-                        <h5 class="card-title">Total Users</h5>
+                        <h5 class="card-title">Tổng Người Dùng</h5>
                         <!-- Replace the value with your actual total users count -->
                         <p class="card-text" id="totalUsers">
                             <?php loadDashboardUser(); ?>
