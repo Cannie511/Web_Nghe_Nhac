@@ -125,7 +125,8 @@ if (isset($_POST["dangKy"])) {
   $birth = $_POST["birth_user"];
   // $check = $_POST["policy_user"];
   $gioiTinh = $_POST["gender_user"];
-
+  if(strlen($password) > 6)
+  {
   //Kiểm tra rỗng
   // if ($username == "" || $password == "" ||$Rpass == "" ||$birth == ""||$gioiTinh == -1) {
   // 	echo "bạn vui lòng nhập đầy đủ thông tin";
@@ -154,6 +155,10 @@ if (isset($_POST["dangKy"])) {
       echo "<script>$('#alert-success').css('display','block')</script>";
     }
   }
-
-
+ else
+ { 
+       echo "<script>alert('Đã xảy ra lỗi.');</script>";
+     
+ }
+}
 ?>

@@ -4,8 +4,9 @@ include("DB/ketnoi.php");
 if (isset($_POST['submitAddMusic'])) {
     $duoiAnh = ['png', 'jpg', 'jpeg', 'gif'];
     $duoiFile = ['mp3'];
-
+   
     $tenBai = $_POST['tenBaiHat'];
+    $tenBaiBoTrang = trim($tenBai);
     $maNS = $_SESSION['Ma_ND'];
     $thoiLuong = $_POST['thoiLuong'];
     // $anh = $_FILES['coverImage'];
@@ -31,6 +32,9 @@ if (isset($_POST['submitAddMusic'])) {
     $maTL = $stm->fetch(PDO::FETCH_COLUMN);
     move_uploaded_file($anh_tmp, $targetDir1);
     move_uploaded_file($file_tmp, $targetDir2);
+    
+    if($thoiLuong >= 100)
+    {
     $sql = "INSERT INTO duyet(Ten_Bai_Hat,Ngay_Phat_Hanh,Anh_Bia,Thoi_Luong,Ma_The_Loai,Ma_Quoc_GIa,Ma_ND,duyet.path,duyet.trang_thai)
            VALUES ('$tenBai',CURDATE(), '$targetDir1','$thoiLuong','$maTL','$maQG','$maNS','$targetDir2',0)";
     $stm = $conn->prepare($sql);
@@ -63,4 +67,21 @@ if (isset($_POST['submitAddMusic'])) {
     </div>";
     }
 }
+else
+{
+    echo " <div class='toast-container position-fixed bottom-0 end-0 p-3' >
+        <div id='liveToast'style='background-color: red;' class='toast fade show' role='alert' aria-live='ssertive' aria-atomic='true'>
+            <div class='toast-header'>
+                <strong class='me-auto'>Thông báo</strong>
+                <button type='button' class='btn-close' data-bs-dismiss='toast' aria-label='Close'></button>
+            </div>
+            <div class='toast-body' style=' color: white'>
+               Thời lượng phải lớn hơn hoặc bằng 100 giây
+            </div>
+        </div>
+    </div>";
+}
+}
+
+
 ?>

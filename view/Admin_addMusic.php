@@ -123,3 +123,18 @@
         xhr.send('countryName=' + encodeURIComponent(name));
     }
 </script>
+
+<script>
+    function xoaBH(dell) {
+        maBH = dell.getAttribute("data-ma-BHXoa");
+        var z = new XMLHttpRequest();
+        z.onreadystatechange = function () {
+            if (z.readyState == 4 && z.status == 200) {
+                location.reload();
+                alert("Xóa thành công");
+            }
+        };
+        z.open("GET", "xoaBH.php?maBH=" + maBH, true);
+        z.send();
+    }
+</script>

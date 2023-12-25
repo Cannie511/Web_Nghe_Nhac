@@ -279,7 +279,7 @@ function loadNhacAdmin()
         print_r(intval($data[$key]['Thoi_Luong'] / 60) . ":" . ($data[$key]['Thoi_Luong'] % 60));
         echo "</td>";
         echo "<td>";
-        echo "<i class='fas fa-trash'></i>";
+        echo "<i class='fas fa-trash' data-ma-BHXoa='" .$data[$key]['Ma_Bai_Hat']."' onclick='xoaBH(this)'></i>";
         echo "</td>";
         echo "</tr>";
         $no++;
