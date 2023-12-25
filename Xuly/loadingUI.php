@@ -24,7 +24,29 @@ function loadDashboardDuyet()
     $stm = $conn->prepare($sql);
     $stm->execute();
     $data = $stm->fetchColumn();
-    echo $data;
+    if($data > 0){
+        echo "
+        <div class='card duyet'
+        onclick='canDuyet()'>
+            <div class='card-body'>
+                <strong>Bạn có nhạc cần duyệt!</strong>
+                <span class='position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger'>
+                   ".$data."
+                </span>
+            </div>
+        </div>
+        ";
+    }
+    else{
+        echo "
+        <div class='card koduyet'
+        onclick='canDuyet()'>
+            <div class='card-body'>
+                <strong>Không có bài hát nào cần duyệt &nbsp</strong>
+            </div>
+        </div>
+        ";
+    }
 }
 function loadQuocGia()
 {
