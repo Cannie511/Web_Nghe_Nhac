@@ -33,7 +33,8 @@
             <div class="emptynoti"></div>
           </div>
           <div class="emptynoti"></div>
-          <input type="Date" class="form-control" id="floatingDateInput" name="birth_user" placeholder="name@example.com">
+          <input type="Date" class="form-control" id="floatingDateInput" name="birth_user"
+            placeholder="name@example.com">
           <select name="gender_user" id="" class="form-control">
             <option value="-1">Giới tính</option>
             <option value="0">Nữ</option>
@@ -42,20 +43,18 @@
           </select>
           <div class="form-floating mb-3">
             <input type="password" class="form-control" id="floatingPassword" name="pass_user" placeholder="Password">
-            <label for="floatingPassword">Mật khẩu</label>
+            <label for="floatingPassword" id="preg">Mật khẩu</label>
           </div>
           <div class="emptynoti"></div>
           <div class="form-floating mb-3">
             <input type="password" class="form-control " id="floatingRetypePassword" name="retype_pass_user"
               placeholder="Password">
-            <label for="floatingPassword">Nhập Lại Mật khẩu</label>
+            <label for="floatingPassword" id="retype">Nhập Lại Mật khẩu</label>
           </div>
-          <div id="retype"></div>
           <span><input type="checkbox" id="policy" name="policy_user" style="width: 16px; height: 16px;">&nbsp;&nbsp;
             Tôi đồng ý với <a href="">Điều khoản</a> của ứng dụng.</span>
-          <input type="submit" class="form-control confirm" id="btnDK"  value="Đăng ký" name="dangKy">
+          <input type="submit" class="form-control confirm" id="btnDK" value="Đăng ký" name="dangKy">
         </form>
-        <div id="result"></div>
       </div>
 
       <div class="col banner">
@@ -67,7 +66,6 @@
 </body>
 
 <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/js/all.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/js/bootstrap.bundle.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
@@ -77,8 +75,8 @@
     form.addEventListener('submit', function (event) {
       var checkInputs = document.getElementById('register').querySelectorAll('input');
       var empty = document.getElementsByClassName('emptynoti');
-      var pass =document.getElementById('floatingPassword').value;
-      var repass =document.getElementById('floatingRetypePassword').value;
+      var pass = document.getElementById('floatingPassword').value;
+      var repass = document.getElementById('floatingRetypePassword').value;
       checkInputs.forEach(function (input) {
         if (input.value.trim() === "") {
           event.preventDefault();
@@ -88,11 +86,16 @@
           input.classList.remove('is-invalid');
         }
       });
-      if(pass !== repass){
-          event.preventDefault();
-          $('#floatingRetypePassword').addClass('is-invalid');
-          $('#retype').text('Mật khẩu không trùng khớp').css({'color':'red', 'font-size':'15px', 'float':'left'});
-        }
+      if (pass !== repass) {
+        event.preventDefault();
+        $('#floatingRetypePassword').addClass('is-invalid');
+        $('#retype').text('Mật khẩu không trùng khớp').css({ 'color': 'red', 'font-size': '15px', 'float': 'left' });
+      }
+      if(pass.length < 6){
+        event.preventDefault();
+        $('#floatingPassword').addClass('is-invalid');
+        $('#preg').text('Mật khẩu phải chứa ít nhất 6 kí tự').css({ 'color': 'red', 'font-size': '15px', 'float': 'left' });
+      }
     });
   });
 </script>
