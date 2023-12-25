@@ -38,7 +38,7 @@ include "Xuly/phanQuyen.php";
       <nav class="dashboard-nav-list">
         <a href="/Admin.php?action=dashboard" class="dashboard-nav-item "><ion-icon name="stats-chart"></ion-icon>Tổng
           quan</a>
-        
+
         <a href="/Admin.php?action=useraccount" class="dashboard-nav-item"><ion-icon name="people"></ion-icon>Quản lý
           người dùng</a>
         <div class='dashboard-nav-dropdown'>
@@ -165,13 +165,16 @@ include "Xuly/phanQuyen.php";
   }
 
   // Example chart data (replace with your actual data)
+  var currentDate = new Date();
+  var currentDateString = currentDate.toISOString().split('T')[0]; //Định dạng ngày 'YYYY-MM-DD'
   var ctx = document.getElementById('myChart').getContext('2d');
   var myChart = new Chart(ctx, {
     type: 'bar',
     data: {
-      labels: ['Total Songs', 'Total Users'],
+      labels: ['Tổng Bài Hát', 'Tổng Người Dùng'],
       datasets: [{
-        label: 'Dashboard Data',
+        label:['Dữ liệu ngày '+ currentDateString],
+        
         data: [0, 0], // Initial data
         backgroundColor: [
           'rgba(75, 100, 192, 0.5)',

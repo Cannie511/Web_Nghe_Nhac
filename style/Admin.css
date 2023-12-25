@@ -377,7 +377,10 @@ h1, .h1 {
     left: 0;
     z-index: 1000;
 }
-
+.duyet:hover{
+    cursor: pointer;
+    background-color: lightgray;
+}
 .nav-item-divider {
     height: 1px;
     margin: 1rem 0;
