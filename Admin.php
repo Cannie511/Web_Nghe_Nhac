@@ -37,8 +37,6 @@ include('Xuly/loadingUI.php');
       <nav class="dashboard-nav-list">
         <a href="/Admin.php?action=dashboard" class="dashboard-nav-item "><ion-icon name="stats-chart"></ion-icon>Tổng
           quan</a>
-        <a href="/Admin.php?action=permision" class="dashboard-nav-item"><ion-icon name="lock-open"></ion-icon>Phân
-          quyền </a>
         <a href="/Admin.php?action=useraccount" class="dashboard-nav-item"><ion-icon name="people"></ion-icon>Quản lý
           người dùng</a>
         <div class='dashboard-nav-dropdown'>
