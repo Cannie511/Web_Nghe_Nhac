@@ -314,7 +314,7 @@ function loadNhacDuyet(){
     echo "<form id='duyetForm' method='post' action='duyet.php'>";
     echo "<input type='hidden' id='maDuyetInput' name='maDuyet' value=''>";
     echo "<button type='button' class='btn btn-success' data-ma-duyet='" . $data[$key]['Ma_Duyet'] . "' data-action='duyet' onclick='submitForm(this)'>Duyệt</button>&nbsp;<button type='button' class='btn btn-danger' data-ma-duyet='" . $data[$key]['Ma_Duyet'] . "' data-action='huy' onclick='submitForm(this)'>Huy</button>"; 
-    echo "<form>";
+    echo "</form>";
     echo "</td>";
     echo "</tr>";
     $no++;
@@ -373,13 +373,15 @@ function loadBXHThang()
 {
 
     include("DB/ketnoi.php");
-    $sql = "SELECT b.Ma_Bai_Hat, COUNT(*) AS SoLuotNghe,b.Anh_Bia,b.Thoi_Luong,b.Ngay_Phat_Hanh,ns.Ten_Ca_Si,b.Ten_Bai_Hat,b.path
-     FROM luot_nghe l
-     JOIN bai_hat b ON l.Ma_Bai_Hat = b.Ma_Bai_Hat
-     JOIN trinhbay tb ON b.Ma_Bai_Hat = tb.Ma_Bai_Hat
-     JOIN nghesi ns ON tb.Ma_NS = ns.Ma_NS
-     WHERE MONTH(l.Ngay_Nghe) = MONTH(CURDATE()) AND YEAR(l.Ngay_Nghe) = YEAR(CURDATE())  
-     GROUP BY l.Ma_Bai_Hat LIMIT 10";
+
+    $ngay = 1;
+    $sql = "SELECT b.Ma_Bai_Hat, COUNT(*) AS SoLuotNghe,b.Anh_Bia,b.Thoi_Luong,
+    b.Ngay_Phat_Hanh,ns.Ten_Ca_Si,b.Ten_Bai_Hat,b.path 
+    FROM luot_nghe l JOIN bai_hat b 
+    ON l.Ma_Bai_Hat = b.Ma_Bai_Hat JOIN trinhbay 
+    tb ON b.Ma_Bai_Hat = tb.Ma_Bai_Hat JOIN nghesi ns 
+    ON tb.Ma_NS = ns.Ma_NS WHERE MONTH(l.Ngay_Nghe) = MONTH(CURDATE()) AND YEAR(l.Ngay_Nghe) 
+    = YEAR(CURDATE()) AND 1 <= DAY(l.Ngay_Nghe) <= DAY(CURDATE()) GROUP BY l.Ma_Bai_Hat LIMIT 10";
     $stm = $conn->prepare($sql);
     $stm->execute();
     $data = $stm->fetchAll(PDO::FETCH_ASSOC);

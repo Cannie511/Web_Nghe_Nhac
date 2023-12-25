@@ -1,6 +1,6 @@
 <div class="container mt-5 layout" id="addMusicLayout">
     <h2 style="color: white;" class="mb-4">Thông Tin Bài Hát</h2>
-    <form action="process.php" method="post" enctype="multipart/form-data">
+    <form action="Index-ID.php" method="post" enctype="multipart/form-data">
         <div class="row mb-3">
             <div class="col">
                 <label for="tenBaiHat" class="form-label">Tên Bài Hát</label>
@@ -40,6 +40,6 @@
             </div>
         </div>
 
-        <button type="submit" class="btn btn-primary">Thêm Nhạc</button>
+        <button type="submit" name="submitAddMusic" class="btn btn-primary">Thêm Nhạc</button>
     </form>
 </div>

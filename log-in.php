@@ -15,8 +15,8 @@
                 Đăng nhập vào TRIVIE
             </h2>
         </div>
-        <div id="q1">
-            <!-- <div id="g1">
+        <!-- <div id="q1">
+            <div id="g1">
                 <img id="g2" src="IMAGE/logogg.png" />
                 <a id="g3" href="">
                     Tiếp tục bằng Google</a>
@@ -35,8 +35,8 @@
                 <div id="d1">
                     <a id="d3" href="">Tiếp tục bằng số điện thoại</a>
                 </div>
-            </div> -->
-            <!-- <hr id="hr"> -->
+            </div>
+            <hr id="hr"> -->
             <form id="login-form" action="" method="POST" onsubmit="return handleSubmit(event)">
                 <div class="product-item">
                     <div class="down-content">
@@ -81,10 +81,17 @@
                 return response.json();
             })
             .then(data => {
-                if (data.id ) {
+                console.log(data)
+                if (data.code === "200") {
                     sessionStorage.setItem("id", data.id);
                     sessionStorage.setItem("role", data.role);
-                    window.location = "index-ID.php";
+                    sessionStorage.setItem("name", data.name);
+                    if(data.role === "2" ){
+                        window.location = "Admin.php";
+                    }
+                    else { 
+                        window.location = "index-ID.php";
+                    }
                 } else {
                     let resp = document.getElementById("login-response");
                     resp.innerHTML = `<p style="color: red;">${data.message}</p>`;

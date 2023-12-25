@@ -3,7 +3,7 @@
 
 function login($username, $password)
 {
-      ///rang buoc du lieu
+      //rang buoc du lieu
       // if (!preg_match('/^.{3,50}$/', $username)) {
       //       $response = array("code" => "400", "message" => "Invalid username or password");
       //       return json_encode($response);

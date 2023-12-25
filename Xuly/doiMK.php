@@ -13,7 +13,7 @@ function doiMK($oldpass, $newpass, $cpass, $maND)
 
             if ($data) {
                 if ($oldpass === $data['Mat_Khau']) {
-                    if ($newpass == $cpass) {
+                    if ($newpass == $cpass && strlen($newpass)>=4) {
                         $sqlUpdatePass = "UPDATE nguoi_dung SET Mat_Khau = :newpass WHERE Ma_ND = :maND";
                         $stmtUpdatePass = $conn->prepare($sqlUpdatePass);
                         $stmtUpdatePass->bindParam(':newpass', $newpass);

@@ -36,7 +36,7 @@
 </div>
 <div id="music_list_user" class="layout">
     <div id="banner_play_list_user">
-        <img src="IMAGE/banner2.png" alt="">
+        <img src="IMAGE/pathPL.png" alt="">
         <div id="play_list_info">
             <strong style="font-size: 110%;">playlist</strong><br>
             <strong style="font-size: 300%;">PLAYLIST của tôi</strong>
