@@ -177,7 +177,7 @@ function loadNgheSi()
     $stm->execute();
     $ngheSi = $stm->fetchAll(PDO::FETCH_ASSOC);
     foreach ($ngheSi as $key => $music) {
-        echo "<div class='col view_item' class='view_NS'  id='" . $ngheSi[$key]['Ma_NS'] . "'>
+        echo "<div class='col view_item_singer'  id='" . $ngheSi[$key]['Ma_NS'] . "'>
             <div class='img_item singer_img'><img src='";
         if ($ngheSi[$key]['Anh_dai_dien'] != null) {
             echo $ngheSi[$key]['Anh_dai_dien'];
@@ -243,47 +243,51 @@ function loadYeuThich()
         print_r(intval($data[$key]['Thoi_Luong'] / 60) . ":" . ($data[$key]['Thoi_Luong'] % 60));
         echo "</td>";
         echo "<td>";
-        echo "<ion-icon name='remove-circle' style = 'color:red;' class='xoa' data-ma-bai-xoa='". $data[$key]['Ma_Bai_Hat'] ."' 
-        data-ND='" .$user. "' onclick='xoaYeuThich(this)'></ion-icon></td>";
+        echo "<ion-icon name='remove-circle' style = 'color:red;' class='xoa' data-ma-bai-xoa='" . $data[$key]['Ma_Bai_Hat'] . "' 
+        data-ND='" . $user . "' onclick='xoaYeuThich(this)'></ion-icon></td>";
         echo "</td>";
         echo "</tr>";
     }
 }
 
-function loadNhacAdmin(){
+function loadNhacAdmin()
+{
     include("DB/ketnoi.php");
     $sql = "SELECT * FROM bai_hat";
     $stm = $conn->prepare($sql);
     $stm->execute();
     $data = $stm->fetchAll(PDO::FETCH_ASSOC);
+    $no=1;
     foreach ($data as $key => $music) {
-    echo "<tr class='music-row' data-music-link='" . $data[$key]['path'] . "' onclick='playMusic(this, " . $data[$key]['Ma_Bai_Hat'] . ")'>";
-    echo "<td>";
-    print_r("#" . $data[$key]['Ma_Bai_Hat']);
-    echo "</td>";
-    echo "<td>";
-    echo "<div id='crop_img'><img src = '" . $data[$key]['Anh_Bia'] . "'></div>";
-    echo "</td>";
-    echo "<td>";
-    print_r($data[$key]['Ten_Bai_Hat']);
-    echo "</td>";
-    echo "<td>";
-    // print_r($data[$key]['Ten_Ca_Si']);
-    echo "</td>";
-    echo "<td>";
-    print_r($data[$key]['Ngay_Phat_Hanh']);
-    echo "</td>";
-    echo "<td>";
-    print_r(intval($data[$key]['Thoi_Luong'] / 60) . ":" . ($data[$key]['Thoi_Luong'] % 60));
-    echo "</td>";
-    echo "<td>";
-    echo ""; 
-    echo "</td>";
-    echo "</tr>";
+        echo "<tr class='music-row' data-music-link='" . $data[$key]['path'] . "' onclick='playMusic(this, " . $data[$key]['Ma_Bai_Hat'] . ")'>";
+        echo "<td>";
+        print_r("#" .$no);
+        echo "</td>";
+        echo "<td>";
+        echo "<div id='crop_img'><img src = '" . $data[$key]['Anh_Bia'] . "'></div>";
+        echo "</td>";
+        echo "<td>";
+        print_r($data[$key]['Ten_Bai_Hat']);
+        echo "</td>";
+        echo "<td>";
+        // print_r($data[$key]['Ten_Ca_Si']);
+        echo "</td>";
+        echo "<td>";
+        print_r($data[$key]['Ngay_Phat_Hanh']);
+        echo "</td>";
+        echo "<td>";
+        print_r(intval($data[$key]['Thoi_Luong'] / 60) . ":" . ($data[$key]['Thoi_Luong'] % 60));
+        echo "</td>";
+        echo "<td>";
+        echo "<i class='fas fa-trash'></i>";
+        echo "</td>";
+        echo "</tr>";
+        $no++;
     }
 }
 
-function loadNhacDuyet(){
+function loadNhacDuyet()
+{
     include("DB/ketnoi.php");
     $sql = "SELECT * FROM duyet WHERE trang_thai = 0";
     $stm = $conn->prepare($sql);
@@ -291,33 +295,33 @@ function loadNhacDuyet(){
     $data = $stm->fetchAll(PDO::FETCH_ASSOC);
     $no = 1;
     foreach ($data as $key => $music) {
-    echo "<tr class='music-row' data-music-link='" . $data[$key]['path'] . "'>";
-    echo "<td>";
-    print_r("#" . $no);
-    echo "</td>";
-    echo "<td>";
-    echo "<div id='crop_img'><img src = '" . $data[$key]['Anh_Bia'] . "'></div>";
-    echo "</td>";
-    echo "<td>";
-    print_r($data[$key]['Ten_Bai_Hat']);
-    echo "</td>";
-    // echo "<td>";
-    // print_r($data[$key]['Ten_Ca_Si']);
-    // echo "</td>";
-    echo "<td>";
-    print_r($data[$key]['Ngay_Phat_Hanh']);
-    echo "</td>";
-    echo "<td>";
-    print_r(intval($data[$key]['Thoi_Luong'] / 60) . ":" . ($data[$key]['Thoi_Luong'] % 60));
-    echo "</td>";
-    echo "<td>";
-    echo "<form id='duyetForm' method='post' action='duyet.php'>";
-    echo "<input type='hidden' id='maDuyetInput' name='maDuyet' value=''>";
-    echo "<button type='button' class='btn btn-success' data-ma-duyet='" . $data[$key]['Ma_Duyet'] . "' data-action='duyet' onclick='submitForm(this)'>Duyệt</button>&nbsp;<button type='button' class='btn btn-danger' data-ma-duyet='" . $data[$key]['Ma_Duyet'] . "' data-action='huy' onclick='submitForm(this)'>Huy</button>"; 
-    echo "</form>";
-    echo "</td>";
-    echo "</tr>";
-    $no++;
+        echo "<tr class='music-row' data-music-link='" . $data[$key]['path'] . "'>";
+        echo "<td>";
+        print_r("#" . $no);
+        echo "</td>";
+        echo "<td>";
+        echo "<div id='crop_img'><img src = '" . $data[$key]['Anh_Bia'] . "'></div>";
+        echo "</td>";
+        echo "<td>";
+        print_r($data[$key]['Ten_Bai_Hat']);
+        echo "</td>";
+        // echo "<td>";
+        // print_r($data[$key]['Ten_Ca_Si']);
+        // echo "</td>";
+        echo "<td>";
+        print_r($data[$key]['Ngay_Phat_Hanh']);
+        echo "</td>";
+        echo "<td>";
+        print_r(intval($data[$key]['Thoi_Luong'] / 60) . ":" . ($data[$key]['Thoi_Luong'] % 60));
+        echo "</td>";
+        echo "<td>";
+        echo "<form id='duyetForm' method='post' action='Admin.php?action=duyetMusic'>";
+        echo "<input type='hidden' id='maDuyetInput' name='maDuyet' value=''>";
+        echo "<button type='button' class='btn btn-success' data-ma-duyet='" . $data[$key]['Ma_Duyet'] . "' data-action='duyet' onclick='submitForm(this)'>Đồng ý</button>&nbsp;<button type='button' class='btn btn-danger' data-ma-duyet='" . $data[$key]['Ma_Duyet'] . "' data-action='huy' onclick='submitForm(this)'>Hủy</button>";
+        echo "</form>";
+        echo "</td>";
+        echo "</tr>";
+        $no++;
     }
 }
 // <ion-icon name='remove-circle' style = 'color:red;' class='xoa' data-ma-bai-xoa='". $data[$key]['Ma_Bai_Hat'] ."' 
@@ -325,7 +329,6 @@ function loadNhacDuyet(){
 //     onclick='xoaYeuThich(this)'></ion-icon></td>
 function loadBXHTuan()
 {
-
     include("DB/ketnoi.php");
     $sql = "SELECT b.Ma_Bai_Hat, COUNT(*) AS SoLuotNghe,b.Anh_Bia,b.Thoi_Luong,b.Ngay_Phat_Hanh,ns.Ten_Ca_Si,b.Ten_Bai_Hat,b.path
      FROM luot_nghe l

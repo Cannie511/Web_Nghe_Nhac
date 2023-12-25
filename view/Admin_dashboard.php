@@ -5,7 +5,7 @@
         </div>
         <br>
         <div class="row">
-            <div class="col-md-6">
+            <div class="col-md-4">
                 <div class="card">
                     <div class="card-body">
                         <h5 class="card-title">Tổng Bài Hát</h5>
@@ -16,13 +16,24 @@
                     </div>
                 </div>
             </div>
-            <div class="col-md-6">
+            <div class="col-md-4">
                 <div class="card">
                     <div class="card-body">
                         <h5 class="card-title">Tổng Người Dùng</h5>
                         <!-- Replace the value with your actual total users count -->
                         <p class="card-text" id="totalUsers">
                             <?php loadDashboardUser(); ?>
+                        </p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="card">
+                    <div class="card-body">
+                        <h5 class="card-title">Nhạc Cần Duyệt</h5>
+                        <!-- Replace the value with your actual total users count -->
+                        <p class="card-text" id="totalUsers">
+                            <?php loadDashboardDuyet(); ?>
                         </p>
                     </div>
                 </div>

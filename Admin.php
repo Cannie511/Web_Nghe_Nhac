@@ -4,8 +4,9 @@
 session_start();
 include "Xuly/loadAccount.php";
 include "Xuly/MusicProcess.php";
-
+include "Xuly/duyet.php";
 include('Xuly/loadingUI.php');
+include "Xuly/phanQuyen.php";
 ?>
 
 <head>
@@ -25,8 +26,8 @@ include('Xuly/loadingUI.php');
   <div class='dashboard'>
     <div class="dashboard-nav">
       <header>
-        <a href="#!" class="menu-toggle"><i class="fas fa-bars"></i></a>
-        <a href="#" class="brand-logo">
+        <a href="Admin.php" class="menu-toggle"><i class="fas fa-bars"></i></a>
+        <a href="Admin.php" class="brand-logo">
           <span>
             <span style="color: var(--logo-Tri-custom);">Tri</span><span
               style="color: var(--logo-Vie-custom);">Vie</span>

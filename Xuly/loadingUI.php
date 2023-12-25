@@ -17,6 +17,15 @@ function loadDashboardUser()
     $data = $stm->fetchColumn();
     echo $data;
 }
+function loadDashboardDuyet()
+{
+    include("DB/ketnoi.php");
+    $sql = "SELECT COUNT(Ma_ND) as totalSongs FROM duyet where trang_thai = 0";
+    $stm = $conn->prepare($sql);
+    $stm->execute();
+    $data = $stm->fetchColumn();
+    echo $data;
+}
 function loadQuocGia()
 {
     include("DB/ketnoi.php");

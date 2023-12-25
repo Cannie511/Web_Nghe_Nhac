@@ -96,6 +96,10 @@ $(document).ready(function () {
     $(".layout.show").removeClass("show");
     $("#music_list_user").addClass("show");
   });
+  $(".view_item_singer").click(function () {
+    $(".layout.show").removeClass("show");
+    $("#music_list_singer").addClass("show");
+  });
   $("#backTab").click(function () {
     switch (backBtn) {
       case 0:
@@ -446,6 +450,7 @@ $(".btnChangePass").click(function () {
     $("#alert-login").css("display", "none");
   }, 2500);
 });
+//playlist trang chủ
 $(document).ready(function () {
   var idPL = document.querySelectorAll(".view_item");
   idPL.forEach(function (div) {
@@ -463,7 +468,7 @@ $(document).ready(function () {
     });
   });
 });
-
+//playlist người dùng
 $(document).ready(function () {
   var idPL = document.querySelectorAll(".view_item_user");
 
@@ -487,7 +492,30 @@ $(document).ready(function () {
     });
   });
 });
+//playlist nghệ sĩ
+$(document).ready(function () {
+  var idPL = document.querySelectorAll(".view_item_singer");
 
+  idPL.forEach(function (div) {
+    div.addEventListener("click", function () {
+      var idPlaylist = div.id;
+      console.log("idPlaylist:", idPlaylist);
+      var xhr = new XMLHttpRequest();
+      xhr.onreadystatechange = function () {
+        if (this.readyState == 4 && this.status == 200) {
+          document.getElementById("result_singer").innerHTML =
+            this.responseText;
+        }
+      };
+      xhr.open(
+        "GET",
+        "Xuly/loadMusicSinger.php?idPlaylist=" + idPlaylist,
+        true
+      );
+      xhr.send();
+    });
+  });
+});
 //play bu
 document.addEventListener("DOMContentLoaded", function () {
   const audioPlayer = document.getElementById("music");
@@ -660,12 +688,20 @@ document.getElementById("bxhSelect").onchange = function () {
   var selectedValue = this.value;
   var bxhNgheNhieuTable = document.getElementById("bxhNgheNhieu");
   var bxhTuanTable = document.getElementById("bxhTuan");
+  var bxhThangTable = document.getElementById("bxhThang");
   // Kiểm tra giá trị đã chọn
   if (selectedValue === "1") {
     bxhNgheNhieuTable.classList.add("hidden-table");
+    bxhThangTable.classList.add("hidden-table");
     bxhTuanTable.classList.remove("hidden-table");
-  } else {
+  } else if( selectedValue === "2" ){
+    bxhNgheNhieuTable.classList.add("hidden-table");
+    bxhThangTable.classList.remove("hidden-table");
+    bxhTuanTable.classList.add("hidden-table");
+  } 
+  else {
     bxhNgheNhieuTable.classList.remove("hidden-table");
     bxhTuanTable.classList.add("hidden-table");
+    bxhThangTable.classList.add("hidden-table");
   }
 };

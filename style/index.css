@@ -408,7 +408,7 @@ th{
     color: black;
 }
 
-#music_list,#music_list_user,
+#music_list,#music_list_user, #music_list_singer
 #Ranked, #LoveIt, #searchModal {
     position: relative;
     float: left;
@@ -418,6 +418,7 @@ th{
 #searchModal{
     top: 100px;
 }
+#music_list_singer>div>table#list_mp3,
 #music_list_user>div>table#list_mp3,
 #music_list>div>table#list_mp3,
 #Ranked>div>table#list_mp3,
@@ -528,12 +529,23 @@ th{
     z-index: 1;
     overflow: hidden;
 }
+#banner_play_list_singer{
+    width: 100%;
+    height: 400px;
+    top: -20px;
+    position: relative;
+    background: var(--bg-singer-banner-custom);
+    border-radius: 5px 5px 0 0;
+    z-index: 1;
+    overflow: hidden;
+}
 #play_list_info {
     position: relative;
     top: -45%;
     left: 32%;
     color: white;
 }
+#banner_play_list_singer>img,
 #banner_play_list_user>img,
 #banner_play_list>img,#banner_play_list_BXH>img, #banner_play_list_LoveIt>img {
     image-rendering: optimizeQuality;
@@ -823,12 +835,12 @@ input[type="range"] {
     background-color: #888;
     border-radius: 4px;
 }
-.view_item, .view_item_user {
+.view_item, .view_item_user, .view_item_singer {
     flex: 0 0 auto;
     width: 160px;
-    height: 100%; /* Thay đổi từ 95% thành 100% để nó không bị mất khoảng trống phía dưới */
-    margin-left: 10px; /* Thay đổi từ 30px thành 5px để giảm khoảng trống giữa các .view_item */
-    margin-right: 10px; /* Thêm margin-right để giảm khoảng trống bên phải */
+    height: 100%;
+    margin-left: 10px;
+    margin-right: 10px; 
     float: left;
     border-radius: 5px;
     background-color: #363636;
@@ -838,7 +850,7 @@ input[type="range"] {
     box-sizing: border-box;
 }
 
-.view_item:hover, .view_item_user:hover {
+.view_item:hover, .view_item_user:hover, .view_item_singer:hover {
     background-color: #4F4F4F;
 }
 
@@ -924,7 +936,8 @@ input[type="range"] {
     --logo-Vie-customL: #EE6363;
     --logo-Bg-custom: #FEF9EF;
     --bg-banner-custom: linear-gradient(to right, #33CCFF, #996633);
-    --bg-user-banner-custom: linear-gradient(to right, #cbb319, rgb(37, 36, 36));
+    --bg-user-banner-custom: linear-gradient(to right, #33FF99, #336600);
+    --bg-singer-banner-custom: linear-gradient(to right, #990099, #6600FF);
     --bg-BXH-custom: linear-gradient(to right, #1E90FF,#B0E0E6,#6495ED);
     --body-bg-custom: linear-gradient(to bottom,rgb(48,48,48, 0.9)5%, rgb(37, 36, 36) 30%, rgb(8,8,8,1) 100%);
     --bg-love-custom:linear-gradient(to right, #800000,#A52A2A,#A0522D);;

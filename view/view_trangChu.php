@@ -3,7 +3,43 @@
         <img src="IMAGE/Hay-Trao-Cho-Anh-3.jpg" alt="">
         <div id="play_list_info">
             <strong style="font-size: 110%;">playlist</strong><br>
-            <strong style="font-size: 300%;">PLAYLIST của tôi</strong>
+            <strong style="font-size: 300%;">PLAYLIST hiện tại</strong>
+            <br>
+        </div>
+    </div>
+    <div id="title_music">
+        <div class="cover">
+            <ion-icon id="playButton" name="play-circle-sharp"></ion-icon>
+            <strong>Play</strong>
+        </div>
+        <!-- <ion-icon name="heart-outline"></ion-icon> -->
+    </div>
+    <div id='music_panel'>
+        <table class="table table-dark table-hover list" id="viewMusic">
+            <thead>
+                <tr>
+                    <th scope="col"></th>
+                    <th scope="col">STT</th>
+                    <th scope="col">Hình</th>
+                    <th scope="col">Tiêu đề</th>
+                    <th scope="col">Tác giả, ca sĩ</th>
+                    <th scope="col">Ngày phát hành</th>
+                    <th scope="col">Thời lượng</th>
+                    <th scope="col"></th>
+                </tr>
+            </thead>
+            <tbody id='result'>
+            </tbody>
+        </table>
+    </div>
+</div>
+
+<div id="music_list_singer" class="layout">
+    <div id="banner_play_list_singer">
+        <img src="IMAGE/nghesi.jpg" alt="">
+        <div id="play_list_info">
+            <strong style="font-size: 110%;">playlist</strong><br>
+            <strong style="font-size: 300%;">Nghệ Sĩ</strong>
             <br>
         </div>
     </div>
@@ -29,11 +65,12 @@
                     <th scope="col"></th>
                 </tr>
             </thead>
-            <tbody id='result'>
+            <tbody id='result_singer'>
             </tbody>
         </table>
     </div>
 </div>
+
 <div id="music_list_user" class="layout">
     <div id="banner_play_list_user">
         <img src="IMAGE/pathPL.png" alt="">

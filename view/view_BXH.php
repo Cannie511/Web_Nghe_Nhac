@@ -14,7 +14,8 @@
         </div> -->
         <select class="form-select form-select-lg mb-3 BXH_item" id="bxhSelect" aria-label=".form-select-lg example">
             <option selected>Bảng xếp hạng theo lượt nghe</option>
-            <option value="1">Bản xếp hạng theo tuần</option>
+            <option value="1">Bản xếp hạng 7 ngày gần nhất</option>
+            <option value="2">Bản xếp hạng 30 ngày gần nhất</option>
         </select>
     </div>
     <div id='music_panel'>
@@ -38,6 +39,25 @@
             </tbody>
         </table>
         <table class="table table-dark table-hover list hidden-table" id="bxhTuan">
+            <thead>
+                <tr>
+                    <th scope="col">Hạng</th>
+                    <th scope="col">Hình</th>
+                    <th scope="col">Tiêu đề</th>
+                    <th scope="col">Tác giả, ca sĩ</th>
+                    <th scope="col">Ngày phát hành</th>
+                    <th scope="col">Thời lượng</th>
+                    <th scope="col">Lượt nghe</th>
+                    <th scope="col">#</th>
+                </tr>
+            </thead>
+            <tbody>
+                <?php 
+                    loadBXHTuan();
+                ?>
+            </tbody>
+        </table>
+        <table class="table table-dark table-hover list hidden-table" id="bxhThang">
             <thead>
                 <tr>
                     <th scope="col">Hạng</th>

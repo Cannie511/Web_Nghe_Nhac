@@ -22,7 +22,6 @@
                 <th scope="col">Chức vụ</th>
                 <th scope="col">Ngày sinh</th>
                 <th scope="col"></th>
-                <th scope="col"></th>
             </tr>
         </thead>
         <tbody>
@@ -38,14 +37,14 @@
     </div>
     <div class="offcanvas-body">
         <strong style="font-size: 20px">Chỉnh sửa quyền truy cập</strong>
-        <form action="Xuly/phanQuyen.php" id="editUserRole" method="post" onsubmit="addNDSubmit()">
+        <form action="Admin.php?action=useraccount" id="editUserRole" method="post" onsubmit="addNDSubmit()">
             <select class="form-select form-select-lg mb-3" aria-label="Large select example" name="PhanQuyen">
                 <option value="0" selected>Người dùng</option>
                 <option value="1">Nghệ sĩ</option>
                 <option value="2">Admin</option>
             </select>
             <input type="hidden" id="maNDInput" name="maND">
-            <button type="submit" name="btnLuu" class="btn btn-success float-sm-end" >Lưu</button>
+            <button type="submit" name="btnLuuND" class="btn btn-success float-sm-end" >Lưu</button>
         </form>
 
     </div>
